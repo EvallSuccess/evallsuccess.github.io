@@ -1,451 +1,300 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>بكج إيفال – خطتك العملية للوضوح والسيطرة على الوقت</title>
-  <meta name="description" content="بكج إيفال: منتج رقمي شامل يساعدك على تطوير ذاتك وتحويل أحلامك إلى أهداف قابلة للتنفيذ عبر 10 خطوات عملية، تنظيم وقت احترافي، ومهام يومية لمدة سنة كاملة."/>
-  
-  <!-- Open Graph -->
-  <meta property="og:title" content="بكج إيفال – خصم 60% لفترة محدودة"/>
-  <meta property="og:description" content="احصل على النسخة الكاملة من بكج إيفال: أجندة 360 يوم، كتاب رحلة تحول (رقمي + صوتي 3D)، جدول مهام 112 يوم، 40 غلاف هدية، ودعم لمدة 3 أشهر."/>
-  <meta property="og:type" content="website"/>
-  
-  <!-- Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
-  
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>إيفال — خطّة عملية لحياة أوضح</title>
+  <meta name="description" content="بكج إيفال: 10 خطوات عملية + مهمة يومية + متابعة سنة كاملة. خصم 60% بمناسبة اليوم الوطني السعودي." />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brandGold: "#F3B041",
+            brandBlue: "#44B1D8",
+            ink: "#0B0B0B"
+          },
+          fontFamily: { sans: ["Cairo","ui-sans-serif","system-ui"] },
+          boxShadow: {
+            soft: "0 10px 30px rgba(15,23,42,.08)",
+            lift: "0 18px 60px rgba(15,23,42,.10)"
+          }
+        }
+      }
+    }
+  </script>
   <style>
-    :root {
-      --gold: #F3B041;           /* الذهبي الأساسي */
-      --gold-700: #dca02c;       /* درجة أدكن للهوفر */
-      --cyan: #44B1D8;           /* الأزرق */
-      --cyan-700: #2f8fb0;       /* درجة أدكن للهوفر */
-      --black: #000000;          /* الأسود */
-      --navy: #0c2238;           /* خلفيات داكنة قريبة من المرجع */
-      --navy-2: #12324f;         /* تباين داخلي */
-      --gray-25: #fbfcfe;
-      --gray-50: #f5f7fa;
-      --gray-100: #edf1f5;
-      --gray-200: #d8dee6;
-      --gray-600: #5e6b7a;
-      --radius: 16px;
-      --shadow: 0 10px 30px rgba(0,0,0,.08);
+    :root{
+      --bg:#f7fafc;
+      --card:#ffffff;
+      --text:#0f172a;
+      --muted:#475569;
     }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { margin:0; font-family: 'Tajawal', system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif; color:#0b1a2a; background: var(--gray-25); }
-    a { color: inherit; text-decoration: none; }
-    img { max-width:100%; display:block; }
-
-    /* Layout */
-    .container { width:min(1200px, 92%); margin-inline:auto; }
-    .grid { display:grid; gap:24px; }
-
-    /* Header */
-    .topbar { background: var(--navy); color:#fff; font-weight:700; font-size:.95rem; }
-    .topbar .container { display:flex; align-items:center; justify-content:center; gap:10px; padding:10px 0; }
-    .badge { display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius:999px; background:linear-gradient(90deg, var(--gold), var(--cyan)); color:#111; font-weight:800; }
-
-    header.site { background: linear-gradient(180deg, rgba(12,34,56,.96), rgba(12,34,56,.92)), url('assets/hero-placeholder.jpg') center/cover no-repeat; color:#fff; position:relative; }
-    header.site::after { content:''; position:absolute; inset:0; background: radial-gradient(60% 60% at 70% 30%, rgba(68,177,216,.22), transparent 60%); pointer-events:none; }
-    .nav { display:flex; align-items:center; justify-content:space-between; padding:18px 0; }
-    .brand { display:flex; align-items:center; gap:12px; font-weight:900; letter-spacing:.5px; }
-    .brand .logo { width:42px; aspect-ratio:1; border-radius:10px; background:linear-gradient(180deg, var(--gold), #ffd37a); box-shadow:0 6px 18px rgba(243,176,65,.35); }
-    .nav .cta { display:flex; align-items:center; gap:12px; }
-
-    .btn { display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:13px 18px; border-radius:12px; font-weight:800; letter-spacing:.2px; transition:.2s ease; border:0; cursor:pointer; }
-    .btn--gold { background:var(--gold); color:#111; box-shadow:0 10px 18px rgba(243,176,65,.25); }
-    .btn--gold:hover { background:var(--gold-700); transform: translateY(-1px); }
-    .btn--link { color:#fff; border:1px solid rgba(255,255,255,.25); background:transparent; }
-    .btn--link:hover { background:rgba(255,255,255,.08); }
-
-    .hero { display:grid; grid-template-columns: 1.1fr .9fr; gap:32px; padding:56px 0 72px; align-items:center; }
-    .hero h1 { font-size: clamp(28px, 4.2vw, 52px); line-height:1.2; margin:0 0 14px; }
-    .hero p.lead { font-size: clamp(16px, 1.6vw, 19px); color:#dce7f2; margin:0 0 22px; }
-    .hero .points { display:flex; flex-wrap:wrap; gap:10px; margin:18px 0 28px; }
-    .chip { padding:8px 12px; border-radius:999px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2); color:#eaf4fb; font-weight:600; font-size:.95rem; }
-    .hero-card { background:#fff; border-radius:var(--radius); padding:18px; box-shadow:var(--shadow); display:grid; gap:10px; }
-    .price { display:flex; align-items:end; gap:12px; }
-    .price .old { color:#a4afba; text-decoration:line-through; font-weight:700; }
-    .price .new { font-size: clamp(26px, 4vw, 34px); font-weight:900; color:var(--gold); }
-    .price small { color:#607086; font-weight:700; }
-    .coupon { background: rgba(68,177,216,.08); border:1px dashed var(--cyan); padding:10px 12px; border-radius:12px; font-weight:800; color:#0e2d47; }
-
-    /* Stats Bar */
-    .stats { background: var(--navy); color:#fff; padding:32px 0; }
-    .stats .grid { grid-template-columns: repeat(4, 1fr); }
-    .stat { text-align:center; padding:16px; border-radius:14px; background: rgba(255,255,255,.04); }
-    .stat strong { display:block; font-size: clamp(22px, 3vw, 32px); color:var(--gold); }
-    .stat span { opacity:.9; }
-
-    /* Features */
-    section { padding:64px 0; }
-    .section-title { text-align:center; margin-bottom:28px; }
-    .section-title h2 { font-size: clamp(22px, 3.4vw, 36px); margin:0 0 6px; }
-    .section-title p { color:#475569; margin:0; }
-
-    .cards-3 { grid-template-columns: repeat(3, 1fr); }
-    .card { background:#fff; border-radius:var(--radius); padding:22px; box-shadow:var(--shadow); }
-    .card h3 { margin:0 0 8px; font-size:20px; }
-    .card p { margin:0; color:#4a5568; }
-
-    /* Dark band (like reference) */
-    .band { background: linear-gradient(180deg, var(--navy), var(--navy-2)); color:#dfe9f2; }
-    .band .content { display:grid; grid-template-columns: 1fr 1.2fr; gap:28px; align-items:center; }
-    .band .video-placeholder { background: rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.15); border-radius:var(--radius); aspect-ratio:16/9; display:grid; place-items:center; color:#9fb6c9; font-weight:700; }
-    .band .kicker { color: var(--gold); font-weight:900; }
-
-    /* Benefits grid */
-    .benefits { grid-template-columns: repeat(4, 1fr); }
-    .benef { background:#fff; border-radius:var(--radius); padding:24px; display:grid; gap:8px; box-shadow:var(--shadow); }
-    .benef strong { color:#0b1a2a; }
-
-    /* Inside gallery placeholders */
-    .inside { grid-template-columns: repeat(4, 1fr); }
-    .ph { border:2px dashed #d1d9e3; background:#fff; border-radius:12px; aspect-ratio: 4/3; display:grid; place-items:center; color:#8a98a8; font-weight:700; }
-
-    /* Pricing */
-    .pricing { display:grid; grid-template-columns: 1.1fr .9fr; gap:28px; align-items:center; }
-    .price-card { background:#fff; border-radius:var(--radius); padding:24px; box-shadow:var(--shadow); }
-    .price-card ul { margin:16px 0 0; padding:0 20px; color:#374151; }
-    .price-note { color:#0b1a2a; font-weight:800; margin-top:10px; }
-
-    /* How to pay */
-    .steps { grid-template-columns: repeat(3, 1fr); }
-    .step { background:#fff; border-radius:var(--radius); padding:20px; box-shadow:var(--shadow); }
-    .step strong { color:#0b1a2a; }
-
-    /* FAQ */
-    .faq { max-width: 900px; margin-inline:auto; }
-    details { background:#fff; border-radius:14px; padding:14px 18px; margin:12px 0; box-shadow:var(--shadow); }
-    summary { cursor:pointer; font-weight:800; }
-
-    /* Logos strip */
-    .logos { display:flex; flex-wrap:wrap; gap:24px; opacity:.7; align-items:center; justify-content:center; }
-    .logos .logo-ph { width:120px; height:36px; border-radius:8px; border:1px dashed #cbd5e1; display:grid; place-items:center; font-weight:700; color:#94a3b8; background:#fff; }
-
-    /* Footer */
-    footer { background:#0a1929; color:#c9d5e6; }
-    footer .cols { display:grid; grid-template-columns: 1.2fr 1fr 1fr 1.2fr; gap:28px; }
-    footer h4 { margin:0 0 10px; color:#fff; }
-    footer a { color:#c9d5e6; }
-    .newsletter { display:flex; gap:10px; }
-    .newsletter input { flex:1; padding:12px 14px; border-radius:12px; border:1px solid #334155; background:#0e2236; color:#e2e8f0; }
-
-    /* Sticky CTA */
-    .sticky-cta { position: sticky; bottom: 0; inset-inline:0; background: rgba(12,34,56,.96); color:#fff; border-top:1px solid rgba(255,255,255,.12); z-index:30; }
-    .sticky-cta .container { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px 0; }
-
-    /* Utilities */
-    .muted { color:#667892; }
-    .kicker { font-weight:900; color:var(--gold); }
-    .divider { height:1px; background:var(--gray-200); margin:18px 0; }
-
-    /* Responsive */
-    @media (max-width: 1024px) {
-      .hero, .pricing, .band .content { grid-template-columns: 1fr; }
-      .stats .grid { grid-template-columns: repeat(2, 1fr); }
-      .benefits { grid-template-columns: repeat(2, 1fr); }
-      .inside { grid-template-columns: repeat(2, 1fr); }
-      .steps { grid-template-columns: 1fr; }
-      footer .cols { grid-template-columns: 1fr 1fr; }
+    html,body{background:var(--bg)}
+    .soft-bg{
+      background:
+        radial-gradient(60% 60% at 85% -10%, rgba(68,177,216,.12), transparent 60%),
+        radial-gradient(60% 60% at -10% 90%, rgba(243,176,65,.14), transparent 60%),
+        #fbfdff;
     }
-    @media (max-width: 640px) {
-      .cards-3 { grid-template-columns: 1fr; }
-      .stats .grid { grid-template-columns: 1fr; }
-      footer .cols { grid-template-columns: 1fr; }
+    .ring-grad{position:relative}
+    .ring-grad:before{
+      content:"";position:absolute;inset:-1px;border-radius:1.25rem;
+      background:linear-gradient(135deg, rgba(243,176,65,.9), rgba(68,177,216,.9));
+      -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+      -webkit-mask-composite:xor; mask-composite: exclude; padding:1px;
     }
+    /* reveal animations */
+    .reveal{opacity:0; transform:translateY(14px); transition:.6s ease}
+    .reveal.show{opacity:1; transform:none}
   </style>
 </head>
-<body>
-  <!-- Offer ribbon -->
-  <div class="topbar">
-    <div class="container">
-      <span class="badge">كود: سعودي</span>
-      <span>خصم ضخم <b>60٪</b> بمناسبة اليوم الوطني السعودي – <b>وفر 203 ريال سعودي</b></span>
+<body class="font-sans text-slate-800">
+
+  <!-- Sale bar -->
+  <div class="w-full bg-gradient-to-l from-[#0BA74B] via-[#0AA14B] to-[#089547] text-white text-sm">
+    <div class="max-w-6xl mx-auto px-4 py-2 text-center">
+      <b>عرض اليوم الوطني السعودي 🇸🇦</b>
+      <span class="mx-1">— خصم</span><b>60%</b><span class="mx-1">بكود</span>
+      <button id="copyTop" class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-white/15 hover:bg-white/25 active:scale-95">
+        <span class="font-semibold" id="couponTxt">سعودي</span>
+        <span id="copiedTop" class="text-xs opacity-95">نسخ</span>
+      </button>
+      <span class="mx-1">— ينتهي خلال</span>
+      <span class="font-mono font-semibold"><span id="d">00</span>ي · <span id="h">00</span>س · <span id="m">00</span>د · <span id="s">00</span>ث</span>
     </div>
   </div>
 
-  <!-- Header / Hero -->
-  <header class="site">
-    <div class="container">
-      <nav class="nav" aria-label="الرئيسية">
-        <div class="brand">
-          <div class="logo" aria-hidden="true"></div>
-          <div>
-            <div style="font-size:18px">Eval World</div>
-            <small style="opacity:.8">بكج إيفال – Trade Your Time Like Gold</small>
-          </div>
-        </div>
-        <div class="cta">
-          <a class="btn btn--link" href="#inside">ماذا بداخل البكج؟</a>
-          <a class="btn btn--gold" href="#checkout">احصل على النسخة الآن</a>
-        </div>
+  <!-- Nav -->
+  <header class="bg-white/70 backdrop-blur border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#top" class="flex items-center gap-3">
+        <img src="evall-logo.png" alt="EVALL" class="h-10 w-auto" />
+        <span class="sr-only">EVALL</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm text-slate-700">
+        <a href="#benefits" class="hover:text-slate-900">المزايا</a>
+        <a href="#inside" class="hover:text-slate-900">المحتويات</a>
+        <a href="#reviews" class="hover:text-slate-900">آراء</a>
+        <a href="#buy" class="inline-flex items-center rounded-xl border border-slate-200 bg-white px-4 py-2 font-semibold hover:bg-slate-50">شراء سريع</a>
       </nav>
-
-      <div class="hero">
-        <div>
-          <h1>سيطر على وقتك واصنع نسخة أهدأ وأقوى من نفسك خلال <span class="kicker">360 يوم</span></h1>
-          <p class="lead">بكج <b>إيفال</b> منتج رقمي متكامل يقودك في <b>10 خطوات عملية ومدروسة</b> من اكتشاف ذاتك وشغفك إلى تحويل أحلامك لأهداف واضحة قابلة للتنفيذ—مع مهام يومية، قصص وأمثلة، ومتابعة لمدة سنة كاملة.</p>
-          <div class="points">
-            <span class="chip">أجندة 360 يوم</span>
-            <span class="chip">كتاب رحلة تحول (رقمي + صوتي 3D)</span>
-            <span class="chip">جدول مهام 112 يوم</span>
-            <span class="chip">40 غلاف هدية</span>
-            <span class="chip">تنظيم وقت احترافي</span>
-            <span class="chip">دعم عبر الإيميل</span>
-          </div>
-          <div class="cta">
-            <a class="btn btn--gold" href="#checkout">اشترِ الآن – 
-              <span aria-label="السعر بعد الخصم">35.96$</span>
-            </a>
-            <a class="btn btn--link" href="#faq">أسئلة متكررة</a>
-          </div>
-        </div>
-        
-        <aside class="hero-card" aria-label="بطاقة السعر والعرض">
-          <div class="price">
-            <div class="old">89.90$</div>
-            <div class="new">35.96$</div>
-          </div>
-          <small class="muted">≈ <b>135 ريال سعودي</b> – وفر <b>203 ريال</b> – دفع مرة واحدة فقط</small>
-          <div class="coupon">استخدم كود <b>سعودي</b> للحصول على الخصم (لفترة محدودة)</div>
-          <ul style="margin:0; padding:0 18px; color:#2a3a4e;">
-            <li>وصول فوري لجميع الملفات بعد الدفع</li>
-            <li>تحديثات مجانية لمدة سنة كاملة</li>
-            <li>دعم وتواصل عبر الإيميل لمدة <b>3 أشهر</b></li>
-          </ul>
-        </aside>
-      </div>
     </div>
   </header>
 
-  <!-- Stats band like reference -->
-  <div class="stats">
-    <div class="container grid">
-      <div class="stat"><strong>360</strong><span>يوم تنظيم ومتابعة</span></div>
-      <div class="stat"><strong>10</strong><span>خطوات عملية ومدروسة</span></div>
-      <div class="stat"><strong>112</strong><span>مهمة عملية تُنجز</span></div>
-      <div class="stat"><strong>3 أشهر</strong><span>دعم عبر الإيميل</span></div>
-    </div>
-  </div>
+  <!-- HERO -->
+  <section id="top" class="soft-bg">
+    <div class="max-w-6xl mx-auto px-4 py-10 md:py-14 grid md:grid-cols-2 gap-10 items-center">
+      <!-- copy -->
+      <div class="reveal">
+        <p class="text-xs md:text-sm text-slate-500 mb-2">يا تلحق ياما تلحق ⚡</p>
+        <h1 class="text-3xl md:text-5xl font-extrabold leading-[1.2] text-slate-900">
+          بكج <span class="text-brandGold">إيفال</span> — خطّة عملية تصنع
+          <span class="text-brandBlue">نسختك الأقوى</span>
+        </h1>
+        <p class="mt-4 text-base md:text-lg text-slate-600 leading-8">
+          10 خطوات مدروسة + مهمة يومية + متابعة سنة كاملة. تكتشف ذاتك، تنظّم وقتك بذكاء، وتحوّل حلمك لهدف واضح قابل للتنفيذ—بدون فوضى ولا تشتّت.
+        </p>
 
-  <!-- What you get (3 cards) -->
-  <section id="features">
-    <div class="container">
-      <div class="section-title">
-        <h2>ما الذي ستحصل عليه داخل <span class="kicker">بكج إيفال</span>؟</h2>
-        <p>كل ما تحتاجه لتتحرك يوميًا، تتطور، وتبني عادات تغيّر حياتك بلا فوضى.</p>
-      </div>
-      <div class="grid cards-3">
-        <div class="card">
-          <h3>أجندة إيفال – 360 يوم</h3>
-          <p>تصميم ذكي لإدارة الوقت وترتيب أولوياتك مع مساحة مخصصة للفضفضة والتعبير وكأنك مع معالج نفسي.</p>
+        <!-- stats -->
+        <div class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <div class="rounded-xl bg-white shadow-soft border border-slate-200 px-3 py-3 text-center">
+            <div class="text-xl md:text-2xl font-extrabold">365</div>
+            <div class="text-[11px] text-slate-500">يوم متابعة</div>
+          </div>
+          <div class="rounded-xl bg-white shadow-soft border border-slate-200 px-3 py-3 text-center">
+            <div class="text-xl md:text-2xl font-extrabold">1</div>
+            <div class="text-[11px] text-slate-500">مهمة يومية</div>
+          </div>
+          <div class="rounded-xl bg-white shadow-soft border border-slate-200 px-3 py-3 text-center">
+            <div class="text-xl md:text-2xl font-extrabold text-brandGold">203 ر.س</div>
+            <div class="text-[11px] text-slate-500">توفير</div>
+          </div>
+          <div class="rounded-xl bg-white shadow-soft border border-slate-200 px-3 py-3 text-center">
+            <div class="text-xl md:text-2xl font-extrabold">3 أشهر</div>
+            <div class="text-[11px] text-slate-500">دعم عبر الإيميل</div>
+          </div>
         </div>
-        <div class="card">
-          <h3>كتاب رحلة تحول (رقمي + صوتي 3D)</h3>
-          <p>يرافقك بقصص وأمثلة واقعية لتطبيق 10 خطوات عملية تحول الحلم إلى هدف واضح قابل للتنفيذ.</p>
-        </div>
-        <div class="card">
-          <h3>جدول مهام 112 يوم + 40 غلاف هدية</h3>
-          <p>مهمة واحدة كل يوم تبني بها عادة جديدة وتكافئ نفسك—وتصاميم أغلفة أنيقة تناسب ذوقك.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Dark band (story + video placeholder) -->
-  <section class="band">
-    <div class="container content">
-      <div class="video-placeholder">ضع هنا صورة/فيديو تعريفي (16:9)</div>
-      <div>
-        <div class="kicker">يا تلحق… يا ما تلحق!</div>
-        <h2 style="margin-top:6px">كل شخص ناجح مر بلحظة قال فيها: <span class="kicker">خلص – هلا لازم أبلّش</span></h2>
-        <p>عالم إيفال هي لحظتك. من لحظة امتلاكك للبكج ستشعر أنك على تواصل مع <b>3 شخصيات مهمة</b>: لايف كوتش يشجعك، ومدرب مهني يرتّب أولوياتك، ومعالج نفسي يرافقك ليفهم عقلك ويتعامل مع التحديات النفسية.</p>
-        <p>مع الوقت ستلاحظ الأثر على شخصيتك: وضوح، هدوء، إنجاز، وعادات تصنع مستقبلك.</p>
-        <a class="btn btn--gold" href="#checkout">ابدأ رحلتك اليوم</a>
+        <!-- ctas -->
+        <div class="mt-6 flex flex-col sm:flex-row gap-3">
+          <a id="buyTop" href="#buy" class="flex-1 inline-flex items-center justify-center rounded-2xl bg-brandBlue text-white px-6 py-4 font-bold shadow-lift hover:opacity-95 active:scale-[0.99]">احصل على نسختك الآن</a>
+          <a href="#inside" class="inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white px-5 py-4 font-semibold hover:bg-slate-50">استعرض المحتويات</a>
+        </div>
+        <p class="mt-3 text-xs text-slate-500">الدفع مرة واحدة — وصول لمدة سنة كاملة — *دعم الإيميل 3 أشهر.</p>
+      </div>
+
+      <!-- price card -->
+      <div class="ring-grad rounded-2xl reveal">
+        <div class="rounded-2xl bg-white shadow-lift border border-slate-200 p-6">
+          <div class="inline-flex items-center gap-2 rounded-full bg-gradient-to-l from-brandBlue/15 to-brandGold/15 px-4 py-1 text-xs font-semibold text-slate-700">خصم 60% لفترة محدودة</div>
+          <h3 class="mt-3 text-xl font-bold">باقة اليوم الوطني السعودي</h3>
+          <div class="mt-4 space-y-2">
+            <div class="text-sm text-slate-500 line-through">89.90 USD • 338 ر.س</div>
+            <div class="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900">35.96$ <span class="text-xl font-bold text-slate-600">≈ 135 ر.س</span></div>
+            <div class="text-sm font-semibold text-brandGold">وفر 203 ريال سعودي</div>
+          </div>
+          <div class="mt-4 flex items-center gap-2 text-sm">
+            <span class="text-slate-600">استخدم كود</span>
+            <code class="px-2 py-1 rounded-md bg-slate-100 border border-slate-200">سعودي</code>
+            <button id="copyCard" class="text-xs underline hover:opacity-80">نسخ الكود</button>
+            <span id="copiedCard" class="text-[11px] text-emerald-600 hidden">تم النسخ ✓</span>
+          </div>
+          <a id="buy" href="#" class="mt-5 block text-center rounded-xl bg-brandGold text-slate-900 px-6 py-4 font-bold hover:opacity-95 active:scale-[0.99]">انتقل إلى صفحة الدفع</a>
+          <div class="text-xs text-slate-500 mt-2">آمن 100% • استلام مباشر عبر الإيميل • وصول لمدة سنة كاملة</div>
+
+          <!-- mini countdown -->
+          <div class="mt-5 grid grid-cols-4 gap-2">
+            <div class="text-center p-2 rounded-lg bg-slate-50 border border-slate-200"><div class="text-2xl font-bold font-mono text-slate-900" id="d2">00</div><div class="text-[10px] text-slate-500">أيام</div></div>
+            <div class="text-center p-2 rounded-lg bg-slate-50 border border-slate-200"><div class="text-2xl font-bold font-mono text-slate-900" id="h2">00</div><div class="text-[10px] text-slate-500">ساعات</div></div>
+            <div class="text-center p-2 rounded-lg bg-slate-50 border border-slate-200"><div class="text-2xl font-bold font-mono text-slate-900" id="m2">00</div><div class="text-[10px] text-slate-500">دقائق</div></div>
+            <div class="text-center p-2 rounded-lg bg-slate-50 border border-slate-200"><div class="text-2xl font-bold font-mono text-slate-900" id="s2">00</div><div class="text-[10px] text-slate-500">ثوانٍ</div></div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Benefits -->
-  <section id="benefits">
-    <div class="container">
-      <div class="section-title">
-        <h2>فوائد مباشرة ستحسّها من الأسبوع الأول</h2>
-        <p>مصمم ليخلّيك تعرف متى تنجز، متى ترتاح، ومتى تتطور.</p>
+  <section id="benefits" class="max-w-6xl mx-auto px-4 py-10 md:py-14">
+    <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 reveal">ليش <span class="text-brandGold">إيفال</span> مختلف؟</h2>
+    <p class="mt-2 text-slate-600 reveal">مسار عملي يُبقيك على الفعل لا التنظير — مع دعم للصحة النفسية وتنظيم وقت فعّال.</p>
+
+    <div class="mt-8 grid md:grid-cols-2 gap-6">
+      <div class="rounded-2xl bg-white border border-slate-200 p-6 shadow-soft reveal"><h3 class="text-xl font-bold text-slate-900 mb-1">استكشاف الذات</h3><p class="text-slate-600">أسئلة عميقة تكشف نقاط قوتك وتوجهك.</p></div>
+      <div class="rounded-2xl bg-white border border-slate-200 p-6 shadow-soft reveal"><h3 class="text-xl font-bold text-slate-900 mb-1">تحديد الأهداف</h3><p class="text-slate-600">من حلم مبعثر إلى هدف واضح وخطة تنفيذ.</p></div>
+      <div class="rounded-2xl bg-white border border-slate-200 p-6 shadow-soft reveal"><h3 class="text-xl font-bold text-slate-900 mb-1">تطوير المهارات</h3><p class="text-slate-600">خطوات قصيرة تُسرّع النتائج.</p></div>
+      <div class="rounded-2xl bg-white border border-slate-200 p-6 shadow-soft reveal"><h3 class="text-xl font-bold text-slate-900 mb-1">إدارة الوقت</h3><p class="text-slate-600">روتين هادئ بعيد عن الفوضى والتشتّت.</p></div>
+    </div>
+  </section>
+
+  <!-- Inside -->
+  <section id="inside" class="max-w-6xl mx-auto px-4 py-10 md:py-14">
+    <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 reveal">شو داخل <span class="text-brandGold">البكج</span>؟</h2>
+    <p class="mt-2 text-slate-600 reveal">كل مكوّن يخدم رحلتك خطوة بخطوة.</p>
+
+    <div class="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+      <div class="rounded-2xl bg-white border border-slate-200 p-5 shadow-soft reveal"><div class="flex items-start gap-3"><div class="w-11 h-11 rounded-xl grid place-items-center bg-brandBlue/10 border border-brandBlue/20">📅</div><div><h3 class="font-semibold text-lg text-slate-900">أجندة 360 يوم</h3><p class="text-sm text-slate-600 leading-6">متابعة يومية + تتبّع عادات + مساحات للفضفضة.</p></div></div></div>
+      <div class="rounded-2xl bg-white border border-slate-200 p-5 shadow-soft reveal"><div class="flex items-start gap-3"><div class="w-11 h-11 rounded-xl grid place-items-center bg-brandBlue/10 border border-brandBlue/20">📘</div><div><h3 class="font-semibold text-lg text-slate-900">كتاب رحلة تحوّل (رقمي + صوتي 3D)</h3><p class="text-sm text-slate-600 leading-6">قصص وأمثلة عملية تخاطب العقل والقلب.</p></div></div></div>
+      <div class="rounded-2xl bg-white border border-slate-200 p-5 shadow-soft reveal"><div class="flex items-start gap-3"><div class="w-11 h-11 rounded-xl grid place-items-center bg-brandBlue/10 border border-brandBlue/20">✅</div><div><h3 class="font-semibold text-lg text-slate-900">جدول مهام 112 يوم</h3><p class="text-sm text-slate-600 leading-6">مهمة يومية تبني عادات وتكسر التسويف.</p></div></div></div>
+      <div class="rounded-2xl bg-white border border-slate-200 p-5 shadow-soft reveal"><div class="flex items-start gap-3"><div class="w-11 h-11 rounded-xl grid place-items-center bg-brandBlue/10 border border-brandBlue/20">🖼️</div><div><h3 class="font-semibold text-lg text-slate-900">40 غلاف للأجندة</h3><p class="text-sm text-slate-600 leading-6">ألوان وهوية متناسقة (ذهبي/أزرق/أسود).</p></div></div></div>
+      <div class="rounded-2xl bg-white border border-slate-200 p-5 shadow-soft reveal"><div class="flex items-start gap-3"><div class="w-11 h-11 rounded-xl grid place-items-center bg-brandBlue/10 border border-brandBlue/20">⏱️</div><div><h3 class="font-semibold text-lg text-slate-900">نظام احترافي للوقت</h3><p class="text-sm text-slate-600 leading-6">تعرف متى تشتغل، ترتاح، وتتطوّر.</p></div></div></div>
+      <div class="rounded-2xl bg-white border border-slate-200 p-5 shadow-soft reveal"><div class="flex items-start gap-3"><div class="w-11 h-11 rounded-xl grid place-items-center bg-brandBlue/10 border border-brandBlue/20">✉️</div><div><h3 class="font-semibold text-lg text-slate-900">دعم عبر الإيميل</h3><p class="text-sm text-slate-600 leading-6">3 أشهر — رد خلال 24–48 ساعة.</p></div></div></div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section id="reviews" class="max-w-6xl mx-auto px-4 py-10 md:py-14">
+    <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 reveal">شو حكى المستخدمون؟</h2>
+    <div class="mt-6 grid md:grid-cols-2 gap-4">
+      <div class="rounded-2xl bg-white border border-slate-200 p-5 shadow-soft reveal">
+        <div class="text-amber-500 text-lg">★★★★★</div>
+        <p class="mt-2 text-slate-700 leading-7">الجدول فعلاً خلاني ألتزم. خلال 40 يوم شفت فرق بتركيزي وتنظيمي، وصار عندي طاقة لخطوات أكبر.</p>
+        <div class="mt-2 text-sm text-slate-500">فاطمة</div>
       </div>
-      <div class="grid benefits">
-        <div class="benef"><strong>سيطرة على وقتك</strong><span class="muted">وداعًا للفوضى والتشتت.</span></div>
-        <div class="benef"><strong>وضوح أهدافك</strong><span class="muted">خطوات عملية تحول الحلم لخطة تنفيذ.</span></div>
-        <div class="benef"><strong>بناء عادات</strong><span class="muted">مهمة يومية صغيرة تصنع فرق كبير.</span></div>
-        <div class="benef"><strong>راحة نفسية</strong><span class="muted">مساحة للفضفضة ومعالجة العوائق النفسية.</span></div>
+      <div class="rounded-2xl bg-white border border-slate-200 p-5 shadow-soft reveal">
+        <div class="text-amber-500 text-lg">★★★★★</div>
+        <p class="mt-2 text-slate-700 leading-7">الكتاب بيحكي معي ببساطة وإلهام. حسّيت بثقة وبلّشت أطبّق أفكار واضحة يوميًا.</p>
+        <div class="mt-2 text-sm text-slate-500">محمد</div>
       </div>
     </div>
   </section>
 
-  <!-- Inside Gallery Placeholders -->
-  <section id="inside">
-    <div class="container">
-      <div class="section-title">
-        <h2>نظرة داخلية</h2>
-        <p>ارفع صور شاشة/نماذج من داخل الملفات هنا (مكان جاهز للاستبدال).</p>
-      </div>
-      <div class="grid inside">
-        <div class="ph">صورة #1</div>
-        <div class="ph">صورة #2</div>
-        <div class="ph">صورة #3</div>
-        <div class="ph">صورة #4</div>
+  <!-- Sticky Mobile CTA -->
+  <div class="fixed inset-x-0 bottom-0 z-40 md:hidden">
+    <div class="mx-3 mb-3 rounded-2xl border border-slate-200 bg-white/90 backdrop-blur p-3 shadow-lift">
+      <div class="flex items-center justify-between gap-3">
+        <div class="text-xs">
+          <div class="font-bold text-slate-900">35.96$ <span class="text-slate-600">≈ 135 ر.س</span></div>
+          <div class="text-[10px] text-brandGold">وفر 203 ر.س • كود: سعودي</div>
+        </div>
+        <a id="buyMobile" href="#buy" class="flex-1 text-center rounded-xl px-4 py-3 font-bold text-white bg-brandBlue">اشتري الآن</a>
+        <div class="text-[10px] text-slate-600 font-mono" id="miniClock">00:00:00</div>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- Pricing / Offer -->
-  <section id="checkout">
-    <div class="container pricing">
-      <div>
-        <div class="section-title" style="text-align:right">
-          <h2>عرض اليوم الوطني السعودي – <span class="kicker">خصم 60٪</span></h2>
-          <p>ادخل كود <b>سعودي</b> عند الدفع. الدفع مرة واحدة – وصول فوري.</p>
-        </div>
-        <div class="price-card">
-          <div class="price">
-            <div class="old">89.90$</div>
-            <div class="new">35.96$</div>
-            <small>≈ 135 ر.س</small>
-          </div>
-          <div class="price-note">وفر 203 ريال سعودي</div>
-          <div class="divider"></div>
-          <ul>
-            <li>أجندة إيفال لمدة 360 يوم</li>
-            <li>كتاب رحلة تحول (رقمي + صوتي بخاصية 3D)</li>
-            <li>جدول مهام لمدة 112 يوم</li>
-            <li>40 غلاف للأجندة (هدية)</li>
-            <li>تنظيم وقت باحترافية + مساحة للفضفضة</li>
-            <li>دعم وتواصل عبر الإيميل لأي استفسار (3 أشهر)</li>
-          </ul>
-          <div class="divider"></div>
-          <a class="btn btn--gold" href="#pay">انتقل للدفع الآمن</a>
-          <p class="muted" style="margin:.6rem 0 0">بعد الدفع ستصلك روابط التحميل فورًا على بريدك الإلكتروني.</p>
-        </div>
+  <!-- Footer / Newsletter -->
+  <footer class="mt-4 pb-28 md:pb-10">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="rounded-2xl bg-white border border-slate-200 p-6 md:p-8 shadow-soft text-center reveal">
+        <h3 class="text-xl md:text-2xl font-extrabold text-slate-900">اشترك بالنشرة</h3>
+        <p class="mt-1 text-slate-600">عروض ونصائح حصرية للمشتركين فقط.</p>
+        <form class="mt-4 flex flex-col sm:flex-row gap-3 justify-center"
+              action="mailto:support@example.com" method="post" enctype="text/plain">
+          <input required name="email" type="email" placeholder="البريد الإلكتروني"
+                 class="w-full sm:w-80 rounded-xl border border-slate-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brandBlue" />
+          <button class="rounded-xl bg-brandBlue text-white px-6 py-3 font-bold hover:opacity-95">ارسال</button>
+        </form>
+        <p class="mt-2 text-xs text-slate-500">لن نزعجك—محتوى قيّم فقط.</p>
       </div>
-      <aside>
-        <div class="card" style="background:linear-gradient(180deg,#fff, #f8fbff);">
-          <h3 style="margin-top:0">طريقة الدفع بخطوات بسيطة</h3>
-          <ol style="margin:0; padding:0 20px; color:#374151;">
-            <li>اضغط على زر <b>انتقل للدفع</b>.</li>
-            <li>أدخل بريدك الإلكتروني وكود الخصم <b>سعودي</b>.</li>
-            <li>اختر وسيلة الدفع المناسبة وأكمل العملية.</li>
-          </ol>
-          <div class="divider"></div>
-          <div class="ph" style="aspect-ratio:16/10">مكان صورة توضيح خطوات الدفع</div>
-          <p class="muted" style="margin:.7rem 0 0">* يمكنك استبدال الصندوق أعلاه بصورة أو GIF لشرح الدفع.</p>
-        </div>
-      </aside>
-    </div>
-  </section>
 
-  <!-- FAQ -->
-  <section id="faq" class="band" style="padding:56px 0;">
-    <div class="container">
-      <div class="section-title" style="color:#fff">
-        <h2>الأسئلة المتكررة</h2>
-        <p>إجابات مختصرة وواضحة لأكثر ما يُسأل عنه.</p>
-      </div>
-      <div class="faq">
-        <details>
-          <summary>هل البكج رقمي بالكامل؟ وكيف أستلمه؟</summary>
-          <p>نعم، البكج رقمي بالكامل. بعد الدفع تصلك روابط التحميل فورًا على بريدك الإلكتروني، ويمكنك حفظها على جهازك.</p>
-        </details>
-        <details>
-          <summary>هل هناك تحديثات مستقبلية؟</summary>
-          <p>نعم، تحصل على التحديثات مجانًا لمدة سنة كاملة من تاريخ الشراء.</p>
-        </details>
-        <details>
-          <summary>هل يوجد دعم إذا واجهت مشكلة؟</summary>
-          <p>أكيد! لدينا دعم عبر الإيميل لمدة 3 أشهر للإجابة على أي استفسار أو نصيحة عامة.</p>
-        </details>
-        <details>
-          <summary>هل يمكنني استرجاع المبلغ؟</summary>
-          <p>لأن المحتوى رقمي ويصل فورًا، لا نوفر استرجاعًا بعد التحميل. لكن نعدك بتجربة قيمة، ويمكنك مراسلتنا لأي مشكلة.</p>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <!-- Logos / Social proof placeholders -->
-  <section>
-    <div class="container">
-      <div class="section-title">
-        <h2>شركاء وأدوات نعتمدها</h2>
-        <p>ضع هنا شعارات أو منصات الدفع/الأدوات (مكان جاهز للاستبدال).</p>
-      </div>
-      <div class="logos">
-        <div class="logo-ph">Logo 1</div>
-        <div class="logo-ph">Logo 2</div>
-        <div class="logo-ph">Logo 3</div>
-        <div class="logo-ph">Logo 4</div>
-        <div class="logo-ph">Logo 5</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <div class="container" style="padding:38px 0;">
-      <div class="cols">
-        <div>
-          <div class="brand" style="margin-bottom:10px;"> 
-            <div class="logo"></div>
-            <div>
-              <div style="font-size:18px">Eval World</div>
-              <small style="opacity:.8">عيش يومك بهدوء… وأنجز الأهم.</small>
-            </div>
-          </div>
-          <p class="muted">منتج رقمي شامل يساعدك تخطط لأهدافك، تبني عادات قوية، وتتابع تقدمك يومًا بيوم.</p>
+      <div class="border-t border-slate-200 pt-6 mt-8 text-xs text-slate-500 flex flex-col md:flex-row gap-2 md:items-center md:justify-between">
+        <div>© <span id="y"></span> Eval Package — جميع الحقوق محفوظة.</div>
+        <div class="flex flex-wrap gap-4">
+          <a href="#inside" class="hover:text-slate-700">المحتويات</a>
+          <a href="#buy" class="hover:text-slate-700">شراء الآن</a>
+          <a id="supportLink" href="#" class="hover:text-slate-700">الدعم</a>
         </div>
-        <div>
-          <h4>روابط</h4>
-          <ul style="list-style:none; padding:0; margin:0; display:grid; gap:8px;">
-            <li><a href="#features">المحتويات</a></li>
-            <li><a href="#benefits">الفوائد</a></li>
-            <li><a href="#checkout">الشراء</a></li>
-            <li><a href="#faq">الأسئلة</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>تواصل</h4>
-          <p>للدعم والاستفسارات: <a href="mailto:support@evalworld.co">support@evalworld.co</a></p>
-        </div>
-        <div>
-          <h4>النشرة البريدية</h4>
-          <div class="newsletter">
-            <input type="email" placeholder="بريدك الإلكتروني" aria-label="البريد الإلكتروني">
-            <button class="btn btn--gold" type="button">اشترك</button>
-          </div>
-        </div>
-      </div>
-      <div style="margin-top:24px; display:flex; align-items:center; gap:8px; opacity:.7; font-size:.9rem;">
-        <span>© <span id="year"></span> Eval World. جميع الحقوق محفوظة.</span>
       </div>
     </div>
   </footer>
 
-  <!-- Sticky CTA -->
-  <div class="sticky-cta">
-    <div class="container">
-      <div style="display:flex; align-items:center; gap:10px;">
-        <span class="badge" aria-hidden="true">خصم 60%</span>
-        <strong>بكج إيفال – وفر 203 ريال سعودي</strong>
-      </div>
-      <a class="btn btn--gold" href="#checkout">اشترِ الآن</a>
-    </div>
-  </div>
-
+  <!-- Logic -->
   <script>
-    // سنة الفوتر
-    document.getElementById('year').textContent = new Date().getFullYear();
+    // ===== CONFIG =====
+    const DEADLINE_MS = new Date('2025-09-24T23:59:59+03:00').getTime();
+    const COUPON = 'سعودي';
+    const PAYMENT_LINK = '#';            // ضع رابط الدفع
+    const SUPPORT_EMAIL = 'support@example.com'; // ضع بريد الدعم
+
+    // anchors & text
+    document.getElementById('buy').href = PAYMENT_LINK;
+    document.getElementById('buyTop').href = PAYMENT_LINK;
+    document.getElementById('buyMobile').href = PAYMENT_LINK;
+    document.getElementById('supportLink').href = 'mailto:' + SUPPORT_EMAIL;
+    document.querySelector('form[action^="mailto"]').action = 'mailto:' + SUPPORT_EMAIL;
+    document.getElementById('y').textContent = new Date().getFullYear();
+    document.getElementById('couponTxt').textContent = COUPON;
+
+    // copy
+    async function copyCoupon(okEl){
+      try{ await navigator.clipboard.writeText(COUPON);
+        okEl.textContent = 'تم النسخ ✓'; okEl.classList.remove('hidden');
+        setTimeout(()=>{ okEl.classList.add('hidden'); okEl.textContent='نسخ'; },1200);
+      }catch(e){ alert('انسخ الكود يدويًا: ' + COUPON); }
+    }
+    document.getElementById('copyTop').addEventListener('click', ()=>copyCoupon(document.getElementById('copiedTop')));
+    document.getElementById('copyCard')?.addEventListener('click', ()=>{
+      const el=document.getElementById('copiedCard'); el.classList.remove('hidden'); copyCoupon(el);
+    });
+
+    // countdown
+    function tick(){
+      const now = Date.now();
+      const diff = Math.max(0, DEADLINE_MS - now);
+      const d = Math.floor(diff / (1000*60*60*24));
+      const h = Math.floor((diff / (1000*60*60)) % 24);
+      const m = Math.floor((diff / (1000*60)) % 60);
+      const s = Math.floor((diff / 1000) % 60);
+
+      ['d','h','m','s'].forEach((id,i)=>document.getElementById(id).textContent = String([d,h,m,s][i]).padStart(2,'0'));
+      document.getElementById('d2').textContent=String(d).padStart(2,'0');
+      document.getElementById('h2').textContent=String(h).padStart(2,'0');
+      document.getElementById('m2').textContent=String(m).padStart(2,'0');
+      document.getElementById('s2').textContent=String(s).padStart(2,'0');
+      document.getElementById('miniClock').textContent = String(h + d*24).padStart(2,'0')+':'+String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');
+    }
+    tick(); setInterval(tick, 1000);
+
+    // reveal on scroll
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target);} });
+    }, {threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
   </script>
 </body>
 </html>
