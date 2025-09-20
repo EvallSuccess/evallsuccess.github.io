@@ -8,14 +8,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     :root{
-      --red:#D6052D;
-      --gray-100:#F2F2F2;
-      --gray-900:#202020;
-      --black:#000000;
-      --gold:#F3B041;
-      --shadow:0 10px 24px rgba(0,0,0,.18);
-      --radius:14px;
-      --container:1150px;
+      --red:#D6052D; --gray-100:#F2F2F2; --gray-900:#202020; --black:#000000; --gold:#F3B041;
+      --shadow:0 10px 24px rgba(0,0,0,.18); --radius:14px; --container:1150px;
     }
     *{box-sizing:border-box}
     html,body{margin:0;padding:0;background:#000;color:#fff;font-family:"Cairo",system-ui,Arial;line-height:1.7;text-align:center}
@@ -23,7 +17,7 @@
     img{max-width:100%;display:block}
     .container{max-width:var(--container);margin-inline:auto;padding:28px 18px}
 
-    /* Promo (no button) */
+    /* Promo */
     .promo{position:sticky;top:0;z-index:50;background:var(--red);color:#fff;font-weight:900}
     .promo .inner{padding:10px 14px}
 
@@ -50,7 +44,7 @@
     .title{font-weight:900;margin:0 0 16px}
     .title .brand{color:var(--gold)}
 
-    /* Collapsible KPI (8 windows) */
+    /* Collapsible KPI */
     .kpi-wrap{padding:24px 0}
     .toggle-btn{background:var(--gold);color:#000;border:none;border-radius:12px;padding:10px 16px;font-weight:900;cursor:pointer;box-shadow:var(--shadow)}
     .kpi{display:none;margin-top:18px;grid-template-columns:repeat(2,1fr);gap:12px}
@@ -59,19 +53,29 @@
     .kpi .card .num{display:block;font-size:22px;font-weight:900;color:var(--gold)}
     .kpi .card.red{background:var(--red)}
 
-    /* Tri cards (white section) */
+    /* Tri cards */
     .tri{display:grid;grid-template-columns:1fr;gap:14px}
     @media(min-width:760px){.tri{grid-template-columns:repeat(3,1fr)}}
     .tri .card{background:#222;color:#fff;border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
     .tri .card h3{margin:0 0 6px;color:var(--gold)}
 
-    /* Benefits (white cards on dark) */
+    /* Benefits */
     .benefits{display:grid;grid-template-columns:1fr;gap:14px}
     @media(min-width:900px){.benefits{grid-template-columns:repeat(2,1fr)}}
     .benefits .card{background:#fff;color:#000;border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
     .benefits .card.support{background:var(--red);color:#fff}
     .benefits .card .gift{color:var(--red)}
     .benefits .card h4{margin:0 0 6px;font-weight:800}
+
+    /* Gallery (restored) */
+    .gallery-strip{position:relative}
+    .gallery-track{display:flex;overflow:hidden;border-radius:var(--radius);box-shadow:var(--shadow)}
+    .gallery-track ul{list-style:none;display:flex;padding:0;margin:0;scroll-behavior:smooth;overflow:auto hidden;-webkit-overflow-scrolling:touch}
+    .gallery-track li{flex:0 0 85vw;max-width:85vw}
+    @media(min-width:900px){.gallery-track li{flex:0 0 360px;max-width:360px}}
+    .gallery-track img{height:240px;object-fit:cover}
+    .gal-nav{position:absolute;inset-block:0;inset-inline:0;display:flex;align-items:center;justify-content:space-between;pointer-events:none}
+    .gal-btn{pointer-events:auto;border:none;border-radius:999px;width:42px;height:42px;background:#111;color:#fff;opacity:.9}
 
     /* Results */
     .results{display:grid;grid-template-columns:1fr;gap:14px}
@@ -84,17 +88,17 @@
     .faq{max-width:900px;margin-inline:auto}
     details{background:#fff;color:#000;border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)}
     details+details{margin-top:10px}
-    summary{cursor:pointer;font-weight:900;color:var(--gold);outline:none}
+    summary{cursor:pointer;font-weight:900;color:var(--gold)}
     details p{margin:8px 0 0}
 
-    /* Payment steps (no gallery) */
+    /* Payment steps (no images gallery) */
     .steps .container{text-align:right}
     .steps h3{margin-top:0;text-align:center;color:#000}
     .steps ol{padding-right:18px;margin:0 0 14px;color:#000}
     .pay-logos{display:flex;gap:16px;flex-wrap:wrap;align-items:center;justify-content:center}
     .pay-logos svg{height:28px}
 
-    /* Pricing (image 3 style, red theme) */
+    /* Pricing */
     .pricing{background:#000}
     .price-card{background:#fff;color:#000;border-radius:24px;box-shadow:var(--shadow);padding:28px;max-width:760px;margin-inline:auto;border:2px solid var(--red)}
     .price-card .tag{display:inline-block;background:rgba(214,5,45,.08);color:#000;border:1.5px solid var(--red);border-radius:999px;padding:8px 14px;font-weight:800}
@@ -123,7 +127,6 @@
       <div class="banner">
         <img src="evallbanner.jpg" alt="Evall Hero Banner">
         <div class="overlay">
-          <!-- عربي فقط، كله أصفر وكلمة رحلتك أبيض -->
           <h1>ابدأ <span class="white">رحلتك</span> اليوم</h1>
           <a class="btn btn-red" href="https://payhip.com/buy?link[]=wPZpb&session_enabled=1&parent_url=https%3A%2F%2Fpayhip.com%2Fb%2FwPZpb&type=overlay&payhip_js=true">احصل عليه الآن</a>
           <div class="countdown" id="heroCountdown"></div>
@@ -183,13 +186,37 @@
           <p>اختر الغلاف الذي يعكس شخصيتك؛ الألوان ليست شكلاً فقط بل طاقة تعزّز ارتباطك بأجندتك وتشجّعك على الاستمرار.</p>
         </div>
         <div class="card">
-          <h4 class="gift">هدية: ملفات خاصة لتنظيم الوقت</h4>
+          <h4 class="gift" style="color:#D6052D">هدية: ملفات خاصة لتنظيم الوقت</h4>
           <p>إدارة الوقت سرّ النجاح. هذه الملفات ليست مكملًا بل أداة أساسية تنقذك من العشوائية وتعلّمك العيش بوضوح وهدوء بعيداً عن التشتت.</p>
         </div>
-        <div class="card support">
+        <div class="card support" style="background:#D6052D;color:#fff">
           <h4>دعم وتواصل</h4>
           <p>سنكون معك لمدة 90 يوماً لدعمك والإجابة على أي استفسار وتقديم نصائح عملية لتطبيق كل ما يخص البكج.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY (restored) -->
+  <section class="section-light" id="gallery">
+    <div class="container gallery-strip">
+      <div class="gallery-track">
+        <ul id="galList">
+          <li><img src="evallpic1.jpg" alt="Evall gallery 1"></li>
+          <li><img src="evallpic2.jpg" alt="Evall gallery 2"></li>
+          <li><img src="evallpic3.jpg" alt="Evall gallery 3"></li>
+          <li><img src="evallpic4.jpg" alt="Evall gallery 4"></li>
+          <li><img src="evallpic5.jpg" alt="Evall gallery 5"></li>
+          <li><img src="evallpic6.jpg" alt="Evall gallery 6"></li>
+          <li><img src="evallpic7.jpg" alt="Evall gallery 7"></li>
+          <li><img src="evallpic8.jpg" alt="Evall gallery 8"></li>
+          <li><img src="evallpic9.jpg" alt="Evall gallery 9"></li>
+          <li><img src="evallpic10.jpg" alt="Evall gallery 10"></li>
+        </ul>
+      </div>
+      <div class="gal-nav">
+        <button class="gal-btn" aria-label="prev" onclick="scrollStrip('galList',-1)">◀</button>
+        <button class="gal-btn" aria-label="next" onclick="scrollStrip('galList',1)">▶</button>
       </div>
     </div>
   </section>
@@ -242,7 +269,7 @@
     </div>
   </section>
 
-  <!-- Payment steps (no images) -->
+  <!-- Payment steps (NO images) -->
   <section class="section-light steps" id="payment">
     <div class="container">
       <h3>طريقة الدفع بخطوات بسيطة:</h3>
@@ -254,11 +281,8 @@
         <li>بعد إتمام عملية الدفع، سيظهر لك رابط التحميل مباشرة</li>
       </ol>
       <div class="pay-logos" aria-label="طرق الدفع المتاحة">
-        <!-- PayPal -->
         <svg viewBox="0 0 512 128" role="img" aria-label="PayPal"><rect width="512" height="128" rx="10" fill="#002f86"/><text x="50%" y="55%" text-anchor="middle" font-size="54" font-weight="800" fill="#fff">PayPal</text></svg>
-        <!-- MasterCard -->
         <svg viewBox="0 0 256 128" role="img" aria-label="Mastercard"><rect width="256" height="128" rx="10" fill="#141414"/><circle cx="108" cy="64" r="38" fill="#EA001B"/><circle cx="148" cy="64" r="38" fill="#FF9900" opacity=".9"/><text x="50%" y="88%" text-anchor="middle" font-size="18" fill="#fff">Mastercard</text></svg>
-        <!-- Debit -->
         <svg viewBox="0 0 256 128" role="img" aria-label="Debit Card"><rect width="256" height="128" rx="10" fill="#1d1d1d"/><rect x="16" y="22" width="224" height="84" rx="8" fill="#2b2b2b"/><rect x="24" y="34" width="84" height="12" fill="#3a3a3a"/><rect x="24" y="70" width="160" height="10" fill="#3a3a3a"/><text x="50%" y="108%" text-anchor="middle" font-size="18" fill="#fff">Debit</text></svg>
       </div>
       <p style="font-size:12px;color:var(--red);margin-top:10px">ملحوظة مهمة: بعد إتمام عملية الدفع، قد تلاحظ خصم مبلغ 1$ من بطاقتك، لا داعي للقلق، هي عملية تحقق مؤقتة وسيُعاد خلال يومين كحد أقصى.</p>
@@ -336,6 +360,15 @@
     }
     initCountdown('heroCountdown');
     initCountdown('priceCountdown');
+
+    // gallery scroll (for the restored gallery)
+    function scrollStrip(id,dir){
+      const el=document.getElementById(id);
+      if(!el) return;
+      const child=el.querySelector('li');
+      const step=(child?child.getBoundingClientRect().width:320)+14;
+      el.scrollBy({left:dir*step,behavior:'smooth'});
+    }
 
     // KPI toggle
     function toggleKpi(){
