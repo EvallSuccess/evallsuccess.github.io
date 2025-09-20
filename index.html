@@ -5,14 +5,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>بكج إيفال – صفحة هبوط</title>
   <meta name="description" content="بكج إيفال – خطة عملية بخطوات واضحة ودعم لمدة 90 يوم." />
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
   <style>
+    /* ====== الخطوط المحلية ======
+       ضع ملفات الخطوط داخل مجلد fonts/ أو عدّل المسارات أدناه */
+    @font-face{
+      font-family: "Motken noqta";
+      src: url("fonts/MotkenNoqta.woff2") format("woff2"),
+           url("fonts/MotkenNoqta.woff") format("woff");
+      font-weight: 400 900;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face{
+      font-family: "HSN Shahd bold";
+      src: url("fonts/HSNShahd-Bold.woff2") format("woff2"),
+           url("fonts/HSNShahd-Bold.woff") format("woff");
+      font-weight: 700 900;
+      font-style: normal;
+      font-display: swap;
+    }
+
     :root{
       --red:#D6052D; --gray-100:#F2F2F2; --gray-900:#202020; --black:#000000; --gold:#F3B041;
       --shadow:0 10px 24px rgba(0,0,0,.18); --radius:14px; --container:1150px;
+      --font-head:"Motken noqta","Tajawal","Cairo",system-ui,Arial,sans-serif;
+      --font-body:"HSN Shahd bold","Tajawal","Cairo",system-ui,Arial,sans-serif;
     }
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:#000;color:#fff;font-family:"Cairo",system-ui,Arial;line-height:1.7;text-align:center;scroll-behavior:smooth}
+
+    /* تصغير عام للخط: 15px (كان أكبر) */
+    html{font-size:15px}
+    @media (min-width:1200px){ html{font-size:16px} } /* يكبر شوي على الشاشات الكبيرة */
+
+    html,body{
+      margin:0;padding:0;background:#000;color:#fff;
+      font-family:var(--font-body);
+      line-height:1.75;text-align:center;scroll-behavior:smooth
+    }
     a{color:inherit;text-decoration:none}
     img{max-width:100%;display:block}
     .container{max-width:var(--container);margin-inline:auto;padding:28px 18px}
@@ -21,53 +51,35 @@
     .promo{position:sticky;top:0;z-index:50;background:var(--red);color:#fff;font-weight:900}
     .promo .inner{padding:10px 14px}
 
-    /* ===== HERO 16:9 + Bottom Fade =====
-       - يحافظ على نسبة 16:9 دائماً
-       - لا يتخطى ارتفاع الشاشة */
+    /* ===== HERO 16:9 + Bottom Fade ===== */
     .hero{
-      position:relative;
-      width:100%;
-      aspect-ratio:16/9;           /* النسبة */ 
-      max-height:100svh;           /* لا يزيد عن طول الشاشة */
-      background:#000;
-      overflow:hidden;
-      display:flex;align-items:center;justify-content:center;
-      isolation:isolate;
+      position:relative;width:100%;aspect-ratio:16/9;max-height:100svh;
+      background:#000;overflow:hidden;display:flex;align-items:center;justify-content:center;isolation:isolate;
     }
-    /* على الشاشات الضيقة جداً، لو أردت جعله يغطي الشاشة يمكن تفعيل السطر التالي
-       بإزالة التعليق: */
-    @media (max-width:480px){
-      .hero{min-height:100svh}     /* اختياري: يجعل الهيرو يملأ الشاشة على الموبايل */
-    }
+    @media (max-width:480px){ .hero{min-height:100svh} }
 
     .hero .banner{position:absolute;inset:0;overflow:hidden}
-    .hero .banner img{
-      width:100%;height:100%;
-      object-fit:cover;            /* يملأ 16:9 بدون تشويه */
-      object-position:center;
-      filter:brightness(.92);
-    }
-    /* المحتوى فوق الصورة */
+    .hero .banner img{width:100%;height:100%;object-fit:cover;object-position:center;filter:brightness(.92)}
     .hero .overlay{
-      position:relative;z-index:2;
-      width:min(100%, var(--container));
-      padding:0 18px;
-      display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
+      position:relative;z-index:2;width:min(100%, var(--container));padding:0 18px;
+      display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;
       text-shadow:0 2px 14px rgba(0,0,0,.45);
     }
-    .hero h1{margin:0 0 12px;font-size:clamp(26px,4.5vw,42px);font-weight:900;color:var(--gold)}
+    .hero h1{
+      margin:0 0 10px;
+      font-family:var(--font-head);
+      font-size:clamp(22px,4vw,36px); /* أصغر من قبل */
+      font-weight:900;color:var(--gold);letter-spacing:.5px
+    }
     .hero h1 .white{color:#fff}
-    .btn{display:inline-block;padding:14px 22px;border-radius:14px;font-weight:800;box-shadow:var(--shadow)}
+    .btn{display:inline-block;padding:12px 18px;border-radius:12px;font-weight:800;box-shadow:var(--shadow);font-family:var(--font-body)}
     .btn-red{background:var(--red);color:#fff}
-    .countdown{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:6px}
-    .countdown .unit{background:#111;border:1px solid #1f1f1f;border-radius:10px;min-width:70px;padding:8px 10px}
-    .countdown .num{display:block;font-size:20px;font-weight:900}
-    .countdown .lbl{opacity:.8;font-size:12px}
-
-    /* الفييد من الأسفل */
+    .countdown{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-top:4px}
+    .countdown .unit{background:#111;border:1px solid #1f1f1f;border-radius:10px;min-width:64px;padding:6px 8px}
+    .countdown .num{display:block;font-size:18px;font-weight:900}
+    .countdown .lbl{opacity:.8;font-size:11px}
     .hero::after{
-      content:"";
-      position:absolute;left:0;right:0;bottom:0;height:28%;
+      content:"";position:absolute;left:0;right:0;bottom:0;height:28%;
       background:linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.72) 55%, #000 100%);
       pointer-events:none;z-index:1;
     }
@@ -76,31 +88,34 @@
     .section-dark{background:linear-gradient(180deg,#000,#0b0b0b)}
     .section-light{background:linear-gradient(180deg,#ffffff,#f8f8f8);color:#000}
     .section-gray{background:linear-gradient(180deg,#fafafa,#eaeaea);color:#000}
-    .title{font-weight:900;margin:0 0 16px}
+    .title{font-weight:900;margin:0 0 14px;font-family:var(--font-head);font-size:clamp(18px,2.8vw,26px)}
     .title .brand{color:var(--gold)}
 
     /* Collapsible KPI */
-    .kpi-wrap{padding:24px 0}
-    .toggle-btn{display:block;width:100%;background:var(--gold);color:#000;border:none;border-radius:12px;padding:14px 18px;font-weight:900;cursor:pointer;box-shadow:var(--shadow)}
-    .kpi{display:none;margin-top:18px;grid-template-columns:repeat(2,1fr);gap:12px}
+    .kpi-wrap{padding:22px 0}
+    .toggle-btn{
+      display:block;width:100%;background:var(--gold);color:#000;border:none;border-radius:12px;padding:12px 16px;
+      font-weight:900;cursor:pointer;box-shadow:var(--shadow);font-family:var(--font-body)
+    }
+    .kpi{display:none;margin-top:16px;grid-template-columns:repeat(2,1fr);gap:10px}
     @media(min-width:768px){.kpi{grid-template-columns:repeat(4,1fr)}}
-    .kpi .card{background:#202020;color:#fff;border-radius:var(--radius);padding:14px 10px;box-shadow:var(--shadow)}
-    .kpi .card .num{display:block;font-size:22px;font-weight:900;color:var(--gold)}
+    .kpi .card{background:#202020;color:#fff;border-radius:var(--radius);padding:12px 10px;box-shadow:var(--shadow)}
+    .kpi .card .num{display:block;font-size:20px;font-weight:900;color:var(--gold)}
     .kpi .card.red{background:var(--red)}
 
     /* Tri cards */
-    .tri{display:grid;grid-template-columns:1fr;gap:14px}
+    .tri{display:grid;grid-template-columns:1fr;gap:12px}
     @media(min-width:760px){.tri{grid-template-columns:repeat(3,1fr)}}
-    .tri .card{background:#222;color:#fff;border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
-    .tri .card h3{margin:0 0 6px;color:var(--gold)}
+    .tri .card{background:#222;color:#fff;border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)}
+    .tri .card h3{margin:0 0 4px;color:var(--gold);font-family:var(--font-head);font-size:clamp(16px,2.4vw,22px)}
 
     /* Benefits */
-    .benefits{display:grid;grid-template-columns:1fr;gap:14px}
+    .benefits{display:grid;grid-template-columns:1fr;gap:12px}
     @media(min-width:900px){.benefits{grid-template-columns:repeat(2,1fr)}}
-    .benefits .card{background:#fff;color:#000;border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+    .benefits .card{background:#fff;color:#000;border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)}
     .benefits .card.support{background:var(--red);color:#fff}
     .benefits .card .gift{color:var(--red)}
-    .benefits .card h4{margin:0 0 6px;font-weight:800}
+    .benefits .card h4{margin:0 0 4px;font-weight:800;font-family:var(--font-head);font-size:clamp(15px,2.2vw,20px)}
 
     /* Gallery */
     .gallery-strip{position:relative}
@@ -108,47 +123,47 @@
     .gallery-track ul{list-style:none;display:flex;padding:0;margin:0;scroll-behavior:smooth;overflow:auto hidden;-webkit-overflow-scrolling:touch}
     .gallery-track li{flex:0 0 85vw;max-width:85vw}
     @media(min-width:900px){.gallery-track li{flex:0 0 360px;max-width:360px}}
-    .gallery-track img{height:240px;object-fit:cover}
+    .gallery-track img{height:220px;object-fit:cover}
     .gal-nav{position:absolute;inset-block:0;inset-inline:0;display:flex;align-items:center;justify-content:space-between;pointer-events:none}
-    .gal-btn{pointer-events:auto;border:none;border-radius:999px;width:42px;height:42px;background:#111;color:#fff;opacity:.9}
+    .gal-btn{pointer-events:auto;border:none;border-radius:999px;width:38px;height:38px;background:#111;color:#fff;opacity:.9}
 
     /* Results */
-    .results{display:grid;grid-template-columns:1fr;gap:14px}
+    .results{display:grid;grid-template-columns:1fr;gap:12px}
     @media(min-width:900px){.results{grid-template-columns:repeat(2,1fr)}}
-    .results .card{background:#111;color:#fff;border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+    .results .card{background:#111;color:#fff;border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)}
     .results .card.red{background:var(--red)}
-    .results .card h5{margin:0 0 6px;font-size:18px;font-weight:900}
+    .results .card h5{margin:0 0 4px;font-size:16px;font-weight:900;font-family:var(--font-head)}
 
     /* FAQ */
     .faq{max-width:900px;margin-inline:auto}
-    details{background:#fff;color:#000;border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)}
-    details+details{margin-top:10px}
-    summary{cursor:pointer;font-weight:900;color:var(--gold)}
-    details p{margin:8px 0 0}
+    details{background:#fff;color:#000;border-radius:var(--radius);padding:14px;box-shadow:var(--shadow)}
+    details+details{margin-top:8px}
+    summary{cursor:pointer;font-weight:900;color:var(--gold);font-family:var(--font-head)}
+    details p{margin:6px 0 0}
 
-    /* Payment steps (no images) */
+    /* Payment steps */
     .steps .container{text-align:right}
-    .steps h3{margin-top:0;text-align:center;color:#000}
-    .steps ol{padding-right:18px;margin:0 0 14px;color:#000}
-    .pay-logos{display:flex;gap:16px;flex-wrap:wrap;align-items:center;justify-content:center}
-    .pay-logos svg{height:28px}
+    .steps h3{margin-top:0;text-align:center;color:#000;font-family:var(--font-head)}
+    .steps ol{padding-right:16px;margin:0 0 12px;color:#000}
+    .pay-logos{display:flex;gap:14px;flex-wrap:wrap;align-items:center;justify-content:center}
+    .pay-logos svg{height:26px}
 
     /* Pricing */
     .pricing{background:#000}
-    .price-card{background:#fff;color:#000;border-radius:24px;box-shadow:var(--shadow);padding:28px;max-width:760px;margin-inline:auto;border:2px solid var(--red)}
-    .price-card .tag{display:inline-block;background:rgba(214,5,45,.08);color:#000;border:1.5px solid var(--red);border-radius:999px;padding:8px 14px;font-weight:800}
-    .price-card h3{margin:12px 0 8px;font-weight:900}
+    .price-card{background:#fff;color:#000;border-radius:24px;box-shadow:var(--shadow);padding:24px;max-width:760px;margin-inline:auto;border:2px solid var(--red)}
+    .price-card .tag{display:inline-block;background:rgba(214,5,45,.08);color:#000;border:1.5px solid var(--red);border-radius:999px;padding:6px 12px;font-weight:800}
+    .price-card h3{margin:10px 0 6px;font-weight:900;font-family:var(--font-head)}
     .price-card .off{color:var(--red)}
-    .price-card .big{font-size:34px;font-weight:900;margin:6px 0}
+    .price-card .big{font-size:28px;font-weight:900;margin:4px 0}
     .muted{opacity:.8}
     .btn-dark{background:#111;color:#fff}
-    .divider{height:1px;background:#e6e6e6;margin:16px 0}
+    .divider{height:1px;background:#e6e6e6;margin:14px 0}
     .price-card .countdown .unit{background:#f1f1f1;border-color:#e6e6e6;color:#000}
 
-    /* Footer (icons) */
+    /* Footer */
     footer{background:#0b0b0b;color:#bbb}
-    .socials{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-    .socials a{display:inline-flex;align-items:center;padding:10px;border-radius:12px;background:#111}
+    .socials{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+    .socials a{display:inline-flex;align-items:center;padding:8px;border-radius:12px;background:#111}
   </style>
 </head>
 <body>
@@ -156,10 +171,9 @@
   <!-- PROMO -->
   <div class="promo"><div class="inner">خصم <strong>60%</strong> لفترة محدودة بمناسبة اليوم الوطني السعودي!!</div></div>
 
-  <!-- HERO 16:9 -->
+  <!-- HERO -->
   <header class="hero">
     <div class="banner">
-      <!-- تأكد أن اسم الصورة: evallbanner.jpg بحجم 16:9 (مثل 1920×1080 أو 2560×1440) -->
       <img src="evallbanner.jpg" alt="Evall Hero Banner">
     </div>
     <div class="overlay">
@@ -309,8 +323,8 @@
       <h3>طريقة الدفع بخطوات بسيطة:</h3>
       <ol>
         <li>ادخل بريدك الإلكتروني</li>
-        <li>اضغط على <span style="color:var(--gold);font-weight:800">Add coupon</span> لإضافة كود الخصم</li>
-        <li>بعد إضافة الكود، اضغط على <span style="color:var(--gold);font-weight:800">ADD COUPON</span> ثم <span style="color:var(--gold);font-weight:800">CONTINUE WITH PURCHASE</span></li>
+        <li>اضغط على <span style="color:#F3B041;font-weight:800">Add coupon</span> لإضافة كود الخصم</li>
+        <li>بعد إضافة الكود، اضغط على <span style="color:#F3B041;font-weight:800">ADD COUPON</span> ثم <span style="color:#F3B041;font-weight:800">CONTINUE WITH PURCHASE</span></li>
         <li>اختر وسيلة الدفع المناسبة واملأ البيانات</li>
         <li>بعد إتمام عملية الدفع، سيظهر لك رابط التحميل مباشرة</li>
       </ol>
@@ -319,7 +333,7 @@
         <svg viewBox="0 0 256 128" role="img" aria-label="Mastercard"><rect width="256" height="128" rx="10" fill="#141414"/><circle cx="108" cy="64" r="38" fill="#EA001B"/><circle cx="148" cy="64" r="38" fill="#FF9900" opacity=".9"/><text x="50%" y="88%" text-anchor="middle" font-size="18" fill="#fff">Mastercard</text></svg>
         <svg viewBox="0 0 256 128" role="img" aria-label="Debit Card"><rect width="256" height="128" rx="10" fill="#1d1d1d"/><rect x="16" y="22" width="224" height="84" rx="8" fill="#2b2b2b"/><rect x="24" y="34" width="84" height="12" fill="#3a3a3a"/><rect x="24" y="70" width="160" height="10" fill="#3a3a3a"/><text x="50%" y="108%" text-anchor="middle" font-size="18" fill="#fff">Debit</text></svg>
       </div>
-      <p style="font-size:12px;color:var(--red);margin-top:10px">ملحوظة مهمة: بعد إتمام عملية الدفع، قد تلاحظ خصم مبلغ 1$ من بطاقتك، لا داعي للقلق، هي عملية تحقق مؤقتة وسيُعاد خلال يومين كحد أقصى.</p>
+      <p style="font-size:12px;color:#D6052D;margin-top:10px">ملحوظة مهمة: بعد إتمام عملية الدفع، قد تلاحظ خصم مبلغ 1$ من بطاقتك، لا داعي للقلق، هي عملية تحقق مؤقتة وسيُعاد خلال يومين كحد أقصى.</p>
     </div>
   </section>
 
@@ -356,7 +370,7 @@
           <svg width="30" height="22" viewBox="0 0 30 22" fill="none"><rect x="1" y="1" width="28" height="20" rx="4" stroke="#fff" stroke-width="2"/><path d="M13 15V7l6 4-6 4z" fill="#fff"/></svg>
         </a>
         <a href="https://www.facebook.com/evallonline.success" target="_blank" rel="noopener" aria-label="Facebook">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M22 12a10 10 0 1 0-11.5 9.9v-7h-2.4V12h2.4V9.7c0-2.4 1.4-3.7 3.6-3.7 1 0 2 .18 2 .18v2.2h-1.1c-1.1 0-1.5.67-1.5 1.4V12h2.6l-.41 2.9h-2.2v7A10 10 0 0 0 22 12Z" fill="#fff"/></svg>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M22 12a10 10 0 1 0-11.5 9.9v-7h-2.4V12h2.4V9.7c0-2.4 1.4-3.7 3.6-3.7 1 0 2 .18 2 .18v2.2h-1.1c-1.1 0-1.5.67-1.5 1.4V12h2.6ل-.41 2.9h-2.2v7A10 10 0 0 0 22 12Z" fill="#fff"/></svg>
         </a>
         <a href="https://www.instagram.com/evallonlinesuccess/" target="_blank" rel="noopener" aria-label="Instagram">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="#fff" stroke-width="2"/><circle cx="12" cy="12" r="4.2" stroke="#fff" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="#fff"/></svg>
