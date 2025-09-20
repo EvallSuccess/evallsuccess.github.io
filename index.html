@@ -1,451 +1,438 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>بكج إيفال – خطتك العملية للوضوح والسيطرة على الوقت</title>
-  <meta name="description" content="بكج إيفال: منتج رقمي شامل يساعدك على تطوير ذاتك وتحويل أحلامك إلى أهداف قابلة للتنفيذ عبر 10 خطوات عملية، تنظيم وقت احترافي، ومهام يومية لمدة سنة كاملة."/>
-  
-  <!-- Open Graph -->
-  <meta property="og:title" content="بكج إيفال – خصم 60% لفترة محدودة"/>
-  <meta property="og:description" content="احصل على النسخة الكاملة من بكج إيفال: أجندة 360 يوم، كتاب رحلة تحول (رقمي + صوتي 3D)، جدول مهام 112 يوم، 40 غلاف هدية، ودعم لمدة 3 أشهر."/>
-  <meta property="og:type" content="website"/>
-  
-  <!-- Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
-  
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>بكج إيفال – صفحة هبوط</title>
+  <meta name="description" content="بكج إيفال – تطوير ذاتك بخطة واضحة وخطوات عملية مع دعم لمدة 90 يوم." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --gold: #F3B041;           /* الذهبي الأساسي */
-      --gold-700: #dca02c;       /* درجة أدكن للهوفر */
-      --cyan: #44B1D8;           /* الأزرق */
-      --cyan-700: #2f8fb0;       /* درجة أدكن للهوفر */
-      --black: #000000;          /* الأسود */
-      --navy: #0c2238;           /* خلفيات داكنة قريبة من المرجع */
-      --navy-2: #12324f;         /* تباين داخلي */
-      --gray-25: #fbfcfe;
-      --gray-50: #f5f7fa;
-      --gray-100: #edf1f5;
-      --gray-200: #d8dee6;
-      --gray-600: #5e6b7a;
-      --radius: 16px;
-      --shadow: 0 10px 30px rgba(0,0,0,.08);
+    :root{
+      --red:#D6052D;
+      --gray-100:#F2F2F2;
+      --gray-900:#202020;
+      --black:#000000;
+      --gold:#F3B041;
+      --shadow:0 10px 24px rgba(0,0,0,.18);
+      --radius:14px;
+      --container:1150px;
     }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;font-family:"Cairo",system-ui,-apple-system,"Segoe UI",Roboto,Arial;line-height:1.7;background:#000;color:#fff;scroll-behavior:smooth}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{width:100%;max-width:var(--container);margin-inline:auto;padding:28px 18px;text-align:center}
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { margin:0; font-family: 'Tajawal', system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif; color:#0b1a2a; background: var(--gray-25); }
-    a { color: inherit; text-decoration: none; }
-    img { max-width:100%; display:block; }
+    /* top promo */
+    .promo{position:sticky;top:0;z-index:50;background:var(--red);color:#fff;font-weight:800;text-align:center}
+    .promo .inner{display:flex;gap:14px;justify-content:center;align-items:center;padding:10px 14px;flex-wrap:wrap}
+    .promo strong{background:#fff;color:var(--red);padding:2px 10px;border-radius:999px}
+    .promo .cta-inline{background:#fff;color:#000;font-weight:800;border-radius:999px;padding:8px 14px}
 
-    /* Layout */
-    .container { width:min(1200px, 92%); margin-inline:auto; }
-    .grid { display:grid; gap:24px; }
+    /* hero */
+    .hero{background:linear-gradient(180deg,#0b0b0b, #000);position:relative}
+    .hero .banner{position:relative;border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+    .hero .banner img{width:100%;aspect-ratio:16/9;object-fit:cover}
+    .hero .overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.6))}
+    .hero h1{margin:12px 0 0;font-weight:900;font-size:clamp(26px,4.5vw,40px)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 22px;border-radius:14px;font-weight:800;box-shadow:var(--shadow);border:none;cursor:pointer}
+    .btn-primary{background:var(--gold);color:#000}
+    .btn-dark{background:#111;color:#fff}
+    .btn-red{background:var(--red);color:#fff}
+    .btn-ghost{background:transparent;color:#fff;border:2px solid #fff}
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:14px}
+    .countdown{display:flex;gap:8px;font-weight:900}
+    .countdown .unit{background:#111;border:1px solid #1f1f1f;border-radius:10px;min-width:64px;padding:8px 10px}
+    .countdown .num{display:block;font-size:20px}
+    .countdown .lbl{opacity:.8;font-size:12px}
 
-    /* Header */
-    .topbar { background: var(--navy); color:#fff; font-weight:700; font-size:.95rem; }
-    .topbar .container { display:flex; align-items:center; justify-content:center; gap:10px; padding:10px 0; }
-    .badge { display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius:999px; background:linear-gradient(90deg, var(--gold), var(--cyan)); color:#111; font-weight:800; }
+    /* KPI grid */
+    .section-dark{background:linear-gradient(180deg,#000,#0d0d0d)}
+    .kpi{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    @media(min-width:760px){.kpi{grid-template-columns:repeat(4,1fr)}}
+    .kpi .card{background:#303030;color:#fff;border-radius:var(--radius);padding:16px 10px;box-shadow:var(--shadow)}
+    .kpi .card .num{display:block;font-size:26px;font-weight:900;color:var(--gold)}
+    .kpi .card.red{background:var(--red)}
+    .kpi .card.red .num, .kpi .card.red .txt{color:#fff}
 
-    header.site { background: linear-gradient(180deg, rgba(12,34,56,.96), rgba(12,34,56,.92)), url('assets/hero-placeholder.jpg') center/cover no-repeat; color:#fff; position:relative; }
-    header.site::after { content:''; position:absolute; inset:0; background: radial-gradient(60% 60% at 70% 30%, rgba(68,177,216,.22), transparent 60%); pointer-events:none; }
-    .nav { display:flex; align-items:center; justify-content:space-between; padding:18px 0; }
-    .brand { display:flex; align-items:center; gap:12px; font-weight:900; letter-spacing:.5px; }
-    .brand .logo { width:42px; aspect-ratio:1; border-radius:10px; background:linear-gradient(180deg, var(--gold), #ffd37a); box-shadow:0 6px 18px rgba(243,176,65,.35); }
-    .nav .cta { display:flex; align-items:center; gap:12px; }
+    /* white section – tri cards */
+    .section-light{background:linear-gradient(180deg,#ffffff,#f8f8f8);color:#000}
+    .title{font-weight:900;margin:0 0 16px}
+    .title .brand{color:var(--gold)}
+    .tri{display:grid;grid-template-columns:1fr;gap:14px}
+    @media(min-width:760px){.tri{grid-template-columns:repeat(3,1fr)}}
+    .tri .card{background:#222;color:#fff;border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+    .tri .card h3{margin:0 0 6px;color:var(--gold)}
 
-    .btn { display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:13px 18px; border-radius:12px; font-weight:800; letter-spacing:.2px; transition:.2s ease; border:0; cursor:pointer; }
-    .btn--gold { background:var(--gold); color:#111; box-shadow:0 10px 18px rgba(243,176,65,.25); }
-    .btn--gold:hover { background:var(--gold-700); transform: translateY(-1px); }
-    .btn--link { color:#fff; border:1px solid rgba(255,255,255,.25); background:transparent; }
-    .btn--link:hover { background:rgba(255,255,255,.08); }
+    /* benefits – white cards on black */
+    .benefits{display:grid;grid-template-columns:1fr;gap:14px}
+    @media(min-width:900px){.benefits{grid-template-columns:repeat(2,1fr)}}
+    .benefits .card{background:#fff;color:#000;border-radius:var(--radius);padding:18px;text-align:inherit;box-shadow:var(--shadow)}
+    .benefits .card h4{margin:0 0 6px;font-weight:800}
+    .benefits .card .gift{color:var(--red)}
+    .benefits .card.support{background:var(--red);color:#fff}
 
-    .hero { display:grid; grid-template-columns: 1.1fr .9fr; gap:32px; padding:56px 0 72px; align-items:center; }
-    .hero h1 { font-size: clamp(28px, 4.2vw, 52px); line-height:1.2; margin:0 0 14px; }
-    .hero p.lead { font-size: clamp(16px, 1.6vw, 19px); color:#dce7f2; margin:0 0 22px; }
-    .hero .points { display:flex; flex-wrap:wrap; gap:10px; margin:18px 0 28px; }
-    .chip { padding:8px 12px; border-radius:999px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2); color:#eaf4fb; font-weight:600; font-size:.95rem; }
-    .hero-card { background:#fff; border-radius:var(--radius); padding:18px; box-shadow:var(--shadow); display:grid; gap:10px; }
-    .price { display:flex; align-items:end; gap:12px; }
-    .price .old { color:#a4afba; text-decoration:line-through; font-weight:700; }
-    .price .new { font-size: clamp(26px, 4vw, 34px); font-weight:900; color:var(--gold); }
-    .price small { color:#607086; font-weight:700; }
-    .coupon { background: rgba(68,177,216,.08); border:1px dashed var(--cyan); padding:10px 12px; border-radius:12px; font-weight:800; color:#0e2d47; }
+    /* gallery */
+    .gallery-strip{position:relative}
+    .gallery-track{display:flex;overflow:hidden;border-radius:var(--radius);box-shadow:var(--shadow)}
+    .gallery-track ul{list-style:none;display:flex;padding:0;margin:0;scroll-behavior:smooth;overflow:auto hidden;-webkit-overflow-scrolling:touch}
+    .gallery-track li{flex:0 0 85vw;max-width:85vw}
+    @media(min-width:900px){.gallery-track li{flex:0 0 360px;max-width:360px}}
+    .gallery-track img{height:240px;object-fit:cover}
+    .gal-nav{position:absolute;inset-block:0;display:flex;align-items:center;justify-content:space-between;pointer-events:none}
+    .gal-btn{pointer-events:auto;border:none;border-radius:999px;width:42px;height:42px;background:#111;color:#fff;opacity:.85}
 
-    /* Stats Bar */
-    .stats { background: var(--navy); color:#fff; padding:32px 0; }
-    .stats .grid { grid-template-columns: repeat(4, 1fr); }
-    .stat { text-align:center; padding:16px; border-radius:14px; background: rgba(255,255,255,.04); }
-    .stat strong { display:block; font-size: clamp(22px, 3vw, 32px); color:var(--gold); }
-    .stat span { opacity:.9; }
+    .chips{display:grid;gap:10px;grid-template-columns:repeat(2,minmax(0,1fr));justify-items:center;margin-top:18px}
+    @media(min-width:760px){.chips{grid-template-columns:repeat(4,1fr)}}
+    .chip{background:#000;color:var(--gold);border-radius:999px;padding:10px 14px;box-shadow:var(--shadow);display:inline-block}
 
-    /* Features */
-    section { padding:64px 0; }
-    .section-title { text-align:center; margin-bottom:28px; }
-    .section-title h2 { font-size: clamp(22px, 3.4vw, 36px); margin:0 0 6px; }
-    .section-title p { color:#475569; margin:0; }
-
-    .cards-3 { grid-template-columns: repeat(3, 1fr); }
-    .card { background:#fff; border-radius:var(--radius); padding:22px; box-shadow:var(--shadow); }
-    .card h3 { margin:0 0 8px; font-size:20px; }
-    .card p { margin:0; color:#4a5568; }
-
-    /* Dark band (like reference) */
-    .band { background: linear-gradient(180deg, var(--navy), var(--navy-2)); color:#dfe9f2; }
-    .band .content { display:grid; grid-template-columns: 1fr 1.2fr; gap:28px; align-items:center; }
-    .band .video-placeholder { background: rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.15); border-radius:var(--radius); aspect-ratio:16/9; display:grid; place-items:center; color:#9fb6c9; font-weight:700; }
-    .band .kicker { color: var(--gold); font-weight:900; }
-
-    /* Benefits grid */
-    .benefits { grid-template-columns: repeat(4, 1fr); }
-    .benef { background:#fff; border-radius:var(--radius); padding:24px; display:grid; gap:8px; box-shadow:var(--shadow); }
-    .benef strong { color:#0b1a2a; }
-
-    /* Inside gallery placeholders */
-    .inside { grid-template-columns: repeat(4, 1fr); }
-    .ph { border:2px dashed #d1d9e3; background:#fff; border-radius:12px; aspect-ratio: 4/3; display:grid; place-items:center; color:#8a98a8; font-weight:700; }
-
-    /* Pricing */
-    .pricing { display:grid; grid-template-columns: 1.1fr .9fr; gap:28px; align-items:center; }
-    .price-card { background:#fff; border-radius:var(--radius); padding:24px; box-shadow:var(--shadow); }
-    .price-card ul { margin:16px 0 0; padding:0 20px; color:#374151; }
-    .price-note { color:#0b1a2a; font-weight:800; margin-top:10px; }
-
-    /* How to pay */
-    .steps { grid-template-columns: repeat(3, 1fr); }
-    .step { background:#fff; border-radius:var(--radius); padding:20px; box-shadow:var(--shadow); }
-    .step strong { color:#0b1a2a; }
+    /* results */
+    .section-gray{background:linear-gradient(180deg,#fafafa,#eaeaea);color:#000}
+    .results{display:grid;grid-template-columns:1fr;gap:14px}
+    @media(min-width:900px){.results{grid-template-columns:repeat(2,1fr)}}
+    .results .card{background:#111;color:#fff;border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+    .results .card.red{background:var(--red)}
+    .results .card h5{margin:0 0 6px;font-size:18px;font-weight:900}
 
     /* FAQ */
-    .faq { max-width: 900px; margin-inline:auto; }
-    details { background:#fff; border-radius:14px; padding:14px 18px; margin:12px 0; box-shadow:var(--shadow); }
-    summary { cursor:pointer; font-weight:800; }
+    .faq{max-width:900px;margin-inline:auto}
+    details{background:#fff;color:#000;border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)}
+    details+details{margin-top:10px}
+    summary{cursor:pointer;font-weight:900;color:var(--gold);outline:none}
+    details p{margin:8px 0 0}
 
-    /* Logos strip */
-    .logos { display:flex; flex-wrap:wrap; gap:24px; opacity:.7; align-items:center; justify-content:center; }
-    .logos .logo-ph { width:120px; height:36px; border-radius:8px; border:1px dashed #cbd5e1; display:grid; place-items:center; font-weight:700; color:#94a3b8; background:#fff; }
+    /* payment steps */
+    .steps{color:#000}
+    .steps .container{text-align:right}
+    .steps h3{margin-top:0;color:#000}
+    .steps ol{padding-right:18px;margin:0 0 14px}
+    .steps .en{color:var(--gold);font-weight:800}
+    .steps .note-red{color:var(--red);font-weight:800}
+    .pay-logos{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+    .pay-logos svg{height:28px}
 
-    /* Footer */
-    footer { background:#0a1929; color:#c9d5e6; }
-    footer .cols { display:grid; grid-template-columns: 1.2fr 1fr 1fr 1.2fr; gap:28px; }
-    footer h4 { margin:0 0 10px; color:#fff; }
-    footer a { color:#c9d5e6; }
-    .newsletter { display:flex; gap:10px; }
-    .newsletter input { flex:1; padding:12px 14px; border-radius:12px; border:1px solid #334155; background:#0e2236; color:#e2e8f0; }
+    .pay-gallery li{flex:0 0 85vw;max-width:85vw}
+    @media(min-width:900px){.pay-gallery li{flex:0 0 520px;max-width:520px}}
 
-    /* Sticky CTA */
-    .sticky-cta { position: sticky; bottom: 0; inset-inline:0; background: rgba(12,34,56,.96); color:#fff; border-top:1px solid rgba(255,255,255,.12); z-index:30; }
-    .sticky-cta .container { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px 0; }
+    /* pricing */
+    .pricing{display:grid;justify-content:center}
+    .price-card{background:#fff;color:#000;border-radius:18px;box-shadow:var(--shadow);padding:24px;max-width:700px;margin-inline:auto}
+    .price-card .tag{display:inline-block;background:#000;color:#fff;border-radius:999px;padding:6px 12px;font-weight:800}
+    .price-card .off{color:var(--red);font-weight:900}
+    .big{font-size:34px;font-weight:900}
+    .muted{opacity:.8}
+    .divider{height:1px;background:#e6e6e6;margin:16px 0}
 
-    /* Utilities */
-    .muted { color:#667892; }
-    .kicker { font-weight:900; color:var(--gold); }
-    .divider { height:1px; background:var(--gray-200); margin:18px 0; }
+    /* footer */
+    footer{background:#0b0b0b;color:#bbb}
+    .socials{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+    .socials a{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;background:#111;color:#fff}
 
-    /* Responsive */
-    @media (max-width: 1024px) {
-      .hero, .pricing, .band .content { grid-template-columns: 1fr; }
-      .stats .grid { grid-template-columns: repeat(2, 1fr); }
-      .benefits { grid-template-columns: repeat(2, 1fr); }
-      .inside { grid-template-columns: repeat(2, 1fr); }
-      .steps { grid-template-columns: 1fr; }
-      footer .cols { grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 640px) {
-      .cards-3 { grid-template-columns: 1fr; }
-      .stats .grid { grid-template-columns: 1fr; }
-      footer .cols { grid-template-columns: 1fr; }
-    }
+    /* helpers */
+    .mb-0{margin-bottom:0}
+    .mb-8{margin-bottom:8px}
+    .mb-16{margin-bottom:16px}
+    .mb-24{margin-bottom:24px}
+    .mb-32{margin-bottom:32px}
+    .mt-0{margin-top:0}
+    .accent{color:var(--gold)}
   </style>
 </head>
 <body>
-  <!-- Offer ribbon -->
-  <div class="topbar">
-    <div class="container">
-      <span class="badge">كود: سعودي</span>
-      <span>خصم ضخم <b>60٪</b> بمناسبة اليوم الوطني السعودي – <b>وفر 203 ريال سعودي</b></span>
+  <!-- Sticky Promo Bar -->
+  <div class="promo" role="banner">
+    <div class="inner">
+      <span>خصم <strong>60%</strong> لفترة محدودة بمناسبة اليوم الوطني السعودي!!</span>
+      <a class="cta-inline" href="https://payhip.com/buy?link[]=wPZpb&session_enabled=1&parent_url=https%3A%2F%2Fpayhip.com%2Fb%2FwPZpb&type=overlay&payhip_js=true">احصل عليه الآن</a>
     </div>
   </div>
 
-  <!-- Header / Hero -->
-  <header class="site">
+  <!-- HERO -->
+  <header class="hero">
     <div class="container">
-      <nav class="nav" aria-label="الرئيسية">
-        <div class="brand">
-          <div class="logo" aria-hidden="true"></div>
-          <div>
-            <div style="font-size:18px">Eval World</div>
-            <small style="opacity:.8">بكج إيفال – Trade Your Time Like Gold</small>
+      <div class="banner">
+        <img src="evallbanner.jpg" alt="Evall Hero Banner" loading="eager" />
+        <div class="overlay">
+          <h1 class="mb-8">ابدأ رحلتك اليوم – <span class="accent">Trade Your Life Better</span></h1>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#pricing">شاهد العرض الآن</a>
+            <a class="btn btn-ghost" href="https://payhip.com/buy?link[]=wPZpb&session_enabled=1&parent_url=https%3A%2F%2Fpayhip.com%2Fb%2FwPZpb&type=overlay&payhip_js=true">احصل عليه الآن</a>
+          </div>
+          <div class="cta-row">
+            <div class="countdown" id="heroCountdown" aria-label="العد التنازلي للعرض"></div>
           </div>
         </div>
-        <div class="cta">
-          <a class="btn btn--link" href="#inside">ماذا بداخل البكج؟</a>
-          <a class="btn btn--gold" href="#checkout">احصل على النسخة الآن</a>
-        </div>
-      </nav>
-
-      <div class="hero">
-        <div>
-          <h1>سيطر على وقتك واصنع نسخة أهدأ وأقوى من نفسك خلال <span class="kicker">360 يوم</span></h1>
-          <p class="lead">بكج <b>إيفال</b> منتج رقمي متكامل يقودك في <b>10 خطوات عملية ومدروسة</b> من اكتشاف ذاتك وشغفك إلى تحويل أحلامك لأهداف واضحة قابلة للتنفيذ—مع مهام يومية، قصص وأمثلة، ومتابعة لمدة سنة كاملة.</p>
-          <div class="points">
-            <span class="chip">أجندة 360 يوم</span>
-            <span class="chip">كتاب رحلة تحول (رقمي + صوتي 3D)</span>
-            <span class="chip">جدول مهام 112 يوم</span>
-            <span class="chip">40 غلاف هدية</span>
-            <span class="chip">تنظيم وقت احترافي</span>
-            <span class="chip">دعم عبر الإيميل</span>
-          </div>
-          <div class="cta">
-            <a class="btn btn--gold" href="#checkout">اشترِ الآن – 
-              <span aria-label="السعر بعد الخصم">35.96$</span>
-            </a>
-            <a class="btn btn--link" href="#faq">أسئلة متكررة</a>
-          </div>
-        </div>
-        
-        <aside class="hero-card" aria-label="بطاقة السعر والعرض">
-          <div class="price">
-            <div class="old">89.90$</div>
-            <div class="new">35.96$</div>
-          </div>
-          <small class="muted">≈ <b>135 ريال سعودي</b> – وفر <b>203 ريال</b> – دفع مرة واحدة فقط</small>
-          <div class="coupon">استخدم كود <b>سعودي</b> للحصول على الخصم (لفترة محدودة)</div>
-          <ul style="margin:0; padding:0 18px; color:#2a3a4e;">
-            <li>وصول فوري لجميع الملفات بعد الدفع</li>
-            <li>تحديثات مجانية لمدة سنة كاملة</li>
-            <li>دعم وتواصل عبر الإيميل لمدة <b>3 أشهر</b></li>
-          </ul>
-        </aside>
       </div>
     </div>
   </header>
 
-  <!-- Stats band like reference -->
-  <div class="stats">
-    <div class="container grid">
-      <div class="stat"><strong>360</strong><span>يوم تنظيم ومتابعة</span></div>
-      <div class="stat"><strong>10</strong><span>خطوات عملية ومدروسة</span></div>
-      <div class="stat"><strong>112</strong><span>مهمة عملية تُنجز</span></div>
-      <div class="stat"><strong>3 أشهر</strong><span>دعم عبر الإيميل</span></div>
-    </div>
-  </div>
-
-  <!-- What you get (3 cards) -->
-  <section id="features">
+  <!-- KPIs on Dark -->
+  <section class="section-dark">
     <div class="container">
-      <div class="section-title">
-        <h2>ما الذي ستحصل عليه داخل <span class="kicker">بكج إيفال</span>؟</h2>
-        <p>كل ما تحتاجه لتتحرك يوميًا، تتطور، وتبني عادات تغيّر حياتك بلا فوضى.</p>
+      <div class="kpi">
+        <div class="card"><span class="num">360</span><div class="txt">يوم متابعة وتنظيم</div></div>
+        <div class="card red"><span class="num">203</span><div class="txt">ريال توفير</div></div>
+        <div class="card"><span class="num">112</span><div class="txt">مهام مُنجزة</div></div>
+        <div class="card"><span class="num">90</span><div class="txt">سؤال عميق / ذاتي</div></div>
+        <div class="card"><span class="num">90</span><div class="txt">يوم دعم وتواصل</div></div>
+        <div class="card"><span class="num">12</span><div class="txt">تحديات نفسية</div></div>
+        <div class="card"><span class="num">10</span><div class="txt">خطوات للثقة والتطور</div></div>
+        <div class="card"><span class="num">7</span><div class="txt">جداول لتنظيم الوقت</div></div>
       </div>
-      <div class="grid cards-3">
+    </div>
+  </section>
+
+  <!-- Tri Benefits (white bg) -->
+  <section class="section-light">
+    <div class="container">
+      <h2 class="title"> <span class="brand">بكج إيفال</span> … كأنك مع فريق كامل يرافقك خطوة بخطوة</h2>
+      <div class="tri">
+        <div class="card"><h3>مدرب شخصي</h3><p class="mb-0">يشجعك، يحفزك، ويذكّرك دائماً أن حياتك ملكك لتعيشها كما تحب</p></div>
+        <div class="card"><h3>مرشد مهني</h3><p class="mb-0">يرسم لك خريطة نجاحك، يتابع خطواتك، ويقيم إنجازاتك</p></div>
+        <div class="card"><h3>معالج نفسي</h3><p class="mb-0">يفهمك ويرافقك في رحلتك النفسية ويدعمك لتعيش حياة متوازنة</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What you get (black bg) -->
+  <section class="section-dark" id="inside">
+    <div class="container">
+      <h2 class="title"><span class="brand">ما الذي ستحصل عليه داخل بكج إيفال؟</span></h2>
+      <div class="benefits">
         <div class="card">
-          <h3>أجندة إيفال – 360 يوم</h3>
-          <p>تصميم ذكي لإدارة الوقت وترتيب أولوياتك مع مساحة مخصصة للفضفضة والتعبير وكأنك مع معالج نفسي.</p>
+          <h4>أجندة إيفال 360 يوم</h4>
+          <p>هو المدرب، والمرآة، والداعم، والشاهد على رحلتك!! يحتوي على أكثر من 90 سؤال عميق ... إلخ.</p>
         </div>
         <div class="card">
-          <h3>كتاب رحلة تحول (رقمي + صوتي 3D)</h3>
-          <p>يرافقك بقصص وأمثلة واقعية لتطبيق 10 خطوات عملية تحول الحلم إلى هدف واضح قابل للتنفيذ.</p>
+          <h4>كتاب رحلة تحول <span class="en">(Digital/Audio 3D)</span></h4>
+          <p>10 خطوات عملية مدروسة تأخذك لاكتشاف شغفك وقدراتك وتحويل أحلامك إلى أهداف قابلة للتحقيق … يمكنك الاستماع في أي وقت ومن أي مكان.</p>
         </div>
         <div class="card">
-          <h3>جدول مهام 112 يوم + 40 غلاف هدية</h3>
-          <p>مهمة واحدة كل يوم تبني بها عادة جديدة وتكافئ نفسك—وتصاميم أغلفة أنيقة تناسب ذوقك.</p>
+          <h4>جدول مهام 112 يوم</h4>
+          <p>مهمة يومية بسيطة التأثير يتراكم مع الوقت لبناء عادات جديدة ووضوح الهدف …</p>
+        </div>
+        <div class="card">
+          <h4>40 غلاف للأجندة</h4>
+          <p>اختر الغلاف الذي يعكس شخصيتك … الألوان والطاقة تشجعك على الاستمرار والحماس.</p>
+        </div>
+        <div class="card">
+          <h4 class="gift">هدية: ملفات خاصة لتنظيم الوقت</h4>
+          <p>إدارة الوقت هي السر الأكبر للنجاح … ستتعلم السيطرة على وقتك لتتغيّر حياتك بالكامل.</p>
+        </div>
+        <div class="card support">
+          <h4>دعم وتواصل</h4>
+          <p>سنكون معك لمدة 90 يوماً لدعمك والإجابة على الأسئلة وتقديم نصائح عملية لتطبيق كل ما يخص البكج.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Dark band (story + video placeholder) -->
-  <section class="band">
-    <div class="container content">
-      <div class="video-placeholder">ضع هنا صورة/فيديو تعريفي (16:9)</div>
-      <div>
-        <div class="kicker">يا تلحق… يا ما تلحق!</div>
-        <h2 style="margin-top:6px">كل شخص ناجح مر بلحظة قال فيها: <span class="kicker">خلص – هلا لازم أبلّش</span></h2>
-        <p>عالم إيفال هي لحظتك. من لحظة امتلاكك للبكج ستشعر أنك على تواصل مع <b>3 شخصيات مهمة</b>: لايف كوتش يشجعك، ومدرب مهني يرتّب أولوياتك، ومعالج نفسي يرافقك ليفهم عقلك ويتعامل مع التحديات النفسية.</p>
-        <p>مع الوقت ستلاحظ الأثر على شخصيتك: وضوح، هدوء، إنجاز، وعادات تصنع مستقبلك.</p>
-        <a class="btn btn--gold" href="#checkout">ابدأ رحلتك اليوم</a>
+  <!-- Gallery (white) -->
+  <section class="section-light" id="gallery">
+    <div class="container gallery-strip">
+      <div class="gallery-track">
+        <ul id="galList">
+          <li><img src="evallpic1.jpg" alt="Evall gallery 1"></li>
+          <li><img src="evallpic2.jpg" alt="Evall gallery 2"></li>
+          <li><img src="evallpic3.jpg" alt="Evall gallery 3"></li>
+          <li><img src="evallpic4.jpg" alt="Evall gallery 4"></li>
+          <li><img src="evallpic5.jpg" alt="Evall gallery 5"></li>
+          <li><img src="evallpic6.jpg" alt="Evall gallery 6"></li>
+          <li><img src="evallpic7.jpg" alt="Evall gallery 7"></li>
+          <li><img src="evallpic8.jpg" alt="Evall gallery 8"></li>
+          <li><img src="evallpic9.jpg" alt="Evall gallery 9"></li>
+          <li><img src="evallpic10.jpg" alt="Evall gallery 10"></li>
+        </ul>
+      </div>
+      <div class="gal-nav">
+        <button class="gal-btn" aria-label="prev" onclick="scrollStrip('galList',-1)">◀</button>
+        <button class="gal-btn" aria-label="next" onclick="scrollStrip('galList',1)">▶</button>
       </div>
     </div>
-  </section>
-
-  <!-- Benefits -->
-  <section id="benefits">
     <div class="container">
-      <div class="section-title">
-        <h2>فوائد مباشرة ستحسّها من الأسبوع الأول</h2>
-        <p>مصمم ليخلّيك تعرف متى تنجز، متى ترتاح، ومتى تتطور.</p>
-      </div>
-      <div class="grid benefits">
-        <div class="benef"><strong>سيطرة على وقتك</strong><span class="muted">وداعًا للفوضى والتشتت.</span></div>
-        <div class="benef"><strong>وضوح أهدافك</strong><span class="muted">خطوات عملية تحول الحلم لخطة تنفيذ.</span></div>
-        <div class="benef"><strong>بناء عادات</strong><span class="muted">مهمة يومية صغيرة تصنع فرق كبير.</span></div>
-        <div class="benef"><strong>راحة نفسية</strong><span class="muted">مساحة للفضفضة ومعالجة العوائق النفسية.</span></div>
+      <h3 class="mt-0" style="color:#000">بكج إيفال عبارة عن:</h3>
+      <div class="chips">
+        <span class="chip">دعم</span>
+        <span class="chip">تحفيز</span>
+        <span class="chip">ثقة</span>
+        <span class="chip">تنظيم</span>
+        <span class="chip">خطة لمستقبلك</span>
+        <span class="chip">توازن بحياتك</span>
+        <span class="chip">راحة لنفسيتك</span>
       </div>
     </div>
   </section>
 
-  <!-- Inside Gallery Placeholders -->
-  <section id="inside">
+  <!-- Results (light gray) -->
+  <section class="section-gray" id="results">
     <div class="container">
-      <div class="section-title">
-        <h2>نظرة داخلية</h2>
-        <p>ارفع صور شاشة/نماذج من داخل الملفات هنا (مكان جاهز للاستبدال).</p>
-      </div>
-      <div class="grid inside">
-        <div class="ph">صورة #1</div>
-        <div class="ph">صورة #2</div>
-        <div class="ph">صورة #3</div>
-        <div class="ph">صورة #4</div>
+      <h2 class="title" style="color:#000">نتائج واضحة بأقل من شهر!</h2>
+      <div class="results">
+        <div class="card"><h5>وضوح أهدافك:</h5><p class="mb-0">خطوات عملية تحوّل الحلم لخطة قابلة للتنفيذ</p></div>
+        <div class="card"><h5>بناء عادات جديدة:</h5><p class="mb-0">تبني روتين يومي يعزز إنتاجيتك ويقوي التزامك</p></div>
+        <div class="card"><h5>راحة نفسية:</h5><p class="mb-0">شعور بالهدوء والتوازن النفسي والسيطرة على أفكارك ومشاعرك</p></div>
+        <div class="card"><h5>إنجاز مستمر:</h5><p class="mb-0">تحقيق أهداف صغيرة يومياً، يشعرك بالتقدم والتحفيز</p></div>
+        <div class="card"><h5>سيطرة على وقتك:</h5><p class="mb-0">وداعاً للفوضى والتشتت</p></div>
+        <div class="card red"><h5>حياة مليئة بالأمل والإيجابية:</h5><p class="mb-0">شعور مستمر بالراحة والتفاؤل بعيداً عن الأفكار السلبية</p></div>
       </div>
     </div>
   </section>
 
-  <!-- Pricing / Offer -->
-  <section id="checkout">
-    <div class="container pricing">
-      <div>
-        <div class="section-title" style="text-align:right">
-          <h2>عرض اليوم الوطني السعودي – <span class="kicker">خصم 60٪</span></h2>
-          <p>ادخل كود <b>سعودي</b> عند الدفع. الدفع مرة واحدة – وصول فوري.</p>
-        </div>
-        <div class="price-card">
-          <div class="price">
-            <div class="old">89.90$</div>
-            <div class="new">35.96$</div>
-            <small>≈ 135 ر.س</small>
-          </div>
-          <div class="price-note">وفر 203 ريال سعودي</div>
-          <div class="divider"></div>
-          <ul>
-            <li>أجندة إيفال لمدة 360 يوم</li>
-            <li>كتاب رحلة تحول (رقمي + صوتي بخاصية 3D)</li>
-            <li>جدول مهام لمدة 112 يوم</li>
-            <li>40 غلاف للأجندة (هدية)</li>
-            <li>تنظيم وقت باحترافية + مساحة للفضفضة</li>
-            <li>دعم وتواصل عبر الإيميل لأي استفسار (3 أشهر)</li>
-          </ul>
-          <div class="divider"></div>
-          <a class="btn btn--gold" href="#pay">انتقل للدفع الآمن</a>
-          <p class="muted" style="margin:.6rem 0 0">بعد الدفع ستصلك روابط التحميل فورًا على بريدك الإلكتروني.</p>
-        </div>
-      </div>
-      <aside>
-        <div class="card" style="background:linear-gradient(180deg,#fff, #f8fbff);">
-          <h3 style="margin-top:0">طريقة الدفع بخطوات بسيطة</h3>
-          <ol style="margin:0; padding:0 20px; color:#374151;">
-            <li>اضغط على زر <b>انتقل للدفع</b>.</li>
-            <li>أدخل بريدك الإلكتروني وكود الخصم <b>سعودي</b>.</li>
-            <li>اختر وسيلة الدفع المناسبة وأكمل العملية.</li>
-          </ol>
-          <div class="divider"></div>
-          <div class="ph" style="aspect-ratio:16/10">مكان صورة توضيح خطوات الدفع</div>
-          <p class="muted" style="margin:.7rem 0 0">* يمكنك استبدال الصندوق أعلاه بصورة أو GIF لشرح الدفع.</p>
-        </div>
-      </aside>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section id="faq" class="band" style="padding:56px 0;">
+  <!-- FAQ (black bg) -->
+  <section class="section-dark" id="faq">
     <div class="container">
-      <div class="section-title" style="color:#fff">
-        <h2>الأسئلة المتكررة</h2>
-        <p>إجابات مختصرة وواضحة لأكثر ما يُسأل عنه.</p>
-      </div>
+      <h2 class="title"><span class="brand">الأسئلة المتكررة (FAQ)</span></h2>
       <div class="faq">
         <details>
-          <summary>هل البكج رقمي بالكامل؟ وكيف أستلمه؟</summary>
-          <p>نعم، البكج رقمي بالكامل. بعد الدفع تصلك روابط التحميل فورًا على بريدك الإلكتروني، ويمكنك حفظها على جهازك.</p>
+          <summary>هل البكج رقمي أم ورقي؟</summary>
+          <p>البكج رقمي بالكامل… كما أن الملفات مصممة للطباعة إذا رغبت، أو الاحتفاظ بها رقمياً واستخدام دفتر خارجي للكتابة.</p>
         </details>
         <details>
-          <summary>هل هناك تحديثات مستقبلية؟</summary>
-          <p>نعم، تحصل على التحديثات مجانًا لمدة سنة كاملة من تاريخ الشراء.</p>
+          <summary>ما هي الأسس التي بُني عليها البكج؟</summary>
+          <p>تم تطوير البكج بناءً على بحوث ودراسات وتجارب عملية لأكثر من 8 أشهر، مع استشارات متخصصين لضمان نتائج فعلية.</p>
         </details>
         <details>
-          <summary>هل يوجد دعم إذا واجهت مشكلة؟</summary>
-          <p>أكيد! لدينا دعم عبر الإيميل لمدة 3 أشهر للإجابة على أي استفسار أو نصيحة عامة.</p>
+          <summary>كيف أستلم الملفات؟</summary>
+          <p>بعد إتمام الدفع يظهر رابط التحميل مباشرة، كما يصلك أيضاً عبر البريد الإلكتروني من <span class="en">Payhip</span>.</p>
         </details>
         <details>
-          <summary>هل يمكنني استرجاع المبلغ؟</summary>
-          <p>لأن المحتوى رقمي ويصل فورًا، لا نوفر استرجاعًا بعد التحميل. لكن نعدك بتجربة قيمة، ويمكنك مراسلتنا لأي مشكلة.</p>
+          <summary>هل الدفع شهري؟</summary>
+          <p>لا، الدفع مرة واحدة مدى الحياة، مع دعم لمدة 90 يوم.</p>
+        </details>
+        <details>
+          <summary>هل البكج مناسب لأي عمر أو مرحلة؟</summary>
+          <p>نعم، لأي شخص لديه أهداف شخصية، صحية، مهنية، دراسية، مالية، اجتماعية أو روحية.</p>
+        </details>
+        <details>
+          <summary>هل أحتاج خبرة سابقة للتطبيق؟</summary>
+          <p>لا، البكج بسيط وسهل التطبيق مع إمكانية التواصل عبر الإيميل لأسئلة أو دعم أثناء الإستخدام.</p>
         </details>
       </div>
     </div>
   </section>
 
-  <!-- Logos / Social proof placeholders -->
-  <section>
+  <!-- Payment Steps (white bg) -->
+  <section class="section-light steps" id="payment">
     <div class="container">
-      <div class="section-title">
-        <h2>شركاء وأدوات نعتمدها</h2>
-        <p>ضع هنا شعارات أو منصات الدفع/الأدوات (مكان جاهز للاستبدال).</p>
-      </div>
-      <div class="logos">
-        <div class="logo-ph">Logo 1</div>
-        <div class="logo-ph">Logo 2</div>
-        <div class="logo-ph">Logo 3</div>
-        <div class="logo-ph">Logo 4</div>
-        <div class="logo-ph">Logo 5</div>
-      </div>
-    </div>
-  </section>
+      <h3>طريقة الدفع بخطوات بسيطة:</h3>
+      <ol>
+        <li>ادخل بريدك الإلكتروني</li>
+        <li>اضغط على <span class="en">Add coupon</span> لإضافة كود الخصم</li>
+        <li>بعد إضافة الكود، اضغط على <span class="en">ADD COUPON</span> ثم <span class="en">CONTINUE WITH PURCHASE</span></li>
+        <li>اختر وسيلة الدفع المناسبة واملأ البيانات (<span class="note-red">عند اختيار البلد المقيم فيها، سيظهر لك المبلغ المطلوب دفعه بعُملة بلدك</span>)</li>
+        <li>بعد إتمام عملية الدفع، سيظهر لك رابط التحميل مباشرة</li>
+      </ol>
 
-  <!-- Footer -->
-  <footer>
-    <div class="container" style="padding:38px 0;">
-      <div class="cols">
-        <div>
-          <div class="brand" style="margin-bottom:10px;"> 
-            <div class="logo"></div>
-            <div>
-              <div style="font-size:18px">Eval World</div>
-              <small style="opacity:.8">عيش يومك بهدوء… وأنجز الأهم.</small>
-            </div>
-          </div>
-          <p class="muted">منتج رقمي شامل يساعدك تخطط لأهدافك، تبني عادات قوية، وتتابع تقدمك يومًا بيوم.</p>
-        </div>
-        <div>
-          <h4>روابط</h4>
-          <ul style="list-style:none; padding:0; margin:0; display:grid; gap:8px;">
-            <li><a href="#features">المحتويات</a></li>
-            <li><a href="#benefits">الفوائد</a></li>
-            <li><a href="#checkout">الشراء</a></li>
-            <li><a href="#faq">الأسئلة</a></li>
+      <div class="pay-logos" aria-label="طرق الدفع المتاحة">
+        <!-- PayPal -->
+        <svg viewBox="0 0 512 128" role="img" aria-label="PayPal"><rect width="512" height="128" rx="10" fill="#002f86"/><text x="50%" y="55%" text-anchor="middle" font-size="54" font-weight="800" fill="#fff">PayPal</text></svg>
+        <!-- MasterCard -->
+        <svg viewBox="0 0 256 128" role="img" aria-label="Mastercard"><rect width="256" height="128" rx="10" fill="#141414"/><circle cx="108" cy="64" r="38" fill="#EA001B"/><circle cx="148" cy="64" r="38" fill="#FF9900" opacity=".9"/><text x="50%" y="88%" text-anchor="middle" font-size="18" fill="#fff">Mastercard</text></svg>
+        <!-- Debit Card (generic) -->
+        <svg viewBox="0 0 256 128" role="img" aria-label="Debit Card"><rect width="256" height="128" rx="10" fill="#1d1d1d"/><rect x="16" y="22" width="224" height="84" rx="8" fill="#2b2b2b"/><rect x="24" y="34" width="84" height="12" fill="#3a3a3a"/><rect x="24" y="70" width="160" height="10" fill="#3a3a3a"/><text x="50%" y="108" text-anchor="middle" font-size="18" fill="#fff">Debit</text></svg>
+      </div>
+
+      <p class="mb-16" style="font-size:12px;color:var(--red)">ملحوظة مهمة: بعد إتمام عملية الدفع، قد تلاحظ خصم مبلغ قدره 1$ من بطاقتك، لا داعي للقلق، فهي مجرد عملية تحقق مؤقتة وسيُعاد خلال يومين كحد أقصى.</p>
+
+      <div class="gallery-strip">
+        <div class="gallery-track">
+          <ul id="payList" class="pay-gallery">
+            <li><img src="evallpayment1.jpg" alt="خطوة الدفع 1"></li>
+            <li><img src="evallpayment2.jpg" alt="خطوة الدفع 2"></li>
+            <li><img src="evallpayment3.jpg" alt="خطوة الدفع 3"></li>
+            <li><img src="evallpayment4.jpg" alt="خطوة الدفع 4"></li>
+            <li><img src="evallpayment5.jpg" alt="خطوة الدفع 5"></li>
+            <li><img src="evallpayment6.jpg" alt="خطوة الدفع 6"></li>
           </ul>
         </div>
-        <div>
-          <h4>تواصل</h4>
-          <p>للدعم والاستفسارات: <a href="mailto:support@evalworld.co">support@evalworld.co</a></p>
-        </div>
-        <div>
-          <h4>النشرة البريدية</h4>
-          <div class="newsletter">
-            <input type="email" placeholder="بريدك الإلكتروني" aria-label="البريد الإلكتروني">
-            <button class="btn btn--gold" type="button">اشترك</button>
-          </div>
+        <div class="gal-nav">
+          <button class="gal-btn" aria-label="prev" onclick="scrollStrip('payList',-1)">◀</button>
+          <button class="gal-btn" aria-label="next" onclick="scrollStrip('payList',1)">▶</button>
         </div>
       </div>
-      <div style="margin-top:24px; display:flex; align-items:center; gap:8px; opacity:.7; font-size:.9rem;">
-        <span>© <span id="year"></span> Eval World. جميع الحقوق محفوظة.</span>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="section-dark" id="pricing">
+    <div class="container pricing">
+      <div class="price-card">
+        <span class="tag">بمناسبة اليوم الوطني السعودي</span>
+        <h3 class="mt-0">خصم ضخم <span class="off">60%</span></h3>
+        <p class="big mb-8">$35.96 <span class="muted">بدلاً من</span> <s>$89.9</s></p>
+        <p class="mb-8">أي ~ <strong>135 ر.س</strong> (تقريباً) – وفر <strong>203 ر.س</strong></p>
+        <div class="divider"></div>
+        <div class="cta-row">
+          <a class="btn btn-red" href="https://payhip.com/buy?link[]=wPZpb&session_enabled=1&parent_url=https%3A%2F%2Fpayhip.com%2Fb%2FwPZpb&type=overlay&payhip_js=true">انتقل إلى صفحة الدفع</a>
+          <a class="btn btn-dark" href="#inside">تعرّف على المحتوى</a>
+        </div>
+        <p class="mb-16">آمن 100% – استلام عبر الإيميل مباشرة – دفعة واحدة ولمدى الحياة</p>
+        <div class="countdown" id="priceCountdown"></div>
       </div>
+    </div>
+  </section>
+
+  <!-- Footer + Socials -->
+  <footer>
+    <div class="container">
+      <div class="socials">
+        <a href="https://www.instagram.com/evallonlinesuccess/" target="_blank" rel="noopener">انستغرام</a>
+        <a href="https://www.facebook.com/evallonline.success" target="_blank" rel="noopener">فيسبوك</a>
+        <a href="https://www.youtube.com/@evallonlinesuccess" target="_blank" rel="noopener">يوتيوب</a>
+        <a href="https://www.tiktok.com/@evallonlinesuccess?_t=ZN-8zriKgSVMkI&_r=1" target="_blank" rel="noopener">تيك توك</a>
+        <a href="mailto:support@evallsuccess.com">إيميل</a>
+      </div>
+      <p class="mb-0" style="margin-top:12px">© <span id="year"></span> Evall – جميع الحقوق محفوظة</p>
     </div>
   </footer>
 
-  <!-- Sticky CTA -->
-  <div class="sticky-cta">
-    <div class="container">
-      <div style="display:flex; align-items:center; gap:10px;">
-        <span class="badge" aria-hidden="true">خصم 60%</span>
-        <strong>بكج إيفال – وفر 203 ريال سعودي</strong>
-      </div>
-      <a class="btn btn--gold" href="#checkout">اشترِ الآن</a>
-    </div>
-  </div>
-
   <script>
-    // سنة الفوتر
-    document.getElementById('year').textContent = new Date().getFullYear();
+    // countdown – persist 3 days from first visit
+    function initCountdown(id){
+      const el=document.getElementById(id);
+      if(!el) return;
+      const key='evall_countdown_target';
+      let target=localStorage.getItem(key);
+      if(!target){
+        const t=new Date();
+        t.setDate(t.getDate()+3);
+        target=t.getTime();
+        localStorage.setItem(key,target);
+      }else{target=parseInt(target,10)}
+      function tick(){
+        const now=Date.now();
+        let diff=target-now;
+        if(diff<=0){el.innerHTML='<span class="unit"><span class="num">00</span><span class="lbl">انتهى</span></span>';return}
+        const d=Math.floor(diff/86400000); diff-=d*86400000;
+        const h=Math.floor(diff/3600000); diff-=h*3600000;
+        const m=Math.floor(diff/60000); diff-=m*60000;
+        const s=Math.floor(diff/1000);
+        function pad(n){return String(n).padStart(2,'0')}
+        el.innerHTML=
+          `<span class="unit"><span class="num">${pad(d)}</span><span class="lbl">أيام</span></span>`+
+          `<span class="unit"><span class="num">${pad(h)}</span><span class="lbl">ساعات</span></span>`+
+          `<span class="unit"><span class="num">${pad(m)}</span><span class="lbl">دقائق</span></span>`+
+          `<span class="unit"><span class="num">${pad(s)}</span><span class="lbl">ثواني</span></span>`;
+      }
+      tick();
+      setInterval(tick,1000);
+    }
+    initCountdown('heroCountdown');
+    initCountdown('priceCountdown');
+
+    // gallery scroll helpers
+    function scrollStrip(id,dir){
+      const el=document.getElementById(id);
+      if(!el) return;
+      const child=el.querySelector('li');
+      const step=(child?child.getBoundingClientRect().width:320)+14;
+      el.scrollBy({left:dir*step,behavior:'smooth'});
+    }
+
+    // year
+    document.getElementById('year').textContent=new Date().getFullYear();
   </script>
 </body>
 </html>
