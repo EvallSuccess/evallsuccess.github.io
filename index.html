@@ -20,45 +20,32 @@
       --container:1150px;
     }
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;font-family:"Cairo",system-ui,-apple-system,"Segoe UI",Roboto,Arial;line-height:1.7;background:#000;color:#fff;scroll-behavior:smooth}
+    html,body{margin:0;padding:0;font-family:"Cairo",system-ui,-apple-system,"Segoe UI",Roboto,Arial;line-height:1.7;background:#000;color:#fff;text-align:center}
     a{color:inherit;text-decoration:none}
     img{max-width:100%;display:block}
-    .container{width:100%;max-width:var(--container);margin-inline:auto;padding:28px 18px;text-align:center}
+    .container{width:100%;max-width:var(--container);margin-inline:auto;padding:28px 18px}
 
-    /* top promo */
-    .promo{position:sticky;top:0;z-index:50;background:var(--red);color:#fff;font-weight:800;text-align:center}
-    .promo .inner{display:flex;gap:14px;justify-content:center;align-items:center;padding:10px 14px;flex-wrap:wrap}
-    .promo strong{background:#fff;color:var(--red);padding:2px 10px;border-radius:999px}
-    .promo .cta-inline{background:#fff;color:#000;font-weight:800;border-radius:999px;padding:8px 14px}
+    /* promo (no button) */
+    .promo{position:sticky;top:0;z-index:50;background:var(--red);color:#fff;font-weight:900}
+    .promo .inner{padding:10px 14px}
 
     /* hero */
-    .hero{background:linear-gradient(180deg,#0b0b0b, #000);position:relative}
-    .hero .banner{position:relative;border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
-    .hero .banner img{width:100%;aspect-ratio:16/9;object-fit:cover}
-    .hero .overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.6))}
-    .hero h1{margin:12px 0 0;font-weight:900;font-size:clamp(26px,4.5vw,40px)}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 22px;border-radius:14px;font-weight:800;box-shadow:var(--shadow);border:none;cursor:pointer}
-    .btn-primary{background:var(--gold);color:#000}
-    .btn-dark{background:#111;color:#fff}
-    .btn-red{background:var(--red);color:#fff}
-    .btn-ghost{background:transparent;color:#fff;border:2px solid #fff}
-    .cta-row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:14px}
-    .countdown{display:flex;gap:8px;font-weight:900}
-    .countdown .unit{background:#111;border:1px solid #1f1f1f;border-radius:10px;min-width:64px;padding:8px 10px}
-    .countdown .num{display:block;font-size:20px}
-    .countdown .lbl{opacity:.8;font-size:12px}
+    .hero{background:#111}
+    .hero .banner{border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+    .hero .banner img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
 
-    /* KPI grid */
-    .section-dark{background:linear-gradient(180deg,#000,#0d0d0d)}
-    .kpi{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-    @media(min-width:760px){.kpi{grid-template-columns:repeat(4,1fr)}}
-    .kpi .card{background:#303030;color:#fff;border-radius:var(--radius);padding:16px 10px;box-shadow:var(--shadow)}
-    .kpi .card .num{display:block;font-size:26px;font-weight:900;color:var(--gold)}
+    /* section backgrounds */
+    .section-dark{background:linear-gradient(180deg,#000,#0b0b0b)}
+    .section-light{background:linear-gradient(180deg,#ffffff,#f7f7f7);color:#000}
+    .section-gray{background:linear-gradient(180deg,#fafafa,#eaeaea);color:#000}
+
+    /* KPI – 8 بطاقات = سطرين × 4 (حتى على الموبايل) */
+    .kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .kpi .card{background:#202020;color:#fff;border-radius:var(--radius);padding:14px 10px;box-shadow:var(--shadow)}
+    .kpi .card .num{display:block;font-size:22px;font-weight:900;color:var(--gold)}
     .kpi .card.red{background:var(--red)}
-    .kpi .card.red .num, .kpi .card.red .txt{color:#fff}
 
-    /* white section – tri cards */
-    .section-light{background:linear-gradient(180deg,#ffffff,#f8f8f8);color:#000}
+    /* Tri (white bg) */
     .title{font-weight:900;margin:0 0 16px}
     .title .brand{color:var(--gold)}
     .tri{display:grid;grid-template-columns:1fr;gap:14px}
@@ -69,7 +56,7 @@
     /* benefits – white cards on black */
     .benefits{display:grid;grid-template-columns:1fr;gap:14px}
     @media(min-width:900px){.benefits{grid-template-columns:repeat(2,1fr)}}
-    .benefits .card{background:#fff;color:#000;border-radius:var(--radius);padding:18px;text-align:inherit;box-shadow:var(--shadow)}
+    .benefits .card{background:#fff;color:#000;border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
     .benefits .card h4{margin:0 0 6px;font-weight:800}
     .benefits .card .gift{color:var(--red)}
     .benefits .card.support{background:var(--red);color:#fff}
@@ -81,15 +68,10 @@
     .gallery-track li{flex:0 0 85vw;max-width:85vw}
     @media(min-width:900px){.gallery-track li{flex:0 0 360px;max-width:360px}}
     .gallery-track img{height:240px;object-fit:cover}
-    .gal-nav{position:absolute;inset-block:0;display:flex;align-items:center;justify-content:space-between;pointer-events:none}
+    .gal-nav{position:absolute;inset-block:0;inset-inline:0;display:flex;align-items:center;justify-content:space-between;pointer-events:none}
     .gal-btn{pointer-events:auto;border:none;border-radius:999px;width:42px;height:42px;background:#111;color:#fff;opacity:.85}
 
-    .chips{display:grid;gap:10px;grid-template-columns:repeat(2,minmax(0,1fr));justify-items:center;margin-top:18px}
-    @media(min-width:760px){.chips{grid-template-columns:repeat(4,1fr)}}
-    .chip{background:#000;color:var(--gold);border-radius:999px;padding:10px 14px;box-shadow:var(--shadow);display:inline-block}
-
     /* results */
-    .section-gray{background:linear-gradient(180deg,#fafafa,#eaeaea);color:#000}
     .results{display:grid;grid-template-columns:1fr;gap:14px}
     @media(min-width:900px){.results{grid-template-columns:repeat(2,1fr)}}
     .results .card{background:#111;color:#fff;border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
@@ -98,96 +80,78 @@
 
     /* FAQ */
     .faq{max-width:900px;margin-inline:auto}
-    details{background:#fff;color:#000;border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)}
+    details{background:#fff;color:#000;border-radius:var(--radius);padding:16px;box-shadow:var(--shadow);text-align:center}
     details+details{margin-top:10px}
     summary{cursor:pointer;font-weight:900;color:var(--gold);outline:none}
     details p{margin:8px 0 0}
 
     /* payment steps */
-    .steps{color:#000}
     .steps .container{text-align:right}
     .steps h3{margin-top:0;color:#000}
     .steps ol{padding-right:18px;margin:0 0 14px}
     .steps .en{color:var(--gold);font-weight:800}
-    .steps .note-red{color:var(--red);font-weight:800}
-    .pay-logos{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+    .pay-logos{display:flex;gap:16px;flex-wrap:wrap;align-items:center;justify-content:center}
     .pay-logos svg{height:28px}
-
     .pay-gallery li{flex:0 0 85vw;max-width:85vw}
     @media(min-width:900px){.pay-gallery li{flex:0 0 520px;max-width:520px}}
 
     /* pricing */
-    .pricing{display:grid;justify-content:center}
-    .price-card{background:#fff;color:#000;border-radius:18px;box-shadow:var(--shadow);padding:24px;max-width:700px;margin-inline:auto}
-    .price-card .tag{display:inline-block;background:#000;color:#fff;border-radius:999px;padding:6px 12px;font-weight:800}
-    .price-card .off{color:var(--red);font-weight:900}
-    .big{font-size:34px;font-weight:900}
+    .pricing{background:#000}
+    .price-card{background:#fff;color:#000;border-radius:24px;box-shadow:var(--shadow);padding:28px;max-width:760px;margin-inline:auto;border:2px solid var(--red)}
+    .price-card .tag{display:inline-block;background:rgba(214,5,45,.08);color:#000;border:1.5px solid var(--red);border-radius:999px;padding:8px 14px;font-weight:800}
+    .price-card h3{margin:12px 0 8px;font-weight:900}
+    .price-card .off{color:var(--red)}
+    .price-card .big{font-size:34px;font-weight:900;margin:6px 0}
     .muted{opacity:.8}
     .divider{height:1px;background:#e6e6e6;margin:16px 0}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 22px;border-radius:14px;font-weight:800;box-shadow:var(--shadow);border:none;cursor:pointer}
+    .btn-red{background:var(--red);color:#fff}
+    .btn-dark{background:#111;color:#fff}
 
     /* footer */
     footer{background:#0b0b0b;color:#bbb}
     .socials{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-    .socials a{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;background:#111;color:#fff}
+    .socials a{display:inline-flex;align-items:center;gap:8px;padding:10px;border-radius:12px;background:#111;color:#fff}
 
-    /* helpers */
-    .mb-0{margin-bottom:0}
-    .mb-8{margin-bottom:8px}
-    .mb-16{margin-bottom:16px}
-    .mb-24{margin-bottom:24px}
-    .mb-32{margin-bottom:32px}
-    .mt-0{margin-top:0}
-    .accent{color:var(--gold)}
+    /* countdown units */
+    .countdown{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+    .countdown .unit{background:#111;border:1px solid #1f1f1f;border-radius:10px;min-width:70px;padding:8px 10px}
+    .countdown .num{display:block;font-size:20px;font-weight:900}
+    .countdown .lbl{opacity:.8;font-size:12px}
+    .price-card .countdown .unit{background:#f1f1f1;border-color:#e6e6e6;color:#000}
   </style>
 </head>
 <body>
-  <!-- Sticky Promo Bar -->
-  <div class="promo" role="banner">
-    <div class="inner">
-      <span>خصم <strong>60%</strong> لفترة محدودة بمناسبة اليوم الوطني السعودي!!</span>
-      <a class="cta-inline" href="https://payhip.com/buy?link[]=wPZpb&session_enabled=1&parent_url=https%3A%2F%2Fpayhip.com%2Fb%2FwPZpb&type=overlay&payhip_js=true">احصل عليه الآن</a>
-    </div>
-  </div>
+  <!-- PROMO BAR (no button) -->
+  <div class="promo"><div class="inner">خصم <strong>60%</strong> لفترة محدودة بمناسبة اليوم الوطني السعودي!!</div></div>
 
-  <!-- HERO -->
+  <!-- HERO IMAGE ONLY -->
   <header class="hero">
     <div class="container">
-      <div class="banner">
-        <img src="evallbanner.jpg" alt="Evall Hero Banner" loading="eager" />
-        <div class="overlay">
-          <h1 class="mb-8">ابدأ رحلتك اليوم – <span class="accent">Trade Your Life Better</span></h1>
-          <div class="cta-row">
-            <a class="btn btn-primary" href="#pricing">شاهد العرض الآن</a>
-            <a class="btn btn-ghost" href="https://payhip.com/buy?link[]=wPZpb&session_enabled=1&parent_url=https%3A%2F%2Fpayhip.com%2Fb%2FwPZpb&type=overlay&payhip_js=true">احصل عليه الآن</a>
-          </div>
-          <div class="cta-row">
-            <div class="countdown" id="heroCountdown" aria-label="العد التنازلي للعرض"></div>
-          </div>
-        </div>
-      </div>
+      <div class="banner"><img src="evallbanner.jpg" alt="Evall Hero Banner"></div>
     </div>
   </header>
 
-  <!-- KPIs on Dark -->
+  <!-- KPI 4x2 -->
   <section class="section-dark">
     <div class="container">
       <div class="kpi">
-        <div class="card"><span class="num">360</span><div class="txt">يوم متابعة وتنظيم</div></div>
-        <div class="card red"><span class="num">203</span><div class="txt">ريال توفير</div></div>
-        <div class="card"><span class="num">112</span><div class="txt">مهام مُنجزة</div></div>
-        <div class="card"><span class="num">90</span><div class="txt">سؤال عميق / ذاتي</div></div>
-        <div class="card"><span class="num">90</span><div class="txt">يوم دعم وتواصل</div></div>
-        <div class="card"><span class="num">12</span><div class="txt">تحديات نفسية</div></div>
-        <div class="card"><span class="num">10</span><div class="txt">خطوات للثقة والتطور</div></div>
-        <div class="card"><span class="num">7</span><div class="txt">جداول لتنظيم الوقت</div></div>
+        <div class="card"><span class="num">360</span><div>يوم متابعة وتنظيم</div></div>
+        <div class="card red"><span class="num">203</span><div>ريال توفير</div></div>
+        <div class="card"><span class="num">112</span><div>مهام مُنجزة</div></div>
+        <div class="card"><span class="num">90</span><div>سؤال عميق / ذاتي</div></div>
+        <div class="card"><span class="num">90</span><div>يوم دعم وتواصل</div></div>
+        <div class="card"><span class="num">12</span><div>تحديات نفسية</div></div>
+        <div class="card"><span class="num">10</span><div>خطوات للثقة والتطور</div></div>
+        <div class="card"><span class="num">7</span><div>جداول لتنظيم الوقت</div></div>
       </div>
     </div>
   </section>
 
-  <!-- Tri Benefits (white bg) -->
+  <!-- TRI – "بكج إيفال" -->
   <section class="section-light">
     <div class="container">
-      <h2 class="title"> <span class="brand">بكج إيفال</span> … كأنك مع فريق كامل يرافقك خطوة بخطوة</h2>
+      <h2 class="title"><span class="brand">بكج إيفال</span> … كأنك مع فريق كامل يرافقك خطوة بخطوة</h2>
       <div class="tri">
         <div class="card"><h3>مدرب شخصي</h3><p class="mb-0">يشجعك، يحفزك، ويذكّرك دائماً أن حياتك ملكك لتعيشها كما تحب</p></div>
         <div class="card"><h3>مرشد مهني</h3><p class="mb-0">يرسم لك خريطة نجاحك، يتابع خطواتك، ويقيم إنجازاتك</p></div>
@@ -196,40 +160,40 @@
     </div>
   </section>
 
-  <!-- What you get (black bg) -->
+  <!-- WHAT YOU GET -->
   <section class="section-dark" id="inside">
     <div class="container">
       <h2 class="title"><span class="brand">ما الذي ستحصل عليه داخل بكج إيفال؟</span></h2>
       <div class="benefits">
         <div class="card">
           <h4>أجندة إيفال 360 يوم</h4>
-          <p>هو المدرب، والمرآة، والداعم، والشاهد على رحلتك!! يحتوي على أكثر من 90 سؤال عميق ... إلخ.</p>
+          <p>هو المدرب، والمرآة، والداعم، والشاهد على رحلتك!! يحتوي على أكثر من 90 سؤال عميق، ونصائح لكتابة أهدافك، ومقولات تحفيزية يومية، مع تخطيط يومي ومتابعة أسبوعية ومراجعة إنجازاتك، تقييم ذاتي، وصفحات لتفريغ المشاعر، وأسئلة ونصائح لمواجهة 12 تحدياً نفسياً، وخانة للتخطيط المالي، ورسائل خاصة مليئة بالتفاؤل والإيجابية … إلخ.</p>
         </div>
         <div class="card">
           <h4>كتاب رحلة تحول <span class="en">(Digital/Audio 3D)</span></h4>
-          <p>10 خطوات عملية مدروسة تأخذك لاكتشاف شغفك وقدراتك وتحويل أحلامك إلى أهداف قابلة للتحقيق … يمكنك الاستماع في أي وقت ومن أي مكان.</p>
+          <p>10 خطوات عملية مدروسة تأخذك في رحلة عميقة لاكتشاف شغفك وقدراتك وتحويل أحلامك إلى أهداف قابلة للتحقيق، مدعومة بالقصص والأمثلة؛ ويمكنك الاستماع إليها في أي وقت ومن أي مكان.</p>
         </div>
         <div class="card">
           <h4>جدول مهام 112 يوم</h4>
-          <p>مهمة يومية بسيطة التأثير يتراكم مع الوقت لبناء عادات جديدة ووضوح الهدف …</p>
+          <p>مهمة يومية بسيطة التأثير يتراكم مع الوقت ليترك أثراً حقيقياً على شخصيتك، تُبنى بها عادات جديدة بدل التسويف، ومع الوقت تصبح منجزاً ومنظماً وواضح الهدف.</p>
         </div>
         <div class="card">
           <h4>40 غلاف للأجندة</h4>
-          <p>اختر الغلاف الذي يعكس شخصيتك … الألوان والطاقة تشجعك على الاستمرار والحماس.</p>
+          <p>اختر الغلاف الذي يعكس شخصيتك؛ الألوان ليست شكلاً فقط بل طاقة تعزّز ارتباطك بأجندتك وتشجّعك على الاستمرار.</p>
         </div>
         <div class="card">
           <h4 class="gift">هدية: ملفات خاصة لتنظيم الوقت</h4>
-          <p>إدارة الوقت هي السر الأكبر للنجاح … ستتعلم السيطرة على وقتك لتتغيّر حياتك بالكامل.</p>
+          <p>إدارة الوقت سرّ النجاح. هذه الملفات ليست مكملًا بل أداة أساسية تنقذك من العشوائية وتعلّمك العيش بوضوح وهدوء بعيداً عن التشتت.</p>
         </div>
         <div class="card support">
           <h4>دعم وتواصل</h4>
-          <p>سنكون معك لمدة 90 يوماً لدعمك والإجابة على الأسئلة وتقديم نصائح عملية لتطبيق كل ما يخص البكج.</p>
+          <p>سنكون معك لمدة 90 يوماً لدعمك والإجابة على أي استفسار وتقديم نصائح عملية لتطبيق كل ما يخص البكج.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Gallery (white) -->
+  <!-- GALLERY (keep gallery, remove chips section) -->
   <section class="section-light" id="gallery">
     <div class="container gallery-strip">
       <div class="gallery-track">
@@ -251,36 +215,24 @@
         <button class="gal-btn" aria-label="next" onclick="scrollStrip('galList',1)">▶</button>
       </div>
     </div>
-    <div class="container">
-      <h3 class="mt-0" style="color:#000">بكج إيفال عبارة عن:</h3>
-      <div class="chips">
-        <span class="chip">دعم</span>
-        <span class="chip">تحفيز</span>
-        <span class="chip">ثقة</span>
-        <span class="chip">تنظيم</span>
-        <span class="chip">خطة لمستقبلك</span>
-        <span class="chip">توازن بحياتك</span>
-        <span class="chip">راحة لنفسيتك</span>
-      </div>
-    </div>
   </section>
 
-  <!-- Results (light gray) -->
+  <!-- RESULTS -->
   <section class="section-gray" id="results">
     <div class="container">
       <h2 class="title" style="color:#000">نتائج واضحة بأقل من شهر!</h2>
       <div class="results">
         <div class="card"><h5>وضوح أهدافك:</h5><p class="mb-0">خطوات عملية تحوّل الحلم لخطة قابلة للتنفيذ</p></div>
         <div class="card"><h5>بناء عادات جديدة:</h5><p class="mb-0">تبني روتين يومي يعزز إنتاجيتك ويقوي التزامك</p></div>
-        <div class="card"><h5>راحة نفسية:</h5><p class="mb-0">شعور بالهدوء والتوازن النفسي والسيطرة على أفكارك ومشاعرك</p></div>
-        <div class="card"><h5>إنجاز مستمر:</h5><p class="mb-0">تحقيق أهداف صغيرة يومياً، يشعرك بالتقدم والتحفيز</p></div>
+        <div class="card"><h5>راحة نفسية:</h5><p class="mb-0">شعور بالهدوء والتوازن والسيطرة على أفكارك ومشاعرك</p></div>
+        <div class="card"><h5>إنجاز مستمر:</h5><p class="mb-0">تحقيق أهداف صغيرة يومياً يرفع إحساس التقدم والتحفيز</p></div>
         <div class="card"><h5>سيطرة على وقتك:</h5><p class="mb-0">وداعاً للفوضى والتشتت</p></div>
         <div class="card red"><h5>حياة مليئة بالأمل والإيجابية:</h5><p class="mb-0">شعور مستمر بالراحة والتفاؤل بعيداً عن الأفكار السلبية</p></div>
       </div>
     </div>
   </section>
 
-  <!-- FAQ (black bg) -->
+  <!-- FAQ -->
   <section class="section-dark" id="faq">
     <div class="container">
       <h2 class="title"><span class="brand">الأسئلة المتكررة (FAQ)</span></h2>
@@ -295,7 +247,7 @@
         </details>
         <details>
           <summary>كيف أستلم الملفات؟</summary>
-          <p>بعد إتمام الدفع يظهر رابط التحميل مباشرة، كما يصلك أيضاً عبر البريد الإلكتروني من <span class="en">Payhip</span>.</p>
+          <p>بعد إتمام الدفع يظهر رابط التحميل مباشرة، كما يصلك أيضاً عبر البريد الإلكتروني من Payhip.</p>
         </details>
         <details>
           <summary>هل الدفع شهري؟</summary>
@@ -303,7 +255,7 @@
         </details>
         <details>
           <summary>هل البكج مناسب لأي عمر أو مرحلة؟</summary>
-          <p>نعم، لأي شخص لديه أهداف شخصية، صحية، مهنية، دراسية، مالية، اجتماعية أو روحية.</p>
+          <p>نعم، لأي شخص يريد تطوير نفسه: طالب، موظف، رائد أعمال… ويشمل الأهداف الشخصية والصحية والمهنية والدراسية والمالية والاجتماعية والروحية.</p>
         </details>
         <details>
           <summary>هل أحتاج خبرة سابقة للتطبيق؟</summary>
@@ -313,7 +265,7 @@
     </div>
   </section>
 
-  <!-- Payment Steps (white bg) -->
+  <!-- PAYMENT STEPS (white) -->
   <section class="section-light steps" id="payment">
     <div class="container">
       <h3>طريقة الدفع بخطوات بسيطة:</h3>
@@ -321,7 +273,7 @@
         <li>ادخل بريدك الإلكتروني</li>
         <li>اضغط على <span class="en">Add coupon</span> لإضافة كود الخصم</li>
         <li>بعد إضافة الكود، اضغط على <span class="en">ADD COUPON</span> ثم <span class="en">CONTINUE WITH PURCHASE</span></li>
-        <li>اختر وسيلة الدفع المناسبة واملأ البيانات (<span class="note-red">عند اختيار البلد المقيم فيها، سيظهر لك المبلغ المطلوب دفعه بعُملة بلدك</span>)</li>
+        <li>اختر وسيلة الدفع المناسبة واملأ البيانات</li>
         <li>بعد إتمام عملية الدفع، سيظهر لك رابط التحميل مباشرة</li>
       </ol>
 
@@ -331,10 +283,10 @@
         <!-- MasterCard -->
         <svg viewBox="0 0 256 128" role="img" aria-label="Mastercard"><rect width="256" height="128" rx="10" fill="#141414"/><circle cx="108" cy="64" r="38" fill="#EA001B"/><circle cx="148" cy="64" r="38" fill="#FF9900" opacity=".9"/><text x="50%" y="88%" text-anchor="middle" font-size="18" fill="#fff">Mastercard</text></svg>
         <!-- Debit Card (generic) -->
-        <svg viewBox="0 0 256 128" role="img" aria-label="Debit Card"><rect width="256" height="128" rx="10" fill="#1d1d1d"/><rect x="16" y="22" width="224" height="84" rx="8" fill="#2b2b2b"/><rect x="24" y="34" width="84" height="12" fill="#3a3a3a"/><rect x="24" y="70" width="160" height="10" fill="#3a3a3a"/><text x="50%" y="108" text-anchor="middle" font-size="18" fill="#fff">Debit</text></svg>
+        <svg viewBox="0 0 256 128" role="img" aria-label="Debit Card"><rect width="256" height="128" rx="10" fill="#1d1d1d"/><rect x="16" y="22" width="224" height="84" rx="8" fill="#2b2b2b"/><rect x="24" y="34" width="84" height="12" fill="#3a3a3a"/><rect x="24" y="70" width="160" height="10" fill="#3a3a3a"/><text x="50%" y="108%" text-anchor="middle" font-size="18" fill="#fff">Debit</text></svg>
       </div>
 
-      <p class="mb-16" style="font-size:12px;color:var(--red)">ملحوظة مهمة: بعد إتمام عملية الدفع، قد تلاحظ خصم مبلغ قدره 1$ من بطاقتك، لا داعي للقلق، فهي مجرد عملية تحقق مؤقتة وسيُعاد خلال يومين كحد أقصى.</p>
+      <p class="mb-16" style="font-size:12px;color:var(--red)">ملحوظة مهمة: بعد إتمام عملية الدفع، قد تلاحظ خصم مبلغ قدره 1$ من بطاقتك، لا داعي للقلق، فهي عملية تحقق مؤقتة وسيُعاد خلال يومين كحد أقصى.</p>
 
       <div class="gallery-strip">
         <div class="gallery-track">
@@ -355,72 +307,80 @@
     </div>
   </section>
 
-  <!-- Pricing -->
-  <section class="section-dark" id="pricing">
-    <div class="container pricing">
+  <!-- PRICING (image 3 style, red theme) -->
+  <section class="pricing" id="pricing">
+    <div class="container">
       <div class="price-card">
         <span class="tag">بمناسبة اليوم الوطني السعودي</span>
-        <h3 class="mt-0">خصم ضخم <span class="off">60%</span></h3>
-        <p class="big mb-8">$35.96 <span class="muted">بدلاً من</span> <s>$89.9</s></p>
-        <p class="mb-8">أي ~ <strong>135 ر.س</strong> (تقريباً) – وفر <strong>203 ر.س</strong></p>
+        <h3>خصم ضخم <span class="off">60%</span></h3>
+        <p class="big">35.96$ <span class="muted">بدلاً من</span> <s>89.9$</s></p>
+        <p>أي ~ <strong>135 ر.س</strong> (تقريباً) – وفر <strong>203 ر.س</strong></p>
         <div class="divider"></div>
-        <div class="cta-row">
+        <div class="countdown" id="priceCountdown"></div>
+        <div style="margin-top:14px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
           <a class="btn btn-red" href="https://payhip.com/buy?link[]=wPZpb&session_enabled=1&parent_url=https%3A%2F%2Fpayhip.com%2Fb%2FwPZpb&type=overlay&payhip_js=true">انتقل إلى صفحة الدفع</a>
           <a class="btn btn-dark" href="#inside">تعرّف على المحتوى</a>
         </div>
-        <p class="mb-16">آمن 100% – استلام عبر الإيميل مباشرة – دفعة واحدة ولمدى الحياة</p>
-        <div class="countdown" id="priceCountdown"></div>
+        <p style="margin-top:12px">آمن 100% – استلام عبر الإيميل مباشرة – دفعة واحدة ولمدى الحياة</p>
       </div>
     </div>
   </section>
 
-  <!-- Footer + Socials -->
+  <!-- FOOTER ICONS -->
   <footer>
     <div class="container">
       <div class="socials">
-        <a href="https://www.instagram.com/evallonlinesuccess/" target="_blank" rel="noopener">انستغرام</a>
-        <a href="https://www.facebook.com/evallonline.success" target="_blank" rel="noopener">فيسبوك</a>
-        <a href="https://www.youtube.com/@evallonlinesuccess" target="_blank" rel="noopener">يوتيوب</a>
-        <a href="https://www.tiktok.com/@evallonlinesuccess?_t=ZN-8zriKgSVMkI&_r=1" target="_blank" rel="noopener">تيك توك</a>
-        <a href="mailto:support@evallsuccess.com">إيميل</a>
+        <a href="https://www.instagram.com/evallonlinesuccess/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="#fff" stroke-width="2"/><circle cx="12" cy="12" r="4.2" stroke="#fff" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="#fff"/></svg>
+        </a>
+        <a href="https://www.facebook.com/evallonline.success" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M22 12a10 10 0 1 0-11.5 9.9v-7h-2.4V12h2.4V9.7c0-2.4 1.4-3.7 3.6-3.7 1 0 2 .18 2 .18v2.2h-1.1c-1.1 0-1.5.67-1.5 1.4V12h2.6l-.41 2.9h-2.2v7A10 10 0 0 0 22 12Z" fill="#fff"/></svg>
+        </a>
+        <a href="https://www.youtube.com/@evallonlinesuccess" target="_blank" rel="noopener" aria-label="YouTube">
+          <svg width="30" height="20" viewBox="0 0 30 20" fill="none"><rect width="30" height="20" rx="4" fill="#FF0000"/><path d="M12 14V6l6 4-6 4z" fill="#fff"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@evallonlinesuccess?_t=ZN-8zriKgSVMkI&_r=1" target="_blank" rel="noopener" aria-label="TikTok">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M21 9.5a7 7 0 0 1-5-2V17a5 5 0 1 1-5-5c.3 0 .7.04 1 .1V9.2a7 7 0 1 0 4 6.8V6.6a8 8 0 0 0 5 1.9V9.5Z" fill="#fff"/></svg>
+        </a>
+        <a href="mailto:support@evallsuccess.com" aria-label="Email">
+          <svg width="28" height="22" viewBox="0 0 28 22" fill="none"><rect x="1" y="1" width="26" height="20" rx="4" stroke="#fff" stroke-width="2"/><path d="M3 3l11 8 11-8" stroke="#fff" stroke-width="2"/></svg>
+        </a>
       </div>
-      <p class="mb-0" style="margin-top:12px">© <span id="year"></span> Evall – جميع الحقوق محفوظة</p>
+      <p style="margin-top:12px">© <span id="year"></span> Evall – جميع الحقوق محفوظة</p>
     </div>
   </footer>
 
   <script>
-    // countdown – persist 3 days from first visit
-    function initCountdown(id){
+    // year
+    document.getElementById('year').textContent=new Date().getFullYear();
+
+    // countdown – 3 days from first visit
+    (function initCountdown(){
+      const id='priceCountdown';
       const el=document.getElementById(id);
       if(!el) return;
       const key='evall_countdown_target';
       let target=localStorage.getItem(key);
       if(!target){
-        const t=new Date();
-        t.setDate(t.getDate()+3);
-        target=t.getTime();
-        localStorage.setItem(key,target);
-      }else{target=parseInt(target,10)}
+        const t=new Date(); t.setDate(t.getDate()+3);
+        target=t.getTime(); localStorage.setItem(key,target);
+      } else { target=parseInt(target,10); }
       function tick(){
-        const now=Date.now();
-        let diff=target-now;
+        let diff=target-Date.now();
         if(diff<=0){el.innerHTML='<span class="unit"><span class="num">00</span><span class="lbl">انتهى</span></span>';return}
         const d=Math.floor(diff/86400000); diff-=d*86400000;
         const h=Math.floor(diff/3600000); diff-=h*3600000;
         const m=Math.floor(diff/60000); diff-=m*60000;
         const s=Math.floor(diff/1000);
-        function pad(n){return String(n).padStart(2,'0')}
+        const pad=n=>String(n).padStart(2,'0');
         el.innerHTML=
           `<span class="unit"><span class="num">${pad(d)}</span><span class="lbl">أيام</span></span>`+
           `<span class="unit"><span class="num">${pad(h)}</span><span class="lbl">ساعات</span></span>`+
           `<span class="unit"><span class="num">${pad(m)}</span><span class="lbl">دقائق</span></span>`+
           `<span class="unit"><span class="num">${pad(s)}</span><span class="lbl">ثواني</span></span>`;
       }
-      tick();
-      setInterval(tick,1000);
-    }
-    initCountdown('heroCountdown');
-    initCountdown('priceCountdown');
+      tick(); setInterval(tick,1000);
+    })();
 
     // gallery scroll helpers
     function scrollStrip(id,dir){
@@ -430,9 +390,6 @@
       const step=(child?child.getBoundingClientRect().width:320)+14;
       el.scrollBy({left:dir*step,behavior:'smooth'});
     }
-
-    // year
-    document.getElementById('year').textContent=new Date().getFullYear();
   </script>
 </body>
 </html>
