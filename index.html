@@ -10,7 +10,6 @@
     :root{
       --red:#D6052D; --gray-100:#F2F2F2; --gray-900:#202020; --black:#000000; --gold:#F3B041;
       --shadow:0 10px 24px rgba(0,0,0,.18); --radius:14px; --container:1150px;
-      --cardBorder:#e6e6e6; --chipBg:rgba(214,5,45,.08);
     }
     *{box-sizing:border-box}
     html,body{margin:0;padding:0;background:#000;color:#fff;font-family:"Cairo",system-ui,Arial;line-height:1.7;text-align:center;scroll-behavior:smooth}
@@ -22,21 +21,59 @@
     .promo{position:sticky;top:0;z-index:50;background:var(--red);color:#fff;font-weight:900}
     .promo .inner{padding:10px 14px}
 
-    /* Hero */
-    .hero{position:relative;background:#111}
-    .hero .banner{border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
-    .hero .banner img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
-    .hero .overlay{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.55))}
-    .hero h1{margin:0 0 16px;font-size:clamp(26px,4.5vw,42px);font-weight:900;color:var(--gold)}
+    /* ===== HERO FULL SCREEN + BOTTOM FADE ===== */
+    .hero{
+      position:relative;
+      min-height:100vh;           /* دعم المتصفحات القديمة */
+      min-height:100svh;          /* وحدات جديدة تعالج شريط العنوان بالموبايل */
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+      background:#000;            /* لون خلفية احتياطي */
+      isolation:isolate;          /* يضمن الطبقات بشكل صحيح */
+    }
+    /* الصورة تغطي الشاشة كاملة */
+    .hero .banner{
+      position:absolute; inset:0;
+      border-radius:0; box-shadow:none; overflow:hidden;
+    }
+    .hero .banner img{
+      width:100%; height:100%;
+      object-fit:cover;           /* تغطية كاملة */
+      object-position:center;     /* تمركز جيد */
+      display:block;
+      filter:brightness(.92);     /* خفيف لرفع تباين النص */
+    }
+    /* طبقة النص والأزرار */
+    .hero .overlay{
+      position:relative; z-index:2;
+      width:min(100%, var(--container));
+      padding:0 18px;
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+      gap:14px;
+      /* تظليل خفيف حول النص لزيادة الوضوح */
+      text-shadow:0 2px 14px rgba(0,0,0,.45);
+    }
+    .hero h1{margin:0 0 12px;font-size:clamp(26px,4.5vw,42px);font-weight:900;color:var(--gold)}
     .hero h1 .white{color:#fff}
     .btn{display:inline-block;padding:14px 22px;border-radius:14px;font-weight:800;box-shadow:var(--shadow)}
     .btn-red{background:var(--red);color:#fff}
-
-    /* Countdown (generic) */
-    .countdown{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:14px}
+    /* العدّاد تحت الزر */
+    .countdown{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:6px}
     .countdown .unit{background:#111;border:1px solid #1f1f1f;border-radius:10px;min-width:70px;padding:8px 10px}
     .countdown .num{display:block;font-size:20px;font-weight:900}
     .countdown .lbl{opacity:.8;font-size:12px}
+
+    /* فييد أنيق من الأسفل */
+    .hero::after{
+      content:"";
+      position:absolute; left:0; right:0; bottom:0;
+      height:28vh;                /* ارتفاع التدرّج */
+      pointer-events:none;
+      background:linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.72) 55%, #000 100%);
+      z-index:1;
+    }
 
     /* Section backgrounds */
     .section-dark{background:linear-gradient(180deg,#000,#0b0b0b)}
@@ -99,44 +136,17 @@
     .pay-logos{display:flex;gap:16px;flex-wrap:wrap;align-items:center;justify-content:center}
     .pay-logos svg{height:28px}
 
-    /* ====== PRICING (مطابق للصورة بالبنية والتفاصيل) ====== */
+    /* Pricing */
     .pricing{background:#000}
-    .price-card{
-      position:relative;background:#fff;color:#000;border-radius:28px;
-      box-shadow:var(--shadow);padding:26px;max-width:820px;margin-inline:auto;
-      border:1.5px solid var(--cardBorder)
-    }
-    .price-card:before{
-      /* خط زخرفي خفيف داخل الحدود لمحاكاة الحافة في الصورة */
-      content:"";position:absolute;inset:8px;border-radius:22px;border:1px solid #dcdcdc;pointer-events:none
-    }
-    .price-chip{
-      position:absolute;top:16px;left:16px;
-      background:var(--chipBg);color:#000;border:1.5px solid var(--red);
-      padding:10px 14px;border-radius:999px;font-weight:800;font-size:14px
-    }
-    .price-head{margin-top:34px;margin-bottom:10px;font-weight:900;font-size:clamp(22px,3.4vw,32px)}
-    .price-row{display:flex;align-items:flex-end;gap:18px;justify-content:center;flex-wrap:wrap}
-    .old-price{opacity:.7;text-decoration:line-through;font-weight:800}
-    .big-price{font-size:clamp(36px,6.5vw,56px);font-weight:900;color:#0d0d0d;text-shadow:0 1px 0 rgba(0,0,0,.04)}
-    .approx{font-size:22px;font-weight:900;color:#3a3a3a}
-    .save-line{margin-top:8px;color:var(--gold);font-weight:800}
-    .coupon-row{display:flex;gap:10px;justify-content:center;align-items:center;margin:14px 0 8px}
-    .coupon-label{opacity:.8;font-weight:700}
-    .coupon-pill{display:inline-flex;align-items:center;gap:8px;background:#f2f2f7;border:1px solid #e2e2ea;border-radius:12px;padding:8px 12px;font-weight:800}
-    .coupon-code{letter-spacing:.25em}
-    .copy-link{color:#0b5;cursor:pointer;font-weight:800;text-decoration:underline}
-    .price-cta{display:block;width:100%;max-width:680px;margin:14px auto 6px;background:var(--gold);color:#000;border:none;border-radius:16px;padding:16px 18px;font-weight:900;box-shadow:var(--shadow);cursor:pointer}
-    .price-meta{opacity:.8;margin:8px 0 14px}
-    .price-count{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:760px;margin:0 auto}
-    .price-count .cell{background:#f6f6f6;border:1px solid #e9e9e9;border-radius:14px;padding:16px 10px}
-    .price-count .num{display:block;font-size:28px;font-weight:900;color:#0d0d0d}
-    .price-count .lbl{opacity:.7}
-    @media (max-width:540px){
-      .price-card{padding:20px}
-      .price-card:before{inset:6px;border-radius:20px}
-      .big-price{font-size:42px}
-    }
+    .price-card{background:#fff;color:#000;border-radius:24px;box-shadow:var(--shadow);padding:28px;max-width:760px;margin-inline:auto;border:2px solid var(--red)}
+    .price-card .tag{display:inline-block;background:rgba(214,5,45,.08);color:#000;border:1.5px solid var(--red);border-radius:999px;padding:8px 14px;font-weight:800}
+    .price-card h3{margin:12px 0 8px;font-weight:900}
+    .price-card .off{color:var(--red)}
+    .price-card .big{font-size:34px;font-weight:900;margin:6px 0}
+    .muted{opacity:.8}
+    .btn-dark{background:#111;color:#fff}
+    .divider{height:1px;background:#e6e6e6;margin:16px 0}
+    .price-card .countdown .unit{background:#f1f1f1;border-color:#e6e6e6;color:#000}
 
     /* Footer (icons) */
     footer{background:#0b0b0b;color:#bbb}
@@ -151,15 +161,16 @@
 
   <!-- HERO -->
   <header class="hero">
-    <div class="container">
-      <div class="banner">
-        <img src="evallbanner.jpg" alt="Evall Hero Banner">
-        <div class="overlay">
-          <h1>ابدأ <span class="white">رحلتك</span> اليوم</h1>
-          <a class="btn btn-red" href="#pricing">احصل عليه الآن</a>
-          <div class="countdown" id="heroCountdown"></div>
-        </div>
-      </div>
+    <!-- الصورة تغطي الشاشة بالكامل -->
+    <div class="banner">
+      <img src="evallbanner.jpg" alt="Evall Hero Banner">
+    </div>
+
+    <!-- المحتوى فوق الصورة -->
+    <div class="overlay">
+      <h1>ابدأ <span class="white">رحلتك</span> اليوم</h1>
+      <a class="btn btn-red" href="#pricing">احصل عليه الآن</a>
+      <div class="countdown" id="heroCountdown"></div>
     </div>
   </header>
 
@@ -199,27 +210,27 @@
       <div class="benefits">
         <div class="card">
           <h4>أجندة إيفال 360 يوم</h4>
-          <p>هو المدرب، والمرآة، والداعم، والشاهد على رحلتك!! يحتوي على أكثر من 90 سؤال عميق، ونصائح لكتابة أهدافك، ومقولات تحفيزية يومية، مع تخطيط يومي ومتابعة أسبوعية ومراجعة إنجازاتك، تقييم ذاتي، وصفحات لتفريغ المشاعر، وأسئلة ونصائح لمواجهة 12 تحدياً نفسياً، وخانة للتخطيط المالي، ورسائل خاصة مليئة بالتفاؤل.</p>
+          <p>هو المدرب، والمرآة، والداعم، والشاهد على رحلتك!! يحتوي على أكثر من 90 سؤال عميق…</p>
         </div>
         <div class="card">
           <h4>كتاب رحلة تحول <span class="en">(Digital/Audio 3D)</span></h4>
-          <p>10 خطوات عملية مدروسة تأخذك في رحلة عميقة لاكتشاف شغفك وقدراتك وتحويل أحلامك إلى أهداف قابلة للتحقيق؛ مدعومة بالقصص والأمثلة ويمكن الاستماع لها في أي وقت ومن أي مكان.</p>
+          <p>10 خطوات عملية مدروسة تأخذك في رحلة عميقة لاكتشاف شغفك وقدراتك…</p>
         </div>
         <div class="card">
           <h4>جدول مهام 112 يوم</h4>
-          <p>مهمة يومية بسيطة التأثير يتراكم مع الوقت ليترك أثراً حقيقياً على شخصيتك، تُبنى بها عادات جديدة بدل التسويف، ومع الوقت تصبح منجزاً ومنظماً وواضح الهدف.</p>
+          <p>مهمة يومية بسيطة التأثير يتراكم مع الوقت ليترك أثراً حقيقياً…</p>
         </div>
         <div class="card">
           <h4>40 غلاف للأجندة</h4>
-          <p>اختر الغلاف الذي يعكس شخصيتك؛ الألوان ليست شكلاً فقط بل طاقة تعزّز ارتباطك بأجندتك وتشجّعك على الاستمرار.</p>
+          <p>اختر الغلاف الذي يعكس شخصيتك؛ الألوان ليست شكلاً فقط بل طاقة…</p>
         </div>
         <div class="card">
           <h4 class="gift" style="color:#D6052D">هدية: ملفات خاصة لتنظيم الوقت</h4>
-          <p>إدارة الوقت سرّ النجاح. هذه الملفات ليست مكملًا بل أداة أساسية تنقذك من العشوائية وتعلّمك العيش بوضوح وهدوء بعيداً عن التشتت.</p>
+          <p>إدارة الوقت سرّ النجاح…</p>
         </div>
         <div class="card support" style="background:#D6052D;color:#fff">
           <h4>دعم وتواصل</h4>
-          <p>سنكون معك لمدة 90 يوماً لدعمك والإجابة على أي استفسار وتقديم نصائح عملية لتطبيق كل ما يخص البكج.</p>
+          <p>سنكون معك لمدة 90 يوماً لدعمك والإجابة على أي استفسار…</p>
         </div>
       </div>
     </div>
@@ -271,11 +282,11 @@
       <div class="faq">
         <details>
           <summary>هل البكج رقمي أم ورقي؟</summary>
-          <p>البكج رقمي بالكامل… كما أن الملفات مصممة للطباعة إذا رغبت، أو الاحتفاظ بها رقمياً واستخدام دفتر خارجي للكتابة.</p>
+          <p>البكج رقمي بالكامل… كما أن الملفات مصممة للطباعة إذا رغبت، أو الاحتفاظ بها رقمياً.</p>
         </details>
         <details>
           <summary>ما هي الأسس التي بُني عليها البكج؟</summary>
-          <p>تم تطوير البكج بناءً على بحوث ودراسات وتجارب عملية لأكثر من 8 أشهر، مع استشارات متخصصين لضمان نتائج فعلية.</p>
+          <p>تم تطوير البكج بناءً على بحوث ودراسات وتجارب عملية لأكثر من 8 أشهر…</p>
         </details>
         <details>
           <summary>كيف أستلم الملفات؟</summary>
@@ -287,53 +298,17 @@
         </details>
         <details>
           <summary>هل البكج مناسب لأي عمر أو مرحلة؟</summary>
-          <p>نعم، لأي شخص يريد تطوير نفسه: طالب، موظف، رائد أعمال… ويشمل الأهداف الشخصية والصحية والمهنية والدراسية والمالية والاجتماعية والروحية.</p>
+          <p>نعم، لأي شخص يريد تطوير نفسه: طالب، موظف، رائد أعمال…</p>
         </details>
         <details>
           <summary>هل أحتاج خبرة سابقة للتطبيق؟</summary>
-          <p>لا، البكج بسيط وسهل التطبيق مع إمكانية التواصل عبر الإيميل لأسئلة أو دعم أثناء الإستخدام.</p>
+          <p>لا، البكج بسيط وسهل التطبيق مع إمكانية التواصل عبر الإيميل للدعم.</p>
         </details>
       </div>
     </div>
   </section>
 
-  <!-- ====== PRICING (المُحدّث ليطابق الصورة) ====== -->
-  <section class="pricing" id="pricing">
-    <div class="container">
-      <div class="price-card">
-        <span class="price-chip">خصم %60 لفترة محدودة</span>
-
-        <h3 class="price-head">باقة اليوم الوطني السعودي</h3>
-
-        <div class="price-row" aria-label="السعر">
-          <div class="approx">≈ ر.س 135</div>
-          <div class="big-price">35.96$</div>
-        </div>
-
-        <div class="old-price" style="margin-top:6px">USD 338&nbsp;89.90</div>
-
-        <div class="save-line">وفر 203 ريال سعودي</div>
-
-        <div class="coupon-row" role="group" aria-label="كوبون الخصم">
-          <span class="coupon-label">استخدم كود</span>
-          <span class="coupon-pill"><span class="coupon-code" id="couponText">س ع و د ي</span></span>
-          <span class="copy-link" id="copyBtn">نسخ الكود</span>
-        </div>
-
-        <a class="price-cta" href="https://payhip.com/buy?link[]=wPZpb&session_enabled=1&parent_url=https%3A%2F%2Fpayhip.com%2Fb%2FwPZpb&type=overlay&payhip_js=true">
-          انتقل إلى صفحة الدفع
-        </a>
-
-        <div class="price-meta">آمن 100% • استلام مباشر عبر الإيميل • وصول لمدة سنة كاملة</div>
-
-        <div class="price-count" id="priceCountdown">
-          <!-- يمتلئ عبر JS -->
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Payment steps -->
+  <!-- Payment steps (NO images) -->
   <section class="section-light steps" id="payment">
     <div class="container">
       <h3>طريقة الدفع بخطوات بسيطة:</h3>
@@ -350,6 +325,25 @@
         <svg viewBox="0 0 256 128" role="img" aria-label="Debit Card"><rect width="256" height="128" rx="10" fill="#1d1d1d"/><rect x="16" y="22" width="224" height="84" rx="8" fill="#2b2b2b"/><rect x="24" y="34" width="84" height="12" fill="#3a3a3a"/><rect x="24" y="70" width="160" height="10" fill="#3a3a3a"/><text x="50%" y="108%" text-anchor="middle" font-size="18" fill="#fff">Debit</text></svg>
       </div>
       <p style="font-size:12px;color:var(--red);margin-top:10px">ملحوظة مهمة: بعد إتمام عملية الدفع، قد تلاحظ خصم مبلغ 1$ من بطاقتك، لا داعي للقلق، هي عملية تحقق مؤقتة وسيُعاد خلال يومين كحد أقصى.</p>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <div class="price-card">
+        <span class="tag">بمناسبة اليوم الوطني السعودي</span>
+        <h3>خصم ضخم <span class="off">60%</span></h3>
+        <p class="big">35.96$ <span class="muted">بدلاً من</span> <s>89.9$</s></p>
+        <p>أي ~ <strong>135 ر.س</strong> (تقريباً) – وفر <strong>203 ر.س</strong></p>
+        <div class="divider"></div>
+        <div class="countdown" id="priceCountdown"></div>
+        <div style="margin-top:14px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+          <a class="btn btn-red" href="https://payhip.com/buy?link[]=wPZpb&session_enabled=1&parent_url=https%3A%2F%2Fpayhip.com%2Fb%2FwPZpb&type=overlay&payhip_js=true">انتقل إلى صفحة الدفع</a>
+          <a class="btn btn-dark" href="#inside">تعرّف على المحتوى</a>
+        </div>
+        <p style="margin-top:12px">آمن 100% – استلام عبر الإيميل مباشرة – دفعة واحدة ولمدى الحياة</p>
+      </div>
     </div>
   </section>
 
@@ -387,31 +381,24 @@
       const key='evall_countdown_'+id;
       let target=localStorage.getItem(key);
       if(!target){const t=new Date(); t.setDate(t.getDate()+3); target=t.getTime(); localStorage.setItem(key,target);} else {target=parseInt(target,10);}
-      function format(elTarget, d,h,m,s){
-        const cell=(n,l)=>`<div class="cell"><span class="num">${String(n).padStart(2,'0')}</span><div class="lbl">${l}</div></div>`;
-        elTarget.innerHTML=cell(d,'أيام')+cell(h,'ساعات')+cell(m,'دقائق')+cell(s,'ثواني');
-      }
       function tick(){
         let diff=target-Date.now();
-        const c1=document.getElementById('heroCountdown');
-        const c2=document.getElementById('priceCountdown');
-        if(diff<=0){ if(c1) c1.innerHTML=''; if(c2) c2.innerHTML=''; return; }
+        if(diff<=0){el.innerHTML='<span class="unit"><span class="num">00</span><span class="lbl">انتهى</span></span>';return}
         const d=Math.floor(diff/86400000); diff-=d*86400000;
         const h=Math.floor(diff/3600000); diff-=h*3600000;
         const m=Math.floor(diff/60000); diff-=m*60000;
         const s=Math.floor(diff/1000);
-        if(c1){
-          c1.innerHTML =
-            `<span class="unit"><span class="num">${String(d).padStart(2,'0')}</span><span class="lbl">أيام</span></span>`+
-            `<span class="unit"><span class="num">${String(h).padStart(2,'0')}</span><span class="lbl">ساعات</span></span>`+
-            `<span class="unit"><span class="num">${String(m).padStart(2,'0')}</span><span class="lbl">دقائق</span></span>`+
-            `<span class="unit"><span class="num">${String(s).padStart(2,'0')}</span><span class="lbl">ثواني</span></span>`;
-        }
-        if(c2){ format(c2,d,h,m,s); }
+        const pad=n=>String(n).padStart(2,'0');
+        el.innerHTML =
+          `<span class="unit"><span class="num">${pad(d)}</span><span class="lbl">أيام</span></span>`+
+          `<span class="unit"><span class="num">${pad(h)}</span><span class="lbl">ساعات</span></span>`+
+          `<span class="unit"><span class="num">${pad(m)}</span><span class="lbl">دقائق</span></span>`+
+          `<span class="unit"><span class="num">${pad(s)}</span><span class="lbl">ثواني</span></span>`;
       }
       tick(); setInterval(tick,1000);
     }
     initCountdown('heroCountdown');
+    initCountdown('priceCountdown');
 
     // gallery scroll
     function scrollStrip(id,dir){
@@ -427,22 +414,6 @@
       const g=document.getElementById('kpiGrid');
       g.style.display = (g.style.display==='grid') ? 'none' : 'grid';
     }
-
-    // Copy coupon code
-    (function(){
-      const btn=document.getElementById('copyBtn');
-      const txt=document.getElementById('couponText');
-      if(btn && txt){
-        btn.addEventListener('click',()=> {
-          const code='سعودي';
-          navigator.clipboard.writeText(code).then(()=>{
-            const old=btn.textContent;
-            btn.textContent='تم النسخ ✔︎';
-            setTimeout(()=>btn.textContent=old,1800);
-          });
-        });
-      }
-    })();
   </script>
 </body>
 </html>
