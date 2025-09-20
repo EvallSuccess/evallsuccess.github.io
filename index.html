@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>بكج إيفال – صفحة هبوط</title>
+<title>بكج إيفال – تجربة فاخرة</title>
 <meta name="description" content="بكج إيفال – خطة عملية بخطوات واضحة ودعم لمدة 90 يوم." />
 
 <style>
@@ -21,330 +21,324 @@
   font-display:swap;
 }
 
-/* ---------------- Theme ---------------- */
+/* ---------------- Theme (Luxury Noir) ---------------- */
 :root{
-  --red:#D6052D;
+  --bg:#0a0a0a;
+  --bg-2:#0f0f10;
+  --ink:#eaeaea;
+  --muted:#b9b9b9;
   --gold:#F3B041;
-  --gray-100:#F2F2F2;
-  --gray-900:#202020;
-  --black:#000;
-  --bg-grad: radial-gradient(1200px 600px at 50% -10%, rgba(243,176,65,.16), transparent 60%),
-             linear-gradient(180deg,#020202,#0b0b0b 45%, #000);
-  --card-glow: 0 10px 24px rgba(0,0,0,.18);
-  --radius:14px;
-  --container:1150px;
+  --gold-2:#dca04a;
+  --red:#D6052D;
+
+  --hair:1px solid rgba(243,176,65,.35);         /* خط ذهبي شعرة */
+  --veil:0 10px 28px rgba(0,0,0,.35);            /* ظل مخملي */
+  --blur:backdrop-filter: blur(6px);
+
+  --radius:18px;
+  --radius-sm:14px;
+  --container:1140px;
+
   --head:"Motken noqta","Tajawal","Cairo",system-ui,Arial,sans-serif;
   --body:"HSN Shahd bold","Tajawal","Cairo",system-ui,Arial,sans-serif;
 }
 
 *{box-sizing:border-box}
 html{font-size:15px;scroll-behavior:smooth}
-@media (min-width:1200px){html{font-size:16px}}
-html,body{margin:0;padding:0;background:#000;color:#fff;font-family:var(--body);line-height:1.75;text-align:center}
+@media (min-width:1200px){ html{font-size:16px} }
+html,body{
+  margin:0;padding:0;background:var(--bg);
+  color:var(--ink);font-family:var(--body);line-height:1.8;text-align:center
+}
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
 .container{max-width:var(--container);margin-inline:auto;padding:28px 18px}
 
-/* ---------------- Promo ---------------- */
-.promo{position:sticky;top:0;z-index:60;background:var(--red);color:#fff}
-.promo .inner{padding:10px 14px;font-weight:900}
-.promo strong{position:relative}
-.promo strong::after{
-  content:"";position:absolute;inset:auto 0 -2px 0;height:3px;background:#fff;opacity:.6;border-radius:3px;
-  animation: pulse 2s infinite;
-}
-@keyframes pulse{0%,100%{transform:scaleX(.2);opacity:.4}50%{transform:scaleX(1);opacity:.9}}
+/* Hairline gold divider */
+.hr{height:1px;background:linear-gradient(90deg,transparent,rgba(243,176,65,.55),transparent)}
 
-/* ---------------- Hero ---------------- */
+/* Promo */
+.promo{
+  position:sticky;top:0;z-index:80;background:linear-gradient(90deg,#A1001E,var(--red));
+  color:#fff;font-weight:900;border-bottom:var(--hair)
+}
+.promo .inner{padding:10px 14px}
+.promo strong{color:#fff;text-shadow:0 0 14px rgba(255,255,255,.25)}
+
+/* ---------- HERO (full, cinematic) ---------- */
 .hero{
   position:relative;min-height:100svh;display:grid;place-items:center;overflow:hidden;
-  background:var(--bg-grad);
+  background:
+    radial-gradient(900px 420px at 50% -10%, rgba(243,176,65,.12), transparent 60%),
+    linear-gradient(180deg, #0b0b0c, #090909);
   isolation:isolate;
 }
-.hero .banner{position:absolute;inset:0;overflow:hidden}
-.hero .banner img{
-  width:100%;height:100%;object-fit:cover;object-position:center;
-  transform:scale(1.06); /* Ken Burns base */
-  filter:brightness(.92) contrast(1.02);
+.hero .media{position:absolute;inset:0;overflow:hidden}
+.hero .media img{
+  width:100%;height:100%;object-fit:cover;object-position:center 40%;
+  transform:scale(1.08);filter:brightness(.9) contrast(1.03);
+  animation:ken 20s ease-in-out infinite alternate;
   will-change:transform;
-  animation: ken 18s ease-in-out infinite alternate;
 }
-@keyframes ken{0%{transform:scale(1.06)}100%{transform:scale(1.12) translateY(-1.5%)}}
+@keyframes ken{0%{transform:scale(1.08)}100%{transform:scale(1.14) translateY(-1%)}}
 
-.hero .overlay{
-  position:relative;z-index:2;width:min(100%,var(--container));padding:0 18px;
-  display:flex;flex-direction:column;align-items:center;gap:14px;text-shadow:0 2px 14px rgba(0,0,0,.45);
-}
 .hero::after{
+  /* قناع سفلي أنيق */
   content:"";position:absolute;left:0;right:0;bottom:0;height:36%;
-  background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,.8)60%,#000);
+  background:linear-gradient(180deg, transparent, rgba(0,0,0,.85) 60%, #000);
   z-index:1;pointer-events:none;
 }
+.hero .glass{
+  position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:16px;
+  padding:24px 22px;border-radius:22px;border:var(--hair);
+  background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  box-shadow:var(--veil);
+}
 .hero h1{
-  margin:0 0 6px;color:var(--gold);font-family:var(--head);
-  font-size:clamp(24px,5vw,44px);font-weight:900;letter-spacing:.4px
+  margin:0;color:var(--gold);font-family:var(--head);
+  font-size:clamp(26px,4.8vw,48px);letter-spacing:.4px;font-weight:900
 }
 .hero h1 .white{color:#fff}
-
-/* Parallax on scroll will translate overlay */
-@media (prefers-reduced-motion:no-preference){
-  .hero .overlay[data-parallax="1"]{transform:translateY(var(--py,0px));transition:transform .08s linear}
-}
-
-/* Buttons */
 .btn{
-  position:relative;display:inline-flex;align-items:center;gap:8px;
-  padding:13px 20px;border-radius:12px;font-weight:800;overflow:hidden;
-  box-shadow:var(--card-glow); transform:translateZ(0);
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:14px 22px;border-radius:14px;font-weight:900;box-shadow:var(--veil);
+  transition:transform .18s ease, box-shadow .18s ease, filter .18s ease;
+  border:1px solid rgba(255,255,255,.08)
 }
-.btn-red{
-  background:linear-gradient(135deg,#ff274f 0%, var(--red) 45%, #9f0622 100%);
+.btn-cta{
+  background:linear-gradient(135deg,#ff3a5f 0%, var(--red) 48%, #8d031c 100%);
   color:#fff;
 }
-.btn-dark{background:#111;color:#fff}
-
-.btn::after{ /* shine */
-  content:"";position:absolute;inset:0;pointer-events:none;
-  background:linear-gradient(100deg, transparent 0%, rgba(255,255,255,.18) 45%, transparent 60%);
-  transform:translateX(-120%);transition:transform .6s ease;
+.btn-ghost{
+  background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  color:#fff;border:var(--hair)
 }
-.btn:hover::after{transform:translateX(120%)}
-
-/* Ripple on click */
-.rip{position:relative;overflow:hidden}
-.rip span.r{position:absolute;border-radius:50%;transform:scale(0);background:rgba(255,255,255,.35);animation:rip .6s ease-out}
-@keyframes rip{to{transform:scale(6);opacity:0}}
-
-/* Countdown */
-.countdown{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
-.countdown .unit{background:rgba(17,17,17,.9);border:1px solid #1f1f1f;border-radius:12px;min-width:68px;padding:8px 10px}
-.countdown .num{display:block;font-weight:900;font-size:18px}
-.countdown .lbl{opacity:.82;font-size:11px}
-
-/* Section backgrounds + separators */
-.section-dark{background:linear-gradient(180deg,#000,#0b0b0b)}
-.section-light{background:linear-gradient(180deg,#ffffff,#f8f8f8);color:#000}
-.section-gray{background:linear-gradient(180deg,#fafafa,#eaeaea);color:#000}
-.sep{height:48px;background:
-  radial-gradient(50% 12px at 50% 0,#111 0,transparent 100%),
-  linear-gradient(180deg,transparent,#000);
+.btn:hover{transform:translateY(-2px);filter:saturate(1.1)}
+.countdown{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.unit{
+  min-width:74px;padding:10px;border-radius:12px;background:rgba(15,15,16,.85);
+  border:1px solid rgba(255,255,255,.06)
 }
+.unit .num{display:block;font-weight:900;font-size:18px}
+.unit .lbl{font-size:11px;color:var(--muted)}
 
-/* Titles */
-.title{font-weight:900;margin:0 0 18px;font-family:var(--head);font-size:clamp(20px,3.2vw,28px)}
+/* ---------- Sections ---------- */
+.section-dark{background:linear-gradient(180deg,#070707,#0b0b0c)}
+.section-ink{background:linear-gradient(180deg,#111113,#0f0f10)}
+.section-light{background:linear-gradient(180deg,#ffffff,#f6f6f7);color:#0b0b0c}
+.title{
+  font-family:var(--head);font-size:clamp(20px,3vw,30px);margin:0 0 18px;font-weight:900
+}
 .title .brand{color:var(--gold)}
 
-/* ---------- Scroll Reveal ---------- */
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease, transform .7s ease}
-.reveal.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}}
+/* ---------- KPI (fold) ---------- */
+.kpi-card{
+  border-radius:18px;padding:18px;background:linear-gradient(180deg,#121213,#0f0f10);
+  border:1px solid rgba(255,255,255,.06);box-shadow:var(--veil);
+  transition:transform .2s ease, box-shadow .2s ease
+}
+.kpi-card:hover{transform:translateY(-4px);box-shadow:0 18px 32px rgba(0,0,0,.35)}
+.kpi-card .num{display:block;color:var(--gold);font-size:22px;font-weight:900}
+.kpi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(min-width:800px){.kpi-grid{grid-template-columns:repeat(4,1fr)}}
+.kpi-toggle{
+  width:100%;padding:14px;border-radius:14px;background:linear-gradient(180deg,#19191b,#141416);
+  color:#fff;border:var(--hair);font-weight:900;box-shadow:var(--veil)
+}
+.kpi-fold{overflow:hidden;max-height:0;transition:max-height .55s ease}
+.kpi-fold.open{max-height:1200px}
 
-/* ---------- KPI Collapsible ---------- */
-.kpi-wrap{padding:26px 0}
-.toggle-btn{
-  display:block;width:100%;background:var(--gold);color:#000;border:none;border-radius:12px;padding:14px 18px;
-  font-weight:900;cursor:pointer;box-shadow:var(--card-glow)
+/* ---------- Trio / Feature cards ---------- */
+.feature{
+  background:linear-gradient(180deg,#141416,#101012);color:#fff;border:1px solid rgba(255,255,255,.06);
+  border-radius:20px;padding:22px;box-shadow:var(--veil);transition:transform .25s ease, box-shadow .25s ease
 }
-.kpi{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s ease}
-.kpi.open{grid-template-rows:1fr}
-.kpi > div{overflow:hidden}
-.kpi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding-top:14px}
-@media(min-width:768px){.kpi-grid{grid-template-columns:repeat(4,1fr)}}
-.kcard{
-  background:#191919;color:#fff;border-radius:var(--radius);padding:16px 12px;
-  box-shadow:var(--card-glow);transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
-}
-.kcard .num{display:block;font-size:22px;font-weight:900;color:var(--gold)}
-.kcard.red{background:var(--red)}
-.kcard:hover{transform:translateY(-4px);box-shadow:0 16px 28px rgba(0,0,0,.28)}
-
-/* ---------- Tri Cards ---------- */
-.tri{display:grid;grid-template-columns:1fr;gap:14px}
-@media(min-width:760px){.tri{grid-template-columns:repeat(3,1fr)}}
-.card{
-  background:#222;color:#fff;border-radius:20px;padding:20px;box-shadow:var(--card-glow);
-  transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
-  will-change:transform;
-}
-.card:hover{transform:translateY(-6px);box-shadow:0 18px 32px rgba(0,0,0,.28)}
-.card h3{margin:0 0 8px;color:var(--gold);font-family:var(--head);font-size:clamp(16px,2.4vw,22px)}
+.feature:hover{transform:translateY(-6px);box-shadow:0 18px 36px rgba(0,0,0,.36)}
+.feature h3{margin:0 0 8px;color:var(--gold);font-family:var(--head)}
 
 /* ---------- Benefits ---------- */
+.benefit{
+  background:#fff;color:#000;border-radius:20px;padding:20px;border:1px solid #eee;box-shadow:0 12px 24px rgba(0,0,0,.08)
+}
+.benefit.support{background:var(--red);color:#fff;border:none}
+.benefit .gift{color:var(--red)}
 .benefits{display:grid;grid-template-columns:1fr;gap:14px}
 @media(min-width:900px){.benefits{grid-template-columns:repeat(2,1fr)}}
-.benefits .bcard{background:#fff;color:#000;border-radius:18px;padding:18px;box-shadow:var(--card-glow)}
-.benefits .support{background:var(--red);color:#fff}
-.benefits .gift{color:var(--red)}
-.benefits h4{margin:0 0 6px;font-weight:800;font-family:var(--head)}
 
-/* ---------- Gallery (snap + active scale) ---------- */
-.gallery-strip{position:relative}
-.gallery-track{border-radius:18px;box-shadow:var(--card-glow);overflow:hidden}
-.snap{
-  display:flex;gap:12px;padding:6px;scroll-snap-type:x mandatory;overflow:auto hidden;
-  -webkit-overflow-scrolling:touch;scroll-behavior:smooth;
+/* ---------- Gallery (spotlight) ---------- */
+.gallery{
+  border-radius:22px;border:1px solid rgba(255,255,255,.08);overflow:hidden;box-shadow:var(--veil)
 }
-.snap::-webkit-scrollbar{height:8px}
-.snap::-webkit-scrollbar-thumb{background:#ccc;border-radius:999px}
-.slide{flex:0 0 82vw;max-width:82vw;scroll-snap-align:center;position:relative}
+.strip{display:flex;gap:12px;padding:10px;overflow:auto hidden;scroll-snap-type:x mandatory}
+.slide{flex:0 0 82vw;max-width:82vw;scroll-snap-align:center;border-radius:16px;overflow:hidden;position:relative}
 @media(min-width:900px){.slide{flex:0 0 360px;max-width:360px}}
-.slide img{height:240px;object-fit:cover;border-radius:16px;transform:scale(.96);transition:transform .35s ease, box-shadow .35s ease}
-.slide.active img{transform:scale(1);box-shadow:0 14px 28px rgba(0,0,0,.22)}
-.gal-nav{position:absolute;inset:0;display:flex;justify-content:space-between;align-items:center;pointer-events:none}
-.gal-btn{pointer-events:auto;border:none;border-radius:999px;width:44px;height:44px;background:#111;color:#fff;opacity:.95}
+.slide img{height:240px;object-fit:cover;transform:scale(.98);transition:transform .3s ease, box-shadow .3s ease}
+.slide.active img{transform:scale(1);box-shadow:0 18px 36px rgba(0,0,0,.28)}
+.nav-arrow{
+  position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:999px;border:var(--hair);
+  background:rgba(15,15,16,.8);color:#fff;display:grid;place-items:center;box-shadow:var(--veil)
+}
+.nav-left{right:auto;left:12px}
+.nav-right{left:auto;right:12px}
 
 /* ---------- Results ---------- */
+.result{
+  background:linear-gradient(180deg,#111113,#0e0e0f);color:#fff;border-radius:18px;padding:18px;border:1px solid rgba(255,255,255,.06);
+  box-shadow:var(--veil)
+}
+.result.red{background:linear-gradient(180deg,#c50f2f,#91051f);border:none}
 .results{display:grid;grid-template-columns:1fr;gap:14px}
 @media(min-width:900px){.results{grid-template-columns:repeat(2,1fr)}}
-.result{background:#111;color:#fff;border-radius:18px;padding:18px;box-shadow:var(--card-glow)}
-.result.red{background:var(--red)}
-.result h5{margin:0 0 6px;font-size:18px;font-weight:900;font-family:var(--head)}
+.result h5{margin:0 0 6px;font-family:var(--head);font-size:18px}
 
 /* ---------- FAQ ---------- */
-.faq-wrap{max-width:900px;margin-inline:auto}
-details{background:#fff;color:#000;border-radius:18px;padding:14px;box-shadow:var(--card-glow);transition:filter .25s ease}
+details{
+  background:#fff;color:#000;border-radius:18px;padding:16px;border:1px solid #eee;box-shadow:0 10px 22px rgba(0,0,0,.08)
+}
 details+details{margin-top:10px}
-summary{cursor:pointer;font-weight:900;color:var(--gold);font-family:var(--head);list-style:none}
+summary{cursor:pointer;font-weight:900;color:#B5832C;font-family:var(--head)}
 summary::-webkit-details-marker{display:none}
-details[open]{filter:drop-shadow(0 12px 20px rgba(0,0,0,.12))}
-details p{margin:8px 0 0}
 
-/* ---------- Payment Steps ---------- */
+/* ---------- Steps + tiny payment logos ---------- */
 .steps .container{text-align:right}
 .steps h3{margin-top:0;text-align:center;color:#000;font-family:var(--head)}
 .steps ol{padding-right:18px;margin:0 0 12px;color:#000}
-
-/* Logos inline small & transparent */
-.pay-logos-inline{display:flex;justify-content:center;align-items:center;margin:8px auto 6px}
+.pay-logos-inline{display:flex;justify-content:center;align-items:center;margin:8px auto 4px}
 .pay-logos-inline img{height:1.6em;width:auto;background:transparent}
 @media(min-width:900px){.pay-logos-inline img{height:1.8em}}
 
-/* ---------- Pricing ---------- */
-.pricing{background:#000}
-.price-card{background:#fff;color:#000;border-radius:26px;box-shadow:var(--card-glow);padding:26px;max-width:780px;margin-inline:auto;border:2px solid var(--red)}
-.price-card .tag{display:inline-block;background:rgba(214,5,45,.08);color:#000;border:1.5px solid var(--red);border-radius:999px;padding:7px 12px;font-weight:800}
-.price-card h3{margin:10px 0 6px;font-weight:900;font-family:var(--head)}
-.price-card .off{color:var(--red)}
-.price-card .big{font-size:28px;font-weight:900;margin:4px 0}
-.divider{height:1px;background:#e6e6e6;margin:14px 0}
-.price-card .countdown .unit{background:#f1f1f1;border-color:#e6e6e6;color:#000}
+/* ---------- Pricing (gold frame) ---------- */
+.price{
+  background:#fff;color:#000;border-radius:26px;box-shadow:0 18px 45px rgba(0,0,0,.22);
+  padding:26px;max-width:800px;margin-inline:auto;border:1px solid #eee;position:relative;
+}
+.price::before{
+  content:"";position:absolute;inset:10px;border-radius:20px;border:1px solid rgba(243,176,65,.45);pointer-events:none
+}
+.price .tag{display:inline-block;border:1px solid rgba(214,5,45,.5);padding:7px 12px;border-radius:999px;background:rgba(214,5,45,.06);font-weight:800}
+.price h3{margin:12px 0 6px;font-weight:900;font-family:var(--head)}
+.price .off{color:var(--red)}
+.price .big{font-size:28px;font-weight:900;margin:4px 0}
+.divider{height:1px;background:#e9e9e9;margin:14px 0}
+.price .countdown .unit{background:#f3f3f4;border-color:#e9e9ea;color:#000}
 
 /* ---------- Sticky CTA (mobile) ---------- */
-.sticky-cta{
-  position:fixed;left:16px;right:16px;bottom:16px;z-index:70;display:none;
-  background:linear-gradient(135deg,#ff274f,var(--red));color:#fff;border-radius:14px;
-  box-shadow:0 10px 24px rgba(0,0,0,.32);padding:10px 14px;font-weight:900;justify-content:center;
+.sticky{
+  position:fixed;left:16px;right:16px;bottom:16px;z-index:90;display:none;
+  background:linear-gradient(135deg,#ff3a5f,var(--red));color:#fff;border-radius:14px;box-shadow:0 16px 36px rgba(0,0,0,.38);
+  padding:10px 14px;font-weight:900;justify-content:center;border:1px solid rgba(255,255,255,.18)
 }
-.sticky-cta.show{display:flex}
-@media(min-width:840px){.sticky-cta{display:none !important}}
+.sticky.show{display:flex}
+@media(min-width:860px){.sticky{display:none !important}}
 
-/* ---------- Footer ---------- */
-footer{background:#0b0b0b;color:#bbb}
+/* ---------- Social footer ---------- */
+footer{background:#0b0b0c;color:#bdbdbd;border-top:var(--hair)}
 .socials{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.socials a{display:inline-flex;align-items:center;padding:10px;border-radius:12px;background:#111}
-
-/* Reduced motion */
+.socials a{display:inline-flex;align-items:center;padding:10px;border-radius:14px;background:#121214;border:1px solid rgba(255,255,255,.06)}
+/* Reveal */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease, transform .7s ease}
+.reveal.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){
-  .hero .banner img{animation:none}
-  .btn::after{display:none}
+  .hero .media img{animation:none}
+  .reveal{opacity:1;transform:none}
 }
 </style>
 </head>
 <body>
 
-<!-- Promo -->
+<!-- PROMO -->
 <div class="promo"><div class="inner">خصم <strong>60%</strong> لفترة محدودة بمناسبة اليوم الوطني السعودي!!</div></div>
 
-<!-- Hero -->
+<!-- HERO -->
 <header class="hero">
-  <div class="banner">
-    <img src="evallbanner.jpg" alt="Evall Hero Banner" id="heroImg">
-  </div>
-  <div class="overlay" id="heroOverlay" data-parallax="1">
-    <h1 class="reveal">ابدأ <span class="white">رحلتك</span> اليوم</h1>
-    <a class="btn btn-red rip reveal" href="#pricing" id="ctaTop">احصل عليه الآن</a>
-    <div class="countdown reveal" id="heroCountdown"></div>
+  <div class="media"><img src="evallbanner.jpg" alt="Evall Hero Banner"></div>
+  <div class="glass reveal" id="heroBox">
+    <h1>ابدأ <span class="white">رحلتك</span> اليوم</h1>
+    <a href="#pricing" class="btn btn-cta">احصل عليه الآن</a>
+    <div class="countdown" id="heroCountdown">
+      <div class="unit"><span class="num">02</span><span class="lbl">أيام</span></div>
+      <div class="unit"><span class="num">23</span><span class="lbl">ساعات</span></div>
+      <div class="unit"><span class="num">43</span><span class="lbl">دقائق</span></div>
+      <div class="unit"><span class="num">35</span><span class="lbl">ثواني</span></div>
+    </div>
   </div>
 </header>
 
-<div class="sep" aria-hidden="true"></div>
+<div class="hr"></div>
 
 <!-- KPI -->
-<section class="section-dark">
-  <div class="container kpi-wrap">
-    <button class="toggle-btn rip" id="kpiToggle">اكتشف المحتوى</button>
-    <div class="kpi" id="kpi">
-      <div>
-        <div class="kpi-grid">
-          <div class="kcard reveal"><span class="num">360</span><div>يوم متابعة وتنظيم</div></div>
-          <div class="kcard red reveal"><span class="num">203</span><div>ريال توفير</div></div>
-          <div class="kcard reveal"><span class="num">112</span><div>مهام مُنجزة</div></div>
-          <div class="kcard reveal"><span class="num">90</span><div>سؤال عميق / ذاتي</div></div>
-          <div class="kcard reveal"><span class="num">90</span><div>يوم دعم وتواصل</div></div>
-          <div class="kcard reveal"><span class="num">12</span><div>تحديات نفسية</div></div>
-          <div class="kcard reveal"><span class="num">10</span><div>خطوات للثقة والتطور</div></div>
-          <div class="kcard reveal"><span class="num">7</span><div>جداول لتنظيم الوقت</div></div>
-        </div>
+<section class="section-ink">
+  <div class="container">
+    <button class="kpi-toggle" id="kpiToggle">اكتشف المحتوى</button>
+    <div class="kpi-fold" id="kpiFold">
+      <div class="kpi-grid" style="margin-top:16px">
+        <div class="kpi-card reveal"><span class="num">360</span><div>يوم متابعة وتنظيم</div></div>
+        <div class="kpi-card reveal" style="background:#8f0e25"><span class="num">203</span><div>ريال توفير</div></div>
+        <div class="kpi-card reveal"><span class="num">112</span><div>مهام مُنجزة</div></div>
+        <div class="kpi-card reveal"><span class="num">90</span><div>سؤال عميق / ذاتي</div></div>
+        <div class="kpi-card reveal"><span class="num">90</span><div>يوم دعم وتواصل</div></div>
+        <div class="kpi-card reveal"><span class="num">12</span><div>تحديات نفسية</div></div>
+        <div class="kpi-card reveal"><span class="num">10</span><div>خطوات للثقة والتطور</div></div>
+        <div class="kpi-card reveal"><span class="num">7</span><div>جداول لتنظيم الوقت</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Tri -->
-<section class="section-light">
+<!-- Trio -->
+<section class="section-dark">
   <div class="container">
     <h2 class="title reveal"><span class="brand">بكج إيفال</span> … كأنك مع فريق كامل يرافقك خطوة بخطوة</h2>
-    <div class="tri">
-      <div class="card reveal"><h3>مدرب شخصي</h3><p>يشجعك، يحفزك، ويذكّرك دائماً أن حياتك ملكك لتعيشها كما تحب</p></div>
-      <div class="card reveal"><h3>مرشد مهني</h3><p>يرسم لك خريطة نجاحك، يتابع خطواتك، ويقيم إنجازاتك</p></div>
-      <div class="card reveal"><h3>معالج نفسي</h3><p>يفهمك ويرافقك في رحلتك النفسية ويدعمك لتعيش حياة متوازنة</p></div>
+    <div class="kpi-grid">
+      <div class="feature reveal"><h3>مدرب شخصي</h3><p>يشجعك، يحفزك، ويذكّرك دائماً أن حياتك ملكك لتعيشها كما تحب</p></div>
+      <div class="feature reveal"><h3>مرشد مهني</h3><p>يرسم لك خريطة نجاحك، يتابع خطواتك، ويقيم إنجازاتك</p></div>
+      <div class="feature reveal"><h3>معالج نفسي</h3><p>يفهمك ويرافقك في رحلتك النفسية ويدعمك لتعيش حياة متوازنة</p></div>
+      <div class="feature" style="opacity:.001"></div> <!-- للتوازن على الديسكتوب -->
     </div>
   </div>
 </section>
 
 <!-- What you get -->
-<section class="section-dark" id="inside">
+<section class="section-ink" id="inside">
   <div class="container">
     <h2 class="title reveal"><span class="brand">ما الذي ستحصل عليه داخل بكج إيفال؟</span></h2>
     <div class="benefits">
-      <div class="bcard reveal"><h4>أجندة إيفال 360 يوم</h4><p>هو المدرب، والمرآة، والداعم، والشاهد على رحلتك!! يحتوي على أكثر من 90 سؤال عميق، ونصائح لكتابة أهدافك، ومقولات تحفيزية يومية، مع تخطيط يومي ومتابعة أسبوعية ومراجعة إنجازاتك، تقييم ذاتي، وصفحات لتفريغ المشاعر، وأسئلة ونصائح لمواجهة 12 تحدياً نفسياً، وخانة للتخطيط المالي، ورسائل خاصة مليئة بالتفاؤل.</p></div>
-      <div class="bcard reveal"><h4>كتاب رحلة تحول <span class="en">(Digital/Audio 3D)</span></h4><p>10 خطوات عملية مدروسة تأخذك في رحلة عميقة لاكتشاف شغفك وقدراتك وتحويل أحلامك إلى أهداف قابلة للتحقيق؛ مدعومة بالقصص والأمثلة ويمكن الاستماع لها في أي وقت ومن أي مكان.</p></div>
-      <div class="bcard reveal"><h4>جدول مهام 112 يوم</h4><p>مهمة يومية بسيطة التأثير يتراكم مع الوقت ليترك أثراً حقيقياً على شخصيتك، تُبنى بها عادات جديدة بدل التسويف، ومع الوقت تصبح منجزاً ومنظماً وواضح الهدف.</p></div>
-      <div class="bcard reveal"><h4>40 غلاف للأجندة</h4><p>اختر الغلاف الذي يعكس شخصيتك؛ الألوان ليست شكلاً فقط بل طاقة تعزّز ارتباطك بأجندتك وتشجّعك على الاستمرار.</p></div>
-      <div class="bcard reveal"><h4 class="gift" style="color:#D6052D">هدية: ملفات خاصة لتنظيم الوقت</h4><p>إدارة الوقت سرّ النجاح. هذه الملفات ليست مكملًا بل أداة أساسية تنقذك من العشوائية وتعلّمك العيش بوضوح وهدوء بعيداً عن التشتت.</p></div>
-      <div class="bcard support reveal"><h4>دعم وتواصل</h4><p>سنكون معك لمدة 90 يوماً لدعمك والإجابة على أي استفسار وتقديم نصائح عملية لتطبيق كل ما يخص البكج.</p></div>
+      <div class="benefit reveal"><h4>أجندة إيفال 360 يوم</h4><p>هو المدرب، والمرآة، والداعم، والشاهد على رحلتك!! يحتوي على أكثر من 90 سؤال عميق…</p></div>
+      <div class="benefit reveal"><h4>كتاب رحلة تحول <span class="en">(Digital/Audio 3D)</span></h4><p>10 خطوات عملية مدروسة تأخذك في رحلة عميقة لاكتشاف شغفك وقدراتك…</p></div>
+      <div class="benefit reveal"><h4>جدول مهام 112 يوم</h4><p>مهمة يومية بسيطة التأثير يتراكم مع الوقت…</p></div>
+      <div class="benefit reveal"><h4>40 غلاف للأجندة</h4><p>اختر الغلاف الذي يعكس شخصيتك…</p></div>
+      <div class="benefit reveal"><h4 class="gift" style="color:#D6052D">هدية: ملفات خاصة لتنظيم الوقت</h4><p>إدارة الوقت سرّ النجاح. هذه الملفات…</p></div>
+      <div class="benefit support reveal"><h4>دعم وتواصل</h4><p>سنكون معك لمدة 90 يوماً لدعمك والإجابة على أي استفسار…</p></div>
     </div>
   </div>
 </section>
 
 <!-- Gallery -->
-<section class="section-light" id="gallery">
-  <div class="container gallery-strip">
-    <div class="gallery-track">
-      <div class="snap" id="snap">
-        <div class="slide"><img src="evallpic1.jpg" alt="gallery 1"></div>
-        <div class="slide"><img src="evallpic2.jpg" alt="gallery 2"></div>
-        <div class="slide"><img src="evallpic3.jpg" alt="gallery 3"></div>
-        <div class="slide"><img src="evallpic4.jpg" alt="gallery 4"></div>
-        <div class="slide"><img src="evallpic5.jpg" alt="gallery 5"></div>
-        <div class="slide"><img src="evallpic6.jpg" alt="gallery 6"></div>
-        <div class="slide"><img src="evallpic7.jpg" alt="gallery 7"></div>
-        <div class="slide"><img src="evallpic8.jpg" alt="gallery 8"></div>
-        <div class="slide"><img src="evallpic9.jpg" alt="gallery 9"></div>
-        <div class="slide"><img src="evallpic10.jpg" alt="gallery 10"></div>
+<section class="section-dark" id="gallery">
+  <div class="container">
+    <div class="gallery">
+      <div class="strip" id="strip">
+        <div class="slide"><img src="evallpic1.jpg" alt=""></div>
+        <div class="slide"><img src="evallpic2.jpg" alt=""></div>
+        <div class="slide"><img src="evallpic3.jpg" alt=""></div>
+        <div class="slide"><img src="evallpic4.jpg" alt=""></div>
+        <div class="slide"><img src="evallpic5.jpg" alt=""></div>
+        <div class="slide"><img src="evallpic6.jpg" alt=""></div>
+        <div class="slide"><img src="evallpic7.jpg" alt=""></div>
+        <div class="slide"><img src="evallpic8.jpg" alt=""></div>
+        <div class="slide"><img src="evallpic9.jpg" alt=""></div>
+        <div class="slide"><img src="evallpic10.jpg" alt=""></div>
       </div>
-    </div>
-    <div class="gal-nav" aria-hidden="true">
-      <button class="gal-btn" onclick="navSnap(-1)">◀</button>
-      <button class="gal-btn" onclick="navSnap(1)">▶</button>
+      <button class="nav-arrow nav-right" onclick="nav(-1)">◀</button>
+      <button class="nav-arrow nav-left" onclick="nav(1)">▶</button>
     </div>
   </div>
 </section>
 
 <!-- Results -->
-<section class="section-gray" id="results">
+<section class="section-ink" id="results">
   <div class="container">
-    <h2 class="title reveal" style="color:#000">نتائج واضحة بأقل من شهر!</h2>
+    <h2 class="title reveal"><span class="brand">نتائج واضحة بأقل من شهر!</span></h2>
     <div class="results">
       <div class="result reveal"><h5>وضوح أهدافك:</h5><p>خطوات عملية تحوّل الحلم لخطة قابلة للتنفيذ</p></div>
       <div class="result reveal"><h5>بناء عادات جديدة:</h5><p>تبني روتين يومي يعزز إنتاجيتك ويقوي التزامك</p></div>
@@ -357,46 +351,40 @@ footer{background:#0b0b0b;color:#bbb}
 </section>
 
 <!-- FAQ -->
-<section class="section-dark" id="faq">
+<section class="section-light" id="faq">
   <div class="container">
-    <h2 class="title reveal"><span class="brand">الأسئلة المتكررة (FAQ)</span></h2>
-    <div class="faq-wrap">
-      <details class="reveal"><summary>هل البكج رقمي أم ورقي؟</summary><p>البكج رقمي بالكامل… كما أن الملفات مصممة للطباعة إذا رغبت، أو الاحتفاظ بها رقمياً واستخدام دفتر خارجي للكتابة.</p></details>
-      <details class="reveal"><summary>ما هي الأسس التي بُني عليها البكج؟</summary><p>تم تطوير البكج بناءً على بحوث ودراسات وتجارب عملية لأكثر من 8 أشهر، مع استشارات متخصصين لضمان نتائج فعلية.</p></details>
-      <details class="reveal"><summary>كيف أستلم الملفات؟</summary><p>بعد إتمام الدفع يظهر رابط التحميل مباشرة، كما يصلك أيضاً عبر البريد الإلكتروني من Payhip.</p></details>
+    <h2 class="title reveal" style="color:#0b0b0c"><span class="brand">الأسئلة المتكررة (FAQ)</span></h2>
+    <div class="faq">
+      <details class="reveal"><summary>هل البكج رقمي أم ورقي؟</summary><p>البكج رقمي بالكامل…</p></details>
+      <details class="reveal"><summary>ما هي الأسس التي بُني عليها البكج؟</summary><p>تم تطوير البكج بناءً على بحوث ودراسات…</p></details>
+      <details class="reveal"><summary>كيف أستلم الملفات؟</summary><p>بعد إتمام الدفع يظهر رابط التحميل مباشرة…</p></details>
       <details class="reveal"><summary>هل الدفع شهري؟</summary><p>لا، الدفع مرة واحدة مدى الحياة، مع دعم لمدة 90 يوم.</p></details>
-      <details class="reveal"><summary>هل البكج مناسب لأي عمر أو مرحلة؟</summary><p>نعم، لأي شخص يريد تطوير نفسه: طالب، موظف، رائد أعمال… ويشمل الأهداف الشخصية والصحية والمهنية والدراسية والمالية والاجتماعية والروحية.</p></details>
-      <details class="reveal"><summary>هل أحتاج خبرة سابقة للتطبيق؟</summary><p>لا، البكج بسيط وسهل التطبيق مع إمكانية التواصل عبر الإيميل لأسئلة أو دعم أثناء الإستخدام.</p></details>
+      <details class="reveal"><summary>هل البكج مناسب لأي عمر أو مرحلة؟</summary><p>نعم، لأي شخص يريد تطوير نفسه…</p></details>
+      <details class="reveal"><summary>هل أحتاج خبرة سابقة للتطبيق؟</summary><p>لا، البكج بسيط وسهل التطبيق…</p></details>
     </div>
   </div>
 </section>
 
-<!-- Payment steps -->
+<!-- Steps -->
 <section class="section-light steps" id="payment">
   <div class="container">
-    <h3 class="reveal">طريقة الدفع بخطوات بسيطة:</h3>
-    <ol class="reveal">
+    <h3 class="title" style="color:#0b0b0c">طريقة الدفع بخطوات بسيطة:</h3>
+    <ol style="color:#000">
       <li>ادخل بريدك الإلكتروني</li>
-      <li>اضغط على <span style="color:#F3B041;font-weight:800">Add coupon</span> لإضافة كود الخصم</li>
-      <li>بعد إضافة الكود، اضغط على <span style="color:#F3B041;font-weight:800">ADD COUPON</span> ثم <span style="color:#F3B041;font-weight:800">CONTINUE WITH PURCHASE</span></li>
+      <li>اضغط على <span style="color:#B5832C;font-weight:900">Add coupon</span> لإضافة كود الخصم</li>
+      <li>بعد إضافة الكود، اضغط على <span style="color:#B5832C;font-weight:900">ADD COUPON</span> ثم <span style="color:#B5832C;font-weight:900">CONTINUE WITH PURCHASE</span></li>
       <li>اختر وسيلة الدفع المناسبة واملأ البيانات</li>
       <li>بعد إتمام عملية الدفع، سيظهر لك رابط التحميل مباشرة</li>
     </ol>
-
-    <div class="pay-logos-inline">
-      <img src="paymentlogos.png" alt="PayPal • Mastercard • Visa">
-    </div>
-
-    <p style="font-size:12px;color:#D6052D;margin-top:8px" class="reveal">
-      ملحوظة مهمة: بعد إتمام عملية الدفع، قد تلاحظ خصم مبلغ 1$ من بطاقتك، لا داعي للقلق، هي عملية تحقق مؤقتة وسيُعاد خلال يومين كحد أقصى.
-    </p>
+    <div class="pay-logos-inline"><img src="paymentlogos.png" alt="PayPal • Mastercard • Visa"></div>
+    <p style="font-size:12px;color:#D6052D;margin-top:8px">ملحوظة مهمة: بعد إتمام عملية الدفع، قد تلاحظ خصم مبلغ 1$ من بطاقتك…</p>
   </div>
 </section>
 
 <!-- Pricing -->
-<section class="pricing" id="pricing">
+<section class="section-light" id="pricing" style="padding-top:0">
   <div class="container">
-    <div class="price-card reveal">
+    <div class="price reveal">
       <span class="tag">بمناسبة اليوم الوطني السعودي</span>
       <h3>خصم ضخم <span class="off">60%</span></h3>
       <p class="big">35.96$ <span class="muted">بدلاً من</span> <s>89.9$</s></p>
@@ -404,16 +392,16 @@ footer{background:#0b0b0b;color:#bbb}
       <div class="divider"></div>
       <div class="countdown" id="priceCountdown"></div>
       <div style="margin-top:14px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-        <a class="btn btn-red rip" href="https://payhip.com/buy?link[]=wPZpb&session_enabled=1&parent_url=https%3A%2F%2Fpayhip.com%2Fb%2FwPZpb&type=overlay&payhip_js=true">انتقل إلى صفحة الدفع</a>
-        <a class="btn btn-dark rip" href="#inside">تعرّف على المحتوى</a>
+        <a class="btn btn-cta" href="https://payhip.com/buy?link[]=wPZpb&session_enabled=1&parent_url=https%3A%2F%2Fpayhip.com%2Fb%2FwPZpb&type=overlay&payhip_js=true">انتقل إلى صفحة الدفع</a>
+        <a class="btn btn-ghost" href="#inside">تعرّف على المحتوى</a>
       </div>
       <p style="margin-top:12px">آمن 100% – استلام عبر الإيميل مباشرة – دفعة واحدة ولمدى الحياة</p>
     </div>
   </div>
 </section>
 
-<!-- Sticky CTA (mobile) -->
-<a href="#pricing" class="sticky-cta" id="stickyCta">احصل عليه الآن</a>
+<!-- Sticky CTA -->
+<a href="#pricing" class="sticky" id="sticky">احصل عليه الآن</a>
 
 <!-- Footer -->
 <footer>
@@ -435,7 +423,7 @@ footer{background:#0b0b0b;color:#bbb}
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="#fff" stroke-width="2"/><circle cx="12" cy="12" r="4.2" stroke="#fff" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="#fff"/></svg>
       </a>
     </div>
-    <p style="margin-top:12px">© <span id="year"></span> Evall – جميع الحقوق محفوظة</p>
+    <p style="margin-top:12px;color:#cfcfcf">© <span id="year"></span> Evall – جميع الحقوق محفوظة</p>
   </div>
 </footer>
 
@@ -443,98 +431,59 @@ footer{background:#0b0b0b;color:#bbb}
 /* Year */
 document.getElementById('year').textContent = new Date().getFullYear();
 
-/* Countdown (3 أيام لكل زائر) */
+/* Countdown targets (3 أيام لكل زائر) */
 function initCountdown(id){
   const el=document.getElementById(id); if(!el) return;
   const key='evall_countdown_'+id;
   let target=localStorage.getItem(key);
   if(!target){const t=new Date(); t.setDate(t.getDate()+3); target=t.getTime(); localStorage.setItem(key,target);} else {target=parseInt(target,10);}
-  function tick(){
-    let diff=target-Date.now();
-    if(diff<=0){el.innerHTML='<span class="unit"><span class="num">00</span><span class="lbl">انتهى</span></span>';return}
-    const d=Math.floor(diff/86400000); diff-=d*86400000;
-    const h=Math.floor(diff/3600000); diff-=h*3600000;
-    const m=Math.floor(diff/60000); diff-=m*60000;
-    const s=Math.floor(diff/1000);
+  function draw(){
+    let d=target-Date.now();
+    if(d<=0){el.innerHTML='<div class="unit"><span class="num">00</span><span class="lbl">انتهى</span></div>';return}
+    const dd=Math.floor(d/86400000); d-=dd*86400000;
+    const hh=Math.floor(d/3600000); d-=hh*3600000;
+    const mm=Math.floor(d/60000); d-=mm*60000;
+    const ss=Math.floor(d/1000);
     const pad=n=>String(n).padStart(2,'0');
     el.innerHTML =
-      `<span class="unit"><span class="num">${pad(d)}</span><span class="lbl">أيام</span></span>`+
-      `<span class="unit"><span class="num">${pad(h)}</span><span class="lbl">ساعات</span></span>`+
-      `<span class="unit"><span class="num">${pad(m)}</span><span class="lbl">دقائق</span></span>`+
-      `<span class="unit"><span class="num">${pad(s)}</span><span class="lbl">ثواني</span></span>`;
+     `<div class="unit"><span class="num">${pad(dd)}</span><span class="lbl">أيام</span></div>`+
+     `<div class="unit"><span class="num">${pad(hh)}</span><span class="lbl">ساعات</span></div>`+
+     `<div class="unit"><span class="num">${pad(mm)}</span><span class="lbl">دقائق</span></div>`+
+     `<div class="unit"><span class="num">${pad(ss)}</span><span class="lbl">ثواني</span></div>`;
   }
-  tick(); setInterval(tick,1000);
+  draw(); setInterval(draw,1000);
 }
-initCountdown('heroCountdown');
-initCountdown('priceCountdown');
+initCountdown('heroCountdown'); initCountdown('priceCountdown');
 
-/* Ripple clicks */
-document.querySelectorAll('.rip').forEach(btn=>{
-  btn.addEventListener('click',function(e){
-    const r=document.createElement('span'); r.className='r';
-    const rect=this.getBoundingClientRect();
-    const size=Math.max(rect.width,rect.height);
-    r.style.width=r.style.height=size+'px';
-    r.style.left=(e.clientX-rect.left-size/2)+'px';
-    r.style.top=(e.clientY-rect.top-size/2)+'px';
-    this.appendChild(r);
-    r.addEventListener('animationend',()=>r.remove());
-  });
-});
+/* Reveal */
+const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.14});
+document.querySelectorAll('.reveal').forEach(n=>io.observe(n));
 
-/* KPI toggle */
-const kpiToggle=document.getElementById('kpiToggle');
-const kpi=document.getElementById('kpi');
-kpiToggle.addEventListener('click',()=>{
-  kpi.classList.toggle('open');
-});
+/* KPI fold */
+const kbtn=document.getElementById('kpiToggle'), fold=document.getElementById('kpiFold');
+kbtn.addEventListener('click',()=>fold.classList.toggle('open'));
 
-/* Scroll Reveal */
-const io=new IntersectionObserver((entries)=>{
-  entries.forEach(en=>{
-    if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}
-  });
-},{threshold:.12});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-
-/* Parallax for hero overlay (subtle) */
-const heroOverlay=document.getElementById('heroOverlay');
-document.addEventListener('scroll',()=>{
-  const y=Math.min(40, window.scrollY/12); // limit
-  heroOverlay.style.setProperty('--py', y+'px');
-});
-
-/* Sticky CTA on mobile when scrolled past hero */
-const sticky=document.getElementById('stickyCta');
-const hero=document.querySelector('.hero');
-const obs=new IntersectionObserver(([e])=>{
-  sticky.classList.toggle('show', !e.isIntersecting);
-},{threshold:0});
+/* Sticky CTA */
+const sticky=document.getElementById('sticky'), hero=document.querySelector('.hero');
+const obs=new IntersectionObserver(([e])=>{sticky.classList.toggle('show',!e.isIntersecting);},{threshold:0});
 obs.observe(hero);
 
-/* Gallery active slide scale */
-const snap=document.getElementById('snap');
-function updateActive(){
-  let closest=null, min=1e9;
-  const rect=snap.getBoundingClientRect();
-  snap.querySelectorAll('.slide').forEach(s=>{
+/* Gallery active spotlight + nav */
+const strip=document.getElementById('strip');
+function setActive(){
+  const rect=strip.getBoundingClientRect(); let min=1e9, best=null;
+  strip.querySelectorAll('.slide').forEach(s=>{
     const r=s.getBoundingClientRect();
-    const center=Math.abs((r.left+r.right)/2 - (rect.left+rect.right)/2);
-    if(center<min){min=center;closest=s;}
+    const c=Math.abs((r.left+r.right)/2 - (rect.left+rect.right)/2);
+    if(c<min){min=c;best=s;}
   });
-  snap.querySelectorAll('.slide').forEach(s=>s.classList.toggle('active', s===closest));
+  strip.querySelectorAll('.slide').forEach(s=>s.classList.toggle('active',s===best));
 }
-['scroll','resize'].forEach(ev=>snap.addEventListener(ev, updateActive,{passive:true}));
-updateActive();
-function navSnap(dir){
-  const child=snap.querySelector('.slide');
-  const step=(child?child.getBoundingClientRect().width:320)+12;
-  snap.scrollBy({left:dir*step,behavior:'smooth'});
-}
-
-/* Prevent animation for users preferring reduced motion */
-if (window.matchMedia('(prefers-reduced-motion: reduce)').matches){
-  document.querySelectorAll('*').forEach(el=>el.style.scrollBehavior='auto');
+['scroll','resize'].forEach(ev=>strip.addEventListener(ev,setActive,{passive:true}));
+setActive();
+function nav(dir){
+  const one=strip.querySelector('.slide'); const step=(one?one.getBoundingClientRect().width:320)+12;
+  strip.scrollBy({left:dir*step,behavior:'smooth'});
 }
 </script>
 </body>
