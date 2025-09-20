@@ -141,16 +141,21 @@
     .steps h3{margin-top:0;text-align:center;color:#000;font-family:var(--font-head)}
     .steps ol{padding-right:16px;margin:0 0 12px;color:#000}
 
-    /* ✅ استبدال أيقونات الدفع بصورة واحدة */
-    .pay-logos-wrap{
-      display:flex;justify-content:center;align-items:center;margin:16px auto 10px;
+    /* ✅ شعارات الدفع — صغيرة، شفافة، مقاس سطر */
+    .pay-logos-inline{
+      display:flex;justify-content:center;align-items:center;
+      margin:8px auto 6px; /* مسافة بسيطة */
     }
-    .pay-logos-wrap .frame{
-      background:#fff;border-radius:14px;box-shadow:var(--shadow);
-      padding:10px 14px;
+    .pay-logos-inline img{
+      height:1.6em;       /* نفس تقريبًا ارتفاع السطر */
+      width:auto;
+      image-rendering:auto;
+      filter:none;        /* بدون تأثيرات */
+      /* لا خلفية، لا إطار، لا ظل */
+      background:transparent;
     }
-    .pay-logos-wrap img{
-      display:block;max-width:min(520px,90vw);height:auto;
+    @media (min-width:900px){
+      .pay-logos-inline img{ height:1.8em; } /* يكبر شعرة على الديسكتوب */
     }
 
     /* Pricing */
@@ -262,12 +267,10 @@
         <li>بعد إتمام عملية الدفع، سيظهر لك رابط التحميل مباشرة</li>
       </ol>
 
-      <!-- ✅ صورة وسائل الدفع الجديدة -->
-      <div class="pay-logos-wrap" aria-label="طرق الدفع المتاحة">
-        <div class="frame">
-          <!-- ضع الصورة paymentlogos.png بجانب هذا الملف -->
-          <img src="paymentlogos.png" alt="PayPal • Mastercard • Visa">
-        </div>
+      <!-- ✅ شعارات الدفع — صغيرة، شفافة، بدون إطار -->
+      <div class="pay-logos-inline" aria-label="طرق الدفع المتاحة">
+        <!-- ضع الصورة paymentlogos.png بجانب ملف الـ HTML وتأكد أن خلفيتها شفافة -->
+        <img src="paymentlogos.png" alt="PayPal • Mastercard • Visa">
       </div>
 
       <p style="font-size:12px;color:#D6052D;margin-top:8px">
