@@ -21,58 +21,55 @@
     .promo{position:sticky;top:0;z-index:50;background:var(--red);color:#fff;font-weight:900}
     .promo .inner{padding:10px 14px}
 
-    /* ===== HERO FULL SCREEN + BOTTOM FADE ===== */
+    /* ===== HERO 16:9 + Bottom Fade =====
+       - يحافظ على نسبة 16:9 دائماً
+       - لا يتخطى ارتفاع الشاشة */
     .hero{
       position:relative;
-      min-height:100vh;           /* دعم المتصفحات القديمة */
-      min-height:100svh;          /* وحدات جديدة تعالج شريط العنوان بالموبايل */
-      display:flex;
-      align-items:center;
-      justify-content:center;
+      width:100%;
+      aspect-ratio:16/9;           /* النسبة */ 
+      max-height:100svh;           /* لا يزيد عن طول الشاشة */
+      background:#000;
       overflow:hidden;
-      background:#000;            /* لون خلفية احتياطي */
-      isolation:isolate;          /* يضمن الطبقات بشكل صحيح */
+      display:flex;align-items:center;justify-content:center;
+      isolation:isolate;
     }
-    /* الصورة تغطي الشاشة كاملة */
-    .hero .banner{
-      position:absolute; inset:0;
-      border-radius:0; box-shadow:none; overflow:hidden;
+    /* على الشاشات الضيقة جداً، لو أردت جعله يغطي الشاشة يمكن تفعيل السطر التالي
+       بإزالة التعليق: */
+    @media (max-width:480px){
+      .hero{min-height:100svh}     /* اختياري: يجعل الهيرو يملأ الشاشة على الموبايل */
     }
+
+    .hero .banner{position:absolute;inset:0;overflow:hidden}
     .hero .banner img{
-      width:100%; height:100%;
-      object-fit:cover;           /* تغطية كاملة */
-      object-position:center;     /* تمركز جيد */
-      display:block;
-      filter:brightness(.92);     /* خفيف لرفع تباين النص */
+      width:100%;height:100%;
+      object-fit:cover;            /* يملأ 16:9 بدون تشويه */
+      object-position:center;
+      filter:brightness(.92);
     }
-    /* طبقة النص والأزرار */
+    /* المحتوى فوق الصورة */
     .hero .overlay{
-      position:relative; z-index:2;
+      position:relative;z-index:2;
       width:min(100%, var(--container));
       padding:0 18px;
-      display:flex; flex-direction:column; align-items:center; justify-content:center;
-      gap:14px;
-      /* تظليل خفيف حول النص لزيادة الوضوح */
+      display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
       text-shadow:0 2px 14px rgba(0,0,0,.45);
     }
     .hero h1{margin:0 0 12px;font-size:clamp(26px,4.5vw,42px);font-weight:900;color:var(--gold)}
     .hero h1 .white{color:#fff}
     .btn{display:inline-block;padding:14px 22px;border-radius:14px;font-weight:800;box-shadow:var(--shadow)}
     .btn-red{background:var(--red);color:#fff}
-    /* العدّاد تحت الزر */
     .countdown{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:6px}
     .countdown .unit{background:#111;border:1px solid #1f1f1f;border-radius:10px;min-width:70px;padding:8px 10px}
     .countdown .num{display:block;font-size:20px;font-weight:900}
     .countdown .lbl{opacity:.8;font-size:12px}
 
-    /* فييد أنيق من الأسفل */
+    /* الفييد من الأسفل */
     .hero::after{
       content:"";
-      position:absolute; left:0; right:0; bottom:0;
-      height:28vh;                /* ارتفاع التدرّج */
-      pointer-events:none;
+      position:absolute;left:0;right:0;bottom:0;height:28%;
       background:linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.72) 55%, #000 100%);
-      z-index:1;
+      pointer-events:none;z-index:1;
     }
 
     /* Section backgrounds */
@@ -159,14 +156,12 @@
   <!-- PROMO -->
   <div class="promo"><div class="inner">خصم <strong>60%</strong> لفترة محدودة بمناسبة اليوم الوطني السعودي!!</div></div>
 
-  <!-- HERO -->
+  <!-- HERO 16:9 -->
   <header class="hero">
-    <!-- الصورة تغطي الشاشة بالكامل -->
     <div class="banner">
+      <!-- تأكد أن اسم الصورة: evallbanner.jpg بحجم 16:9 (مثل 1920×1080 أو 2560×1440) -->
       <img src="evallbanner.jpg" alt="Evall Hero Banner">
     </div>
-
-    <!-- المحتوى فوق الصورة -->
     <div class="overlay">
       <h1>ابدأ <span class="white">رحلتك</span> اليوم</h1>
       <a class="btn btn-red" href="#pricing">احصل عليه الآن</a>
@@ -210,27 +205,27 @@
       <div class="benefits">
         <div class="card">
           <h4>أجندة إيفال 360 يوم</h4>
-          <p>هو المدرب، والمرآة، والداعم، والشاهد على رحلتك!! يحتوي على أكثر من 90 سؤال عميق…</p>
+          <p>هو المدرب، والمرآة، والداعم، والشاهد على رحلتك!! يحتوي على أكثر من 90 سؤال عميق، ونصائح لكتابة أهدافك، ومقولات تحفيزية يومية، مع تخطيط يومي ومتابعة أسبوعية ومراجعة إنجازاتك، تقييم ذاتي، وصفحات لتفريغ المشاعر، وأسئلة ونصائح لمواجهة 12 تحدياً نفسياً، وخانة للتخطيط المالي، ورسائل خاصة مليئة بالتفاؤل.</p>
         </div>
         <div class="card">
           <h4>كتاب رحلة تحول <span class="en">(Digital/Audio 3D)</span></h4>
-          <p>10 خطوات عملية مدروسة تأخذك في رحلة عميقة لاكتشاف شغفك وقدراتك…</p>
+          <p>10 خطوات عملية مدروسة تأخذك في رحلة عميقة لاكتشاف شغفك وقدراتك وتحويل أحلامك إلى أهداف قابلة للتحقيق؛ مدعومة بالقصص والأمثلة ويمكن الاستماع لها في أي وقت ومن أي مكان.</p>
         </div>
         <div class="card">
           <h4>جدول مهام 112 يوم</h4>
-          <p>مهمة يومية بسيطة التأثير يتراكم مع الوقت ليترك أثراً حقيقياً…</p>
+          <p>مهمة يومية بسيطة التأثير يتراكم مع الوقت ليترك أثراً حقيقياً على شخصيتك، تُبنى بها عادات جديدة بدل التسويف، ومع الوقت تصبح منجزاً ومنظماً وواضح الهدف.</p>
         </div>
         <div class="card">
           <h4>40 غلاف للأجندة</h4>
-          <p>اختر الغلاف الذي يعكس شخصيتك؛ الألوان ليست شكلاً فقط بل طاقة…</p>
+          <p>اختر الغلاف الذي يعكس شخصيتك؛ الألوان ليست شكلاً فقط بل طاقة تعزّز ارتباطك بأجندتك وتشجّعك على الاستمرار.</p>
         </div>
         <div class="card">
           <h4 class="gift" style="color:#D6052D">هدية: ملفات خاصة لتنظيم الوقت</h4>
-          <p>إدارة الوقت سرّ النجاح…</p>
+          <p>إدارة الوقت سرّ النجاح. هذه الملفات ليست مكملًا بل أداة أساسية تنقذك من العشوائية وتعلّمك العيش بوضوح وهدوء بعيداً عن التشتت.</p>
         </div>
         <div class="card support" style="background:#D6052D;color:#fff">
           <h4>دعم وتواصل</h4>
-          <p>سنكون معك لمدة 90 يوماً لدعمك والإجابة على أي استفسار…</p>
+          <p>سنكون معك لمدة 90 يوماً لدعمك والإجابة على أي استفسار وتقديم نصائح عملية لتطبيق كل ما يخص البكج.</p>
         </div>
       </div>
     </div>
@@ -282,11 +277,11 @@
       <div class="faq">
         <details>
           <summary>هل البكج رقمي أم ورقي؟</summary>
-          <p>البكج رقمي بالكامل… كما أن الملفات مصممة للطباعة إذا رغبت، أو الاحتفاظ بها رقمياً.</p>
+          <p>البكج رقمي بالكامل… كما أن الملفات مصممة للطباعة إذا رغبت، أو الاحتفاظ بها رقمياً واستخدام دفتر خارجي للكتابة.</p>
         </details>
         <details>
           <summary>ما هي الأسس التي بُني عليها البكج؟</summary>
-          <p>تم تطوير البكج بناءً على بحوث ودراسات وتجارب عملية لأكثر من 8 أشهر…</p>
+          <p>تم تطوير البكج بناءً على بحوث ودراسات وتجارب عملية لأكثر من 8 أشهر، مع استشارات متخصصين لضمان نتائج فعلية.</p>
         </details>
         <details>
           <summary>كيف أستلم الملفات؟</summary>
@@ -298,11 +293,11 @@
         </details>
         <details>
           <summary>هل البكج مناسب لأي عمر أو مرحلة؟</summary>
-          <p>نعم، لأي شخص يريد تطوير نفسه: طالب، موظف، رائد أعمال…</p>
+          <p>نعم، لأي شخص يريد تطوير نفسه: طالب، موظف، رائد أعمال… ويشمل الأهداف الشخصية والصحية والمهنية والدراسية والمالية والاجتماعية والروحية.</p>
         </details>
         <details>
           <summary>هل أحتاج خبرة سابقة للتطبيق؟</summary>
-          <p>لا، البكج بسيط وسهل التطبيق مع إمكانية التواصل عبر الإيميل للدعم.</p>
+          <p>لا، البكج بسيط وسهل التطبيق مع إمكانية التواصل عبر الإيميل لأسئلة أو دعم أثناء الإستخدام.</p>
         </details>
       </div>
     </div>
