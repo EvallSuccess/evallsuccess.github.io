@@ -12,7 +12,7 @@
       --shadow:0 10px 24px rgba(0,0,0,.18); --radius:14px; --container:1150px;
     }
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:#000;color:#fff;font-family:"Cairo",system-ui,Arial;line-height:1.7;text-align:center}
+    html,body{margin:0;padding:0;background:#000;color:#fff;font-family:"Cairo",system-ui,Arial;line-height:1.7;text-align:center;scroll-behavior:smooth}
     a{color:inherit;text-decoration:none}
     img{max-width:100%;display:block}
     .container{max-width:var(--container);margin-inline:auto;padding:28px 18px}
@@ -46,7 +46,12 @@
 
     /* Collapsible KPI */
     .kpi-wrap{padding:24px 0}
-    .toggle-btn{background:var(--gold);color:#000;border:none;border-radius:12px;padding:10px 16px;font-weight:900;cursor:pointer;box-shadow:var(--shadow)}
+    .toggle-btn{
+      display:block;width:100%;
+      background:var(--gold);color:#000;border:none;
+      border-radius:12px;padding:14px 18px;
+      font-weight:900;cursor:pointer;box-shadow:var(--shadow)
+    }
     .kpi{display:none;margin-top:18px;grid-template-columns:repeat(2,1fr);gap:12px}
     @media(min-width:768px){.kpi{grid-template-columns:repeat(4,1fr)}}
     .kpi .card{background:#202020;color:#fff;border-radius:var(--radius);padding:14px 10px;box-shadow:var(--shadow)}
@@ -67,7 +72,7 @@
     .benefits .card .gift{color:var(--red)}
     .benefits .card h4{margin:0 0 6px;font-weight:800}
 
-    /* Gallery (restored) */
+    /* Gallery */
     .gallery-strip{position:relative}
     .gallery-track{display:flex;overflow:hidden;border-radius:var(--radius);box-shadow:var(--shadow)}
     .gallery-track ul{list-style:none;display:flex;padding:0;margin:0;scroll-behavior:smooth;overflow:auto hidden;-webkit-overflow-scrolling:touch}
@@ -91,7 +96,7 @@
     summary{cursor:pointer;font-weight:900;color:var(--gold)}
     details p{margin:8px 0 0}
 
-    /* Payment steps (no images gallery) */
+    /* Payment steps (no images) */
     .steps .container{text-align:right}
     .steps h3{margin-top:0;text-align:center;color:#000}
     .steps ol{padding-right:18px;margin:0 0 14px;color:#000}
@@ -128,7 +133,8 @@
         <img src="evallbanner.jpg" alt="Evall Hero Banner">
         <div class="overlay">
           <h1>ابدأ <span class="white">رحلتك</span> اليوم</h1>
-          <a class="btn btn-red" href="https://payhip.com/buy?link[]=wPZpb&session_enabled=1&parent_url=https%3A%2F%2Fpayhip.com%2Fb%2FwPZpb&type=overlay&payhip_js=true">احصل عليه الآن</a>
+          <!-- ينزل مباشرة إلى قسم العرض -->
+          <a class="btn btn-red" href="#pricing">احصل عليه الآن</a>
           <div class="countdown" id="heroCountdown"></div>
         </div>
       </div>
@@ -138,7 +144,8 @@
   <!-- KPI (collapsible) -->
   <section class="section-dark">
     <div class="container kpi-wrap">
-      <button class="toggle-btn" onclick="toggleKpi()">محتوى الباكج</button>
+      <!-- الاسم الجديد -->
+      <button class="toggle-btn" onclick="toggleKpi()">اكتشف المحتوى</button>
       <div class="kpi" id="kpiGrid">
         <div class="card"><span class="num">360</span><div>يوم متابعة وتنظيم</div></div>
         <div class="card red"><span class="num">203</span><div>ريال توفير</div></div>
@@ -197,7 +204,7 @@
     </div>
   </section>
 
-  <!-- GALLERY (restored) -->
+  <!-- GALLERY -->
   <section class="section-light" id="gallery">
     <div class="container gallery-strip">
       <div class="gallery-track">
@@ -312,20 +319,30 @@
   <footer>
     <div class="container">
       <div class="socials">
-        <a href="https://www.instagram.com/evallonlinesuccess/" target="_blank" rel="noopener" aria-label="Instagram">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="#fff" stroke-width="2"/><circle cx="12" cy="12" r="4.2" stroke="#fff" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="#fff"/></svg>
+        <!-- Email -->
+        <a href="mailto:support@evallsuccess.com" aria-label="Email">
+          <svg width="28" height="22" viewBox="0 0 28 22" fill="none"><rect x="1" y="1" width="26" height="20" rx="4" stroke="#fff" stroke-width="2"/><path d="M3 3l11 8 11-8" stroke="#fff" stroke-width="2"/></svg>
         </a>
+        <!-- TikTok (white) -->
+        <a href="https://www.tiktok.com/@evallonlinesuccess?_t=ZN-8zriKgSVMkI&_r=1" target="_blank" rel="noopener" aria-label="TikTok">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M12.5 3h3c.1 1.9 1.5 3.7 3.5 4.4v3.2c-1.7.11-3.5-.32-5-1.13V17a6 6 0 1 1-6-6c.35 0 .69.03 1 .08v3.05a3 3 0 1 0 3 3V3z" fill="#fff"/>
+          </svg>
+        </a>
+        <!-- YouTube (white) -->
+        <a href="https://www.youtube.com/@evallonlinesuccess" target="_blank" rel="noopener" aria-label="YouTube">
+          <svg width="30" height="22" viewBox="0 0 30 22" fill="none">
+            <rect x="1" y="1" width="28" height="20" rx="4" stroke="#fff" stroke-width="2"/>
+            <path d="M13 15V7l6 4-6 4z" fill="#fff"/>
+          </svg>
+        </a>
+        <!-- Facebook -->
         <a href="https://www.facebook.com/evallonline.success" target="_blank" rel="noopener" aria-label="Facebook">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M22 12a10 10 0 1 0-11.5 9.9v-7h-2.4V12h2.4V9.7c0-2.4 1.4-3.7 3.6-3.7 1 0 2 .18 2 .18v2.2h-1.1c-1.1 0-1.5.67-1.5 1.4V12h2.6l-.41 2.9h-2.2v7A10 10 0 0 0 22 12Z" fill="#fff"/></svg>
         </a>
-        <a href="https://www.youtube.com/@evallonlinesuccess" target="_blank" rel="noopener" aria-label="YouTube">
-          <svg width="30" height="20" viewBox="0 0 30 20" fill="none"><rect width="30" height="20" rx="4" fill="#FF0000"/><path d="M12 14V6l6 4-6 4z" fill="#fff"/></svg>
-        </a>
-        <a href="https://www.tiktok.com/@evallonlinesuccess?_t=ZN-8zriKgSVMkI&_r=1" target="_blank" rel="noopener" aria-label="TikTok">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M21 9.5a7 7 0 0 1-5-2V17a5 5 0 1 1-5-5c.3 0 .7.04 1 .1V9.2a7 7 0 1 0 4 6.8V6.6a8 8 0 0 0 5 1.9V9.5Z" fill="#fff"/></svg>
-        </a>
-        <a href="mailto:support@evallsuccess.com" aria-label="Email">
-          <svg width="28" height="22" viewBox="0 0 28 22" fill="none"><rect x="1" y="1" width="26" height="20" rx="4" stroke="#fff" stroke-width="2"/><path d="M3 3l11 8 11-8" stroke="#fff" stroke-width="2"/></svg>
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/evallonlinesuccess/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="#fff" stroke-width="2"/><circle cx="12" cy="12" r="4.2" stroke="#fff" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="#fff"/></svg>
         </a>
       </div>
       <p style="margin-top:12px">© <span id="year"></span> Evall – جميع الحقوق محفوظة</p>
@@ -361,7 +378,7 @@
     initCountdown('heroCountdown');
     initCountdown('priceCountdown');
 
-    // gallery scroll (for the restored gallery)
+    // gallery scroll
     function scrollStrip(id,dir){
       const el=document.getElementById(id);
       if(!el) return;
