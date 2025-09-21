@@ -8,7 +8,7 @@
 <link rel="preload" href="evallbanner.jpg" as="image" imagesrcset="evallbanner.jpg 1920w" imagesizes="100vw">
 
 <style>
-/* ====== Fonts (وفّر الملفات محليًا بنفس الأسماء) ====== */
+/* ====== Fonts ====== */
 @font-face{
   font-family:"Motken noqta";
   src:url("fonts/MotkenNoqta.woff2") format("woff2"),
@@ -22,7 +22,7 @@
   font-display:swap;
 }
 
-/* ====== Theme (Obsidian + Gold + Emerald) ====== */
+/* ====== Theme ====== */
 :root{
   --obsidian:#050507; --onyx:#0a0b0d; --ink:#ECE6DA; --muted:#BEB7A8;
   --gold:#E5C16B; --gold-2:#CFA854;
@@ -95,22 +95,26 @@ img{max-width:100%;display:block}
 .title{font-family:var(--head);font-size:clamp(20px,3vw,30px);margin:0 0 18px;font-weight:900}
 .title .brand{color:var(--gold)}
 
-/* Collapsible (زر + طي) */
-.toggle-wide{
-  width:100%;padding:16px;border-radius:20px;
-  background:linear-gradient(180deg,#15161a,#0f1115);
-  color:#fff;border:var(--hair);font-weight:900;box-shadow:var(--shadow)
-}
-.fold{overflow:hidden;max-height:0;transition:max-height .55s ease}
-.fold.open{max-height:1400px} /* يكفي للمحتوى */
-
-/* KPI grid */
+/* ====== KPI grid (بدون زر – مع إطار ذهبي) ====== */
+.kpi-wrap{padding-top:6px}
 .kpi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:16px}
 @media(min-width:900px){.kpi-grid{grid-template-columns:repeat(4,1fr)}}
-.kpi-card{background:linear-gradient(180deg,#121319,#0e0f14);color:#fff;border:1px solid rgba(255,255,255,.06);border-radius:18px;padding:18px;box-shadow:var(--shadow);transition:transform .25s ease, box-shadow .25s ease}
-.kpi-card:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,.5)}
+.kpi-card{
+  position:relative;
+  background:linear-gradient(180deg,#121319,#0e0f14);
+  color:#fff;border-radius:18px;padding:22px;
+  border:var(--hair);                       /* الإطار الذهبي */
+  box-shadow:0 14px 28px rgba(0,0,0,.45),   /* ظل أسود */
+             0 0 0 0 rgba(229,193,107,.0);  /* مكان للوهج */
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.kpi-card:focus-within,.kpi-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 20px 40px rgba(0,0,0,.55),
+             0 0 18px 0 rgba(229,193,107,.18); /* وهج ذهبي خفيف عند الهوفر */
+}
 .kpi-card .num{display:block;color:var(--gold);font-size:22px;font-weight:900}
-.kpi-card.red{background:linear-gradient(180deg,#145e55,#0b3d37);border:none}
+.kpi-card.red{background:linear-gradient(180deg,#145e55,#0b3d37)} /* تبقى Emerald */
 
 /* Features */
 .features{display:grid;grid-template-columns:1fr;gap:14px}
@@ -118,8 +122,8 @@ img{max-width:100%;display:block}
 .feature:hover{transform:translateY(-6px);box-shadow:0 22px 44px rgba(0,0,0,.52)}
 .feature h3{margin:0 0 8px;color:var(--gold);font-family:var(--head)}
 
-/* Benefits grid */
-.benefits{display:grid;grid-template-columns:1fr;gap:14px;margin-top:16px}
+/* Benefits */
+.benefits{display:grid;grid-template-columns:1fr;gap:14px}
 @media(min-width:900px){.benefits{grid-template-columns:repeat(2,1fr)}}
 .benefit{background:#fff;color:#000;border-radius:20px;padding:20px;border:1px solid #eee;box-shadow:0 12px 26px rgba(0,0,0,.12)}
 .benefit.support{background:linear-gradient(180deg,#177368,#0e4f47);color:#fff;border:none}
@@ -213,21 +217,18 @@ footer{background:#08090b;color:#cfc9bd;border-top:var(--hair)}
 
 <div class="hr" aria-hidden="true"></div>
 
-<!-- KPI -->
-<section class="section-ink">
+<!-- KPI (الـ 8 windows دائمًا ظاهرين مع إطار ذهبي) -->
+<section class="section-ink kpi-wrap">
   <div class="container">
-    <button class="toggle-wide" id="kpiToggle" aria-expanded="false">اكتشف المحتوى</button>
-    <div class="fold" id="kpiFold" aria-hidden="true">
-      <div class="kpi-grid">
-        <div class="kpi-card"><span class="num">360</span><div>يوم متابعة وتنظيم</div></div>
-        <div class="kpi-card red"><span class="num">203</span><div>ريال توفير</div></div>
-        <div class="kpi-card"><span class="num">112</span><div>مهام مُنجزة</div></div>
-        <div class="kpi-card"><span class="num">90</span><div>سؤال عميق / ذاتي</div></div>
-        <div class="kpi-card"><span class="num">90</span><div>يوم دعم وتواصل</div></div>
-        <div class="kpi-card"><span class="num">12</span><div>تحديات نفسية</div></div>
-        <div class="kpi-card"><span class="num">10</span><div>خطوات للثقة والتطور</div></div>
-        <div class="kpi-card"><span class="num">7</span><div>جداول لتنظيم الوقت</div></div>
-      </div>
+    <div class="kpi-grid">
+      <div class="kpi-card"><span class="num">360</span><div>يوم متابعة وتنظيم</div></div>
+      <div class="kpi-card red"><span class="num">203</span><div>ريال توفير</div></div>
+      <div class="kpi-card"><span class="num">112</span><div>مهام مُنجزة</div></div>
+      <div class="kpi-card"><span class="num">90</span><div>سؤال عميق / ذاتي</div></div>
+      <div class="kpi-card"><span class="num">90</span><div>يوم دعم وتواصل</div></div>
+      <div class="kpi-card"><span class="num">12</span><div>تحديات نفسية</div></div>
+      <div class="kpi-card"><span class="num">10</span><div>خطوات للثقة والتطور</div></div>
+      <div class="kpi-card"><span class="num">7</span><div>جداول لتنظيم الوقت</div></div>
     </div>
   </div>
 </section>
@@ -244,39 +245,20 @@ footer{background:#08090b;color:#cfc9bd;border-top:var(--hair)}
   </div>
 </section>
 
-<!-- WHAT YOU GET (TOGGLE) -->
+<!-- WHAT YOU GET (زر فتح/إغلاق كما طلبت سابقًا) -->
 <section class="section-ink" id="inside">
   <div class="container">
     <button class="toggle-wide" id="benefitsToggle" aria-expanded="false">
       ما الذي ستحصل عليه داخل بكج إيفال؟
     </button>
-
     <div class="fold" id="benefitsFold" aria-hidden="true">
       <div class="benefits">
-        <div class="benefit">
-          <h4>أجندة إيفال 360 يوم</h4>
-          <p>هو المدرب، والمرآة، والداعم، والشاهد على رحلتك!! يحتوي على أكثر من 90 سؤال عميق…</p>
-        </div>
-        <div class="benefit">
-          <h4>كتاب رحلة تحول <span class="en">(Digital/Audio 3D)</span></h4>
-          <p>10 خطوات عملية مدروسة تأخذك في رحلة عميقة…</p>
-        </div>
-        <div class="benefit">
-          <h4>جدول مهام 112 يوم</h4>
-          <p>مهمة يومية بسيطة التأثير يتراكم مع الوقت…</p>
-        </div>
-        <div class="benefit">
-          <h4>40 غلاف للأجندة</h4>
-          <p>اختر الغلاف الذي يعكس شخصيتك…</p>
-        </div>
-        <div class="benefit">
-          <h4 class="gift">هدية: ملفات خاصة لتنظيم الوقت</h4>
-          <p>إدارة الوقت سرّ النجاح…</p>
-        </div>
-        <div class="benefit support">
-          <h4>دعم وتواصل</h4>
-          <p>سنكون معك لمدة 90 يوماً لدعمك والإجابة على أي استفسار…</p>
-        </div>
+        <div class="benefit"><h4>أجندة إيفال 360 يوم</h4><p>هو المدرب، والمرآة، والداعم، والشاهد على رحلتك!! يحتوي على أكثر من 90 سؤال عميق…</p></div>
+        <div class="benefit"><h4>كتاب رحلة تحول <span class="en">(Digital/Audio 3D)</span></h4><p>10 خطوات عملية مدروسة تأخذك في رحلة عميقة…</p></div>
+        <div class="benefit"><h4>جدول مهام 112 يوم</h4><p>مهمة يومية بسيطة التأثير يتراكم مع الوقت…</p></div>
+        <div class="benefit"><h4>40 غلاف للأجندة</h4><p>اختر الغلاف الذي يعكس شخصيتك…</p></div>
+        <div class="benefit"><h4 class="gift">هدية: ملفات خاصة لتنظيم الوقت</h4><p>إدارة الوقت سرّ النجاح…</p></div>
+        <div class="benefit support"><h4>دعم وتواصل</h4><p>سنكون معك لمدة 90 يوماً لدعمك والإجابة على أي استفسار…</p></div>
       </div>
     </div>
   </div>
@@ -352,22 +334,14 @@ footer{background:#08090b;color:#cfc9bd;border-top:var(--hair)}
 <section class="pricing" id="pricing">
   <div class="container">
     <div class="price">
-      <div class="top">
-        <span class="badge"><span class="dot"></span> بمناسبة اليوم الوطني السعودي</span>
-      </div>
-
+      <div class="top"><span class="badge"><span class="dot"></span> بمناسبة اليوم الوطني السعودي</span></div>
       <div class="wrap">
-        <div class="nums">
-          <div class="big">35.96$</div>
-          <div class="line">بدلاً من <s>89.9$</s></div>
-        </div>
+        <div class="nums"><div class="big">35.96$</div><div class="line">بدلاً من <s>89.9$</s></div></div>
         <div class="line">أي ~ <strong>135 ر.س</strong> (تقريباً) – وفر <strong>203 ر.س</strong></div>
-
         <div class="row cc">
           <a class="btn btn-cta em" href="https://payhip.com/buy?link[]=wPZpb&session_enabled=1&parent_url=https%3A%2F%2Fpayhip.com%2Fb%2FwPZpb&type=overlay&payhip_js=true">انتقل إلى صفحة الدفع</a>
           <a class="btn btn-cta" href="#inside" style="background:linear-gradient(135deg,#249081,#18685d);">تعرّف على المحتوى</a>
         </div>
-
         <div class="countdown" id="priceCountdown"></div>
         <p class="line">آمن 100% – استلام عبر الإيميل مباشرة – دفعة واحدة ولمدى الحياة</p>
       </div>
@@ -406,7 +380,7 @@ footer{background:#08090b;color:#cfc9bd;border-top:var(--hair)}
 /* year */
 document.getElementById('year').textContent=new Date().getFullYear();
 
-/* countdowns (3 أيام) */
+/* countdowns */
 function initCountdown(id){
   const el=document.getElementById(id); if(!el) return;
   const key='evall_countdown_'+id; let target=localStorage.getItem(key);
@@ -442,19 +416,19 @@ document.addEventListener('mousemove',e=>{
 const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.14});
 document.querySelectorAll('.reveal').forEach(n=>io.observe(n));
 
-/* Collapsibles (KPI & Benefits) */
-function bindToggle(btnId, foldId){
-  const btn=document.getElementById(btnId), fold=document.getElementById(foldId);
-  if(!btn||!fold) return;
-  btn.addEventListener('click', ()=>{
-    const open=!fold.classList.contains('open');
-    fold.classList.toggle('open', open);
-    btn.setAttribute('aria-expanded', open);
-    fold.setAttribute('aria-hidden', !open);
-  });
-}
-bindToggle('kpiToggle','kpiFold');
-bindToggle('benefitsToggle','benefitsFold');
+/* Benefits toggle */
+(function(){
+  const btn=document.getElementById('benefitsToggle');
+  const fold=document.getElementById('benefitsFold');
+  if(btn&&fold){
+    btn.addEventListener('click',()=>{
+      const open=!fold.classList.contains('open');
+      fold.classList.toggle('open',open);
+      btn.setAttribute('aria-expanded',open);
+      fold.setAttribute('aria-hidden',!open);
+    });
+  }
+})();
 
 /* Sticky CTA */
 const sticky=document.getElementById('sticky'), hero=document.getElementById('hero');
