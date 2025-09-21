@@ -179,6 +179,7 @@ summary{cursor:pointer;font-weight:900;color:#0a0b0d;font-family:var(--head)}
 .steps h3{margin-top:0;text-align:center;color:#0a0b0d;font-family:var(--head)}
 .steps ol{padding-right:18px;margin:0 0 8px;color:#0a0b0d}
 .pay-logos-inline{display:flex;justify-content:center;align-items:center;margin:6px auto 2px}
+.pay-logos-inline.right{justify-content:flex-end;margin:6px 0 2px 0}
 .pay-logos-inline img{height:1.35em;width:auto;background:transparent}
 .note{font-size:12px;color:#145e55;margin-top:6px}
 
@@ -380,16 +381,14 @@ footer{background:#08090b;color:#cfc9bd;border-top:var(--hair)}
 <!-- Steps -->
 <section class="section-light steps" id="payment">
   <div class="container">
-    <h3 class="title" style="color:#0a0b0d">طريقة الدفع بخطوات بسيطة:</h3>
-    <ol>
+    <h3 class="title" style="color:#0a0b0d">طريقة الدفع بخطوات بسيطة:</h3><ol>
       <li>ادخل بريدك الإلكتروني</li>
       <li>اضغط على <span style="color:#145e55;font-weight:900">Add coupon</span> لإضافة كود الخصم</li>
       <li>اختر وسيلة الدفع المناسبة</li>
       <li>بعد إتمام عملية الدفع، سيظهر لك رابط التحميل مباشرة <strong style="color:#145e55">Download</strong></li>
     </ol>
-</section>
-    <div class="pay-logos-inline"><img src="paymentlogos.png" alt="PayPal • Mastercard • Visa" width="512" height="64"></div>
-    <p class="note">ملحوظة: بعد إتمام عملية الدفع قد يظهر خصم 1$ كتثبيت مؤقت وسيُعاد خلال يومين.</p>
+    <div class="pay-logos-inline right"><img src="paymentlogos.png" alt="PayPal • Mastercard • Visa" width="512" height="64"></div>
+    <p class="note" style="text-align:right">ملحوظة: بعد إتمام عملية الدفع قد يظهر خصم 1$ كتثبيت مؤقت وسيُعاد خلال يومين.</p>
   </div>
 </section>
 
