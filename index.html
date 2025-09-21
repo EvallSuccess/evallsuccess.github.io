@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>بكج إيفال – Ultra Luxury (Compact)</title>
 <meta name="description" content="بكج إيفال – خطة عملية بخطوات واضحة ودعم لمدة 90 يوم." />
+<link rel="preload" href="./fonts/evallarabic.woff2" as="font" type="font/woff2" crossorigin> 
 <meta name="theme-color" content="#0a0b0d"/>
 
 <!-- Social / SEO -->
@@ -22,16 +23,12 @@
 <style>
 /* ====== Fonts (اختياري: وفّرها محليًا بنفس الأسماء) ====== */
 @font-face{
-  font-family:"Motken noqta";
-  src:url("fonts/MotkenNoqta.woff2") format("woff2"),
-      url("fonts/MotkenNoqta.woff") format("woff");
+  font-family:"Evall Arabic";
+  src:url("./fonts/evallarabic.woff2") format("woff2");
+  font-weight:100 900;
+  font-style:normal;
   font-display:swap;
-}
-@font-face{
-  font-family:"HSN Shahd bold";
-  src:url("fonts/HSNShahd-Bold.woff2") format("woff2"),
-      url("fonts/HSNShahd-Bold.woff") format("woff");
-  font-display:swap;
+  unicode-range:U+000-5FF, U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF;
 }
 
 /* ====== Theme / Spacing Scale ====== */
@@ -43,23 +40,13 @@
   --hair:1px solid rgba(229,193,107,.45);
   --shadow:0 16px 36px rgba(0,0,0,.40);
 
-  /* ريدكشن عام بالمسافات */
-  --r-lg:18px;    /* radius large */
-  --r-md:14px;    /* radius medium */
-  --r-sm:12px;    /* radius small */
-
-  --gap-xl:14px;
-  --gap-lg:12px;
-  --gap-md:10px;
-  --gap-sm:8px;
-
-  --pad-lg:18px;
-  --pad-md:14px;
-  --pad-sm:10px;
+  --r-lg:18px; --r-md:14px; --r-sm:12px;
+  --gap-xl:14px; --gap-lg:12px; --gap-md:10px; --gap-sm:8px;
+  --pad-lg:18px; --pad-md:14px; --pad-sm:10px;
 
   --container:1120px;
-  --head:"Motken noqta","Tajawal","Cairo",system-ui,Arial,sans-serif;
-  --body:"HSN Shahd bold","Tajawal","Cairo",system-ui,Arial,sans-serif;
+  --head:"El Messiri","Evall Arabic","Tajawal","Cairo",system-ui,Arial,sans-serif;
+  --body:"Evall Arabic","Tajawal","Cairo",system-ui,Arial,sans-serif;
 
   /* تركيز صورة البانر */
   --focus-x:50%;
@@ -104,13 +91,13 @@ img{max-width:100%;display:block;height:auto}
   linear-gradient(to bottom, rgba(0,0,0,0) 55%, rgba(5,5,7,.62) 85%, rgba(5,5,7,.82) 100%)}
 .hero .spot{position:absolute;inset:0;z-index:2;pointer-events:none;background:radial-gradient(360px 280px at var(--mx,50%) var(--my,40%), rgba(229,193,107,.16), transparent 60%)}
 .hero .panel{position:relative;z-index:3;display:flex;flex-direction:column;align-items:center;gap:10px;padding:16px 14px;border-radius:var(--r-lg);border:1px solid rgba(229,193,107,.45);background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02));box-shadow:var(--shadow);backdrop-filter: blur(5px)}
-@keyframes goldGlow{0%{background-position:0% 0; text-shadow:0 8px 20px rgba(229,193,107,.22)}50%{background-position:100% 0; text-shadow:0 10px 28px rgba(229,193,107,.30)}100%{background-position:0% 0; text-shadow:0 8px 20px rgba(229,193,107,.22)}}100%{transform:scale(1.11) translateY(-1%)}}
+@keyframes goldGlow{0%{background-position:0% 0; text-shadow:0 8px 20px rgba(229,193,107,.22)}50%{background-position:100% 0; text-shadow:0 10px 28px rgba(229,193,107,.30)}100%{background-position:0% 0; text-shadow:0 8px 20px rgba(229,193,107,.22)}}}100%{transform:scale(1.11) translateY(-1%)}}
 .hero::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:1;background:
   radial-gradient(60% 80% at 50% 20%, rgba(0,0,0,.00), rgba(0,0,0,.36) 70%, rgba(0,0,0,.76)),
   linear-gradient(to bottom, rgba(0,0,0,0) 55%, rgba(5,5,7,.62) 85%, rgba(5,5,7,.82) 100%)}
 .hero .spot{position:absolute;inset:0;z-index:2;pointer-events:none;background:radial-gradient(360px 280px at var(--mx,50%) var(--my,40%), rgba(229,193,107,.16), transparent 60%)}
 .hero .panel{position:relative;z-index:3;display:flex;flex-direction:column;align-items:center;gap:10px;padding:16px 14px;border-radius:var(--r-lg);border:1px solid rgba(229,193,107,.45);background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02));box-shadow:var(--shadow);backdrop-filter: blur(5px)}
-.hero h1{$1 background-size:200% 100%; animation:goldGlow 14s ease-in-out infinite;} 
+.hero h1{margin:0;color:transparent;background:linear-gradient(180deg,var(--gold),#fff 50%,var(--gold-2));-webkit-background-clip:text;background-clip:text;text-shadow:0 8px 20px rgba(229,193,107,.22);font-family:var(--head);font-size:clamp(26px,4.4vw,44px);font-weight:900;background-size:200% 100%;animation:goldGlow 14s ease-in-out infinite;} 
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 14px;border-radius:12px;font-weight:900;box-shadow:var(--shadow);transition:transform .18s ease, filter .18s ease,border-color .18s ease}
 .btn:hover{transform:translateY(-1px)}
 .btn:active{transform:translateY(0)}
@@ -237,6 +224,10 @@ footer{background:#08090b;color:#cfc9bd;border-top:var(--hair)}
 .reveal.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.hero .media img{animation:none}.reveal{opacity:1;transform:none}}
 </style>
+  <!-- Google Fonts: El Messiri for headings -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
