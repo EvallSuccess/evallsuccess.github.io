@@ -133,7 +133,16 @@ img{max-width:100%;display:block;height:auto}
 .benefit{background:#fff;color:#000;border-radius:var(--r-md);padding:12px 12px;border:1px solid #ececec;box-shadow:0 8px 16px rgba(0,0,0,.08)}
 .benefit h4{margin:0 0 6px;font-weight:900;font-family:var(--head);color:var(--accent);font-size:17px}
 .benefit p{margin:4px 0 0;line-height:1.65}
-.benefit.support{background:linear-gradient(180deg,#177368,#0e4f47);color:#fff;border:none}
+
+/* Support card: green background + white text */
+.benefit.support{background:linear-gradient(180deg,#177368,#0e4f47); color:#fff !important; border:none}
+.benefit.support h4,
+.benefit.support p,
+.benefit.support a{color:#fff !important}
+
+.benefit.support h4,
+.benefit.support p,
+.benefit.support a{color:#fff !important}
 .benefit.gift{position:relative;overflow:hidden}
 .benefit.gift::after{content:"";position:absolute;inset:-40%;transform:rotate(18deg);background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);animation:shine 2.8s linear infinite}
 @keyframes shine{0%{transform:translateX(-120%) rotate(18deg)}100%{transform:translateX(120%) rotate(18deg)}}
@@ -150,8 +159,15 @@ img{max-width:100%;display:block;height:auto}
 @media(min-width:900px){.results{grid-template-columns:repeat(2,1fr)}}
 .result{background:linear-gradient(180deg,#101117,#0b0c12);color:#fff;border-radius:var(--r-md);padding:12px;border:1px solid rgba(255,255,255,.06)}
 .result.red{background:linear-gradient(180deg,#1a6c61,#0e4741);border:none}
-.result h5{margin:0 0 6px;font-size:16.5px;font-weight:900;font-family:var(--head)}
-.result p{margin:4px 0 0}
+.result h5{color:var(--gold); font-size:20px; line-height:1.25; margin:0 0 2px; font-weight:900; font-family:var(--head);}  
+
+/* keep last green card heading white */
+.result.red h5{color:#fff;}
+/* results compact tweaks */
+.results{gap:var(--gap-sm)}
+.result{padding:8px}
+.result p{line-height:1.4}
+
 
 /* FAQ (تصغير) */
 details{background:#fff;color:#0a0b0d;border-radius:var(--r-md);padding:12px;border:1px solid #eee;box-shadow:0 8px 16px rgba(0,0,0,.08)}
