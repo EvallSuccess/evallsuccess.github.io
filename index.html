@@ -154,22 +154,17 @@ img{max-width:100%;display:block;height:auto}
 @media(min-width:900px){.slide{flex:0 0 320px;max-width:320px}}
 .slide img{height:200px;object-fit:cover}
 
-/* Results (أصغر) */
+/* Results (مطابقة لقسم الثلاثي) */
 .results{display:grid;grid-template-columns:1fr;gap:var(--gap-md)}
 @media(min-width:900px){.results{grid-template-columns:repeat(2,1fr)}}
-.result{background:linear-gradient(180deg,#101117,#0b0c12);color:#fff;border-radius:var(--r-md);padding:12px;border:1px solid rgba(255,255,255,.06)}
+.result{background:linear-gradient(180deg,#101117,#0b0c12);color:#fff;border-radius:var(--r-md);padding:var(--pad-md);border:1px solid rgba(255,255,255,.06);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
 .result.red{background:linear-gradient(180deg,#1a6c61,#0e4741);border:none}
-.result h5{color:var(--gold); font-size:20px; line-height:1.25; margin:0 0 2px; font-weight:900; font-family:var(--head);}  
-
+.result h5{color:var(--gold); font-size:18px; line-height:1.35; margin:0 0 6px; font-weight:900; font-family:var(--head);}  
 /* keep last green card heading white */
 .result.red h5{color:#fff;}
-/* results compact tweaks */
-.results{gap:var(--gap-sm)}
-.result{padding:8px}
-.result p{line-height:1.4}
+.result p{margin:4px 0 0;}
 
-
-/* FAQ (تصغير) */
+/* FAQ (تصغير) */ (تصغير) */
 details{background:#fff;color:#0a0b0d;border-radius:var(--r-md);padding:12px;border:1px solid #eee;box-shadow:0 8px 16px rgba(0,0,0,.08)}
 details+details{margin-top:8px}
 summary{cursor:pointer;font-weight:900;color:#0a0b0d;font-family:var(--head)}
@@ -179,7 +174,8 @@ summary{cursor:pointer;font-weight:900;color:#0a0b0d;font-family:var(--head)}
 .steps h3{margin-top:0;text-align:center;color:#0a0b0d;font-family:var(--head)}
 .steps ol{padding-right:18px;margin:0 0 8px;color:#0a0b0d}
 .pay-logos-inline{display:flex;justify-content:center;align-items:center;margin:6px auto 2px}
-.pay-logos-inline.right{justify-content:flex-end;margin:6px 0 2px 0}
+.pay-logos-inline.right{display:flex;justify-content:flex-end;width:100%;margin:6px 0 2px 0}
+.pay-logos-inline.right img{align-self:flex-end;margin-inline-start:auto}
 .pay-logos-inline img{height:1.35em;width:auto;background:transparent}
 .note{font-size:12px;color:#145e55;margin-top:6px}
 
@@ -387,7 +383,7 @@ footer{background:#08090b;color:#cfc9bd;border-top:var(--hair)}
       <li>اختر وسيلة الدفع المناسبة</li>
       <li>بعد إتمام عملية الدفع، سيظهر لك رابط التحميل مباشرة <strong style="color:#145e55">Download</strong></li>
     </ol>
-    <div class="pay-logos-inline right"><img src="paymentlogos.png" alt="PayPal • Mastercard • Visa" width="512" height="64"></div>
+    <div class="pay-logos-inline"><img src="paymentlogos.png" alt="PayPal • Mastercard • Visa" width="512" height="64"></div>
     <p class="note" style="text-align:right">ملحوظة: بعد إتمام عملية الدفع قد يظهر خصم 1$ كتثبيت مؤقت وسيُعاد خلال يومين.</p>
   </div>
 </section>
