@@ -192,7 +192,21 @@ summary{cursor:pointer;font-weight:900;color:#0a0b0d;font-family:var(--head)}
 .price .big{font-size:28px;font-weight:900}
 .price .row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
 .btn-cta.em{background:linear-gradient(135deg,#2aa596,var(--accent) 55%, var(--accent-2));color:#fff}
-.price .countdown .unit{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12);color:#fff}
+/* Countdown: revert to default small boxes */
+
+/* Coupon pill + copy */
+.coupon{display:flex;justify-content:center;align-items:center;gap:8px;margin-top:8px}
+.coupon.plain{display:flex;justify-content:center;align-items:center;gap:8px;margin-top:8px}
+.coupon .coupon-green{color:#145e55}
+/* remove window effect */
+.coupon .coupon-text{background:none;border:none;padding:0;color:#fff;letter-spacing:0}
+.coupon .coupon-green{color:#145e55}
+.copy-btn{padding:6px 10px;border-radius:12px;border:1px solid rgba(229,193,107,.5);background:linear-gradient(135deg,#249081,#18685d);color:#fff;font-weight:900;cursor:pointer;box-shadow:var(--shadow)}
+.copy-btn:active{transform:translateY(1px)}
+
+/* Gold shimmer on savings */
+.save-anim{background:linear-gradient(90deg,#E5C16B,#ffffff,#CFA854);-webkit-background-clip:text;background-clip:text;color:transparent;background-size:200% 100%;animation:shineText 2.8s linear infinite}
+@keyframes shineText{0%{background-position:200% 0}100%{background-position:-200% 0}}
 
 /* Sticky CTA */
 .sticky{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:95;display:none;background:linear-gradient(135deg,#2aa596,var(--accent));color:#fff;border-radius:12px;box-shadow:0 16px 36px rgba(0,0,0,.5);padding:9px 12px;font-weight:900;justify-content:center;border:1px solid rgba(255,255,255,.2)}
@@ -370,10 +384,10 @@ footer{background:#08090b;color:#cfc9bd;border-top:var(--hair)}
     <ol>
       <li>ادخل بريدك الإلكتروني</li>
       <li>اضغط على <span style="color:#145e55;font-weight:900">Add coupon</span> لإضافة كود الخصم</li>
-      <li>بعد إضافة الكود، اضغط على <span style="color:#145e55;font-weight:900">ADD COUPON</span> ثم <span style="color:#145e55;font-weight:900">CONTINUE WITH PURCHASE</span></li>
-      <li>اختر وسيلة الدفع المناسبة واملأ البيانات</li>
-      <li>بعد إتمام عملية الدفع، سيظهر لك رابط التحميل مباشرة</li>
+      <li>اختر وسيلة الدفع المناسبة</li>
+      <li>بعد إتمام عملية الدفع، سيظهر لك رابط التحميل مباشرة <strong style="color:#145e55">Download</strong></li>
     </ol>
+</section>
     <div class="pay-logos-inline"><img src="paymentlogos.png" alt="PayPal • Mastercard • Visa" width="512" height="64"></div>
     <p class="note">ملحوظة: بعد إتمام عملية الدفع قد يظهر خصم 1$ كتثبيت مؤقت وسيُعاد خلال يومين.</p>
   </div>
@@ -383,19 +397,17 @@ footer{background:#08090b;color:#cfc9bd;border-top:var(--hair)}
 <section class="pricing" id="pricing">
   <div class="container">
     <div class="price" aria-labelledby="pricingTitle">
-      <div class="top">
-        <span class="badge" id="pricingTitle"><span class="dot" aria-hidden="true"></span> بمناسبة اليوم الوطني السعودي</span>
-      </div>
+      <div class="top"><span class="badge" id="pricingTitle"><span class="dot" aria-hidden="true"></span> بمناسبة اليوم الوطني السعودي</span></div>
+      <div class="coupon plain">استخدم كود <strong class="coupon-green" id="couponCode">سعودي</strong> <button class="copy-btn" id="copyCoupon">انسخ الكود</button></div>
 
       <div class="nums" style="margin-top:10px">
         <div class="big" aria-label="السعر الحالي بالدولار">35.96$</div>
         <div class="line">بدلاً من <s>89.9$</s></div>
       </div>
-      <div class="line">أي ~ <strong>135 ر.س</strong> (تقريباً) – وفر <strong>203 ر.س</strong></div>
+      <div class="line"> ~ <strong>135 ر.س</strong> - وفر <strong class="save-anim">203 ر.س</strong></div>
 
       <div class="row" style="margin-top:10px">
         <a class="btn btn-cta em" id="ctaBuy" href="https://payhip.com/buy?link[]=wPZpb&session_enabled=1&parent_url=https%3A%2F%2Fpayhip.com%2Fb%2FwPZpb&type=overlay&payhip_js=true">انتقل إلى صفحة الدفع</a>
-        <a class="btn btn-cta" href="#inside" style="background:linear-gradient(135deg,#249081,#18685d);">تعرّف على المحتوى</a>
       </div>
 
       <div class="countdown" id="priceCountdown" data-deadline="2025-09-24T23:59:59+03:00" style="margin-top:8px" aria-live="polite"></div>
@@ -514,6 +526,19 @@ if(strip){['scroll','resize'].forEach(ev=>strip.addEventListener(ev,setActive,{p
   const n=document.getElementById(id); if(!n) return;
   n.addEventListener('click',()=>{ console.log('[evall] CTA click:', id); });
 });
+
+/* Copy coupon */
+(function(){
+  const copyBtn=document.getElementById('copyCoupon');
+  if(!copyBtn) return;
+  copyBtn.addEventListener('click',async()=>{
+    const txt=document.getElementById('couponCode').textContent.trim();
+    try{ await navigator.clipboard.writeText(txt);
+      const old=copyBtn.textContent; copyBtn.textContent='تم النسخ';
+      setTimeout(()=>copyBtn.textContent=old,1500);
+    }catch(e){ console.log('copy failed',e); }
+  });
+})();
 </script>
 
 <noscript>
