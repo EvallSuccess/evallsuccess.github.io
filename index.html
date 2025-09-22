@@ -568,16 +568,6 @@ if(strip){['scroll','resize'].forEach(ev=>strip.addEventListener(ev,setActive,{p
     }catch(e){ console.log('copy failed',e); }
   });
 })();
-
-/* إضافة حدث Checkout عند زر الدفع */
-document.addEventListener("DOMContentLoaded", function() {
-  var checkoutBtn = document.getElementById("ctaBuy");
-  if(checkoutBtn){
-    checkoutBtn.addEventListener("click", function() {
-      fbq('track', 'InitiateCheckout'); // هذا يرسل حدث Checkout للبكسل
-    });
-  }
-});
 </script>
 
 <noscript>
