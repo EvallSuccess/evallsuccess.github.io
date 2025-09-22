@@ -18,8 +18,8 @@
 <meta property="og:title" content="EvallSuccess"/>
 <meta property="og:description" content="خطة عملية بخطوات واضحة ودعم لمدة 90 يوم."/>
 <meta property="og:type" content="product"/>
-<meta property="og:image" content="evallbanner.jpg"/>
-<meta property="og:locale" content="ar_AR"/>
+< property="og:image" content="evallbanner.jpg"/>
+< property="og:locale" content="ar_AR"/>
 <meta name="twitter:card" content="summary_large_image"/>
 
 <!-- Performance hints -->
@@ -568,6 +568,16 @@ if(strip){['scroll','resize'].forEach(ev=>strip.addEventListener(ev,setActive,{p
     }catch(e){ console.log('copy failed',e); }
   });
 })();
+
+/* إضافة حدث Checkout عند زر الدفع */
+document.addEventListener("DOMContentLoaded", function() {
+  var checkoutBtn = document.getElementById("ctaBuy");
+  if(checkoutBtn){
+    checkoutBtn.addEventListener("click", function() {
+      fbq('track', 'InitiateCheckout'); // هذا يرسل حدث Checkout للبكسل
+    });
+  }
+});
 </script>
 
 <noscript>
