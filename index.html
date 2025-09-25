@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -504,7 +503,7 @@ function initCountdown(id){
     const key='evall_deadline_global';
     const stored=localStorage.getItem(key);
     if(stored){ target=parseInt(stored,10); }
-    else { const t=Date.now()+6*24*60*60*1000; target=t; localStorage.setItem(key,String(t)); }
+    else { const t=Date.now()+3*24*60*60*1000; target=t; localStorage.setItem(key,String(t)); }
   }
   function render(){
     let d=target-Date.now();
@@ -576,4 +575,3 @@ if(strip){['scroll','resize'].forEach(ev=>strip.addEventListener(ev,setActive,{p
 </noscript>
 </body>
 </html>
-
