@@ -18,7 +18,7 @@
 <meta property="og:title" content="EvallSuccess"/>
 <meta property="og:description" content="رحلتك مع إيفال هي مزيج من الدعم، التوجيه، والتطوير الذاتي والمهني والنفسي لبناء مستقبل أفضل"/>
 <meta property="og:type" content="product"/>
-  <meta property="og:image" content="evallbanner.jpg"/>
+<meta property="og:image" content="evallbanner.jpg"/>
 <meta property="og:locale" content="ar_AR"/>
 <meta name="twitter:card" content="summary_large_image"/>
 
@@ -120,63 +120,63 @@ img{max-width:100%;display:block;height:auto}
 .title{font-family:var(--head);font-size:clamp(18px,2.8vw,24px);margin:0 0 10px;font-weight:900}
 .title .brand{color:var(--gold)}
 
-/* KPI (card أصغر + فجوات أقل) */
+/* KPI */
 .kpi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--gap-md)}
 @media(min-width:900px){.kpi-grid{grid-template-columns:repeat(4,1fr)}}
 .kpi-card{background:linear-gradient(180deg,#121319,#0e0f14);color:#fff;border-radius:var(--r-md);padding:var(--pad-md);border:1px solid rgba(229,193,107,.35);box-shadow:var(--shadow)}
 .kpi-card .num{display:block;color:var(--gold);font-size:20px;font-weight:900}
 .kpi-card.red{background:linear-gradient(180deg,#145e55,#0b3d37);border:none}
 
-/* Trio (3 بطاقات) */
+/* Trio */
 .features{display:grid;grid-template-columns:1fr;gap:var(--gap-md)}
 .feature{background:linear-gradient(180deg,#13141a,#0f1116);color:#fff;border:1px solid rgba(255,255,255,.06);border-radius:var(--r-md);padding:var(--pad-md);box-shadow:var(--shadow)}
-.feature h3{margin:0 0 6px;color:var(--gold);font-family:var(--head);font-size:18px}
+.feature h3{margin:0 0 6px;color:#gold;font-family:var(--head);font-size:18px}
+.feature h3{color:var(--gold)}
 .feature p{margin:4px 0 0}
 
-/* WHAT YOU GET (كل الكروت مصغرة + مسافات أقل) */
+/* WHAT YOU GET */
 #inside .title{font-size:clamp(18px,2.6vw,22px)}
 .benefits{display:grid;grid-template-columns:1fr;gap:var(--gap-md)}
 @media(min-width:900px){.benefits{grid-template-columns:repeat(2,1fr)}}
 .benefit{background:#fff;color:#000;border-radius:var(--r-md);padding:12px 12px;border:1px solid #ececec;box-shadow:0 8px 16px rgba(0,0,0,.08)}
-.benefit h4{margin:0 0 6px;font-weight:900;font-family:var(--head);color:#fff;font-size:17px}
-.benefit h4{color:var(--accent)}
+.benefit h4{margin:0 0 6px;font-weight:900;font-family:var(--head);font-size:17px;color:var(--accent)}
 .benefit p{margin:4px 0 0;line-height:1.65}
 
-/* Support card: green background + white text */
+/* Support card */
 .benefit.support{background:linear-gradient(180deg,#177368,#0e4f47); color:#fff !important; border:none}
 .benefit.support h4,
 .benefit.support p,
 .benefit.support a{color:#fff !important}
 
+/* Gift shine */
 .benefit.gift{position:relative;overflow:hidden}
 .benefit.gift::after{content:"";position:absolute;inset:-40%;transform:rotate(18deg);background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);animation:shine 2.8s linear infinite}
 @keyframes shine{0%{transform:translateX(-120%) rotate(18deg)}100%{transform:translateX(120%) rotate(18deg)}}
 
-/* Gallery (أصغر) */
+/* Gallery */
 .gallery{border-radius:var(--r-md);border:1px solid rgba(255,255,255,.08);overflow:hidden;box-shadow:var(--shadow)}
 .strip{display:flex;gap:var(--gap-sm);padding:8px;overflow:auto hidden;scroll-snap-type:x mandatory}
 .slide{flex:0 0 80vw;max-width:80vw;scroll-snap-align:center;border-radius:var(--r-sm);overflow:hidden}
 @media(min-width:900px){.slide{flex:0 0 320px;max-width:320px}}
 .slide img{height:200px;object-fit:cover}
 
-/* Results (مطابقة لقسم الثلاثي) */
+/* Results */
 .results{display:grid;grid-template-columns:1fr;gap:var(--gap-md)}
 @media(min-width:900px){.results{grid-template-columns:repeat(2,1fr)}}
 .result{background:linear-gradient(180deg,#101117,#0b0c12);color:#fff;border-radius:var(--r-md);padding:var(--pad-md);border:1px solid rgba(255,255,255,.06);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
 .result.red{background:linear-gradient(180deg,#1a6c61,#0e4741);border:none}
 .result h5{color:var(--gold); font-size:18px; line-height:1.35; margin:0 0 6px; font-weight:900; font-family:var(--head);}  
-/* keep last green card heading white */
 .result.red h5{color:#fff;}
 .result p{margin:4px 0 0;}
 
-/* FAQ (رجوع للشكل الأصلي) */
+/* FAQ */
 details{background:#fff;color:#0a0b0d;border-radius:var(--r-md);padding:12px;border:1px solid #eee;box-shadow:0 8px 16px rgba(0,0,0,.08)}
 details+details{margin-top:8px}
 summary{cursor:pointer;font-weight:900;color:#0a0b0d;font-family:var(--head);transition:color .2s}
 details[open] > summary{color:#145e55}
 summary:focus-visible{outline:2px solid #145e55;outline-offset:4px}
 
-/* Steps (تصغير) */
+/* Steps */
 .steps .container{text-align:right}
 .steps h3{margin-top:0;text-align:right;color:#0a0b0d;font-family:var(--head)}
 .steps ol{padding-right:18px;margin:0 0 8px;color:#0a0b0d;text-align:right;list-style-position:inside;direction:rtl}
@@ -186,7 +186,7 @@ summary:focus-visible{outline:2px solid #145e55;outline-offset:4px}
 .pay-logos-inline img{height:1.35em;width:auto;background:transparent}
 .note{font-size:12px;color:#145e55;margin-top:6px}
 
-/* Pricing (تصغير) */
+/* Pricing */
 .pricing{background:linear-gradient(180deg,#0a0b0d,#07080a)}
 .price{position:relative;color:#fff;background:linear-gradient(180deg, rgba(15,17,20,.82), rgba(10,11,13,.82));border:1px solid rgba(229,193,107,.45);border-radius:20px;padding:16px;max-width:820px;margin-inline:auto;box-shadow:0 24px 48px rgba(0,0,0,.38);backdrop-filter: blur(7px)}
 .price .top{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center}
@@ -201,7 +201,6 @@ summary:focus-visible{outline:2px solid #145e55;outline-offset:4px}
 .coupon{display:flex;justify-content:center;align-items:center;gap:8px;margin-top:8px}
 .coupon.plain{display:flex;justify-content:center;align-items:center;gap:8px;margin-top:8px}
 .coupon .coupon-green{color:#145e55}
-/* remove window effect */
 .coupon .coupon-text{background:none;border:none;padding:0;color:#fff;letter-spacing:0}
 .copy-btn{padding:6px 10px;border-radius:12px;border:1px solid rgba(229,193,107,.5);background:linear-gradient(135deg,#249081,#18685d);color:#fff;font-weight:900;cursor:pointer;box-shadow:var(--shadow)}
 .copy-btn:active{transform:translateY(1px)}
@@ -236,17 +235,15 @@ footer{background:#08090b;color:#cfc9bd;border-top:var(--hair)}
 
 <!-- Meta Pixel Code -->
 <script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];
+t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
 fbq('init', '781645914448564');
 fbq('track', 'PageView');
-fbq('track', 'ViewContent');  <!-- تم إضافة هذا السطر -->
+fbq('track', 'ViewContent');  // تم إضافة هذا السطر
 </script>
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=781645914448564&ev=PageView&noscript=1"
@@ -271,8 +268,8 @@ src="https://www.facebook.com/tr?id=781645914448564&ev=PageView&noscript=1"
   <div class="panel reveal" id="heroBox">
     <h1>انضم إلى <span class="white" style="-webkit-text-fill-color:#fff;background:none">عالم</span> إيفال</h1>
     <a href="#pricing" class="btn btn-cta" id="ctaTop">احصل على نسختك الآن</a>
-    <!-- عيّن الموعد النهائي للعرض على شكل ISO 8601 حسب منطقتك الزمنية -->
-    <div class="countdown" id="heroCountdown" data-deadline="2025-09-24T23:59:59+03:00" aria-live="polite"></div>
+    <!-- العدّاد بدون data-deadline: يبدأ دائمًا من 3 أيام ويُعاد ضبطه تلقائيًا -->
+    <div class="countdown" id="heroCountdown" aria-live="polite"></div>
   </div>
 </header>
 
@@ -439,7 +436,8 @@ src="https://www.facebook.com/tr?id=781645914448564&ev=PageView&noscript=1"
         <a class="btn btn-cta em" id="ctaBuy" href="https://payhip.com/buy?link[]=wPZpb&session_enabled=1&parent_url=https%3A%2F%2Fpayhip.com%2Fb%2FwPZpb&type=overlay&payhip_js=true">انتقل إلى صفحة الدفع</a>
       </div>
 
-      <div class="countdown" id="priceCountdown" data-deadline="2025-09-24T23:59:59+03:00" style="margin-top:8px" aria-live="polite"></div>
+      <!-- العدّاد بدون data-deadline: يبدأ دائمًا من 3 أيام ويُعاد ضبطه تلقائيًا -->
+      <div class="countdown" id="priceCountdown" style="margin-top:8px" aria-live="polite"></div>
       <p class="line" style="margin-top:6px">آمن 100% – خصم لن يتكرر – دفعة واحدة ولمدى الحياة</p>
     </div>
   </div>
@@ -482,51 +480,130 @@ src="https://www.facebook.com/tr?id=781645914448564&ev=PageView&noscript=1"
   "description": "رحلتك مع إيفال هي مزيج من الدعم، التوجيه، والتطوير الذاتي والمهني والنفسي لبناء مستقبل أفضل",
   "brand": {"@type": "Brand", "name": "Evall"},
   "offers": [
-    {"@type":"Offer","price":"35.96","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://payhip.com/buy?link[]=wPZpb","priceValidUntil":"2025-09-24"},
-    {"@type":"Offer","price":"135","priceCurrency":"SAR","availability":"https://schema.org/InStock","url":"https://payhip.com/buy?link[]=wPZpb","priceValidUntil":"2025-09-24"}
+    {"@type":"Offer","price":"35.96","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://payhip.com/buy?link[]=wPZpb","priceValidUntil":"2025-09-28"},
+    {"@type":"Offer","price":"135","priceCurrency":"SAR","availability":"https://schema.org/InStock","url":"https://payhip.com/buy?link[]=wPZpb","priceValidUntil":"2025-09-28"}
   ]
 }
 </script>
 
+<!-- ============== SCRIPTS ============== -->
 <script>
 /* year */
-document.getElementById('year').textContent=new Date().getFullYear();
+document.getElementById('year').textContent = new Date().getFullYear();
 
-/* countdowns – يدعم موعد نهائي ثابت عبر data-deadline أو مهلة 3 أيام مشتركة لكل الصفحة */
-function initCountdown(id){
-  const el=document.getElementById(id); if(!el) return;
-  const attr=el.getAttribute('data-deadline');
-  let target;
-  if(attr){
-    target=Date.parse(attr);
-  }else{
-    const key='evall_deadline_global';
-    const stored=localStorage.getItem(key);
-    if(stored){ target=parseInt(stored,10); }
-    else { const t=Date.now()+3*24*60*60*1000; target=t; localStorage.setItem(key,String(t)); }
+/* =========================
+   Countdown (3 days auto-reset)
+   ========================= */
+const EVALL_DAY_MS = 24 * 60 * 60 * 1000;
+const EVALL_KEY = 'evall_deadline_global_v2';
+
+/* إنشاء/قراءة موعد نهائي عالمي محفوظ */
+function getOrInitGlobalDeadline() {
+  const now = Date.now();
+  const stored = localStorage.getItem(EVALL_KEY);
+  if (stored) {
+    const t = parseInt(stored, 10);
+    if (Number.isFinite(t) && t > now) return t;
   }
-  function render(){
-    let d=target-Date.now();
-    if(d<=0){ el.innerHTML='<div class="unit"><span class="num">00</span><span class="lbl">انتهى</span></div>'; return; }
-    const dd=Math.floor(d/86400000); d-=dd*86400000;
-    const hh=Math.floor(d/3600000); d-=hh*3600000;
-    const mm=Math.floor(d/60000); d-=mm*60000;
-    const ss=Math.floor(d/1000);
-    const pad=n=>String(n).padStart(2,'0');
-    el.innerHTML =
-      '<div class="unit"><span class="num">'+pad(dd)+'</span><span class="lbl">أيام</span></div>'+
-      '<div class="unit"><span class="num">'+pad(hh)+'</span><span class="lbl">ساعات</span></div>'+
-      '<div class="unit"><span class="num">'+pad(mm)+'</span><span class="lbl">دقائق</span></div>'+
-      '<div class="unit"><span class="num">'+pad(ss)+'</span><span class="lbl">ثواني</span></div>';
-  }
-  render(); setInterval(render,1000);
+  const next = now + 3 * EVALL_DAY_MS;
+  localStorage.setItem(EVALL_KEY, String(next));
+  return next;
 }
-initCountdown('heroCountdown');
-initCountdown('priceCountdown');
+
+/* تعيين موعد نهائي عالمي جديد (3 أيام من الآن) */
+function resetGlobalDeadline() {
+  const next = Date.now() + 3 * EVALL_DAY_MS;
+  localStorage.setItem(EVALL_KEY, String(next));
+  return next;
+}
+
+/* تنسيق قِيَم العدّاد */
+function pad2(n) { return String(n).padStart(2, '0'); }
+
+/* رسم واجهة العدّاد */
+function renderCountdown(el, target) {
+  let d = target - Date.now();
+  if (d <= 0) {
+    // انتهى → نعيد ضبطه لثلاثة أيام جديدة
+    target = resetGlobalDeadline();
+    try { el.setAttribute('data-deadline', new Date(target).toISOString()); } catch (_) {}
+    d = target - Date.now();
+  }
+
+  const dd = Math.floor(d / 86400000); d -= dd * 86400000;
+  const hh = Math.floor(d / 3600000);  d -= hh * 3600000;
+  const mm = Math.floor(d / 60000);    d -= mm * 60000;
+  const ss = Math.floor(d / 1000);
+
+  el.innerHTML =
+    '<div class="unit"><span class="num">'+pad2(dd)+'</span><span class="lbl">أيام</span></div>' +
+    '<div class="unit"><span class="num">'+pad2(hh)+'</span><span class="lbl">ساعات</span></div>' +
+    '<div class="unit"><span class="num">'+pad2(mm)+'</span><span class="lbl">دقائق</span></div>' +
+    '<div class="unit"><span class="num">'+pad2(ss)+'</span><span class="lbl">ثواني</span></div>';
+
+  return target;
+}
+
+/* تهيئة عدّاد لعنصر واحد */
+function initCountdownFor(el) {
+  if (!el) return;
+  const now = Date.now();
+  const attr = el.getAttribute('data-deadline');
+  let target;
+
+  if (attr) {
+    const parsed = Date.parse(attr);
+    if (Number.isFinite(parsed) && parsed > now) {
+      target = parsed;
+    } else {
+      target = now + 3 * EVALL_DAY_MS;
+      el.setAttribute('data-deadline', new Date(target).toISOString());
+    }
+  } else {
+    target = getOrInitGlobalDeadline();
+  }
+
+  target = renderCountdown(el, target);
+  const timer = setInterval(() => { target = renderCountdown(el, target); }, 1000);
+
+  // تنظيف عند إزالة العنصر (اختياري)
+  const rmObserver = new MutationObserver(() => {
+    if (!document.body.contains(el)) {
+      clearInterval(timer);
+      rmObserver.disconnect();
+    }
+  });
+  rmObserver.observe(document.body, { childList: true, subtree: true });
+}
+
+/* تهيئة جميع العدّادات */
+function initAllCountdowns() {
+  ['heroCountdown', 'priceCountdown'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) {
+      if (!el.hasAttribute('aria-live')) el.setAttribute('aria-live', 'polite');
+      initCountdownFor(el);
+    }
+  });
+}
+
+/* دالة مساعدة لإعادة البدء يدويًا من 3 أيام */
+window.evallResetCountdown = function() {
+  const next = resetGlobalDeadline();
+  ['heroCountdown', 'priceCountdown'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.setAttribute('data-deadline', new Date(next).toISOString());
+  });
+  initAllCountdowns();
+  console.log('[evall] countdown reset to 3 days from now');
+};
+
+initAllCountdowns();
 
 /* hero spotlight */
 const spot=document.getElementById('spot');
 document.addEventListener('pointermove',e=>{
+  if(!spot) return;
   spot.style.setProperty('--mx', (e.clientX/window.innerWidth)*100 + '%');
   spot.style.setProperty('--my', (e.clientY/window.innerHeight)*100 + '%');
 },{passive:true});
@@ -541,14 +618,27 @@ if('IntersectionObserver' in window){
 
 /* Sticky CTA */
 const sticky=document.getElementById('sticky'), hero=document.getElementById('hero');
-if('IntersectionObserver' in window){
+if('IntersectionObserver' in window && hero && sticky){
   new IntersectionObserver(([e])=>{sticky.classList.toggle('show',!e.isIntersecting);},{threshold:0}).observe(hero);
 }
 
-/* Gallery spotlight (active center) */
+/* Gallery spotlight */
 const strip=document.getElementById('strip');
-function setActive(){if(!strip) return; const rect=strip.getBoundingClientRect(); let min=1e9,b=null; strip.querySelectorAll('.slide').forEach(s=>{const r=s.getBoundingClientRect(); const c=Math.abs((r.left+r.right)/2-(rect.left+rect.right)/2); if(c<min){min=c;b=s;}}); strip.querySelectorAll('.slide').forEach(s=>s.classList.toggle('active',s===b));}
-if(strip){['scroll','resize'].forEach(ev=>strip.addEventListener(ev,setActive,{passive:true})); setActive();}
+function setActive(){
+  if(!strip) return;
+  const rect=strip.getBoundingClientRect(); 
+  let min=1e9,b=null; 
+  strip.querySelectorAll('.slide').forEach(s=>{
+    const r=s.getBoundingClientRect(); 
+    const c=Math.abs((r.left+r.right)/2-(rect.left+rect.right)/2); 
+    if(c<min){min=c;b=s;}
+  }); 
+  strip.querySelectorAll('.slide').forEach(s=>s.classList.toggle('active',s===b));
+}
+if(strip){
+  ['scroll','resize'].forEach(ev=>strip.addEventListener(ev,setActive,{passive:true})); 
+  setActive();
+}
 
 /* Simple analytics hooks (يمكن ربطها لاحقاً) */
 ['ctaTop','ctaBuy','sticky'].forEach(id=>{
@@ -562,7 +652,8 @@ if(strip){['scroll','resize'].forEach(ev=>strip.addEventListener(ev,setActive,{p
   if(!copyBtn) return;
   copyBtn.addEventListener('click',async()=>{
     const txt=document.getElementById('couponCode').textContent.trim();
-    try{ await navigator.clipboard.writeText(txt);
+    try{ 
+      await navigator.clipboard.writeText(txt);
       const old=copyBtn.textContent; copyBtn.textContent='تم النسخ';
       setTimeout(()=>copyBtn.textContent=old,1500);
     }catch(e){ console.log('copy failed',e); }
