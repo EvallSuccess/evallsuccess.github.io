@@ -40,7 +40,7 @@
 /* ====== Theme / Spacing Scale ====== */
 :root{
   --obsidian:#050507; --ink:#ECE6DA; --muted:#e8a053;
-  --gold:#E5C16B; --gold-2:#CFA854;
+  --gold:#ea9924; --gold-2:#CFA854;
   --accent:#e8a053; --accent-2:#f8d88a;
 
   --hair:1px solid rgba(229,193,107,.45);
@@ -73,7 +73,7 @@ img{max-width:100%;display:block;height:auto}
 .skip-link:focus{top:8px;outline:2px solid #E5C16B}
 
 /* Promo */
-.promo{position:sticky;top:0;z-index:90;background:linear-gradient(90deg,#ea9924,var(--accent));color:#fff;border-bottom:var(--hair)}
+.promo{position:sticky;top:0;z-index:90;background:linear-gradient(90deg,#ea9924,var(--accent));color:#000;border-bottom:var(--hair)}
 .promo .inner{padding:8px 12px;font-weight:900}
 
 /* HERO (مُصغّر) */
@@ -146,7 +146,7 @@ img{max-width:100%;display:block;height:auto}
 .benefit.support{background:linear-gradient(180deg,#ea9924,#ea9924); color:#fff !important; border:none}
 .benefit.support h4,
 .benefit.support p,
-.benefit.support a{color:#fff !important}
+.benefit.support a{color:#000 !important}
 
 /* Gift shine */
 .benefit.gift{position:relative;overflow:hidden}
@@ -166,7 +166,8 @@ img{max-width:100%;display:block;height:auto}
 .result{background:linear-gradient(180deg,#101117,#0b0c12);color:#fff;border-radius:var(--r-md);padding:var(--pad-md);border:1px solid rgba(255,255,255,.06);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
 .result.red{background:linear-gradient(180deg,#ea9924,#ea9924);border:none}
 .result h5{color:var(--gold); font-size:18px; line-height:1.35; margin:0 0 6px; font-weight:900; font-family:var(--head);}  
-.result.red h5{color:#fff;}
+.result.red h5{color:#000;}
+.result.red p{color:#000;}
 .result p{margin:4px 0 0;}
 
 /* FAQ */
@@ -202,7 +203,7 @@ summary:focus-visible{outline:2px solid #ea9924;outline-offset:4px}
 .coupon.plain{display:flex;justify-content:center;align-items:center;gap:8px;margin-top:8px}
 .coupon .coupon-gold{color:#ea9924}
 .coupon .coupon-text{background:none;border:none;padding:0;color:#fff;letter-spacing:0}
-.copy-btn{padding:6px 10px;border-radius:12px;border:1px solid rgba(229,193,107,.5);background:linear-gradient(135deg,#ea9924,#ea9924);color:#fff;font-weight:900;cursor:pointer;box-shadow:var(--shadow)}
+.copy-btn{padding:6px 10px;border-radius:12px;border:1px solid rgba(229,193,107,.5);background:linear-gradient(135deg,#ea9924,#ea9924);color:#000;font-weight:900;cursor:pointer;box-shadow:var(--shadow)}
 .copy-btn:active{transform:translateY(1px)}
 
 /* Gold shimmer on savings */
@@ -210,7 +211,7 @@ summary:focus-visible{outline:2px solid #ea9924;outline-offset:4px}
 @keyframes shineText{0%{background-position:200% 0}100%{background-position:-200% 0}}
 
 /* Sticky CTA */
-.sticky{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:95;display:none;background:linear-gradient(135deg,#ea9924,var(--accent));color:#fff;border-radius:12px;box-shadow:0 16px 36px rgba(0,0,0,.5);padding:9px 12px;font-weight:900;justify-content:center;border:1px solid ea9924(255,255,255,.2)}
+.sticky{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:95;display:none;background:linear-gradient(135deg,#ea9924,var(--accent));color:#000;border-radius:12px;box-shadow:0 16px 36px rgba(0,0,0,.5);padding:9px 12px;font-weight:900;justify-content:center;border:1px solid #ea9924(255,255,255,.2)}
 .sticky.show{display:flex}
 @media(min-width:860px){.sticky{display:none !important}}
 
@@ -267,7 +268,7 @@ src="https://www.facebook.com/tr?id=781645914448564&ev=PageView&noscript=1"
   <div class="lux" aria-hidden="true"></div>
   <div class="panel reveal" id="heroBox">
     <h1>انضم إلى <span class="white" style="-webkit-text-fill-color:#fff;background:none">عالم</span> إيفال</h1>
-    <a href="#pricing" class="btn btn-cta" id="ctaTop">احصل على البكج والدعم الآن</a>
+    <a href="#pricing" style="color: black;" class="btn btn-cta" id="ctaTop">احصل على البكج والدعم الآن</a>
     <!-- العدّاد بدون data-deadline: يبدأ دائمًا من 3 أيام ويُعاد ضبطه تلقائيًا -->
     <div class="countdown" id="heroCountdown" aria-live="polite"></div>
   </div>
@@ -280,7 +281,7 @@ src="https://www.facebook.com/tr?id=781645914448564&ev=PageView&noscript=1"
   <div class="container">
     <div class="kpi-grid">
       <div class="kpi-card"><span class="num">360</span><div>يوم متابعة وتنظيم</div></div>
-      <div class="kpi-card red"><span class="num">132</span><div>درهم توفير</div></div>
+      <div class="kpi-card red" style="color: black;"><span style="color: black;" class="num">132</span><div>درهم توفير</div></div>
       <div class="kpi-card"><span class="num">112</span><div>مُهمة يومية</div></div>
       <div class="kpi-card"><span class="num">90</span><div>سؤال عميق / ذاتي</div></div>
       <div class="kpi-card"><span class="num">90</span><div>يوم دعم وتواصل</div></div>
