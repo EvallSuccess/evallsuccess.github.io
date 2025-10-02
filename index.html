@@ -73,7 +73,7 @@ img{max-width:100%;display:block;height:auto}
 .skip-link:focus{top:8px;outline:2px solid #E5C16B}
 
 /* Promo */
-.promo{position:sticky;top:0;z-index:90;background:linear-gradient(90deg,#0f4f47,var(--accent));color:#fff;border-bottom:var(--hair)}
+.promo{position:sticky;top:0;z-index:90;background:linear-gradient(90deg,#ea9924,var(--accent));color:#fff;border-bottom:var(--hair)}
 .promo .inner{padding:8px 12px;font-weight:900}
 
 /* HERO (مُصغّر) */
@@ -125,7 +125,7 @@ img{max-width:100%;display:block;height:auto}
 @media(min-width:900px){.kpi-grid{grid-template-columns:repeat(4,1fr)}}
 .kpi-card{background:linear-gradient(180deg,#121319,#0e0f14);color:#fff;border-radius:var(--r-md);padding:var(--pad-md);border:1px solid rgba(229,193,107,.35);box-shadow:var(--shadow)}
 .kpi-card .num{display:block;color:var(--gold);font-size:20px;font-weight:900}
-.kpi-card.red{background:linear-gradient(180deg,#ea9924,#0b3d37);border:none}
+.kpi-card.red{background:linear-gradient(180deg,#ea9924,#ea9924);border:none}
 
 /* Trio */
 .features{display:grid;grid-template-columns:1fr;gap:var(--gap-md)}
@@ -164,7 +164,7 @@ img{max-width:100%;display:block;height:auto}
 .results{display:grid;grid-template-columns:1fr;gap:var(--gap-md)}
 @media(min-width:900px){.results{grid-template-columns:repeat(2,1fr)}}
 .result{background:linear-gradient(180deg,#101117,#0b0c12);color:#fff;border-radius:var(--r-md);padding:var(--pad-md);border:1px solid rgba(255,255,255,.06);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
-.result.red{background:linear-gradient(180deg,#ea9924,#0e4741);border:none}
+.result.red{background:linear-gradient(180deg,#ea9924,#ea9924);border:none}
 .result h5{color:var(--gold); font-size:18px; line-height:1.35; margin:0 0 6px; font-weight:900; font-family:var(--head);}  
 .result.red h5{color:#fff;}
 .result p{margin:4px 0 0;}
@@ -195,14 +195,14 @@ summary:focus-visible{outline:2px solid #ea9924;outline-offset:4px}
 .price .nums{display:flex;align-items:baseline;justify-content:center;gap:8px;flex-wrap:wrap}
 .price .big{font-size:28px;font-weight:900}
 .price .row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
-.btn-cta.em{background:linear-gradient(135deg,#2aa596,var(--accent) 55%, var(--accent-2));color:#fff}
+.btn-cta.em{background:linear-gradient(135deg,#ea9924,var(--accent) 55%, var(--accent-2));color:#000}
 
 /* Coupon pill + copy */
 .coupon{display:flex;justify-content:center;align-items:center;gap:8px;margin-top:8px}
 .coupon.plain{display:flex;justify-content:center;align-items:center;gap:8px;margin-top:8px}
-.coupon .coupon-green{color:#145e55}
+.coupon .coupon-gold{color:#ea9924}
 .coupon .coupon-text{background:none;border:none;padding:0;color:#fff;letter-spacing:0}
-.copy-btn{padding:6px 10px;border-radius:12px;border:1px solid rgba(229,193,107,.5);background:linear-gradient(135deg,#249081,#18685d);color:#fff;font-weight:900;cursor:pointer;box-shadow:var(--shadow)}
+.copy-btn{padding:6px 10px;border-radius:12px;border:1px solid rgba(229,193,107,.5);background:linear-gradient(135deg,#ea9924,#ea9924);color:#fff;font-weight:900;cursor:pointer;box-shadow:var(--shadow)}
 .copy-btn:active{transform:translateY(1px)}
 
 /* Gold shimmer on savings */
@@ -414,9 +414,9 @@ src="https://www.facebook.com/tr?id=781645914448564&ev=PageView&noscript=1"
   <div class="container">
     <h3 class="title" style="color:#0a0b0d">طريقة الدفع بخطوات بسيطة:</h3><ol>
       <li>ادخل بريدك الإلكتروني</li>
-      <li>اضغط على <span style="color:#145e55;font-weight:900">Add coupon</span> لإضافة كود الخصم</li>
+      <li>اضغط على <span style="color:#ea9924;font-weight:900">Add coupon</span> لإضافة كود الخصم</li>
       <li>اختر وسيلة الدفع المناسبة</li>
-      <li>بعد إتمام عملية الدفع، سيظهر لك رابط التحميل مباشرة <strong style="color:#145e55">Download</strong></li>
+      <li>بعد إتمام عملية الدفع، سيظهر لك رابط التحميل مباشرة <strong style="color:#ea9924">Download</strong></li>
     </ol>
     <div class="pay-logos-inline"><img src="paymentlogos.png" alt="PayPal • Mastercard • Visa" width="512" height="64"></div>
     <p class="note" style="text-align:right">ملحوظة: بعد إتمام عملية الدفع، قد تلاحظ خصم مبلغ 1$، لا داعي للقلق، فهي مجرد عملية تحقيق مؤقتة وسيتم إعادة المبلغ خلال يومين كحد أقصى.</p>
@@ -428,7 +428,7 @@ src="https://www.facebook.com/tr?id=781645914448564&ev=PageView&noscript=1"
   <div class="container">
     <div class="price" aria-labelledby="pricingTitle">
       <div class="top"><span class="badge" id="pricingTitle"><span class="dot" aria-hidden="true"></span> الخصم والدعم لأول 50 شخص فقط</span></div>
-      <div class="coupon plain">استخدم كود <strong class="coupon-green" id="couponCode">VIP40</strong> <button class="copy-btn" id="copyCoupon">انسخ الكود</button></div>
+      <div class="coupon plain">استخدم كود <strong class="coupon-gold" id="couponCode">VIP40</strong> <button class="copy-btn" id="copyCoupon">انسخ الكود</button></div>
 
       <div class="nums" style="margin-top:10px">
         <div class="big" aria-label="السعر الحالي بالدولار">53.94$</div>
@@ -437,7 +437,7 @@ src="https://www.facebook.com/tr?id=781645914448564&ev=PageView&noscript=1"
       <div class="line"> ~ <strong>198 د.إ</strong> - وفر <strong class="save-anim">132 د.إ</strong></div>
 
       <div class="row" style="margin-top:10px">
-        <a class="btn btn-cta em" id="ctaBuy" href="https://payhip.com/buy?link[]=wPZpb&session_enabled=1&parent_url=https%3A%2F%2Fpayhip.com%2Fb%2FwPZpb&type=overlay&payhip_js=true">انتقل إلى صفحة الدفع</a>
+        <a class="btn btn-cta em" id="ctaBuy" href="https://payhip.com/buy?link[]=wPZpb&session_enabled=1&parent_url=https%3A%2F%2Fpayhip.com%2Fb%2FwPZpb&type=overlay&payhip_js=true" >انتقل إلى صفحة الدفع</a>
       </div>
 
       <!-- العدّاد بدون data-deadline: يبدأ دائمًا من 3 أيام ويُعاد ضبطه تلقائيًا -->
@@ -470,7 +470,7 @@ src="https://www.facebook.com/tr?id=781645914448564&ev=PageView&noscript=1"
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="#fff" stroke-width="2"/><circle cx="12" cy="12" r="4.2" stroke="#fff" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="#fff"/></svg>
       </a>
     </div>
-    <p style="margin-top:8px">© <span id="year"></span> EvallSuccess – جميع الحقوق محفوظة</p>
+    <p style="margin-top:8px">©️ <span id="year"></span> EvallSuccess – جميع الحقوق محفوظة</p>
   </div>
 </footer>
 
