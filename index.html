@@ -39,9 +39,9 @@
 
 /* ====== Theme / Spacing Scale ====== */
 :root{
-  --obsidian:#050507; --ink:#ECE6DA; --muted:#e8a053;
-  --gold:#ea9924; --gold-2:#CFA854;
-  --accent:#e8a053; --accent-2:#f8d88a;
+  --obsidian:#050507; --ink:#ECE6DA; --muted:#1c91ba;
+  --gold:#1c91ba; --gold-2:#CFA854;
+  --accent:#1c91ba; --accent-2:#f8d88a;
 
   --hair:1px solid rgba(229,193,107,.45);
   --shadow:0 16px 36px rgba(0,0,0,.40);
@@ -69,11 +69,11 @@ img{max-width:100%;display:block;height:auto}
 .hr{height:1px;background:linear-gradient(90deg,transparent,rgba(229,193,107,.5),transparent);margin:8px 0}
 
 /* Skip link */
-.skip-link{position:absolute;inset-inline-start:8px;top:-40px;background:#ea9924;color:#ea9924;padding:8px 12px;border-radius:12px;transition:top .2s}
+.skip-link{position:absolute;inset-inline-start:8px;top:-40px;background:#1c91ba;color:#1c91ba;padding:8px 12px;border-radius:12px;transition:top .2s}
 .skip-link:focus{top:8px;outline:2px solid #E5C16B}
 
 /* Promo */
-.promo{position:sticky;top:0;z-index:90;background:linear-gradient(90deg,#ea9924,var(--accent));color:#000;border-bottom:var(--hair)}
+.promo{position:sticky;top:0;z-index:90;background:linear-gradient(90deg,#1c91ba,var(--accent));color:#000;border-bottom:var(--hair)}
 .promo .inner{padding:8px 12px;font-weight:900}
 
 /* HERO (مُصغّر) */
@@ -107,7 +107,7 @@ img{max-width:100%;display:block;height:auto}
 .btn:hover{transform:translateY(-1px)}
 .btn:active{transform:translateY(0)}
 .btn:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
-.btn-cta{background:linear-gradient(135deg,#ea9924,var(--accent) 55%, var(--accent-2));color:#fff;border:1px solid rgba(255,255,255,.12)}
+.btn-cta{background:linear-gradient(135deg,#1c91ba,var(--accent) 55%, var(--accent-2));color:#fff;border:1px solid rgba(255,255,255,.12)}
 .countdown{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
 .unit{min-width:64px;padding:7px;border-radius:10px;background:rgba(12,13,16,.86);border:1px solid rgba(255,255,255,.08)}
 .unit .num{display:block;font-weight:900;font-size:16px}
@@ -125,7 +125,7 @@ img{max-width:100%;display:block;height:auto}
 @media(min-width:900px){.kpi-grid{grid-template-columns:repeat(4,1fr)}}
 .kpi-card{background:linear-gradient(180deg,#121319,#0e0f14);color:#fff;border-radius:var(--r-md);padding:var(--pad-md);border:1px solid rgba(229,193,107,.35);box-shadow:var(--shadow)}
 .kpi-card .num{display:block;color:var(--gold);font-size:20px;font-weight:900}
-.kpi-card.red{background:linear-gradient(180deg,#ea9924,#ea9924);border:none}
+.kpi-card.red{background:linear-gradient(180deg,#1c91ba,#1c91ba);border:none}
 
 /* Trio */
 .features{display:grid;grid-template-columns:1fr;gap:var(--gap-md)}
@@ -138,15 +138,15 @@ img{max-width:100%;display:block;height:auto}
 #inside .title{font-size:clamp(18px,2.6vw,22px)}
 .benefits{display:grid;grid-template-columns:1fr;gap:var(--gap-md)}
 @media(min-width:900px){.benefits{grid-template-columns:repeat(2,1fr)}}
-.benefit{background:#fff;color:#000;border-radius:var(--r-md);padding:12px 12px;border:1px solid #ececec;box-shadow:0 8px 16px rgba(0,0,0,.08)}
+.benefit{background:#fff;color:#000;border-radius:var(--r-md);padding:12px 12px;border:1px solid #24eaea;box-shadow:0 8px 16px rgba(0,0,0,.08)}
 .benefit h4{margin:0 0 6px;font-weight:900;font-family:var(--head);font-size:17px;color:var(--accent)}
 .benefit p{margin:4px 0 0;line-height:1.65}
 
 /* Support card */
-.benefit.support{background:linear-gradient(180deg,#ea9924,#ea9924); color:#fff !important; border:none}
+.benefit.support{background:linear-gradient(180deg,#1c91ba,#1c91ba); color:#fff !important; border:none}
 .benefit.support h4,
 .benefit.support p,
-.benefit.support a{color:#000 !important}
+.benefit.support a{color:#fff !important}
 
 /* Gift shine */
 .benefit.gift{position:relative;overflow:hidden}
@@ -164,18 +164,18 @@ img{max-width:100%;display:block;height:auto}
 .results{display:grid;grid-template-columns:1fr;gap:var(--gap-md)}
 @media(min-width:900px){.results{grid-template-columns:repeat(2,1fr)}}
 .result{background:linear-gradient(180deg,#101117,#0b0c12);color:#fff;border-radius:var(--r-md);padding:var(--pad-md);border:1px solid rgba(255,255,255,.06);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
-.result.red{background:linear-gradient(180deg,#ea9924,#ea9924);border:none}
+.result.red{background:linear-gradient(180deg,#1c91ba,#1c91ba);border:none}
 .result h5{color:var(--gold); font-size:18px; line-height:1.35; margin:0 0 6px; font-weight:900; font-family:var(--head);}  
-.result.red h5{color:#000;}
-.result.red p{color:#000;}
+.result.red h5{color:#fff;}
+.result.red p{color:#fff;}
 .result p{margin:4px 0 0;}
 
 /* FAQ */
-details{background:#fff;color:#0a0b0d;border-radius:var(--r-md);padding:12px;border:1px solid #eee;box-shadow:0 8px 16px rgba(0,0,0,.08)}
+details{background:#fff;color:#0a0b0d;border-radius:var(--r-md);padding:12px;border:1px solid #24eaea;box-shadow:0 8px 16px rgba(0,0,0,.08)}
 details+details{margin-top:8px}
 summary{cursor:pointer;font-weight:900;color:#0a0b0d;font-family:var(--head);transition:color .2s}
-details[open] > summary{color:#ea9924}
-summary:focus-visible{outline:2px solid #ea9924;outline-offset:4px}
+details[open] > summary{color:#1c91ba}
+summary:focus-visible{outline:2px solid #1c91ba;outline-offset:4px}
 
 /* Steps */
 .steps .container{text-align:right}
@@ -185,7 +185,7 @@ summary:focus-visible{outline:2px solid #ea9924;outline-offset:4px}
 .pay-logos-inline.right{display:flex;justify-content:flex-end;width:100%;margin:6px 0 2px 0}
 .pay-logos-inline.right img{align-self:flex-end;margin-inline-start:auto}
 .pay-logos-inline img{height:1.35em;width:auto;background:transparent}
-.note{font-size:12px;color:#ea9924;margin-top:6px}
+.note{font-size:12px;color:#1c91ba;margin-top:6px}
 
 /* Pricing */
 .pricing{background:linear-gradient(180deg,#0a0b0d,#07080a)}
@@ -196,14 +196,14 @@ summary:focus-visible{outline:2px solid #ea9924;outline-offset:4px}
 .price .nums{display:flex;align-items:baseline;justify-content:center;gap:8px;flex-wrap:wrap}
 .price .big{font-size:28px;font-weight:900}
 .price .row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
-.btn-cta.em{background:linear-gradient(135deg,#ea9924,var(--accent) 55%, var(--accent-2));color:#000}
+.btn-cta.em{background:linear-gradient(135deg,#1c91ba,var(--accent) 55%, var(--accent-2));color:#000}
 
 /* Coupon pill + copy */
 .coupon{display:flex;justify-content:center;align-items:center;gap:8px;margin-top:8px}
 .coupon.plain{display:flex;justify-content:center;align-items:center;gap:8px;margin-top:8px}
-.coupon .coupon-gold{color:#ea9924}
+.coupon .coupon-gold{color:#1c91ba}
 .coupon .coupon-text{background:none;border:none;padding:0;color:#fff;letter-spacing:0}
-.copy-btn{padding:6px 10px;border-radius:12px;border:1px solid rgba(229,193,107,.5);background:linear-gradient(135deg,#ea9924,#ea9924);color:#000;font-weight:900;cursor:pointer;box-shadow:var(--shadow)}
+.copy-btn{padding:6px 10px;border-radius:12px;border:1px solid rgba(229,193,107,.5);background:linear-gradient(135deg,#1c91ba,#1c91ba);color:#000;font-weight:900;cursor:pointer;box-shadow:var(--shadow)}
 .copy-btn:active{transform:translateY(1px)}
 
 /* Gold shimmer on savings */
@@ -211,7 +211,7 @@ summary:focus-visible{outline:2px solid #ea9924;outline-offset:4px}
 @keyframes shineText{0%{background-position:200% 0}100%{background-position:-200% 0}}
 
 /* Sticky CTA */
-.sticky{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:95;display:none;background:linear-gradient(135deg,#ea9924,var(--accent));color:#000;border-radius:12px;box-shadow:0 16px 36px rgba(0,0,0,.5);padding:9px 12px;font-weight:900;justify-content:center;border:1px solid #ea9924(255,255,255,.2)}
+.sticky{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:95;display:none;background:linear-gradient(135deg,#1c91ba,var(--accent));color:#000;border-radius:12px;box-shadow:0 16px 36px rgba(0,0,0,.5);padding:9px 12px;font-weight:900;justify-content:center;border:1px solid #ea9924(255,255,255,.2)}
 .sticky.show{display:flex}
 @media(min-width:860px){.sticky{display:none !important}}
 
@@ -415,9 +415,9 @@ src="https://www.facebook.com/tr?id=781645914448564&ev=PageView&noscript=1"
   <div class="container">
     <h3 class="title" style="color:#0a0b0d">طريقة الدفع بخطوات بسيطة:</h3><ol>
       <li>ادخل بريدك الإلكتروني</li>
-      <li>اضغط على <span style="color:#ea9924;font-weight:900">Add coupon</span> لإضافة كود الخصم</li>
+      <li>اضغط على <span style="color:#1c91ba;font-weight:900">Add coupon</span> لإضافة كود الخصم</li>
       <li>اختر وسيلة الدفع المناسبة</li>
-      <li>بعد إتمام عملية الدفع، سيظهر لك رابط التحميل مباشرة <strong style="color:#ea9924">Download</strong></li>
+      <li>بعد إتمام عملية الدفع، سيظهر لك رابط التحميل مباشرة <strong style="color:#1c91ba">Download</strong></li>
     </ol>
     <div class="pay-logos-inline"><img src="paymentlogos.png" alt="PayPal • Mastercard • Visa" width="512" height="64"></div>
     <p class="note" style="text-align:right">ملحوظة: بعد إتمام عملية الدفع، قد تلاحظ خصم مبلغ 1$، لا داعي للقلق، فهي مجرد عملية تحقيق مؤقتة وسيتم إعادة المبلغ خلال يومين كحد أقصى.</p>
