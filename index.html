@@ -14,7 +14,6 @@
 <link rel="icon" href="minilogo.svg" type="image/svg+xml">
 <link rel="alternate icon" href="minilogo.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="minilogo.png">
-<!-- FIX: كان هناك خطأ مطبعي في اللون (#eab5oc) حرف o بدل 0 -->
 <link rel="mask-icon" href="minilogo.svg" color="#eab50c">
 
 <!-- Social / SEO -->
@@ -134,17 +133,16 @@ img{max-width:100%;display:block;height:auto}
 /* Trio */
 .features{display:grid;grid-template-columns:1fr;gap:var(--gap-md)}
 .feature{background:linear-gradient(180deg,#13141a,#0f1116);color:#fff;border:1px solid rgba(255,255,255,.06);border-radius:var(--r-md);padding:var(--pad-md);box-shadow:var(--shadow)}
-/* FIX: إزالة سطر قديم color:#gold واستخدام المتغير */
 .feature h3{margin:0 0 6px;color:var(--gold);font-family:var(--head);font-size:18px}
 .feature p{margin:4px 0 0}
 
 /* WHAT YOU GET */
 #inside .title{font-size:clamp(18px,2.6vw,22px)}
-.benefits{display:grid;grid-template-columns:1fr;gap:var(--gap-md)}
-@media(min-width:900px){.benefits{grid-template-columns:repeat(2,1fr)}}
-.benefit{background:#fff;color:#000;border-radius:var(--r-md);padding:12px 12px;border:1px solid #ececec;box-shadow:0 8px 16px rgba(0,0,0,.08)}
+.benefits{display:grid;grid-template-columns:1fr;gap:var(--gap-md);align-items:start}
+@media(min-width:900px){.benefits{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.benefit{background:#fff;color:#000;border-radius:var(--r-md);padding:12px;border:1px solid #ececec;box-shadow:0 8px 16px rgba(0,0,0,.08);height:100%;text-align:right;display:flex;flex-direction:column}
 .benefit h4{margin:0 0 6px;font-weight:900;font-family:var(--head);font-size:17px;color:var(--accent)}
-.benefit p{margin:4px 0 0;line-height:1.65}
+.benefit p{margin:4px 0 0;line-height:1.65;overflow-wrap:anywhere;word-break:break-word}
 
 /* Support card */
 .benefit.support{background:linear-gradient(180deg,#eab50c,#eab50c); color:#fff !important; border:none}
@@ -281,9 +279,6 @@ src="https://www.facebook.com/tr?id=781645914448564&ev=PageView&noscript=1"
   </div>
 </header>
 
-
-
-
 <div class="hr" aria-hidden="true"></div>
 
 <!-- KPI -->
@@ -405,7 +400,7 @@ src="https://www.facebook.com/tr?id=781645914448564&ev=PageView&noscript=1"
     <h2 class="title" style="color:#0a0b0d"><span class="brand">الأسئلة المتكررة (FAQ)</span></h2>
     <div class="faq">
       <details><summary>ما الدعم الذي سأحصل عليه من فريق إيفال؟</summary><p>فريق إيفال موجود معك ليمنحك دعماً متخصصاً في أهم ثلاثة مجالات تمس حياتك مباشرة: تطوير الذات، التقدّم المهني، والجانب النفسي. هذا يعني أنّك لست وحدك، فهناك دائمًا من يرافقك بخبرته في المجال الذي تحتاجه. تواصلك مع الفريق هو أقصر طريق لتسريع نتائجك وتحويل حياتك نحو الأفضل!</p></details>
-            <details><summary>ما الخطوة الأولى بعد اشتراكي في إيفال؟</summary><p>بعد إتمام عملية الشراء مباشرة، سيصلك بريد إلكتروني ترحيبي من فريق إيفال يحتوي على استبيان مكوّن من 40 سؤالاً دقيقاً صُمّم لتحليل شخصيتك في عدة مجالات مهمة من حياتك. ومن خلال إجاباتك، سيقوم الفريق بتحليل شخصيتك ووضع خطة تتضمّن الخطوات والنصائح والتمارين العملية الأنسب لك، والتي ستُقدَّم لك على عدة مراحل مع مُتابعة تمتد لـ 3 أشهر، تشمل أيضاً تقديم الاستشارات والإجابة على أي أسئلة أو استفسارات لضمان تحقيق تطوّر فعلي ومستمر في حياتك</p></details>
+      <details><summary>ما الخطوة الأولى بعد اشتراكي في إيفال؟</summary><p>بعد إتمام عملية الشراء مباشرة، سيصلك بريد إلكتروني ترحيبي من فريق إيفال يحتوي على استبيان مكوّن من 40 سؤالاً دقيقاً صُمّم لتحليل شخصيتك في عدة مجالات مهمة من حياتك. ومن خلال إجاباتك، سيقوم الفريق بتحليل شخصيتك ووضع خطة تتضمّن الخطوات والنصائح والتمارين العملية الأنسب لك، والتي ستُقدَّم لك على عدة مراحل مع مُتابعة تمتد لـ 3 أشهر، تشمل أيضاً تقديم الاستشارات والإجابة على أي أسئلة أو استفسارات لضمان تحقيق تطوّر فعلي ومستمر في حياتك</p></details>
       <details><summary>هل بكج إيفال رقمي أم ورقي؟</summary><p>البكج رقمي بالكامل، يمكن استخدامه على أي جهاز إلكتروني (موبايل، كمبيوتر، تابلت…)
 كما أن الملفات مصممة للطباعة إذا كنت تفضل الكتابة والتدوين، والخيار الثالث هو أن تحتفظ بالملفات على جهازك وتخصص دفتر ملاحظات خاصة بك للكتابة ،لتجمع بين مرونة الوصول الرقمي ومتعة الكتابة اليدوية</p></details>
       <details><summary>ما هي الأسس التي بُني عليها البكج؟</summary><p>تم تطوير هذا البكج استنادًا إلى بحوث ودراسات معمّقة وتجارب عملية امتدت لأكثر من ثمانية أشهر، وبالاستعانة باستشارات متخصّصين لضمان تحقيق نتائج ملموسة</p></details>
@@ -661,7 +656,7 @@ if(strip){
   n.addEventListener('click',()=>{ console.log('[evall] CTA click:', id); });
 });
 
-/* Copy coupon */
+/* Copy coupon (with fallback) */
 (function(){
   const copyBtn=document.getElementById('copyCoupon');
   if(!copyBtn) return;
@@ -689,3 +684,4 @@ if(strip){
 </noscript>
 </body>
 </html>
+```
