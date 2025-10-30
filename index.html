@@ -98,7 +98,11 @@ img{max-width:100%;display:block;height:auto}
   linear-gradient(to bottom, rgba(0,0,0,0) 55%, rgba(5,5,7,.62) 85%, rgba(5,5,7,.82) 100%)}
 .hero .spot{position:absolute;inset:0;z-index:2;pointer-events:none;background:radial-gradient(360px 280px at var(--mx,50%) var(--my,40%), rgba(229,193,107,.16), transparent 60%)}
 .hero .panel{position:relative;z-index:3;display:flex;flex-direction:column;align-items:center;gap:10px;padding:16px 14px;border-radius:var(--r-lg);border:1px solid rgba(229,193,107,.45);background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02));box-shadow:var(--shadow);backdrop-filter: blur(5px)}
-@keyframes goldGlow{0%{background-position:0% 0;text-shadow:0 8px 20px rgba(229,193,107,.22)}50%{background-position:100% 0;text-shadow:0 10px 28px rgba(229,193,107,.30)}100%{background-position:0% 0;text-shadow:0 8px 20px rgba(229,193,107,.22)}}
+@keyframes goldGlow{
+  0%{background-position:0% 0; text-shadow:0 8px 20px rgba(229,193,107,.22)}
+  50%{background-position:100% 0; text-shadow:0 10px 28px rgba(229,193,107,.30)}
+  100%{background-position:0% 0; text-shadow:0 8px 20px rgba(229,193,107,.22)}
+}
 .hero h1{margin:0;color:transparent;background:linear-gradient(180deg,var(--gold),#fff 50%,var(--gold-2));-webkit-background-clip:text;background-clip:text;text-shadow:0 8px 20px rgba(229,193,107,.22);font-family:var(--head);font-size:clamp(26px,4.4vw,44px);font-weight:900;background-size:200% 100%;animation:goldGlow 14s ease-in-out infinite;}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 14px;border-radius:12px;font-weight:900;box-shadow:var(--shadow);transition:transform .18s ease, filter .18s ease,border-color .18s ease}
 .btn:hover{transform:translateY(-1px)}
@@ -137,23 +141,18 @@ img{max-width:100%;display:block;height:auto}
 .benefit{background:#fff;color:#000;border-radius:var(--r-md);padding:12px;border:1px solid #ececec;box-shadow:0 8px 16px rgba(0,0,0,.08);height:100%;display:flex;flex-direction:column}
 .benefit h4{margin:0 0 6px;font-weight:900;font-family:var(--head);font-size:17px;color:var(--accent);text-align:center}
 
-/* الفقرات (مُعرَّبة ومُوسّطة) */
+/* الفقرات (حل مشكلة الحروف تحت بعض + توسيط) */
 .benefit p,
 .feature p,
 .result p,
 .faq p{
   margin:4px 0 0;
   line-height:1.9;
-  text-align:center;
-  white-space:normal;
-  word-break:normal;          /* يمنع break-all */
-  overflow-wrap:break-word;
-  unicode-bidi:plaintext;     /* يحسّن عرض العربية مع الرموز */
-  letter-spacing:normal;
-  word-spacing:normal;
-  font-variant-ligatures: common-ligatures contextual;
-  font-feature-settings: "init" 1, "medi" 1, "fina" 1, "rlig" 1, "liga" 1, "calt" 1, "ccmp" 1;
-  font-family:var(--body);
+  text-align:center;                 /* توسيط الفقرات كما طلبت */
+  white-space:normal !important;
+  word-break:normal !important;      /* يمنع break-all */
+  overflow-wrap:break-word !important;
+  unicode-bidi:plaintext;            /* يحسّن عرض العربية مع الرموز */
 }
 
 /* Support card */
@@ -191,7 +190,7 @@ summary{cursor:pointer;font-weight:900;color:#0a0b0d;font-family:var(--head);tra
 details[open] > summary{color:#eab50c}
 summary:focus-visible{outline:2px solid #eab50c;outline-offset:4px}
 
-/* Steps */
+/* Steps (تظل يمين لأنها قائمة، وليست فقرات) */
 .steps .container{text-align:right}
 .steps h3{margin-top:0;text-align:right;color:#0a0b0d;font-family:var(--head)}
 .steps ol{padding-right:18px;margin:0 0 8px;color:#0a0b0d;text-align:right;list-style-position:inside;direction:rtl}
@@ -244,27 +243,6 @@ footer{background:#08090b;color:#cfc9bd;border-top:var(--hair)}
   .hero .lux{animation:none}
   .reveal{opacity:1;transform:none}
 }
-
-/* === HOTFIX: تأكيد ربط الحروف العربية ومنع كسرها حرف-بحرف === */
-html[dir="rtl"] p{
-  writing-mode:horizontal-tb !important;
-}
-html[dir="rtl"] .benefit p,
-html[dir="rtl"] .feature p,
-html[dir="rtl"] .result p,
-html[dir="rtl"] .faq p{
-  white-space:normal !important;
-  word-break:normal !important;        /* لا break-all */
-  overflow-wrap:normal !important;      /* لا anywhere */
-  line-break:auto !important;
-  hyphens:none !important;
-  letter-spacing:normal !important;
-  word-spacing:normal !important;
-  unicode-bidi:plaintext;
-  font-variant-ligatures:common-ligatures contextual;
-  font-feature-settings:"init" 1, "medi" 1, "fina" 1, "rlig" 1, "liga" 1, "calt" 1, "ccmp" 1;
-  font-family:var(--body);              /* خط عربي يدعم اللِّيجاتشر */
-}
 </style>
 
 <!-- Google Fonts -->
@@ -272,7 +250,7 @@ html[dir="rtl"] .faq p{
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<!-- Meta Pixel Code -->
+<!-- Meta Pixel Code (بدون تعديل) -->
 <script>
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
@@ -337,7 +315,8 @@ src="https://www.facebook.com/tr?id=781645914448564&ev=PageView&noscript=1"
     <div class="features">
       <div class="feature"><h3>مدرب شخصي</h3><p>يشجّعك ويحفّزك باستمرار، ويذكّرك دائمًا أن حياتك ملكك لتعيشها كما تحب</p></div>
       <div class="feature"><h3>مرشد مهني</h3><p>يرسم لك خريطة واضحة لمسارك العملي، يتابع خطواتك، ويقيم إنجازاتك </p></div>
-      <div class="feature"><h3>معالج نفسي</h3><p>يفهم أعماقك، يمنحك مساحة آمنة للتعبير عن نفسك، ويدعمك لتعيش حياة متوازنة مليئة بالراحة النفسية</p></div>
+      <div class="feature"><h3>معالج نفسي</h3><p>يفهم أعماقك، يمنحك مساحة آمنة للتعبير عن نفسك، ويدعمك لتعيش حياة متوازنة مليئة بالراحة النفسية
+</p></div>
     </div>
   </div>
 </section>
@@ -350,32 +329,40 @@ src="https://www.facebook.com/tr?id=781645914448564&ev=PageView&noscript=1"
     <div class="benefits">
       <div class="benefit">
         <h4 style="color: #eab50c;">أجندة إيفال 360 يوم</h4>
-        <p>يحتوي على أكتر من 90 سؤال عميق، نصائح لكتابة الأهداف، مقولات تحفيزية يومية، مع تخطيط يومي ومتابعة أسبوعية لمراجعة الإنجازات، تقييم الذات، صفحات لتفريغ المشاعر، أسئلة ونصائح لمواجهة 12 تحدياً نفسياً، خانة للتخطيط المالي، بالإضافة إلى رسائل خاصة مليئة بالتفاؤل والإيجابية</p>
+        <p>يحتوي على أكتر من 90 سؤال عميق، نصائح لكتابة الأهداف، مقولات تحفيزية يومية، مع تخطيط يومي ومتابعة أسبوعية لمراجعة الإنجازات،  تقييم الذات، صفحات لتفريغ المشاعر، أسئلة ونصائح لمواجهة 12 تحدياً نفسياً، خانة للتخطيط المالي، بالإضافة إلى رسائل خاصة مليئة بالتفاؤل والإيجابية</p>
       </div>
 
       <div class="benefit">
         <h4 style="color: #eab50c;">كتاب رحلة تحول (صوتي 3D)</h4>
-        <p>10 خطوات عملية مدروسة تأخذك في رحلة عميقة لاكتشاف شغفك وقدراتك، لتتعلم من أخطائك وتحولها إلى دروس قيّمة تدفعك نحو تحقيق طموحاتك. مدعوم بالقصص والأمثلة لتتمكّن من تخيّل الفكرة، ومعرفة طريقة تطبيقها في حياتك الواقعية بكل سهولة. يمكنك الاستماع إليها في أي وقت ومن أي مكان</p>
+        <p>10 خطوات عملية مدروسة تأخذك في رحلة عميقة لاكتشاف شغفك وقدراتك، لتتعلم من أخطائك وتحولها إلى دروس قيّمة تدفعك نحو تحقيق طموحاتك.
+        مدعوم بالقصص والامثلة لتتمكن من تخيل الفكرة، ومعرفة طريقة تطبيقها في حياتك الواقعية بكل سهولة.
+        يمكنك الاستماع إليها في أي وقت ومن أي مكان</p>
       </div>
 
       <div class="benefit">
         <h4 style="color: #eab50c;">جدول مهام 112 يوم</h4>
-        <p>ستجد يوميًا مهمة واحدة مدروسة بعناية. على الرغم من بساطتها، فإن تأثيرها يتراكم مع الوقت ليترك أثرًا حقيقيًا على شخصيتك. تمّ كتابة هذه المهام لتدفعك نحو التفكير، التطور، وبناء عادات إيجابية بدل التسويف والتأجيل. مع مرور الوقت، ستصبح شخصًا منجزًا، واعيًا، منظّمًا، وواضح الهدف، يعرف كيف يصل إليه بثقة وهدوء</p>
+        <p>ستجد يومياً مهمة واحدة مدروسة بعناية. على الرغم من بساطتها، فإن تأثيرها يتراكم مع الوقت ليترك أثراً حقيقياً على شخصيتك. 
+          تمّ كتابة هذه المهام لتدفعك نحو التفكير، التطور، وبناء عادات إيجابية بدل التسويف والتأجيل.
+          مع مرور الوقت، ستصبح شخصاً منجزاً، واعياً، منظماً، وواضح الهدف، يعرف كيف يصل إليه بثقة وهدوء</p>
       </div>
 
       <div class="benefit">
         <h4 style="color: #eab50c;">40 غلاف للأجندة</h4>
-        <p>اختر الغلاف الذي يعكس شخصيتك! كل مرة تمسك فيها أجندتك وترى الغلاف الذي اخترته، ستتذكّر سبب بدايتك. الألوان والتصاميم ليست مجرد شكل، بل طاقة تمنحك شعورًا مختلفًا كل يوم، وتجعلك ترتبط بأجندتك وكأنها جزء منك، وتشجعك على الاستمرار، والمحافظة على حماسك مهما طالت الرحلة</p>
+        <p>اختر الغلاف الذي يعكس شخصيتك!
+        كل مرة تمسك فيها أجندتك وترى الغلاف الذي اخترته، ستتذكّر سبب بدايتك.
+        الألوان والتصاميم ليست مجرد شكل، بل طاقة تمنحك شعورًا مختلفًا كل يوم، وتجعلك ترتبط بأجندتك وكأنها جزء منك، وتشجعك على الاستمرار، والمحافظة على حماسك مهما طالت الرحلة</p>
       </div>
 
       <div class="benefit gift">
         <h4 style="color: #eab50c;">هدية مميزة: ملفات خاصة لتنظيم الوقت</h4>
-        <p>بمجرد أن تسيطر على وقتك… ستتغيّر حياتك بالكامل. هذه الملفات ستعلّمك كيف تدير وقتك كإنسان محترف يعرف متى ينجز، ومتى يرتاح، ومتى يتطوّر. ستنقذك من العشوائية، وتعلّمك كيف تعيش يومك بوضوح وهدوء، بعيدًا عن الفوضى والتشتّت</p>
+        <p>بمجرد أن تسيطر على وقتك… ستتغيّر حياتك بالكامل. هذه الملفات ستعلّمك كيف تدير وقتك كإنسان محترف يعرف متى ينجز، ومتى يرتاح، ومتى يتطوّر. ستنقذك من العشوائية، 
+          وتعلّمك كيف تعيش يومك بوضوح وهدوء، بعيدًا عن الفوضى والتشتّت</p>
       </div>
 
       <div class="benefit support">
         <h4>دعم وتواصل</h4>
-        <p>ستحصل على دعم كامل لمدة 90 يومًا يشمل كل ما تحتاجه في رحلتك، سواء في تطوير ذاتك، تعزيز توازنك النفسي، أو التقدّم في مسارك المهني. كما سنساعدك في أي استفسار يتعلق بالبكج لتضمن الاستفادة الكاملة منه. ستشعر دائمًا أن هناك من يساندك ويهتم بتقدّمك خطوة بخطوة نحو نتائج أوضح وحياة أفضل</p>
+        <p>ستحصل على دعم كامل لمدة 90 يوماً يشمل كل ما تحتاجه في رحلتك، سواء في تطوير ذاتك، تعزيز توازنك النفسي، أو التقدّم في مسارك المهني. كما سنساعدك في أي استفسار يتعلق بالبكج لتضمن الاستفادة الكاملة منه. 
+          ستشعر دائماً أن هناك من يساندك ويهتم بتقدّمك خطوة بخطوة نحو نتائج أوضح وحياة أفضل</p>
       </div>
     </div>
   </div>
@@ -425,13 +412,15 @@ src="https://www.facebook.com/tr?id=781645914448564&ev=PageView&noscript=1"
     <div class="faq">
       <details><summary>ما الدعم الذي سأحصل عليه من فريق إيفال؟</summary><p>فريق إيفال موجود معك ليمنحك دعماً متخصصاً في أهم ثلاثة مجالات تمس حياتك مباشرة: تطوير الذات، التقدّم المهني، والجانب النفسي. هذا يعني أنّك لست وحدك، فهناك دائمًا من يرافقك بخبرته في المجال الذي تحتاجه. تواصلك مع الفريق هو أقصر طريق لتسريع نتائجك وتحويل حياتك نحو الأفضل!</p></details>
       <details><summary>ما الخطوة الأولى بعد اشتراكي في إيفال؟</summary><p>بعد إتمام عملية الشراء مباشرة، سيصلك بريد إلكتروني ترحيبي من فريق إيفال يحتوي على استبيان مكوّن من 40 سؤالاً دقيقاً صُمّم لتحليل شخصيتك في عدة مجالات مهمة من حياتك. ومن خلال إجاباتك، سيقوم الفريق بتحليل شخصيتك ووضع خطة تتضمّن الخطوات والنصائح والتمارين العملية الأنسب لك، والتي ستُقدَّم لك على عدة مراحل مع مُتابعة تمتد لـ 3 أشهر، تشمل أيضاً تقديم الاستشارات والإجابة على أي أسئلة أو استفسارات لضمان تحقيق تطوّر فعلي ومستمر في حياتك</p></details>
-      <details><summary>هل بكج إيفال رقمي أم ورقي؟</summary><p>البكج رقمي بالكامل، يمكن استخدامه على أي جهاز إلكتروني (موبايل، كمبيوتر، تابلت…) كما أن الملفات مصممة للطباعة إذا كنت تفضل الكتابة والتدوين، والخيار الثالث هو أن تحتفظ بالملفات على جهازك وتخصص دفتر ملاحظات خاصة بك للكتابة، لتجمع بين مرونة الوصول الرقمي ومتعة الكتابة اليدوية</p></details>
+      <details><summary>هل بكج إيفال رقمي أم ورقي؟</summary><p>البكج رقمي بالكامل، يمكن استخدامه على أي جهاز إلكتروني (موبايل، كمبيوتر، تابلت…)
+كما أن الملفات مصممة للطباعة إذا كنت تفضل الكتابة والتدوين، والخيار الثالث هو أن تحتفظ بالملفات على جهازك وتخصص دفتر ملاحظات خاصة بك للكتابة ،لتجمع بين مرونة الوصول الرقمي ومتعة الكتابة اليدوية</p></details>
       <details><summary>ما هي الأسس التي بُني عليها البكج؟</summary><p>تم تطوير هذا البكج استنادًا إلى بحوث ودراسات معمّقة وتجارب عملية امتدت لأكثر من ثمانية أشهر، وبالاستعانة باستشارات متخصّصين لضمان تحقيق نتائج ملموسة</p></details>
       <details><summary>كيف يمكنني استلام الملفات؟</summary><p>بعد إتمام الدفع، سيظهر لك رابط التحميل مباشرة، كما ستصلك نسخة من رابط التحميل عبر البريد الإلكتروني من منصة Payhip</p></details>
-      <details><summary>هل الدفع شهري؟</summary><p>لا طبعًا؛ بكج إيفال ليس اشتراكًا شهريًا، بل دفع مرة واحدة مدى الحياة، مع دعم مستمر لمدة 90 يومًا</p></details>
-      <details><summary>كيف يتم تقديم الدعم وكم مدّته؟</summary><p>يتم تقديم الدعم عبر البريد الإلكتروني بشكل فردي للحفاظ على خصوصيتك وراحتك، ويستمر لمدة 3 أشهر (90 يومًا) بعد شراء البكج</p></details>
-      <details><summary>كم عدد الرسائل المسموح بها ومتى سأستلم الرد؟</summary><p>يمكنك إرسال رسالتين في اليوم كحد أقصى، وسيصلك الرد خلال أوّل 12 ساعة بإذن الله</p></details>
-      <details><summary>هل البكج مناسب لأي عمر أو مرحلة؟</summary><p>نعم، إيفال مناسب لأي شخص يريد تطوير نفسه، سواء طالب، موظف، أو رائد أعمال، ويشمل أي شخص لديه أهداف شخصية، صحية، مهنية، دراسية، مالية، اجتماعية أو روحية</p></details>
+      <details><summary>هل الدفع شهري؟</summary><p>لا طبعاً ، بكج ايفال ليس اشتراكاً شهرياً ، بس هو دفع مرة واحدة مدى الحياة ، مع دعم مستمر لمدة 90 يوم  </p></details>
+       <details><summary>كيف يتم تقديم الدعم وكم مدّته؟</summary><p>يتم تقديم الدعم عبر البريد الإلكتروني بشكل فردي للحفاظ على خصوصيتك وراحتك، ويستمر لمدة 3 أشهر (90 يومًا) بعد شراء البكج</p></details>
+       <details><summary>كم عدد الرسائل المسموح بها ومتى سأستلم الرد؟</summary><p>يمكنك إرسال رسالتين في اليوم كحد أقصى، وسيصلك الرد خلال أوّل 12 ساعة بإذن الله</p></details>
+      <details><summary>هل البكج مناسب لأي عمر أو مرحلة؟</summary><p>نعم، إيفال مناسب لأي شخص يريد تطوير نفسه، سواء طالب، موظف، أو رائد أعمال 
+ويشمل أي شخص لديه أهداف شخصية، صحية، مهنية، دراسية، مالية، اجتماعية  أو روحية </p></details>
     </div>
   </div>
 </section>
@@ -444,10 +433,10 @@ src="https://www.facebook.com/tr?id=781645914448564&ev=PageView&noscript=1"
       <li>اضغط على <span style="color:#eab50c;font-weight:900">Add coupon</span> لإضافة كود الخصم</li>
       <li>اختر وسيلة الدفع المناسبة</li>
       <li>بعد إتمام عملية الدفع، سيظهر لك رابط التحميل مباشرة <strong style="color:#eab50c">Download</strong></li>
-     <li>الدفع متاح عالمياً وبجميع العُملات</li>
+     <li>الدفع متاح عالمياً و بجميع العُملات</li>
     </ol>
     <div class="pay-logos-inline"><img src="paymentlogos.png" alt="PayPal • Mastercard • Visa" width="512" height="64" loading="lazy"></div>
-    <p class="note" style="text-align:right"><b>ملحوظة: بعد إتمام عملية الدفع، قد تلاحظ خصم مبلغ 1$، لا داعي للقلق، فهي عملية تحقق مؤقتة وسيُعاد خلال يومين كحد أقصى.</b></p>
+    <p class="note" style="text-align:right"><b>ملحوظة: بعد إتمام عملية الدفع، قد تلاحظ خصم مبلغ 1$، لا داعي للقلق، فهي مجرد عملية تحقيق مؤقتة وسيتم إعادة المبلغ خلال يومين كحد أقصى. </b></p>
   </div>
 </section>
 
@@ -465,11 +454,11 @@ src="https://www.facebook.com/tr?id=781645914448564&ev=PageView&noscript=1"
       <div class="line"> ~ <strong>202 ريال سعودي</strong> - وفر <strong class="save-anim">135 ر.س</strong></div>
 
       <div class="row" style="margin-top:10px">
-        <a class="btn btn-cta em" id="ctaBuy" href="https://payhip.com/buy?link[]=wPZpb&session_enabled=1&parent_url=https%3A%2F%2Fpayhip.com%2Fb%2FwPZpb&type=overlay&payhip_js=true">انتقل إلى صفحة الدفع</a>
+        <a class="btn btn-cta em" id="ctaBuy" href="https://payhip.com/buy?link[]=wPZpb&session_enabled=1&parent_url=https%3A%2F%2Fpayhip.com%2Fb%2FwPZpb&type=overlay&payhip_js=true" >انتقل إلى صفحة الدفع</a>
       </div>
 
       <div class="countdown" id="priceCountdown" style="margin-top:8px" aria-live="polite"></div>
-      <p class="line" style="margin-top:6px">آمن 100% – الشراء متاح عالميًا وبجميع العُملات</p>
+      <p class="line" style="margin-top:6px">آمن 100% – الشراء متاح عالمياً وبجميع العُملات</p>
     </div>
   </div>
 </section>
@@ -537,12 +526,15 @@ function getOrInitGlobalDeadline() {
   localStorage.setItem(EVALL_KEY, String(next));
   return next;
 }
+
 function resetGlobalDeadline() {
   const next = Date.now() + 3 * EVALL_DAY_MS;
   localStorage.setItem(EVALL_KEY, String(next));
   return next;
 }
+
 function pad2(n) { return String(n).padStart(2, '0'); }
+
 function renderCountdown(el, target) {
   let d = target - Date.now();
   if (d <= 0) {
@@ -561,6 +553,7 @@ function renderCountdown(el, target) {
     '<div class="unit"><span class="num">'+pad2(ss)+'</span><span class="lbl">ثواني</span></div>';
   return target;
 }
+
 function initCountdownFor(el) {
   if (!el) return;
   const now = Date.now();
@@ -580,6 +573,7 @@ function initCountdownFor(el) {
   });
   rmObserver.observe(document.body, { childList: true, subtree: true });
 }
+
 function initAllCountdowns() {
   ['heroCountdown', 'priceCountdown'].forEach(id => {
     const el = document.getElementById(id);
@@ -589,6 +583,7 @@ function initAllCountdowns() {
     }
   });
 }
+
 window.evallResetCountdown = function() {
   const next = resetGlobalDeadline();
   ['heroCountdown', 'priceCountdown'].forEach(id => {
@@ -598,6 +593,7 @@ window.evallResetCountdown = function() {
   initAllCountdowns();
   console.log('[evall] countdown reset to 3 days from now');
 };
+
 initAllCountdowns();
 
 /* hero spotlight */
