@@ -57,7 +57,6 @@
   --head:"El Messiri","Evall Arabic","Tajawal","Cairo",system-ui,Arial,sans-serif;
   --body:"Evall Arabic","Tajawal","Cairo",system-ui,Arial,sans-serif;
 
-  /* تركيز صورة البانر */
   --focus-x:50%;
   --focus-y:40%;
 }
@@ -79,14 +78,13 @@ img{max-width:100%;display:block;height:auto}
 .promo{position:sticky;top:0;z-index:90;background:linear-gradient(90deg,#eab50c,var(--accent));color:#000;border-bottom:var(--hair)}
 .promo .inner{padding:8px 12px;font-weight:900}
 
-/* HERO (مُصغّر) */
+/* HERO */
 .hero{position:relative;min-height:92svh;display:grid;place-items:center;overflow:hidden;background:
   radial-gradient(680px 360px at 50% -10%, rgba(229,193,107,.12), transparent 60%),
   linear-gradient(180deg, #08090b, #050507)}
 .hero .media{position:absolute;inset:0;overflow:hidden}
 .hero .media img{width:100%;height:100%;object-fit:cover;object-position:var(--focus-x) var(--focus-y);transform:scale(1.06);filter:brightness(.94) contrast(1.06) saturate(1.02);animation:ken 22s ease-in-out infinite alternate}
 @keyframes ken{0%{transform:scale(1.06)}100%{transform:scale(1.11) translateY(-1%)}}
-/* luxury dust overlay */
 .hero .lux{position:absolute;inset:0;pointer-events:none;z-index:2;opacity:.12;background:
   radial-gradient(2px 2px at 20% 30%, rgba(229,193,107,.35), transparent 45%),
   radial-gradient(1.6px 1.6px at 68% 42%, rgba(229,193,107,.28), transparent 46%),
@@ -116,11 +114,11 @@ img{max-width:100%;display:block;height:auto}
 .unit .num{display:block;font-weight:900;font-size:16px}
 .unit .lbl{font-size:10px;color:var(--muted)}
 
-/* Section backgrounds + titles */
+/* Sections + titles */
 .section-dark{background:linear-gradient(180deg,#08090b,#0a0b0d)}
 .section-ink{background:linear-gradient(180deg,#0e0f13,#090a0d)}
 .section-light{background:linear-gradient(180deg,#ffffff,#f4f5f7);color:#0a0b0d}
-.title{font-family:var(--head);font-size:clamp(18px,2.8vw,24px);margin:0 0 10px;font-weight:900}
+.title{font-family:var(--head);font-size:clamp(18px,2.8vw,24px);margin:0 0 10px;font-weight:900;text-align:center}
 .title .brand{color:var(--gold)}
 
 /* KPI */
@@ -140,9 +138,16 @@ img{max-width:100%;display:block;height:auto}
 #inside .title{font-size:clamp(18px,2.6vw,22px)}
 .benefits{display:grid;grid-template-columns:1fr;gap:var(--gap-md);align-items:start}
 @media(min-width:900px){.benefits{grid-template-columns:repeat(2,minmax(0,1fr))}}
-.benefit{background:#fff;color:#000;border-radius:var(--r-md);padding:12px;border:1px solid #ececec;box-shadow:0 8px 16px rgba(0,0,0,.08);height:100%;text-align:right;display:flex;flex-direction:column}
-.benefit h4{margin:0 0 6px;font-weight:900;font-family:var(--head);font-size:17px;color:var(--accent)}
-.benefit p{margin:4px 0 0;line-height:1.65;overflow-wrap:anywhere;word-break:break-word}
+.benefit{background:#fff;color:#000;border-radius:var(--r-md);padding:12px;border:1px solid #ececec;box-shadow:0 8px 16px rgba(0,0,0,.08);height:100%;display:flex;flex-direction:column}
+.benefit h4{margin:0 0 6px;font-weight:900;font-family:var(--head);font-size:17px;color:var(--accent);text-align:center}
+.benefit p{
+  margin:4px 0 0;
+  line-height:1.85;
+  text-align:right;
+  word-break:normal !important;
+  overflow-wrap:break-word !important; /* يمنع التكسير حرف-بحرف */
+  hyphens:auto;
+}
 
 /* Support card */
 .benefit.support{background:linear-gradient(180deg,#eab50c,#eab50c); color:#fff !important; border:none}
@@ -226,7 +231,7 @@ footer{background:#08090b;color:#cfc9bd;border-top:var(--hair)}
 .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease, transform .6s ease}
 .reveal.in{opacity:1;transform:none}
 
-/* تحسين الوصول وتقليل الحركة */
+/* Reduce Motion */
 @media (prefers-reduced-motion:reduce){
   .hero .media img{animation:none}
   .hero .lux{animation:none}
@@ -234,7 +239,7 @@ footer{background:#08090b;color:#cfc9bd;border-top:var(--hair)}
 }
 </style>
 
-<!-- Google Fonts: El Messiri for headings -->
+<!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -332,7 +337,7 @@ src="https://www.facebook.com/tr?id=781645914448564&ev=PageView&noscript=1"
         <h4 style="color: #eab50c;">جدول مهام 112 يوم</h4>
         <p>ستجد يومياً مهمة واحدة مدروسة بعناية. على الرغم من بساطتها، فإن تأثيرها يتراكم مع الوقت ليترك أثراً حقيقياً على شخصيتك. 
           تمّ كتابة هذه المهام لتدفعك نحو التفكير، التطور، وبناء عادات إيجابية بدل التسويف والتأجيل.
-          مع مرور الوقت, ستصبح شخصاً منجزاً، واعياً، منظماً، وواضح الهدف، يعرف كيف يصل إليه بثقة وهدوء</p>
+          مع مرور الوقت، ستصبح شخصاً منجزاً، واعياً، منظماً، وواضح الهدف، يعرف كيف يصل إليه بثقة وهدوء</p>
       </div>
 
       <div class="benefit">
@@ -446,7 +451,6 @@ src="https://www.facebook.com/tr?id=781645914448564&ev=PageView&noscript=1"
         <a class="btn btn-cta em" id="ctaBuy" href="https://payhip.com/buy?link[]=wPZpb&session_enabled=1&parent_url=https%3A%2F%2Fpayhip.com%2Fb%2FwPZpb&type=overlay&payhip_js=true" >انتقل إلى صفحة الدفع</a>
       </div>
 
-      <!-- العدّاد بدون data-deadline: يبدأ دائمًا من 3 أيام ويُعاد ضبطه تلقائيًا -->
       <div class="countdown" id="priceCountdown" style="margin-top:8px" aria-live="polite"></div>
       <p class="line" style="margin-top:6px">آمن 100% – الشراء متاح عالمياً وبجميع العُملات</p>
     </div>
@@ -501,13 +505,10 @@ src="https://www.facebook.com/tr?id=781645914448564&ev=PageView&noscript=1"
 /* year */
 document.getElementById('year').textContent = new Date().getFullYear();
 
-/* =========================
-   Countdown (3 days auto-reset)
-   ========================= */
+/* ===== Countdown (3 days auto-reset) ===== */
 const EVALL_DAY_MS = 24 * 60 * 60 * 1000;
 const EVALL_KEY = 'evall_deadline_global_v2';
 
-/* إنشاء/قراءة موعد نهائي عالمي محفوظ */
 function getOrInitGlobalDeadline() {
   const now = Date.now();
   const stored = localStorage.getItem(EVALL_KEY);
@@ -520,73 +521,53 @@ function getOrInitGlobalDeadline() {
   return next;
 }
 
-/* تعيين موعد نهائي عالمي جديد (3 أيام من الآن) */
 function resetGlobalDeadline() {
   const next = Date.now() + 3 * EVALL_DAY_MS;
   localStorage.setItem(EVALL_KEY, String(next));
   return next;
 }
 
-/* تنسيق قِيَم العدّاد */
 function pad2(n) { return String(n).padStart(2, '0'); }
 
-/* رسم واجهة العدّاد */
 function renderCountdown(el, target) {
   let d = target - Date.now();
   if (d <= 0) {
-    // انتهى → نعيد ضبطه لثلاثة أيام جديدة
     target = resetGlobalDeadline();
     try { el.setAttribute('data-deadline', new Date(target).toISOString()); } catch (_) {}
     d = target - Date.now();
   }
-
   const dd = Math.floor(d / 86400000); d -= dd * 86400000;
   const hh = Math.floor(d / 3600000);  d -= hh * 3600000;
   const mm = Math.floor(d / 60000);    d -= mm * 60000;
   const ss = Math.floor(d / 1000);
-
   el.innerHTML =
     '<div class="unit"><span class="num">'+pad2(dd)+'</span><span class="lbl">أيام</span></div>' +
     '<div class="unit"><span class="num">'+pad2(hh)+'</span><span class="lbl">ساعات</span></div>' +
     '<div class="unit"><span class="num">'+pad2(mm)+'</span><span class="lbl">دقائق</span></div>' +
     '<div class="unit"><span class="num">'+pad2(ss)+'</span><span class="lbl">ثواني</span></div>';
-
   return target;
 }
 
-/* تهيئة عدّاد لعنصر واحد */
 function initCountdownFor(el) {
   if (!el) return;
   const now = Date.now();
   const attr = el.getAttribute('data-deadline');
   let target;
-
   if (attr) {
     const parsed = Date.parse(attr);
-    if (Number.isFinite(parsed) && parsed > now) {
-      target = parsed;
-    } else {
-      target = now + 3 * EVALL_DAY_MS;
-      el.setAttribute('data-deadline', new Date(target).toISOString());
-    }
+    target = (Number.isFinite(parsed) && parsed > now) ? parsed : now + 3 * EVALL_DAY_MS;
+    el.setAttribute('data-deadline', new Date(target).toISOString());
   } else {
     target = getOrInitGlobalDeadline();
   }
-
   target = renderCountdown(el, target);
   const timer = setInterval(() => { target = renderCountdown(el, target); }, 1000);
-
-  // تنظيف عند إزالة العنصر (اختياري)
   const rmObserver = new MutationObserver(() => {
-    if (!document.body.contains(el)) {
-      clearInterval(timer);
-      rmObserver.disconnect();
-    }
+    if (!document.body.contains(el)) { clearInterval(timer); rmObserver.disconnect(); }
   });
   rmObserver.observe(document.body, { childList: true, subtree: true });
 }
 
-/* تهيئة جميع العدّادات */
 function initAllCountdowns() {
   ['heroCountdown', 'priceCountdown'].forEach(id => {
     const el = document.getElementById(id);
@@ -597,7 +578,6 @@ function initAllCountdowns() {
   });
 }
 
-/* دالة مساعدة لإعادة البدء يدويًا من 3 أيام */
 window.evallResetCountdown = function() {
   const next = resetGlobalDeadline();
   ['heroCountdown', 'priceCountdown'].forEach(id => {
@@ -650,7 +630,7 @@ if(strip){
   setActive();
 }
 
-/* Simple analytics hooks (يمكن ربطها لاحقاً) */
+/* Analytics hooks */
 ['ctaTop','ctaBuy','sticky'].forEach(id=>{
   const n=document.getElementById(id); if(!n) return;
   n.addEventListener('click',()=>{ console.log('[evall] CTA click:', id); });
@@ -667,7 +647,6 @@ if(strip){
       const old=copyBtn.textContent; copyBtn.textContent='تم النسخ';
       setTimeout(()=>copyBtn.textContent=old,1500);
     }catch(e){ 
-      // Fallback
       const ta=document.createElement('textarea');
       ta.value=txt; document.body.appendChild(ta); ta.select();
       try{ document.execCommand('copy'); }catch(_){}
