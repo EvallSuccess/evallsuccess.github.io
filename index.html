@@ -140,13 +140,19 @@ img{max-width:100%;display:block;height:auto}
 @media(min-width:900px){.benefits{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .benefit{background:#fff;color:#000;border-radius:var(--r-md);padding:12px;border:1px solid #ececec;box-shadow:0 8px 16px rgba(0,0,0,.08);height:100%;display:flex;flex-direction:column}
 .benefit h4{margin:0 0 6px;font-weight:900;font-family:var(--head);font-size:17px;color:var(--accent);text-align:center}
-.benefit p{
+
+/* الفقرات (حل مشكلة الحروف تحت بعض + توسيط) */
+.benefit p,
+.feature p,
+.result p,
+.faq p{
   margin:4px 0 0;
-  line-height:1.85;
-  text-align:right;
-  word-break:normal !important;
-  overflow-wrap:break-word !important; /* يمنع التكسير حرف-بحرف */
-  hyphens:auto;
+  line-height:1.9;
+  text-align:center;                 /* توسيط الفقرات كما طلبت */
+  white-space:normal !important;
+  word-break:normal !important;      /* يمنع break-all */
+  overflow-wrap:break-word !important;
+  unicode-bidi:plaintext;            /* يحسّن عرض العربية مع الرموز */
 }
 
 /* Support card */
@@ -184,7 +190,7 @@ summary{cursor:pointer;font-weight:900;color:#0a0b0d;font-family:var(--head);tra
 details[open] > summary{color:#eab50c}
 summary:focus-visible{outline:2px solid #eab50c;outline-offset:4px}
 
-/* Steps */
+/* Steps (تظل يمين لأنها قائمة، وليست فقرات) */
 .steps .container{text-align:right}
 .steps h3{margin-top:0;text-align:right;color:#0a0b0d;font-family:var(--head)}
 .steps ol{padding-right:18px;margin:0 0 8px;color:#0a0b0d;text-align:right;list-style-position:inside;direction:rtl}
@@ -244,7 +250,7 @@ footer{background:#08090b;color:#cfc9bd;border-top:var(--hair)}
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<!-- Meta Pixel Code -->
+<!-- Meta Pixel Code (بدون تعديل) -->
 <script>
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
@@ -335,7 +341,9 @@ src="https://www.facebook.com/tr?id=781645914448564&ev=PageView&noscript=1"
 
       <div class="benefit">
         <h4 style="color: #eab50c;">جدول مهام 112 يوم</h4>
-        <p>ستجد يومياً مهمة واحدة مدروسة بعناية. على الرغم من بساطتها، فإن تأثيرها يتراكم مع الوقت ليترك أثراً حقيقياً على شخصيتك.  تمّ كتابة هذه المهام لتدفعك نحو التفكير، التطور، وبناء عادات إيجابية بدل التسويف والتأجيل  مع مرور الوقت، ستصبح شخصاً منجزاً، واعياً، منظماً، وواضح الهدف، يعرف كيف يصل إليه بثقة وهدوء</p>
+        <p>ستجد يومياً مهمة واحدة مدروسة بعناية. على الرغم من بساطتها، فإن تأثيرها يتراكم مع الوقت ليترك أثراً حقيقياً على شخصيتك. 
+          تمّ كتابة هذه المهام لتدفعك نحو التفكير، التطور، وبناء عادات إيجابية بدل التسويف والتأجيل.
+          مع مرور الوقت، ستصبح شخصاً منجزاً، واعياً، منظماً، وواضح الهدف، يعرف كيف يصل إليه بثقة وهدوء</p>
       </div>
 
       <div class="benefit">
