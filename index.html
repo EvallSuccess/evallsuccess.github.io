@@ -14,6 +14,7 @@
 <link rel="icon" href="minilogo.svg" type="image/svg+xml">
 <link rel="alternate icon" href="minilogo.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="minilogo.png">
+<!-- FIX: كان هناك خطأ مطبعي في اللون (#eab5oc) حرف o بدل 0 -->
 <link rel="mask-icon" href="minilogo.svg" color="#eab50c">
 
 <!-- Social / SEO -->
@@ -57,6 +58,7 @@
   --head:"El Messiri","Evall Arabic","Tajawal","Cairo",system-ui,Arial,sans-serif;
   --body:"Evall Arabic","Tajawal","Cairo",system-ui,Arial,sans-serif;
 
+  /* تركيز صورة البانر */
   --focus-x:50%;
   --focus-y:40%;
 }
@@ -69,7 +71,6 @@ a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block;height:auto}
 .container{max-width:var(--container);margin-inline:auto;padding:18px 14px}
 .hr{height:1px;background:linear-gradient(90deg,transparent,rgba(229,193,107,.5),transparent);margin:8px 0}
-.line{opacity:.95}
 
 /* Skip link */
 .skip-link{position:absolute;inset-inline-start:8px;top:-40px;background:#eab50c;color:#000;padding:8px 12px;border-radius:12px;transition:top .2s}
@@ -79,13 +80,14 @@ img{max-width:100%;display:block;height:auto}
 .promo{position:sticky;top:0;z-index:90;background:linear-gradient(90deg,#eab50c,var(--accent));color:#000;border-bottom:var(--hair)}
 .promo .inner{padding:8px 12px;font-weight:900}
 
-/* HERO */
+/* HERO (مُصغّر) */
 .hero{position:relative;min-height:92svh;display:grid;place-items:center;overflow:hidden;background:
   radial-gradient(680px 360px at 50% -10%, rgba(229,193,107,.12), transparent 60%),
   linear-gradient(180deg, #08090b, #050507)}
 .hero .media{position:absolute;inset:0;overflow:hidden}
 .hero .media img{width:100%;height:100%;object-fit:cover;object-position:var(--focus-x) var(--focus-y);transform:scale(1.06);filter:brightness(.94) contrast(1.06) saturate(1.02);animation:ken 22s ease-in-out infinite alternate}
 @keyframes ken{0%{transform:scale(1.06)}100%{transform:scale(1.11) translateY(-1%)}}
+/* luxury dust overlay */
 .hero .lux{position:absolute;inset:0;pointer-events:none;z-index:2;opacity:.12;background:
   radial-gradient(2px 2px at 20% 30%, rgba(229,193,107,.35), transparent 45%),
   radial-gradient(1.6px 1.6px at 68% 42%, rgba(229,193,107,.28), transparent 46%),
@@ -105,15 +107,11 @@ img{max-width:100%;display:block;height:auto}
   100%{background-position:0% 0; text-shadow:0 8px 20px rgba(229,193,107,.22)}
 }
 .hero h1{margin:0;color:transparent;background:linear-gradient(180deg,var(--gold),#fff 50%,var(--gold-2));-webkit-background-clip:text;background-clip:text;text-shadow:0 8px 20px rgba(229,193,107,.22);font-family:var(--head);font-size:clamp(26px,4.4vw,44px);font-weight:900;background-size:200% 100%;animation:goldGlow 14s ease-in-out infinite;}
-.hero h2{margin:0;color:#fff;font-size:clamp(14px,2.2vw,18px);font-weight:700;opacity:.98}
-
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 14px;border-radius:12px;font-weight:900;box-shadow:var(--shadow);transition:transform .18s ease, filter .18s ease,border-color .18s ease}
 .btn:hover{transform:translateY(-1px)}
 .btn:active{transform:translateY(0)}
 .btn:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
-.btn-cta{background:linear-gradient(135deg,#eab50c,var(--accent) 55%, var(--accent-2));color:#000;border:1px solid rgba(255,255,255,.12)}
-.btn-ghost{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.12)}
-
+.btn-cta{background:linear-gradient(135deg,#eab50c,var(--accent) 55%, var(--accent-2));color:#fff;border:1px solid rgba(255,255,255,.12)}
 .countdown{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
 .unit{min-width:64px;padding:7px;border-radius:10px;background:rgba(12,13,16,.86);border:1px solid rgba(255,255,255,.08)}
 .unit .num{display:block;font-weight:900;font-size:16px}
@@ -126,142 +124,56 @@ img{max-width:100%;display:block;height:auto}
 .title{font-family:var(--head);font-size:clamp(18px,2.8vw,24px);margin:0 0 10px;font-weight:900}
 .title .brand{color:var(--gold)}
 
+/* KPI */
+.kpi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--gap-md)}
+@media(min-width:900px){.kpi-grid{grid-template-columns:repeat(4,1fr)}}
+.kpi-card{background:linear-gradient(180deg,#121319,#0e0f14);color:#fff;border-radius:var(--r-md);padding:var(--pad-md);border:1px solid rgba(229,193,107,.35);box-shadow:var(--shadow)}
+.kpi-card .num{display:block;color:var(--gold);font-size:20px;font-weight:900}
+.kpi-card.red{background:linear-gradient(180deg,#eab50c,#eab50c);border:none}
+
 /* Trio */
 .features{display:grid;grid-template-columns:1fr;gap:var(--gap-md)}
-@media(min-width:900px){.features{grid-template-columns:repeat(3,1fr)}}
 .feature{background:linear-gradient(180deg,#13141a,#0f1116);color:#fff;border:1px solid rgba(255,255,255,.06);border-radius:var(--r-md);padding:var(--pad-md);box-shadow:var(--shadow)}
+/* FIX: إزالة سطر قديم color:#gold واستخدام المتغير */
 .feature h3{margin:0 0 6px;color:var(--gold);font-family:var(--head);font-size:18px}
 .feature p{margin:4px 0 0}
 
-/* ========= PLANS (3 packages) ========= */
-.plans-wrap{display:grid;grid-template-columns:1fr;gap:var(--gap-md);align-items:stretch;margin-top:12px}
-@media(min-width:980px){.plans-wrap{grid-template-columns:repeat(3,1fr)}}
-.plan{
-  position:relative;
-  background:#fff;color:#0a0b0d;
-  border-radius:18px;
-  border:1px solid #ececec;
-  box-shadow:0 18px 30px rgba(0,0,0,.10);
-  padding:14px;
-  display:flex;flex-direction:column;
-  min-height:100%;
-  text-align:right;
-}
-.plan .head{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
-.plan .name{font-family:var(--head);font-weight:900;font-size:18px;margin:0}
-.plan .tag{display:inline-flex;gap:6px;align-items:center;border-radius:999px;padding:5px 10px;font-weight:900;font-size:12px;border:1px solid rgba(234,181,12,.35);background:rgba(234,181,12,.10)}
-.plan .tag .dot{width:8px;height:8px;border-radius:50%;background:var(--gold)}
-.plan .sub{margin:6px 0 10px;color:#2b2e36;font-weight:700}
-.plan ul{margin:0;padding-right:18px}
-.plan li{margin:6px 0}
-.plan .save{margin-top:10px;font-weight:900}
-.plan .save .n{color:#C21718}
-.plan .cta-row{margin-top:auto;display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
-.plan .cta-row .btn{box-shadow:none}
-.plan .mini{font-size:12px;opacity:.85;margin-top:8px;line-height:1.6}
-
-.plan.popular{
-  border:2px solid rgba(234,181,12,.60);
-  transform:translateY(-2px);
-  box-shadow:0 22px 36px rgba(0,0,0,.14);
-}
-.ribbon{
-  position:absolute;top:12px;left:12px;
-  background:linear-gradient(135deg,#eab50c,var(--accent));
-  color:#000;font-weight:900;font-size:12px;
-  padding:6px 10px;border-radius:999px;
-  border:1px solid rgba(0,0,0,.08)
-}
-
-/* ========= Tabs (package details) ========= */
-.tabs{margin-top:14px;text-align:right}
-.tablist{
-  display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-start;
-  background:rgba(255,255,255,.06);
-  border:1px solid rgba(255,255,255,.10);
-  border-radius:14px;
-  padding:8px;
-}
-.tabbtn{
-  appearance:none;border:none;cursor:pointer;
-  padding:10px 12px;border-radius:12px;
-  font-family:var(--head);font-weight:900;
-  background:rgba(255,255,255,.08);color:#fff;
-  border:1px solid rgba(255,255,255,.10);
-  transition:transform .15s ease, background .15s ease, color .15s ease;
-}
-.tabbtn:hover{transform:translateY(-1px)}
-.tabbtn[aria-selected="true"]{
-  background:linear-gradient(135deg,#eab50c,var(--accent));
-  color:#000;border-color:rgba(0,0,0,.08)
-}
-.tabpanel{
-  margin-top:10px;
-  background:linear-gradient(180deg,#13141a,#0f1116);
-  color:#fff;
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:16px;
-  padding:12px;
-  box-shadow:var(--shadow);
-}
-.tabpanel .phead{
-  display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between
-}
-.pill{
-  display:inline-flex;gap:6px;align-items:center;
-  border-radius:999px;
-  padding:6px 10px;
-  border:1px solid rgba(229,193,107,.45);
-  background:rgba(229,193,107,.08);
-  color:#EAD9AA;font-weight:900;font-size:12px
-}
-.pill b{color:var(--gold)}
-.tabpanel .cta{
-  display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-start;margin-top:10px
-}
-
-/* Details inside panels */
-.panel-details details{
-  background:rgba(255,255,255,.06);
-  color:#fff;
-  border-radius:14px;
-  padding:10px;
-  border:1px solid rgba(255,255,255,.10);
-  box-shadow:none;
-}
-.panel-details details+details{margin-top:8px}
-.panel-details summary{cursor:pointer;font-weight:900;color:#fff;font-family:var(--head)}
-.panel-details details[open] > summary{color:var(--gold)}
-.panel-details ul{margin:8px 0 0;padding-right:18px}
-.panel-details li{margin:6px 0}
-.small-note{margin-top:10px;font-size:12px;opacity:.9;line-height:1.7}
-
-/* ========= Bonus Gallery (your new professional posts) ========= */
-.bonus-grid{
-  margin-top:12px;
+/* WHAT YOU GET */
+#inside .title{font-size:clamp(18px,2.6vw,22px)}
+/* LAYOUT FIX: benefits equal height on desktop */
+.benefits{
   display:grid;
   grid-template-columns:1fr;
   gap:var(--gap-md);
-  text-align:right;
+  align-items:stretch;            /* اجبار العناصر على الامتداد لارتفاع صفّها */
 }
-@media(min-width:900px){.bonus-grid{grid-template-columns:repeat(3,1fr)}}
-.bonus-card{
-  background:#fff;color:#0a0b0d;
-  border-radius:16px;border:1px solid #ececec;
-  box-shadow:0 16px 28px rgba(0,0,0,.10);
-  overflow:hidden;
-  display:flex;flex-direction:column;
+@media(min-width:1024px){
+  .benefits{
+    grid-template-columns:repeat(2,minmax(0,1fr)); /* شباكين بكل سطر */
+    align-items:stretch;
+  }
 }
-.bonus-card .img{
-  height:180px;background:#f3f4f6;
-  display:flex;align-items:center;justify-content:center;
+.benefit{
+  background:#fff;color:#000;border-radius:var(--r-md);
+  padding:12px 12px;border:1px solid #ececec;box-shadow:0 8px 16px rgba(0,0,0,.08);
+  height:100%;                    /* يمتد لنهاية الصف */
+  display:flex;flex-direction:column; /* يسمح للمحتوى الداخلي بالتمدد */
 }
-.bonus-card .img img{width:100%;height:100%;object-fit:cover}
-.bonus-card .body{padding:12px}
-.bonus-card h4{margin:0 0 6px;font-family:var(--head);font-size:16px;font-weight:900;color:#c28700}
-.bonus-card p{margin:0;line-height:1.65;color:#1f232b}
+.benefit h4{margin:0 0 6px;font-weight:900;font-family:var(--head);font-size:17px;color:var(--accent)}
+.benefit p{margin:4px 0 0;line-height:1.65}
 
-/* Gallery (old) */
+/* Support card */
+.benefit.support{background:linear-gradient(180deg,#eab50c,#eab50c); color:#fff !important; border:none}
+.benefit.support h4,
+.benefit.support p,
+.benefit.support a{color:#000 !important}
+
+/* Gift shine */
+.benefit.gift{position:relative;overflow:hidden}
+.benefit.gift::after{content:"";position:absolute;inset:-40%;transform:rotate(18deg);background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);animation:shine 2.8s linear infinite}
+@keyframes shine{0%{transform:translateX(-120%) rotate(18deg)}100%{transform:translateX(120%) rotate(18deg)}}
+
+/* Gallery */
 .gallery{border-radius:var(--r-md);border:1px solid rgba(255,255,255,.08);overflow:hidden;box-shadow:var(--shadow)}
 .strip{display:flex;gap:var(--gap-sm);padding:8px;overflow:auto hidden;scroll-snap-type:x mandatory}
 .slide{flex:0 0 80vw;max-width:80vw;scroll-snap-align:center;border-radius:var(--r-sm);overflow:hidden}
@@ -269,22 +181,17 @@ img{max-width:100%;display:block;height:auto}
 .slide img{height:200px;object-fit:cover}
 
 /* Results */
-.results3{display:grid;grid-template-columns:1fr;gap:var(--gap-md);text-align:right}
-@media(min-width:900px){.results3{grid-template-columns:repeat(3,1fr)}}
-.rescard{
-  background:linear-gradient(180deg,#101117,#0b0c12);
-  color:#fff;border-radius:16px;
-  padding:14px;border:1px solid rgba(255,255,255,.06);
-  box-shadow:var(--shadow)
-}
-.rescard h5{margin:0 0 8px;font-family:var(--head);font-size:18px;color:var(--gold);font-weight:900}
-.rescard ul{margin:0;padding-right:18px}
-.rescard li{margin:6px 0}
-.rescard.gold{background:linear-gradient(180deg,#eab50c,#eab50c);border:none}
-.rescard.gold h5,.rescard.gold li{color:#000}
+.results{display:grid;grid-template-columns:1fr;gap:var(--gap-md)}
+@media(min-width:900px){.results{grid-template-columns:repeat(2,1fr)}}
+.result{background:linear-gradient(180deg,#101117,#0b0c12);color:#fff;border-radius:var(--r-md);padding:var(--pad-md);border:1px solid rgba(255,255,255,.06);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.result.red{background:linear-gradient(180deg,#eab50c, #eab50c);border:none}
+.result h5{color:var(--gold); font-size:18px; line-height:1.35; margin:0 0 6px; font-weight:900; font-family:var(--head);}  
+.result.red h5{color:#000;}
+.result.red p{color:#000;}
+.result p{margin:4px 0 0;}
 
-/* FAQ (keep) */
-details{background:#fff;color:#0a0b0d;border-radius:var(--r-md);padding:12px;border:1px solid #eee;box-shadow:0 8px 16px rgba(0,0,0,.08);text-align:right}
+/* FAQ */
+details{background:#fff;color:#0a0b0d;border-radius:var(--r-md);padding:12px;border:1px solid #eee;box-shadow:0 8px 16px rgba(0,0,0,.08)}
 details+details{margin-top:8px}
 summary{cursor:pointer;font-weight:900;color:#0a0b0d;font-family:var(--head);transition:color .2s}
 details[open] > summary{color:#eab50c}
@@ -295,8 +202,33 @@ summary:focus-visible{outline:2px solid #eab50c;outline-offset:4px}
 .steps h3{margin-top:0;text-align:right;color:#0a0b0d;font-family:var(--head)}
 .steps ol{padding-right:18px;margin:0 0 8px;color:#0a0b0d;text-align:right;list-style-position:inside;direction:rtl}
 .pay-logos-inline{display:flex;justify-content:center;align-items:center;margin:6px auto 2px}
+.pay-logos-inline.right{display:flex;justify-content:flex-end;width:100%;margin:6px 0 2px 0}
+.pay-logos-inline.right img{align-self:flex-end;margin-inline-start:auto}
 .pay-logos-inline img{height:1.35em;width:auto;background:transparent}
 .note{font-size:12px;color:#eab50c;margin-top:6px}
+
+/* Pricing */
+.pricing{background:linear-gradient(180deg,#0a0b0d,#07080a)}
+.price{position:relative;color:#fff;background:linear-gradient(180deg, rgba(15,17,20,.82), rgba(10,11,13,.82));border:1px solid rgba(229,193,107,.45);border-radius:20px;padding:16px;max-width:820px;margin-inline:auto;box-shadow:0 24px 48px rgba(0,0,0,.38);backdrop-filter: blur(7px)}
+.price .top{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center}
+.badge{display:inline-flex;align-items:center;gap:6px;border:1px solid rgba(229,193,107,.5);border-radius:999px;padding:5px 10px;background:rgba(229,193,107,.08);color:#EAD9AA;font-weight:800}
+.badge .dot{width:8px;height:8px;border-radius:50%;background:var(--gold)}
+.price .nums{display:flex;align-items:baseline;justify-content:center;gap:8px;flex-wrap:wrap}
+.price .big{font-size:28px;font-weight:900}
+.price .row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.btn-cta.em{background:linear-gradient(135deg,#eab50c,var(--accent) 55%, var(--accent-2));color:#000}
+
+/* Coupon pill + copy */
+.coupon{display:flex;justify-content:center;align-items:center;gap:8px;margin-top:8px}
+.coupon.plain{display:flex;justify-content:center;align-items:center;gap:8px;margin-top:8px}
+.coupon .coupon-gold{color:#eab50c}
+.coupon .coupon-text{background:none;border:none;padding:0;color:#fff;letter-spacing:0}
+.copy-btn{padding:6px 10px;border-radius:12px;border:1px solid rgba(229,193,107,.5);background:linear-gradient(135deg,#eab50c,#eab50c);color:#000;font-weight:900;cursor:pointer;box-shadow:var(--shadow)}
+.copy-btn:active{transform:translateY(1px)}
+
+/* Gold shimmer on savings */
+.save-anim{background:linear-gradient(90deg,#E5C16B,#ffffff,#CFA854);-webkit-background-clip:text;background-clip:text;color:transparent;background-size:200% 100%;animation:shineText 2.8s linear infinite}
+@keyframes shineText{0%{background-position:200% 0}100%{background-position:-200% 0}}
 
 /* Sticky CTA */
 .sticky{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:95;display:none;background:linear-gradient(135deg,#eab50c,var(--accent));color:#000;border-radius:12px;box-shadow:0 16px 36px rgba(0,0,0,.5);padding:9px 12px;font-weight:900;justify-content:center;border:1px solid #eab50c}
@@ -312,7 +244,7 @@ footer{background:#08090b;color:#cfc9bd;border-top:var(--hair)}
 .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease, transform .6s ease}
 .reveal.in{opacity:1;transform:none}
 
-/* Reduce motion */
+/* تحسين الوصول وتقليل الحركة */
 @media (prefers-reduced-motion:reduce){
   .hero .media img{animation:none}
   .hero .lux{animation:none}
@@ -345,12 +277,10 @@ src="https://www.facebook.com/tr?id=781645914448564&ev=PageView&noscript=1"
 </head>
 <body>
 
-<a href="#plans" class="skip-link">تخطي إلى البكجات</a>
+<a href="#pricing" class="skip-link">تخطي إلى السعر</a>
 
 <!-- PROMO -->
-<div class="promo">
-  <div class="inner">استخدم كود (VIP40) لتحصل على خصم <strong>40%</strong> ودعم من فريقنا</div>
-</div>
+<div class="promo"><div class="inner">استخدم كود (VIP40) لتحصل على خصم <strong>40%</strong> ودعم من فريقنا</div></div>
 
 <!-- HERO -->
 <header class="hero" id="hero">
@@ -359,18 +289,11 @@ src="https://www.facebook.com/tr?id=781645914448564&ev=PageView&noscript=1"
   </div>
   <div class="spot" id="spot" aria-hidden="true"></div>
   <div class="lux" aria-hidden="true"></div>
-
-  <div class="panel reveal" id="heroBox" style="text-align:center;">
-    <h1 style="margin:0;">عالم إيفال</h1>
-    <h2>أول منصة عربية تجمع بين تطوير الذات + الصحة النفسية + التقدم المهني</h2>
-
-    <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center">
-      <a href="#plans" class="btn btn-cta" id="ctaTop">اختاري باقتك الآن</a>
-      <a href="#details" class="btn btn-ghost" id="ctaSeeInside">شوفي شو جوّا البكجات</a>
-    </div>
-
+  <div class="panel reveal" id="heroBox" style="text-align: center;">
+   <h1 style="margin: 0; font-size: 40px;">عالم إيفال</h1>
+    <h2 style="margin: 0px 0 0 0; color: #fff;">أول منصة عربية تجمع بين تطوير الذات + الصحة النفسية + التقدم المهني</h2>
+    <a href="#pricing" style="color: black;" class="btn btn-cta" id="ctaTop">سارع الآن واحصل على الدعم الفوري</a>
     <div class="countdown" id="heroCountdown" aria-live="polite"></div>
-    <div class="line" style="font-size:12px;opacity:.9">الخصم متاح لفترة محدودة — وخطوتك الأولى بتبدأ اليوم</div>
   </div>
 </header>
 
@@ -381,322 +304,56 @@ src="https://www.facebook.com/tr?id=781645914448564&ev=PageView&noscript=1"
   <div class="container">
     <h2 class="title"><span class="brand">عالم إيفال ...</span> فريق مختص معك في كل خطوة:</h2>
     <div class="features">
-      <div class="feature">
-        <h3>مدرب شخصي</h3>
-        <p>يساعدك على بناء العادات الصحيحة، يشجّعك ويحفّزك، ويرافقك لتستعيدي قوتك وثقتك بنفسك.</p>
-      </div>
-      <div class="feature">
-        <h3>مرشد مهني</h3>
-        <p>يرسم لك خريطة واضحة لمسارك العملي، يتابع خطواتك، ويقيّم إنجازاتك بشكل مستمر.</p>
-      </div>
-      <div class="feature">
-        <h3>داعم نفسي</h3>
-        <p>يفهم أعماقك، يمنحك مساحة آمنة للتعبير عن نفسك، ويدعمك لتعيشي حياة متوازنة مليئة بالراحة النفسية.</p>
-      </div>
+      <div class="feature"><h3>مدرب شخصي</h3><p>يساعدك على بناء العادات الصحيحة، يشجّعك ويحفّزك، ويرافقك لتستعيد قوتك وثقتك بنفسك</p></div>
+      <div class="feature"><h3>مرشد مهني</h3><p>يرسم لك خريطة واضحة لمسارك العملي، يتابع خطواتك، ويقيم إنجازاتك </p></div>
+      <div class="feature"><h3>داعم نفسي</h3><p>يفهم أعماقك، يمنحك مساحة آمنة للتعبير عن نفسك، ويدعمك لتعيش حياة متوازنة مليئة بالراحة النفسية
+</p></div>
     </div>
   </div>
 </section>
 
-<!-- PLANS -->
-<section class="section-light" id="plans">
+<!-- What you get -->
+<section class="section-ink" id="inside">
   <div class="container">
-    <h2 class="title" style="color:#0a0b0d"><span class="brand">اختاري باقتك</span> حسب احتياجك</h2>
-    <p class="line" style="color:#1f232b;margin-top:-2px">كل باقة فيها أدوات رقمية + دعم من فريق إيفال… الفرق بينهم هو عمق المحتوى ومدة المتابعة.</p>
+    <h2 class="title"><span class="brand">ما الذي ستحصل عليه فور انضمامك لعالم إيفال؟</span></h2>
 
-    <div class="plans-wrap">
-      <!-- STANDARD -->
-      <article class="plan" aria-labelledby="stdName">
-        <div class="head">
-          <div>
-            <h3 class="name" id="stdName">STANDARD <span style="opacity:.75">| باقة البداية</span></h3>
-            <div class="sub">دعم كامل لمدة <b>3 شهور</b></div>
-          </div>
-          <div class="tag"><span class="dot" aria-hidden="true"></span> بداية مرتبة</div>
-        </div>
-
-        <ul>
-          <li><b>أجندة إيفال</b> 360 يوم</li>
-          <li><b>رحلة تحوّل</b> (10 خطوات عملية)</li>
-          <li><b>خطة 112 يوم</b> لتنظيم المهام</li>
-          <li><b>7 خطوات وجداول</b> لتنظيم الوقت</li>
-          <li><b>دفتر امتنان الواعي</b></li>
-          <li><b>40 غلاف</b> للأجندة</li>
-          <li><b>ضمان استرجاع</b></li>
-        </ul>
-
-        <div class="save">التوفير: <span class="n">0$</span></div>
-
-        <div class="cta-row">
-          <a class="btn btn-cta" id="buyStandard" href="#" rel="nofollow">ابدئي الآن</a>
-          <a class="btn btn-ghost" href="#details" data-focus-tab="standard">التفاصيل</a>
-        </div>
-
-        <div class="mini">مناسبة إذا بدك تبدأي صح وتاخدي نظام واضح بدون تعقيد.</div>
-      </article>
-
-      <!-- PLUS (Most popular) -->
-      <article class="plan popular" aria-labelledby="plusName">
-        <div class="ribbon">الأكثر طلباً</div>
-        <div class="head">
-          <div>
-            <h3 class="name" id="plusName">PLUS <span style="opacity:.75">| باقة التطوّر</span></h3>
-            <div class="sub">دعم كامل لمدة <b>6 شهور</b></div>
-          </div>
-          <div class="tag"><span class="dot" aria-hidden="true"></span> توازن + ثبات</div>
-        </div>
-
-        <ul>
-          <li>كل اللي في <b>STANDARD</b></li>
-          <li><b>40 بودكاست</b> | دليل لتطوير ذاتك وبناء مستقبلك</li>
-          <li><b>7 تحديات</b> | لرفع اهتمامك بذاتك</li>
-          <li><b>ضمان استرجاع</b></li>
-        </ul>
-
-        <div class="save">التوفير: <span class="n">121$</span></div>
-
-        <div class="cta-row">
-          <a class="btn btn-cta" id="buyPlus" href="#" rel="nofollow">ابدئي التطوّر</a>
-          <a class="btn btn-ghost" href="#details" data-focus-tab="plus">التفاصيل</a>
-        </div>
-
-        <div class="mini">أفضل اختيار إذا بدك أدوات + متابعة أطول عشان تثبتي عاداتك.</div>
-      </article>
-
-      <!-- PREMIUM -->
-      <article class="plan" aria-labelledby="preName">
-        <div class="head">
-          <div>
-            <h3 class="name" id="preName">PREMIUM <span style="opacity:.75">| باقة التحوّل</span></h3>
-            <div class="sub">دعم كامل لمدة <b>سنة كاملة</b></div>
-          </div>
-          <div class="tag"><span class="dot" aria-hidden="true"></span> رحلة كاملة</div>
-        </div>
-
-        <ul>
-          <li>كل اللي في <b>PLUS</b></li>
-          <li><b>6 جلسات ترددات ذهنية</b> للاسترخاء وتنظيم الحالة الذهنية</li>
-          <li><b>7 تمارين يومية</b> لتنشيط العقل ورفع التركيز</li>
-          <li><b>14 بطاقة تحدي</b> لكسر العادات السلبية</li>
-          <li><b>مراجعة تحليلية</b> كل 3 أشهر + توصيات للمرحلة التالية</li>
-          <li><b>أي بونص جديد</b> خلال سنة الاشتراك مجاناً</li>
-          <li><b>ضمان استرجاع</b></li>
-        </ul>
-
-        <div class="save">التوفير: <span class="n">286$</span></div>
-
-        <div class="cta-row">
-          <a class="btn btn-cta" id="buyPremium" href="#" rel="nofollow">ابدئي التحوّل</a>
-          <a class="btn btn-ghost" href="#details" data-focus-tab="premium">التفاصيل</a>
-        </div>
-
-        <div class="mini">مناسبة إذا بدك تغيير عميق + متابعة طويلة + أدوات ذهنية قوية.</div>
-      </article>
-    </div>
-
-    <div class="line" style="margin-top:10px;color:#1f232b;font-size:12px">
-      * ملاحظة: الترددات الذهنية مخصصة للاسترخاء وتنظيم الحالة الذهنية، وليست بديلًا عن أي علاج طبي.
-    </div>
-  </div>
-</section>
-
-<!-- DETAILS (Tabs + Expand) -->
-<section class="section-ink" id="details">
-  <div class="container">
-    <h2 class="title"><span class="brand">ماذا ستحصلين</span> داخل كل باقة؟</h2>
-    <p class="line" style="opacity:.92;margin-top:-2px">اختاري التبويب وشوفي التفاصيل بجملتين لكل خدمة… بدون ما نعجّق الصفحة.</p>
-
-    <div class="tabs" role="region" aria-label="تفاصيل البكجات">
-      <div class="tablist" role="tablist" aria-label="بكجات إيفال">
-        <button class="tabbtn" role="tab" id="tab-standard" aria-selected="true" aria-controls="panel-standard">STANDARD</button>
-        <button class="tabbtn" role="tab" id="tab-plus" aria-selected="false" aria-controls="panel-plus">PLUS</button>
-        <button class="tabbtn" role="tab" id="tab-premium" aria-selected="false" aria-controls="panel-premium">PREMIUM</button>
+    <div class="benefits">
+      <div class="benefit">
+        <h4 style="color: #eab50c;">أجندة إيفال 360 يوم</h4>
+        <p>أسئلة عميقة، تخطيط يومي، مراجعة أسبوعية، صفحات لتفريغ المشاعر، تقييمات، تحديات نفسية، رسائل ونصائح قوية.</p>
       </div>
 
-      <!-- STANDARD PANEL -->
-      <section class="tabpanel panel-details" role="tabpanel" id="panel-standard" aria-labelledby="tab-standard">
-        <div class="phead">
-          <div class="pill">مدة الدعم: <b>3 شهور</b></div>
-          <div class="pill">مناسبة لـ: <b>بداية مرتبة</b></div>
-        </div>
+      <div class="benefit">
+        <h4 style="color: #eab50c;">كتاب رحلة تحول (صوتي 3D)</h4>
+        <p>10 خطوات عملية مدعومة بقصص وأمثلة تساعدك على فهم نفسك بعمق والعمل على أهدافك بثقة.</p>
+      </div>
 
-        <details open>
-          <summary>الأدوات الأساسية داخل STANDARD</summary>
-          <ul>
-            <li><b>أجندة إيفال 360 يوم:</b> تخطيط يومي + مراجعة أسبوعية + صفحات للفضفضة وتقييم الذات لتفهمي نفسك وتتابعي تقدمك.</li>
-            <li><b>رحلة تحوّل (10 خطوات):</b> خطوات عملية لبناء الثقة بالنفس وتحقيق أهدافك، بأسلوب واضح ومباشر.</li>
-            <li><b>خطة 112 يوم:</b> مهمة يومية بسيطة تخلي الإنجاز عادة… وتقلل التسويف تدريجياً.</li>
-            <li><b>ملفات تنظيم الوقت (7 خطوات وجداول):</b> تقسيم مهام + أولويات + تتبع وقتك عشان تستعيدي السيطرة على يومك.</li>
-          </ul>
-        </details>
+      <div class="benefit">
+        <h4 style="color: #eab50c;">جدول مهام 112 يوم</h4>
+        <p>مهمة يومية بسيطة تغيّر حياتك تدريجيًا وتبني منك شخصاً أكثر تركيزاً وإنجازاً.</p>
+      </div>
 
-        <details>
-          <summary>البونصات داخل STANDARD</summary>
-          <ul>
-            <li><b>دفتر امتنان الواعي:</b> تمرين يومي بسيط يرفع الإيجابية ويخلي ذهنك يلاحظ النِعم بدل الضغط.</li>
-            <li><b>40 غلاف للأجندة:</b> اختاري التصميم اللي يشبهك واطبعيه… عشان الأجندة تصير “إلك”.</li>
-            <li><b>ضمان استرجاع:</b> تجربة آمنة — إذا ما حسّيتي بفائدة واضحة خلال الفترة المحددة تقدري تطلبي الاسترجاع.</li>
-          </ul>
-        </details>
+      <div class="benefit">
+        <h4 style="color: #eab50c;">40 غلاف للأجندة</h4>
+        <p>اختيارات متنوعة من تصاميم وألوان مختلفة تمنحك طاقة وإحساساً جميلاً كل مرة تفتح فيها الأجندة.</p>
+      </div>
 
-        <details>
-          <summary>كيف بيكون الدعم؟</summary>
-          <ul>
-            <li>تواصل عبر البريد الإلكتروني للحفاظ على الخصوصية.</li>
-            <li>هدف الدعم: يجاوب أسئلتك، يساعدك تطبقي الأدوات، ويعطيك توجيه واضح حسب حالتك.</li>
-          </ul>
-        </details>
+      <div class="benefit gift">
+        <h4 style="color: #eab50c;">هدية مميزة: ملفات خاصة لتنظيم الوقت</h4>
+        <p>خطوات عملية وجداول تساعدك على إدارة يومك باحتراف، والابتعاد عن الفوضى والتشتّت.</p>
+      </div>
 
-        <div class="cta">
-          <a class="btn btn-cta" id="ctaStdInside" href="#">اشتري STANDARD</a>
-          <a class="btn btn-ghost" href="#bonusPosts">شوفي صور البونصات</a>
-        </div>
-      </section>
-
-      <!-- PLUS PANEL -->
-      <section class="tabpanel panel-details" role="tabpanel" id="panel-plus" aria-labelledby="tab-plus" hidden>
-        <div class="phead">
-          <div class="pill">مدة الدعم: <b>6 شهور</b></div>
-          <div class="pill">مناسبة لـ: <b>ثبات عادة</b></div>
-        </div>
-
-        <details open>
-          <summary>الأدوات الأساسية داخل PLUS</summary>
-          <ul>
-            <li>كل أدوات <b>STANDARD</b> (الأجندة + رحلة تحوّل + خطة 112 يوم + تنظيم الوقت).</li>
-            <li><b>دفتر امتنان الواعي + 40 غلاف</b> للأجندة.</li>
-          </ul>
-        </details>
-
-        <details>
-          <summary>بونصات PLUS الإضافية</summary>
-          <ul>
-            <li><b>40 بودكاست:</b> جرعات قصيرة تركّز على تطوير الذات وبناء المستقبل وتثبيت العقلية الصح.</li>
-            <li><b>7 تحديات:</b> تحديات بسيطة تعلّمك تهتمي بنفسك وتلتزمي بدون جلد ذات.</li>
-            <li><b>ضمان استرجاع</b></li>
-          </ul>
-        </details>
-
-        <details>
-          <summary>كيف بيكون الدعم؟</summary>
-          <ul>
-            <li>متابعة أطول = فرص أعلى للثبات، وتعديل الخطة حسب تقدمك.</li>
-          </ul>
-        </details>
-
-        <div class="cta">
-          <a class="btn btn-cta" id="ctaPlusInside" href="#">اشتري PLUS</a>
-          <a class="btn btn-ghost" href="#bonusPosts">شوفي صور البونصات</a>
-        </div>
-      </section>
-
-      <!-- PREMIUM PANEL -->
-      <section class="tabpanel panel-details" role="tabpanel" id="panel-premium" aria-labelledby="tab-premium" hidden>
-        <div class="phead">
-          <div class="pill">مدة الدعم: <b>سنة كاملة</b></div>
-          <div class="pill">ميزة: <b>مراجعة كل 3 أشهر</b></div>
-        </div>
-
-        <details open>
-          <summary>الأدوات الأساسية داخل PREMIUM</summary>
-          <ul>
-            <li>كل اللي في <b>PLUS</b> (الأدوات الأساسية + البودكاست + التحديات).</li>
-          </ul>
-        </details>
-
-        <details>
-          <summary>بونصات PREMIUM القوية</summary>
-          <ul>
-            <li><b>6 جلسات ترددات ذهنية:</b> تهدئة أفكار وتوتر + استعادة توازن داخلي (ليست بديلاً عن علاج طبي).</li>
-            <li><b>7 تمارين يومية:</b> تنشيط العقل ورفع التركيز بخطوات سريعة.</li>
-            <li><b>14 بطاقة تحدي:</b> كسر عادات سلبية وتحويلها لسلوكيات داعمة.</li>
-          </ul>
-        </details>
-
-        <details>
-          <summary>ميزة التحليل والمتابعة</summary>
-          <ul>
-            <li><b>مراجعة تحليلية</b> لتقدمك كل 3 أشهر مبنية على إجاباتك والتزامك وملاحظاتك داخل الأدوات.</li>
-            <li><b>توصيات مدروسة</b> للمرحلة التالية + أي بونص جديد خلال سنة الاشتراك مجاناً.</li>
-          </ul>
-        </details>
-
-        <div class="cta">
-          <a class="btn btn-cta" id="ctaPreInside" href="#">اشتري PREMIUM</a>
-          <a class="btn btn-ghost" href="#bonusPosts">شوفي صور البونصات</a>
-        </div>
-
-        <div class="small-note">
-          * هذه الترددات مخصصة للاسترخاء وتنظيم الحالة الذهنية، وليست بديلًا عن أي علاج طبي.
-        </div>
-      </section>
-
+      <div class="benefit support">
+        <h4>دعم وتواصل</h4>
+        <p>تواصل مباشر مع فريق يساعدك على تطبيق الخطة المناسبة لك، وحل مشاكلك بسرعة، وتحقيق نتائج واضحة.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- BONUS POSTS GALLERY (your new professional post-style images) -->
-<section class="section-light" id="bonusPosts">
-  <div class="container">
-    <h2 class="title" style="color:#0a0b0d"><span class="brand">صور البونصات</span> (الستايل الاحترافي)</h2>
-    <p class="line" style="color:#1f232b;margin-top:-2px">استبدلي الصور بأسماء ملفاتك (PNG/JPG) — هاد المكان المثالي لإظهار القوة البصرية لكل بونص.</p>
-
-    <div class="bonus-grid">
-      <!-- Replace src with your real images -->
-      <article class="bonus-card">
-        <div class="img"><img src="bonus_gratitude.jpg" alt="دفتر امتنان الواعي"></div>
-        <div class="body">
-          <h4>دفتر امتنان الواعي</h4>
-          <p>روتين يومي بسيط يخفف الضغط ويزود الإيجابية… ويخلي ذهنك يلاحظ اللي مهم.</p>
-        </div>
-      </article>
-
-      <article class="bonus-card">
-        <div class="img"><img src="bonus_podcasts.jpg" alt="40 بودكاست"></div>
-        <div class="body">
-          <h4>40 بودكاست</h4>
-          <p>جرعات صوتية مركّزة لتطوير الذات وبناء المستقبل… بدون حشو وبأسلوب عملي.</p>
-        </div>
-      </article>
-
-      <article class="bonus-card">
-        <div class="img"><img src="bonus_challenges.jpg" alt="7 تحديات"></div>
-        <div class="body">
-          <h4>7 تحديات</h4>
-          <p>تحديات خفيفة ترفع اهتمامك بذاتك وتثبت العادات… خطوة بخطوة.</p>
-        </div>
-      </article>
-
-      <article class="bonus-card">
-        <div class="img"><img src="bonus_frequencies.jpg" alt="6 جلسات ترددات ذهنية"></div>
-        <div class="body">
-          <h4>6 جلسات ترددات ذهنية</h4>
-          <p>للتهدئة وتنظيم الحالة الذهنية واستعادة التوازن الداخلي (ليست بديلًا عن علاج طبي).</p>
-        </div>
-      </article>
-
-      <article class="bonus-card">
-        <div class="img"><img src="bonus_brain.jpg" alt="7 تمارين يومية لتنشيط العقل"></div>
-        <div class="body">
-          <h4>7 تمارين يومية</h4>
-          <p>تمارين تركيز وتنشيط عقل… بتخلي يومك أخفّ وقرارك أوضح.</p>
-        </div>
-      </article>
-
-      <article class="bonus-card">
-        <div class="img"><img src="bonus_cards.jpg" alt="14 بطاقة تحدي"></div>
-        <div class="body">
-          <h4>14 بطاقة تحدي</h4>
-          <p>بطاقات لكسر العادات السلبية وتحويلها لسلوكيات داعمة… بأسلوب محفّز.</p>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- Old Gallery (optional: keep your mockups) -->
+<!-- Gallery -->
 <section class="section-dark" id="gallery">
   <div class="container">
-    <h2 class="title"><span class="brand">لقطات</span> من داخل الأدوات</h2>
     <div class="gallery" aria-label="معرض صور إيفال">
       <div class="strip" id="strip">
         <div class="slide"><img loading="lazy" src="evallpic1.jpg" alt="صفحات من أجندة إيفال" width="800" height="600"></div>
@@ -705,44 +362,28 @@ src="https://www.facebook.com/tr?id=781645914448564&ev=PageView&noscript=1"
         <div class="slide"><img loading="lazy" src="evallpic4.jpg" alt="تصميمات أغلفة متنوعة" width="800" height="600"></div>
         <div class="slide"><img loading="lazy" src="evallpic5.jpg" alt="نصائح تحفيزية" width="800" height="600"></div>
         <div class="slide"><img loading="lazy" src="evallpic6.jpg" alt="صفحات تنظيم الوقت" width="800" height="600"></div>
+        <div class="slide"><img loading="lazy" src="evallpic7.jpg" alt="تقييم ذاتي أسبوعي" width="800" height="600"></div>
+        <div class="slide"><img loading="lazy" src="evallpic8.jpg" alt="قسم التخطيط المالي" width="800" height="600"></div>
+        <div class="slide"><img loading="lazy" src="evallpic9.jpg" alt="مقتطفات من القصص والأمثلة" width="800" height="600"></div>
+        <div class="slide"><img loading="lazy" src="evallpic10.jpg" alt="ملفات تنظيم الوقت كهدية" width="800" height="600"></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Results (Per package style) -->
+<!-- Results -->
 <section class="section-ink" id="results">
   <div class="container">
-    <h2 class="title"><span class="brand">نتائج</span> ممكن تلاحظيها حسب باقتك</h2>
-    <p class="line" style="opacity:.9;margin-top:-2px">النتيجة بتعتمد على التزامك — وإيفال دورها تعطيك طريق واضح وتدعمك خلاله.</p>
-
-    <div class="results3">
-      <div class="rescard">
-        <h5>STANDARD — بداية مرتبة</h5>
-        <ul>
-          <li>وضوح بالهدف + تنظيم يومي بسيط</li>
-          <li>تخفيف تسويف وفوضى</li>
-          <li>إحساس “أنا ماسكة زمام يومي”</li>
-        </ul>
-      </div>
-
-      <div class="rescard gold">
-        <h5>PLUS — ثبات وتطوّر</h5>
-        <ul>
-          <li>عادات أثبت + اهتمام أعلى بالذات</li>
-          <li>محتوى داعم يومياً (بودكاست + تحديات)</li>
-          <li>متابعة أطول تساعدك ما توقفي بالنص</li>
-        </ul>
-      </div>
-
-      <div class="rescard">
-        <h5>PREMIUM — تحوّل عميق</h5>
-        <ul>
-          <li>توازن ذهني أهدى + تركيز أعلى</li>
-          <li>أدوات ذهنية قوية + مراجعة ربع سنوية</li>
-          <li>رحلة سنة كاملة مع توصيات للمرحلة التالية</li>
-        </ul>
-      </div>
+    <h2 class="title"><span class="brand">نتائج واضحة خلال أيام:</span></h2>
+    <div class="results">
+      <div class="result"><h5>ثقة قوية بنفسك وحافز مستمر</h5><p>الشعور بالقوة والقدرة على مواجهة كل تحدٍ، وبدء كل يوم بطاقة جديدة.</p></div>
+      <div class="result"><h5>راحة نفسية حقيقية</h5><p>التخلص من التوتر والضغط النفسي، والشعور بالخفة والهدوء الداخلي.</p></div>
+      <div class="result"><h5>زيادة الإنتاجية والتركيز</h5><p>إنجاز أكبر في وقت أقل، مع وضوح تام في أولوياتك.</p></div>
+      <div class="result"><h5>تقدّم ملموس نحو أهدافك</h5><p>خطوات عملية وواضحة تقودك لتحقيق أهدافك اليومية والمستقبلية بثقة.</p></div>
+      <div class="result"><h5>زيادة الطاقة الإيجابية اليومية</h5><p>امتلاك طاقة وحيوية دائمة، والشعور بتفاؤل مستمر ينعكس على حياتك وعلاقات</p></div>
+      <div class="result red"><h5>تغيير واقعي في حياتك</h5><p>العيش كصاحب قرار، مع نتائج ملموسة ترى أثرها على حياتك اليومية ومستقبلك.</p></div>
+      <div class="result"><h5>سيطرة كاملة على وقتك ويومك</h5><p>إتمام مهامك اليومية بسهولة ووضوح، والتخلص من التسويف والفوضى.</p></div>
+      <div class="result"><h5>تحسين عاداتك اليومية</h5><p>التحكم بالعادات التي كانت تعيقك واستبدالها بسلوكيات تدعم نجاحك ونموك الشخصي.</p></div>
     </div>
   </div>
 </section>
@@ -752,35 +393,18 @@ src="https://www.facebook.com/tr?id=781645914448564&ev=PageView&noscript=1"
   <div class="container">
     <h2 class="title" style="color:#0a0b0d"><span class="brand">الأسئلة المتكررة (FAQ)</span></h2>
     <div class="faq">
-      <details>
-        <summary>ما الدعم الذي سأحصل عليه من فريق إيفال؟</summary>
-        <p>الدعم يكون عبر البريد الإلكتروني للحفاظ على الخصوصية. الهدف إنه نجاوب أسئلتك، نتابع تطبيقك للأدوات، ونوجهك حسب احتياجك (تطوير ذات + جانب نفسي + تقدم مهني) ضمن مدة باقتك.</p>
-      </details>
-
-      <details>
-        <summary>ما الخطوة الأولى بعد الشراء؟</summary>
-        <p>بعد الشراء مباشرة، بتوصلك رسالة على الإيميل فيها خطوات البدء + طريقة استلام الملفات + آلية التواصل للدعم (حسب الباقة).</p>
-      </details>
-
-      <details>
-        <summary>هل يوجد ضمان لاسترجاع المبلغ؟</summary>
-        <p>نعم. يوجد ضمان استرجاع وفق السياسة المعروضة في صفحة الدفع. هدفنا إنك تبدأي وإنتِ مطمّنة.</p>
-      </details>
-
-      <details>
-        <summary>هل المنتجات رقمية أم ورقية؟</summary>
-        <p>رقمية بالكامل، وقابلة للطباعة إذا بتحبي تكتبي على الورق.</p>
-      </details>
-
-      <details>
-        <summary>هل الدفع شهري؟</summary>
-        <p>لا، الدفع مرة واحدة حسب الباقة التي تختارينها. مدة الدعم تختلف: 3 شهور / 6 شهور / سنة.</p>
-      </details>
-
-      <details>
-        <summary>هل الترددات الذهنية بديل عن العلاج؟</summary>
-        <p>لا. الترددات مخصصة للاسترخاء وتنظيم الحالة الذهنية، وليست بديلًا عن أي علاج طبي.</p>
-      </details>
+      <details><summary>ما الدعم الذي سأحصل عليه من فريق إيفال؟</summary><p>فريق إيفال موجود معك ليمنحك دعماً متخصصاً في أهم ثلاثة مجالات تمس حياتك مباشرة: تطوير الذات، التقدّم المهني، والجانب النفسي. هذا يعني أنّك لست وحدك، فهناك دائماً من يرافقك بخبرته في المجال الذي تحتاجه. تواصلك مع الفريق هو أقصر طريق لتسريع نتائجك وتحويل حياتك نحو الأفضل!</p></details>
+            <details><summary>ما الخطوة الأولى بعد انضمامي إلى إيفال؟</summary><p>بعد إتمام عملية الشراء مباشرة، سيصلك بريد إلكتروني ترحيبي من فريق إيفال يحتوي على استبيان مكوّن من 40 سؤالاً دقيقاً صُمّم لتحليل شخصيتك في عدة مجالات مهمة من حياتك. ومن خلال إجاباتك، سيقوم الفريق بوضع خطة تتضمّن الخطوات والنصائح والتمارين العملية الأنسب لك، والتي ستُقدَّم لك على عدة مراحل مع مُتابعة تمتد لـ 3 أشهر، تشمل أيضاً تقديم الاستشارات والإجابة على أي أسئلة أو استفسارات لضمان تحقيق تطوّر فعلي ومستمر في حياتك</p></details>
+            <details><summary>هل يوجد ضمان لاسترجاع المبلغ؟</span></summary><p>نعم! نقدّم ضمان استرجاع لمدة 10 أيام. إذا لم تحصل على أي فائدة واضحة من الخُطة خلال الأسبوع الأول، يمكنك طلب استرجاع المبلغ بدون أي تعقيد. هدفنا أن يبدأ كل شخص رحلته الجديدة وهو مطمئن، لذلك وضعنا هذا الضمان لنجعل التجربة آمنة تماماً، ولأننا واثقون من نتائج إيفال.</p></details>
+      <details><summary>هل بكج إيفال رقمي أم ورقي؟</summary><p>البكج رقمي بالكامل، يمكن استخدامه على أي جهاز إلكتروني (موبايل، كمبيوتر، تابلت…)
+كما أن الملفات مصممة للطباعة إذا كنت تفضل الكتابة والتدوين، والخيار الثالث هو أن تحتفظ بالملفات على جهازك وتخصص دفتر ملاحظات خاصة بك للكتابة ،لتجمع بين مرونة الوصول الرقمي ومتعة الكتابة اليدوية</p></details>
+      <details><summary>ما هي الأسس التي بُني عليها البكج؟</summary><p>تم تطوير هذا البكج استنادًا إلى بحوث ودراسات معمّقة وتجارب عملية امتدت لأكثر من ثمانية أشهر، وبالاستعانة باستشارات متخصّصين لضمان تحقيق نتائج ملموسة</p></details>
+      <details><summary>كيف يمكنني استلام ملفات بكج إيفال؟</summary><p>بعد إتمام الدفع، سيظهر لك رابط التحميل مباشرة، كما ستصلك نسخة من رابط التحميل عبر البريد الإلكتروني من منصة Payhip</p></details>
+      <details><summary>هل الدفع شهري؟</summary><p>لا طبعاً ، بكج ايفال ليس اشتراكاً شهرياً ، بس هو دفع مرة واحدة مدى الحياة ، مع دعم مستمر لمدة 90 يوم  </p></details>
+       <details><summary>كيف يتم تقديم الدعم وكم مدّته؟</summary><p>يتم تقديم الدعم عبر البريد الإلكتروني بشكل فردي للحفاظ على خصوصيتك وراحتك، ويستمر لمدة 3 أشهر (90 يومًا) بعد شراء البكج</p></details>
+       <details><summary>كم عدد الرسائل المسموح بها ومتى سأستلم الرد؟</summary><p>يمكنك إرسال رسالتين في اليوم كحد أقصى، وسيصلك الرد خلال أوّل 12 ساعة بإذن الله</p></details>
+      <details><summary>هل الدعم مناسب لأي عمر أو مرحلة؟</summary><p>نعم، إيفال مناسب لأي شخص يريد تطوير نفسه، سواء طالب، موظف، أو رائد أعمال 
+ويشمل أي شخص لديه أهداف شخصية، صحية، مهنية، دراسية، مالية، اجتماعية  أو روحية </p></details>
     </div>
   </div>
 </section>
@@ -788,22 +412,45 @@ src="https://www.facebook.com/tr?id=781645914448564&ev=PageView&noscript=1"
 <!-- Steps -->
 <section class="section-light steps" id="payment">
   <div class="container">
-    <h3 class="title" style="color:#0a0b0d">طريقة الدفع بخطوات بسيطة:</h3>
-    <ol>
+    <h3 class="title" style="color:#0a0b0d">طريقة الدفع بخطوات بسيطة:</h3><ol>
       <li>ادخل بريدك الإلكتروني</li>
       <li>اضغط على <span style="color:#eab50c;font-weight:900">Add coupon</span> لإضافة كود الخصم</li>
       <li>اختر وسيلة الدفع المناسبة</li>
       <li>بعد إتمام عملية الدفع، سيظهر لك رابط التحميل مباشرة <strong style="color:#eab50c">Download</strong></li>
-      <li>الدفع متاح عالمياً و بجميع العُملات</li>
-      <li><span style="color:#C21718;font-weight:900">ضمان حسب سياسة الدفع</span></li>
+     <li>الدفع متاح عالمياً و بجميع العُملات</li>
+     <li><span style="color:#C21718;font-weight:900">ضمان استرجاع لمدة 10 أيام</span></li>
     </ol>
     <div class="pay-logos-inline"><img src="paymentlogos.png" alt="PayPal • Mastercard • Visa" width="512" height="64" loading="lazy"></div>
-    <p class="note" style="text-align:right"><b>ملحوظة: بعد إتمام عملية الدفع، قد تلاحظ خصم مبلغ 1$، لا داعي للقلق، فهي مجرد عملية تحقق مؤقتة وسيتم إعادة المبلغ خلال يومين كحد أقصى.</b></p>
+    <p class="note" style="text-align:right"><b>ملحوظة: بعد إتمام عملية الدفع، قد تلاحظ خصم مبلغ 1$، لا داعي للقلق، فهي مجرد عملية تحقيق مؤقتة وسيتم إعادة المبلغ خلال يومين كحد أقصى. </b></p>
+  </div>
+</section>
+
+<!-- Pricing -->
+<section class="pricing" id="pricing">
+  <div class="container">
+    <div class="price" aria-labelledby="pricingTitle">
+      <div class="top"><span class="badge" id="pricingTitle"><span class="dot" aria-hidden="true"></span> الخصم والدعم لأول 50 شخص فقط</span></div>
+      <div class="coupon plain">استخدم كود <strong class="coupon-gold" id="couponCode">VIP40</strong> <button class="copy-btn" id="copyCoupon" type="button" aria-live="polite">انسخ الكود</button></div>
+
+      <div class="nums" style="margin-top:10px">
+        <div class="big" aria-label="السعر الحالي بالدولار">53.94$</div>
+        <div class="line">بدلاً من <s>89.9$</s></div>
+      </div>
+      <div class="line"> ~ <strong>202 ريال سعودي</strong> - وفر <strong class="save-anim">135 ر.س</strong></div>
+
+      <div class="row" style="margin-top:10px">
+        <a class="btn btn-cta em" id="ctaBuy" href="https://payhip.com/buy?link[]=wPZpb&session_enabled=1&parent_url=https%3A%2F%2Fpayhip.com%2Fb%2FwPZpb&type=overlay&payhip_js=true" >انضم لعالم إيفال الآن!</a>
+      </div>
+
+      <!-- العدّاد بدون data-deadline: يبدأ دائمًا من 3 أيام ويُعاد ضبطه تلقائيًا -->
+      <div class="countdown" id="priceCountdown" style="margin-top:8px" aria-live="polite"></div>
+      <p class="line" style="margin-top:6px">آمن 100% – ضمان تجربة لمدة 10 أيام</p>
+    </div>
   </div>
 </section>
 
 <!-- Sticky CTA -->
-<a href="#plans" class="sticky" id="sticky">اختاري باقتك قبل انتهاء الخصم</a>
+<a href="#pricing" class="sticky" id="sticky">استغل الخصم قبل فوات الأوان</a>
 
 <!-- Footer -->
 <footer>
@@ -829,7 +476,7 @@ src="https://www.facebook.com/tr?id=781645914448564&ev=PageView&noscript=1"
   </div>
 </footer>
 
-<!-- Structured Data (simple / placeholders) -->
+<!-- Structured Data -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -839,41 +486,14 @@ src="https://www.facebook.com/tr?id=781645914448564&ev=PageView&noscript=1"
   "description": "رحلتك مع إيفال هي مزيج من الدعم، التوجيه، والتطوير الذاتي والمهني والنفسي لبناء مستقبل أفضل",
   "brand": {"@type": "Brand", "name": "Evall"},
   "offers": [
-    {"@type":"Offer","price":"0","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"#"},
-    {"@type":"Offer","price":"0","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"#"},
-    {"@type":"Offer","price":"0","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"#"}
+    {"@type":"Offer","price":"53.94","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://payhip.com/buy?link[]=wPZpb"},
+    {"@type":"Offer","price":"202","priceCurrency":"SAR","availability":"https://schema.org/InStock","url":"https://payhip.com/buy?link[]=wPZpb"}
   ]
 }
 </script>
 
 <!-- ============== SCRIPTS ============== -->
 <script>
-/* =========================
-   CONFIG: Replace Payhip links here
-   ========================= */
-const PAYHIP = {
-  STANDARD_URL: "https://payhip.com/buy?link[]=wPZpb&session_enabled=1&parent_url=https%3A%2F%2Fpayhip.com%2Fb%2FwPZpb&type=overlay&payhip_js=true",
-  PLUS_URL:     "https://payhip.com/buy?link[]=wPZpb&session_enabled=1&parent_url=https%3A%2F%2Fpayhip.com%2Fb%2FwPZpb&type=overlay&payhip_js=true",
-  PREMIUM_URL:  "https://payhip.com/buy?link[]=wPZpb&session_enabled=1&parent_url=https%3A%2F%2Fpayhip.com%2Fb%2FwPZpb&type=overlay&payhip_js=true"
-};
-
-/* wire links */
-function wirePayLinks(){
-  const map = [
-    ["buyStandard", PAYHIP.STANDARD_URL],
-    ["ctaStdInside", PAYHIP.STANDARD_URL],
-    ["buyPlus", PAYHIP.PLUS_URL],
-    ["ctaPlusInside", PAYHIP.PLUS_URL],
-    ["buyPremium", PAYHIP.PREMIUM_URL],
-    ["ctaPreInside", PAYHIP.PREMIUM_URL]
-  ];
-  map.forEach(([id, url])=>{
-    const el = document.getElementById(id);
-    if(el) el.setAttribute("href", url);
-  });
-}
-wirePayLinks();
-
 /* year */
 document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -883,6 +503,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
 const EVALL_DAY_MS = 24 * 60 * 60 * 1000;
 const EVALL_KEY = 'evall_deadline_global_v2';
 
+/* إنشاء/قراءة موعد نهائي عالمي محفوظ */
 function getOrInitGlobalDeadline() {
   const now = Date.now();
   const stored = localStorage.getItem(EVALL_KEY);
@@ -894,17 +515,24 @@ function getOrInitGlobalDeadline() {
   localStorage.setItem(EVALL_KEY, String(next));
   return next;
 }
+
+/* تعيين موعد نهائي عالمي جديد (3 أيام من الآن) */
 function resetGlobalDeadline() {
   const next = Date.now() + 3 * EVALL_DAY_MS;
   localStorage.setItem(EVALL_KEY, String(next));
   return next;
 }
+
+/* تنسيق قِيَم العدّاد */
 function pad2(n) { return String(n).padStart(2, '0'); }
 
+/* رسم واجهة العدّاد */
 function renderCountdown(el, target) {
   let d = target - Date.now();
   if (d <= 0) {
+    // انتهى → نعيد ضبطه لثلاثة أيام جديدة
     target = resetGlobalDeadline();
+    try { el.setAttribute('data-deadline', new Date(target).toISOString()); } catch (_) {}
     d = target - Date.now();
   }
 
@@ -921,13 +549,62 @@ function renderCountdown(el, target) {
 
   return target;
 }
+
+/* تهيئة عدّاد لعنصر واحد */
 function initCountdownFor(el) {
   if (!el) return;
-  let target = getOrInitGlobalDeadline();
+  const now = Date.now();
+  const attr = el.getAttribute('data-deadline');
+  let target;
+
+  if (attr) {
+    const parsed = Date.parse(attr);
+    if (Number.isFinite(parsed) && parsed > now) {
+      target = parsed;
+    } else {
+      target = now + 3 * EVALL_DAY_MS;
+      el.setAttribute('data-deadline', new Date(target).toISOString());
+    }
+  } else {
+    target = getOrInitGlobalDeadline();
+  }
+
   target = renderCountdown(el, target);
-  setInterval(() => { target = renderCountdown(el, target); }, 1000);
+  const timer = setInterval(() => { target = renderCountdown(el, target); }, 1000);
+
+  // تنظيف عند إزالة العنصر (اختياري)
+  const rmObserver = new MutationObserver(() => {
+    if (!document.body.contains(el)) {
+      clearInterval(timer);
+      rmObserver.disconnect();
+    }
+  });
+  rmObserver.observe(document.body, { childList: true, subtree: true });
 }
-initCountdownFor(document.getElementById('heroCountdown'));
+
+/* تهيئة جميع العدّادات */
+function initAllCountdowns() {
+  ['heroCountdown', 'priceCountdown'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) {
+      if (!el.hasAttribute('aria-live')) el.setAttribute('aria-live', 'polite');
+      initCountdownFor(el);
+    }
+  });
+}
+
+/* دالة مساعدة لإعادة البدء يدويًا من 3 أيام */
+window.evallResetCountdown = function() {
+  const next = resetGlobalDeadline();
+  ['heroCountdown', 'priceCountdown'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.setAttribute('data-deadline', new Date(next).toISOString());
+  });
+  initAllCountdowns();
+  console.log('[evall] countdown reset to 3 days from now');
+};
+
+initAllCountdowns();
 
 /* hero spotlight */
 const spot=document.getElementById('spot');
@@ -939,9 +616,7 @@ document.addEventListener('pointermove',e=>{
 
 /* reveal */
 if('IntersectionObserver' in window){
-  const io=new IntersectionObserver((es)=>es.forEach(e=>{
-    if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
-  }),{threshold:.14});
+  const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.14});
   document.querySelectorAll('.reveal').forEach(n=>io.observe(n));
 }else{
   document.querySelectorAll('.reveal').forEach(n=>n.classList.add('in'));
@@ -953,80 +628,51 @@ if('IntersectionObserver' in window && hero && sticky){
   new IntersectionObserver(([e])=>{sticky.classList.toggle('show',!e.isIntersecting);},{threshold:0}).observe(hero);
 }
 
-/* Gallery spotlight (optional) */
+/* Gallery spotlight */
 const strip=document.getElementById('strip');
 function setActive(){
   if(!strip) return;
-  const rect=strip.getBoundingClientRect();
-  let min=1e9,b=null;
+  const rect=strip.getBoundingClientRect(); 
+  let min=1e9,b=null; 
   strip.querySelectorAll('.slide').forEach(s=>{
-    const r=s.getBoundingClientRect();
-    const c=Math.abs((r.left+r.right)/2-(rect.left+rect.right)/2);
+    const r=s.getBoundingClientRect(); 
+    const c=Math.abs((r.left+r.right)/2-(rect.left+rect.right)/2); 
     if(c<min){min=c;b=s;}
-  });
+  }); 
   strip.querySelectorAll('.slide').forEach(s=>s.classList.toggle('active',s===b));
 }
 if(strip){
-  ['scroll','resize'].forEach(ev=>strip.addEventListener(ev,setActive,{passive:true}));
+  ['scroll','resize'].forEach(ev=>strip.addEventListener(ev,setActive,{passive:true})); 
   setActive();
 }
 
-/* =========================
-   Tabs: accessible switching
-   ========================= */
-const tabs = [
-  {btn:'tab-standard', panel:'panel-standard', key:'standard'},
-  {btn:'tab-plus', panel:'panel-plus', key:'plus'},
-  {btn:'tab-premium', panel:'panel-premium', key:'premium'}
-];
-
-function activateTab(key){
-  tabs.forEach(t=>{
-    const b=document.getElementById(t.btn);
-    const p=document.getElementById(t.panel);
-    const on = (t.key===key);
-    if(b){
-      b.setAttribute('aria-selected', on ? 'true':'false');
-      b.tabIndex = on ? 0 : -1;
-    }
-    if(p){
-      p.hidden = !on;
-    }
-  });
-}
-
-tabs.forEach((t, idx)=>{
-  const b=document.getElementById(t.btn);
-  if(!b) return;
-  b.addEventListener('click',()=>activateTab(t.key));
-  b.addEventListener('keydown',(e)=>{
-    const keys=['ArrowLeft','ArrowRight','Home','End'];
-    if(!keys.includes(e.key)) return;
-    e.preventDefault();
-    let i = tabs.findIndex(x=>x.key===t.key);
-    if(e.key==='ArrowLeft') i = (i+1) % tabs.length;        // RTL feel
-    if(e.key==='ArrowRight') i = (i-1+tabs.length) % tabs.length;
-    if(e.key==='Home') i = 0;
-    if(e.key==='End') i = tabs.length-1;
-    const nb=document.getElementById(tabs[i].btn);
-    if(nb) nb.focus();
-    activateTab(tabs[i].key);
-  });
-});
-
-/* When clicking "التفاصيل" on a plan: focus the right tab */
-document.querySelectorAll('[data-focus-tab]').forEach(a=>{
-  a.addEventListener('click',()=>{
-    const key=a.getAttribute('data-focus-tab');
-    if(key) activateTab(key);
-  });
-});
-
-/* Simple analytics hooks */
-['ctaTop','ctaSeeInside','buyStandard','buyPlus','buyPremium','sticky'].forEach(id=>{
+/* Simple analytics hooks (يمكن ربطها لاحقاً) */
+['ctaTop','ctaBuy','sticky'].forEach(id=>{
   const n=document.getElementById(id); if(!n) return;
-  n.addEventListener('click',()=>{ console.log('[evall] click:', id); });
+  n.addEventListener('click',()=>{ console.log('[evall] CTA click:', id); });
 });
+
+/* Copy coupon */
+(function(){
+  const copyBtn=document.getElementById('copyCoupon');
+  if(!copyBtn) return;
+  copyBtn.addEventListener('click',async()=>{
+    const txt=document.getElementById('couponCode').textContent.trim();
+    try{ 
+      await navigator.clipboard.writeText(txt);
+      const old=copyBtn.textContent; copyBtn.textContent='تم النسخ';
+      setTimeout(()=>copyBtn.textContent=old,1500);
+    }catch(e){ 
+      // Fallback
+      const ta=document.createElement('textarea');
+      ta.value=txt; document.body.appendChild(ta); ta.select();
+      try{ document.execCommand('copy'); }catch(_){}
+      document.body.removeChild(ta);
+      const old=copyBtn.textContent; copyBtn.textContent='تم النسخ';
+      setTimeout(()=>copyBtn.textContent=old,1500);
+    }
+  });
+})();
 </script>
 
 <noscript>
@@ -1034,3 +680,4 @@ document.querySelectorAll('[data-focus-tab]').forEach(a=>{
 </noscript>
 </body>
 </html>
+```
