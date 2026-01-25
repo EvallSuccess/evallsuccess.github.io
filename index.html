@@ -432,24 +432,34 @@
       flex-wrap:wrap;
       margin: 10px 0 22px;
     }
-    .whyPill{
-      min-width: min(260px, 88vw);
-      padding: 14px 18px;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.10);
-      box-shadow: 0 18px 45px rgba(0,0,0,.35);
-      font-family: var(--head);
-      font-weight: 900;
-      color: var(--accent);
-      transition: transform .2s ease, border-color .2s ease, background .2s ease;
-      text-align:center;
-    }
-    .whyPill:hover{
-      transform: translateY(-2px);
-      background: rgba(255,255,255,0.06);
-      border-color: rgba(212,175,55,.35);
-    }
+   /* ✅ حبة/زر من الثلاثة (لماذا إيفال) — تعديل الخط ليطابق نص كروت "عالم إيفال" */
+.whyPill{
+  min-width: min(260px, 88vw);              /* أقل عرض للحبة (مقاس مناسب للموبايل) */
+  padding: 14px 18px;                       /* مساحة داخلية (فوق/تحت ثم يمين/يسار) */
+  border-radius: 18px;                       /* تدوير الزوايا */
+  background: rgba(255,255,255,0.04);        /* خلفية شفافة خفيفة */
+  border: 1px solid rgba(255,255,255,0.10);  /* إطار خفيف */
+  box-shadow: 0 18px 45px rgba(0,0,0,.35);   /* ظل ناعم */
+
+  font-family: var(--tools);                /* ✅ نفس خط نص كروت "عالم إيفال" (Cairo) */
+  font-weight: 400;                          /* ✅ نفس الوزن (خفيف/عادي) */
+  font-size: .92rem;                         /* ✅ نفس حجم نص الكروت */
+  line-height: 2.0;                          /* ✅ نفس تباعد الأسطر تقريباً */
+  color: #fff;                               /* ✅ نفس لون نص الكروت (أبيض) */
+
+  text-align: center;                        /* توسيط النص داخل الحبة */
+  transition: transform .2s ease,            /* حركة خفيفة عند hover */
+              border-color .2s ease,         /* نعومة تغيير لون الإطار */
+              background .2s ease;           /* نعومة تغيير الخلفية */
+}
+
+/* ✅ تأثير المرور بالماوس على الحبة */
+.whyPill:hover{
+  transform: translateY(-2px);               /* يرفع الحبة شوي لفوق */
+  background: rgba(255,255,255,0.06);        /* يزيد وضوح الخلفية */
+  border-color: rgba(212,175,55,.35);        /* إطار ذهبي خفيف عند hover */
+}
+
     .whyBottom{
       margin: 0;
       display: inline-block;
