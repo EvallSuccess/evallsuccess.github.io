@@ -1150,19 +1150,20 @@
     .pay-logos img{ height: 35px; width: auto; }
 
     .pay-lines{
-      margin-top: 10px;
-      text-align:right;
-      direction: rtl;
-      padding-right: 18px;
-    }
-    .pay-lines p{
-      margin: 6px 0 0;
-      font-family: var(--body);
-      font-size: 1rem;
-      font-weight: 800;
-      color: #fff;
-      line-height: 2.1;
-    }
+  margin-top: 24px;          /* ✅ مسافة أكبر عن جملة رقم 4 */
+  text-align:right;
+  direction: rtl;
+  padding-right: 18px;
+}
+
+.pay-lines p{
+  margin: 10px 0 0;          /* ✅ مسافة مريحة بين السطور الثلاثة */
+  font-family: var(--body);
+  font-size: 1rem;
+  font-weight: 400;          /* ✅ Regular */
+  color: var(--accent);      /* ✅ أصفر (نفس الذهبي بالموقع) */
+  line-height: 2.1;
+}
     .pay-cta{
       margin-top: 14px;
       text-align:center;
