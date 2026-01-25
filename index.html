@@ -1254,6 +1254,35 @@
       .btn:hover, .whyPill:hover, .price-card:hover, .result-card:hover { transform:none }
       [data-anim]{ opacity:1; transform:none; filter:none; transition:none; }
     }
+    /* =========================
+   Trust note inside plans
+   ========================= */
+.trust-note{
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(212,175,55,.25);
+  text-align: center;
+  font-family: var(--body);
+  font-size: 0.85rem;
+  line-height: 1.9;
+  color: rgba(255,255,255,.85);
+}
+
+.trust-note .title{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  font-weight: 400; /* Regular */
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+
+.trust-note svg{
+  width: 16px;
+  height: 16px;
+  fill: var(--accent);
+}
   </style>
 </head>
 
@@ -1384,7 +1413,18 @@
 
             <a class="btn btnCard btn-ghost js-jump-details" href="#details" data-pack="standard">تفاصيل الأدوات</a>
             <a class="btn btnCard btn-ghost" href="#result-standard">النتائج</a>
-          </div>
+  <!-- Trust note -->
+  <div class="trust-note">
+    <div class="title">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 2 4 5v6c0 5 3.8 9.7 8 11 4.2-1.3 8-6 8-11V5l-8-3zm-1 14-3-3 1.4-1.4L11 12.2l4.6-4.6L17 9l-6 7z"/>
+      </svg>
+      دفع آمن عبر بوابة عالمية موثوقة (PayPal)
+    </div>
+    <div>نقبل جميع البطاقات البنكية</div>
+    <div>خطوات الاشتراك موضّحة أسفل الصفحة</div>
+  </div>
+</div>
         </article>
 
         <!-- PLUS -->
@@ -1422,6 +1462,18 @@
 
             <a class="btn btnCard btn-ghost js-jump-details" href="#details" data-pack="plus">تفاصيل الأدوات</a>
             <a class="btn btnCard btn-ghost" href="#result-plus">النتائج</a>
+  <!-- Trust note -->
+  <div class="trust-note">
+    <div class="title">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 2 4 5v6c0 5 3.8 9.7 8 11 4.2-1.3 8-6 8-11V5l-8-3zm-1 14-3-3 1.4-1.4L11 12.2l4.6-4.6L17 9l-6 7z"/>
+      </svg>
+      دفع آمن عبر بوابة عالمية موثوقة (PayPal)
+    </div>
+    <div>نقبل جميع البطاقات البنكية</div>
+    <div>خطوات الاشتراك موضّحة أسفل الصفحة</div>
+  </div>
+</div>
           </div>
         </article>
 
@@ -1468,7 +1520,19 @@
 
             <a class="btn btnCard btn-ghost js-jump-details" href="#details" data-pack="premium">تفاصيل الأدوات</a>
             <a class="btn btnCard btn-ghost" href="#result-premium">النتائج</a>
-          </div>
+
+  <!-- Trust note -->
+  <div class="trust-note">
+    <div class="title">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 2 4 5v6c0 5 3.8 9.7 8 11 4.2-1.3 8-6 8-11V5l-8-3zm-1 14-3-3 1.4-1.4L11 12.2l4.6-4.6L17 9l-6 7z"/>
+      </svg>
+      دفع آمن عبر بوابة عالمية موثوقة (PayPal)
+    </div>
+    <div>نقبل جميع البطاقات البنكية</div>
+    <div>خطوات الاشتراك موضّحة أسفل الصفحة</div>
+  </div>
+</div>
         </article>
       </div>
     </div>
