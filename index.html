@@ -502,6 +502,18 @@
       font-weight: 400;
       text-align: center;
     }
+    /* ✅ سطر توضيحي تحت عنوان قسم الفريق */
+.about-note{
+  margin: 10px auto 0;
+  max-width: 980px;
+  font-family: var(--body);   /* نفس الخط */
+  font-size: 0.85rem;         /* نفس الحجم مثل سطر PayPal داخل الباقات */
+  font-weight: 400;           /* Regular مثل اللي اعتمدناه */
+  line-height: 1.9;
+  color: #fff;                /* أبيض */
+  opacity: .92;
+  text-align: center;
+}
 
     /* =========================
        PLANS
@@ -1345,10 +1357,14 @@
   <section class="section section-tight" id="about">
     <div class="container">
       <h2 class="section-title" data-anim style="--d:0ms">
-        <span class="gold">عالم إيفال</span> … فريق مختص معك في كل خطوة:
-      </h2>
+  <span class="gold">عالم إيفال</span> … فريق مختص معك في كل خطوة:
+</h2>
 
-      <div class="features">
+<p class="about-note" data-anim style="--d:70ms">
+  نقدّم دعماً إرشادياً يرافقك خطوة بخطوة، وفق احتياجك وظروفك.
+</p>
+
+<div class="features">
         <div class="feature glass-card" data-anim style="--d:120ms">
           <h3>مدرب تطوير الذات</h3>
           <p>يساعدك على بناء عادات صحية، ويقدّم لك خطوات عملية تحافظ على التزامك وتعيد لك ثقتك بنفسك.</p>
