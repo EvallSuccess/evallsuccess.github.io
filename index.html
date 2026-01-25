@@ -434,24 +434,32 @@
     }
    /* ✅ حبة/زر من الثلاثة (لماذا إيفال) — تعديل الخط ليطابق نص كروت "عالم إيفال" */
 .whyPill{
-  min-width: min(260px, 88vw);              /* أقل عرض للحبة (مقاس مناسب للموبايل) */
-  padding: 14px 18px;                       /* مساحة داخلية (فوق/تحت ثم يمين/يسار) */
-  border-radius: 18px;                       /* تدوير الزوايا */
-  background: rgba(255,255,255,0.04);        /* خلفية شفافة خفيفة */
-  border: 1px solid rgba(255,255,255,0.10);  /* إطار خفيف */
-  box-shadow: 0 18px 45px rgba(0,0,0,.35);   /* ظل ناعم */
+  min-width: min(260px, 88vw);
+  padding: 14px 18px;
+  border-radius: 18px;
 
-  font-family: var(--tools);                /* ✅ نفس خط نص كروت "عالم إيفال" (Cairo) */
-  font-weight: 400;                          /* ✅ نفس الوزن (خفيف/عادي) */
-  font-size: .92rem;                         /* ✅ نفس حجم نص الكروت */
-  line-height: 2.0;                          /* ✅ نفس تباعد الأسطر تقريباً */
-  color: #fff;                               /* ✅ نفس لون نص الكروت (أبيض) */
+  /* ✅ الإطار الذهبي */
+  border: 1.5px solid rgba(212,175,55,.55);
 
-  text-align: center;                        /* توسيط النص داخل الحبة */
-  transition: transform .2s ease,            /* حركة خفيفة عند hover */
-              border-color .2s ease,         /* نعومة تغيير لون الإطار */
-              background .2s ease;           /* نعومة تغيير الخلفية */
+  /* الخلفية والظل */
+  background: rgba(255,255,255,0.03);
+  box-shadow:
+    0 0 0 1px rgba(212,175,55,.15),
+    0 18px 45px rgba(0,0,0,.35);
+
+  font-family: var(--tools);
+  font-weight: 400;
+  font-size: .92rem;
+  line-height: 2.0;
+  color: #fff;
+
+  text-align: center;
+  transition: transform .2s ease,
+              border-color .2s ease,
+              box-shadow .2s ease,
+              background .2s ease;
 }
+
 
 /* ✅ تأثير المرور بالماوس على الحبة */
 .whyPill:hover{
