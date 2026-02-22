@@ -477,15 +477,18 @@
     }
 
 /* جملة تحت عنوان اختر باقتك حسب احتياجك*/
- .plans-subtitle{
-  margin: 0px auto 30px;
-  max-width: 700px;
-  font-family: var(--body);
-  font-size: 1rem;
-  line-height: 2;
-  color: var(--accent); 
-  opacity: .85;
+ #plans .section-title {
+  margin: 0; /* إزالة أي مارجن فوق وتحت */
+  padding: 0; /* إزالة أي padding إذا كان موجود */
+}
+
+.plans-subtitle {
+  margin: 4px auto 16px; /* 4px فوق الجملة فقط */
+  color: var(--accent);
   text-align: center;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
     /* =========================
