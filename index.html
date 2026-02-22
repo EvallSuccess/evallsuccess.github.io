@@ -479,24 +479,26 @@
 
 
     /* جملة تحت عنوان اختر باقتك حسب احتياجك */
+/* العنوان */
 .plans-title {
-  margin-bottom: 4px; /* المسافة بين العنوان والجملة */
   text-align: center;
+  margin-bottom: 4px; /* تقليل المسافة بين العنوان والجملة */
   font-size: 1.5rem;
   font-weight: 900;
 }
 
+/* الجملة تحت العنوان */
 .plans-subtitle {
-  margin: 0; /* لا margin-top */
+  display: block;       /* لضمان التعامل كعنصر مستقل */
+  margin: 0;            /* إزالة أي margin فوق وتحت */
+  text-align: center;   /* التوسيط */
   max-width: 700px;
   font-family: var(--body);
   font-size: 1rem;
-  line-height: 1.5; /* قللنا line-height */
-  color: #FFD700; /* أصفر */
-  text-align: center;
-  direction: ltr;
+  line-height: 1.5;     /* تقليل ارتفاع السطر */
+  color: #FFD700;       /* أصفر */
+  direction: ltr;       /* يضمن التوسيط */
 }
-
 
     /* =========================
        TEAM
