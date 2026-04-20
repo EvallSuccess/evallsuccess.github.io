@@ -11,98 +11,115 @@
             background-color: #000;
             margin: 0;
             padding: 0;
+            color: #fff;
         }
 
-        /* تنسيق شبكة الأدوات */
+        .eval-container {
+            max-width: 1100px;
+            margin: 40px auto;
+            background: #000;
+            padding: 20px;
+            border-radius: 25px;
+            border: 1px solid #d4a373;
+            font-family: 'El Messiri', 'Cairo', sans-serif;
+        }
+
+        /* شبكة الأدوات متجاوبة للموبايل */
         .eval-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-            margin-bottom: 40px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
         }
 
-        /* تنسيق البطاقة الواحدة */
+        @media (max-width: 600px) {
+            .eval-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* تصميم البطاقة */
         .tool-item {
             background: #0a0a0a;
-            padding: 25px;
-            border-radius: 15px;
+            padding: 20px;
+            border-radius: 12px;
             border: 1px solid #333;
             display: flex;
             justify-content: space-between;
             align-items: center;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: 0.3s;
         }
 
         .tool-item:hover {
             border-color: #d4a373;
-            background: #111;
         }
 
-        /* الحالة عند اختيار البطاقة */
         .tool-item.selected {
             border-color: #d4a373;
-            background: #1a130a; /* خلفية ذهبية داكنة جداً */
-            box-shadow: 0 5px 15px rgba(212, 163, 115, 0.1);
+            background: #1a130a;
         }
 
-        /* تنسيق مربع الاختيار */
+        /* تصميم الـ Checkbox */
         .tool-item input[type="checkbox"] {
             width: 25px;
             height: 25px;
             accent-color: #d4a373;
+            pointer-events: none; /* لتجنب التضارب عند الضغط */
+        }
+
+        /* قسم ملخص السعر */
+        #summary-box {
+            display: none;
+            background: #0c0c0c;
+            padding: 30px;
+            border-radius: 20px;
+            border: 2px dashed #d4a373;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .btn-send {
+            background: #d4a373;
+            color: #000;
+            padding: 18px 50px;
+            border: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-family: 'Cairo', sans-serif;
             cursor: pointer;
-            pointer-events: none; /* لجعل الضغطة على البطاقة كاملة هي التي تتحكم */
+            font-size: 1.2rem;
+            width: 100%;
+            max-width: 400px;
+            transition: 0.3s;
         }
 
-        /* تعديلات الموبايل */
-        @media (max-width: 600px) {
-            .eval-grid {
-                grid-template-columns: 1fr;
-            }
-            .tool-item {
-                padding: 20px;
-            }
-        }
-
-        /* تأثير ظهور الملخص */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        .btn-send:hover {
+            box-shadow: 0 5px 15px rgba(212, 163, 115, 0.3);
         }
     </style>
 </head>
 <body>
 
-<section id="eval-bundle-section" style="padding: 60px 20px; background-color: #000; font-family: 'El Messiri', 'Cairo', sans-serif;">
-    <div style="max-width: 1100px; margin: 0 auto; background: #000; padding: 30px; border-radius: 30px; border: 1px solid #d4a373;">
-        
-        <div style="text-align: center; margin-bottom: 40px;">
-            <h2 style="color: #d4a373; font-size: clamp(1.8rem, 5vw, 2.5rem); margin-bottom: 15px; font-weight: bold; font-family: 'El Messiri', sans-serif;">صمّمي باقتكِ الخاصة من إيفال</h2>
-            <div style="width: 60px; height: 3px; background: #d4a373; margin: 0 auto 20px;"></div>
-            <p style="color: #ffffff; font-size: clamp(1rem, 3vw, 1.2rem); font-family: 'Cairo', sans-serif; line-height: 1.6;">
-                اختاري الأدوات التي تلامس احتياجاتكِ اليوم.. <br>
-                واحصلي على <span style="color: #d4a373; font-weight: bold;">خصم 15%</span> تلقائياً عند اختيار أداتين أو أكثر.
-            </p>
-        </div>
-
-        <div id="bundle-grid" class="eval-grid">
-            </div>
-
-        <div id="summary-box" style="display: none; margin-top: 40px; background: #0c0c0c; padding: 35px; border-radius: 20px; border: 2px dashed #d4a373; text-align: center; animation: fadeIn 0.5s ease;">
-            <p id="total-old" style="text-decoration: line-through; color: #777; font-size: 1.1rem; margin-bottom: 8px; font-family: 'Cairo', sans-serif;"></p>
-            <p id="total-new" style="color: #d4a373; font-size: 2rem; font-weight: bold; margin-bottom: 25px; font-family: 'El Messiri', sans-serif;"></p>
-            
-            <button onclick="sendFinalEmail()" style="background: #d4a373; color: #000; padding: 18px 60px; border: none; border-radius: 50px; font-weight: bold; font-family: 'Cairo', sans-serif; cursor: pointer; font-size: 1.2rem; transition: 0.3s; width: 100%; max-width: 400px; box-shadow: 0 10px 20px rgba(212, 163, 115, 0.2);">
-                إرسال طلب الباقة المخصصة
-            </button>
-            <p style="font-size: 0.9rem; color: #888; margin-top: 15px; font-family: 'Cairo', sans-serif;">(سيقوم الفريق بتجهيز رابط الدفع وإرساله لكِ في أقرب وقت)</p>
-        </div>
+<div class="eval-container">
+    <div style="text-align: center; margin-bottom: 35px;">
+        <h2 style="color: #d4a373; font-size: 2.2rem; margin-bottom: 10px;">صمّمي باقتكِ الخاصة من إيفال</h2>
+        <p style="color: #eee; font-family: 'Cairo', sans-serif;">اختاري أداتين أو أكثر واحصلي على خصم 15%</p>
     </div>
-</section>
+
+    <div id="bundle-grid" class="eval-grid">
+        </div>
+
+    <div id="summary-box">
+        <p id="total-old" style="text-decoration: line-through; color: #777; font-size: 1.1rem; margin-bottom: 5px; font-family: 'Cairo', sans-serif;"></p>
+        <p id="total-new" style="color: #d4a373; font-size: 2rem; font-weight: bold; margin-bottom: 25px;"></p>
+        
+        <button class="btn-send" onclick="sendFinalEmail()">إرسال طلب الباقة المخصصة</button>
+        <p style="font-size: 0.8rem; color: #888; margin-top: 15px; font-family: 'Cairo', sans-serif;">(سيصلنا طلبكِ وسنقوم بالرد برابط الدفع فوراً)</p>
+    </div>
+</div>
 
 <script>
-// قائمة الأدوات والأسعار
 const evalStore = [
     { name: "أجندة إيفال (360 يوم)", price: 35 },
     { name: "كتابة رحلة تحول (3D)", price: 24 },
@@ -116,17 +133,16 @@ const evalStore = [
     { name: "نظام التخلص من العادات", price: 27 }
 ];
 
-const gridContainer = document.getElementById('bundle-grid');
+const grid = document.getElementById('bundle-grid');
 
-// إنشاء البطاقات
-evalStore.forEach((item, index) => {
-    gridContainer.innerHTML += `
-        <div class="tool-item" id="item-${index}" onclick="toggleSelect(${index})">
+evalStore.forEach((item, i) => {
+    grid.innerHTML += `
+        <div class="tool-item" id="item-${i}" onclick="toggleSelect(${i})">
             <div style="text-align: right;">
-                <div style="color: #fff; font-weight: bold; font-family: 'Cairo', sans-serif; font-size: 1.1rem; margin-bottom: 5px;">${item.name}</div>
-                <div style="color: #d4a373; font-weight: bold; font-size: 1rem;">$${item.price}</div>
+                <div style="color: #fff; font-weight: bold; font-family: 'Cairo', sans-serif;">${item.name}</div>
+                <div style="color: #d4a373; font-weight: bold;">$${item.price}</div>
             </div>
-            <input type="checkbox" id="check-${index}" style="accent-color: #d4a373;">
+            <input type="checkbox" id="check-${i}">
         </div>
     `;
 });
@@ -139,16 +155,16 @@ function toggleSelect(i) {
     if(cb.checked) card.classList.add('selected');
     else card.classList.remove('selected');
     
-    recalculate();
+    calculate();
 }
 
-function recalculate() {
+function calculate() {
     const selected = document.querySelectorAll('input[type="checkbox"]:checked');
     let subtotal = 0;
     
     selected.forEach(s => {
-        const price = s.parentElement.querySelector('div div:last-child').innerText.replace('$', '');
-        subtotal += parseFloat(price);
+        const p = s.parentElement.querySelector('div div:last-child').innerText.replace('$', '');
+        subtotal += parseFloat(p);
     });
 
     const box = document.getElementById('summary-box');
@@ -172,17 +188,22 @@ function sendFinalEmail() {
         items.push(c.parentElement.querySelector('div div:first-child').innerText);
     });
 
+    const oldP = document.getElementById('total-old').innerText;
+    const newP = document.getElementById('total-new').innerText;
+
     const emailTo = "evallonline1@gmail.com";
     const subject = "طلب باقة مخصصة - منصة إيفال";
-    
-    // رمز اتجاه النص العربي (RTL)
     const rtl = "\u200f"; 
-    
+
     const body = 
         rtl + "أهلاً فريق إيفال،" + "\n\n" +
-        rtl + "أرغب في الحصول على باقتي المخصصة بالأدوات التالية:" + "\n" +
-        items.map(name => rtl + "- " + name).join("\n") + "\n\n" +
-        rtl + "يرجى تزويدي بكود الخصم (15%) ورابط الدفع." + "\n\n" +
+        rtl + "أود طلب الباقة المخصصة التي تحتوي على الأدوات التالية:" + "\n" +
+        items.map(n => rtl + "- " + n).join("\n") + "\n\n" +
+        rtl + "-----------------------" + "\n" +
+        rtl + (oldP ? oldP : "المجموع: " + newP) + "\n" +
+        rtl + (oldP ? newP : "") + "\n" +
+        rtl + "-----------------------" + "\n\n" +
+        rtl + "بانتظار رابط الدفع الخاص بي." + "\n\n" +
         rtl + "شكراً لكم.";
 
     const mailto = `mailto:${emailTo}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
