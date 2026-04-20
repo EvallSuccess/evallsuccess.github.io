@@ -5,98 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>بناء الباقة المخصصة - إيفال</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=El+Messiri:wght@400;700&display=swap" rel="stylesheet">
-    
     <style>
-        body {
-            background-color: #000;
-            margin: 0;
-            padding: 0;
-            color: #fff;
-        }
-
-        .eval-container {
-            max-width: 1100px;
-            margin: 40px auto;
-            background: #000;
-            padding: 20px;
-            border-radius: 25px;
-            border: 1px solid #d4a373;
-            font-family: 'El Messiri', 'Cairo', sans-serif;
-        }
-
-        /* شبكة الأدوات متجاوبة للموبايل */
-        .eval-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-
-        @media (max-width: 600px) {
-            .eval-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* تصميم البطاقة */
-        .tool-item {
-            background: #0a0a0a;
-            padding: 20px;
-            border-radius: 12px;
-            border: 1px solid #333;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .tool-item:hover {
-            border-color: #d4a373;
-        }
-
-        .tool-item.selected {
-            border-color: #d4a373;
-            background: #1a130a;
-        }
-
-        /* تصميم الـ Checkbox */
-        .tool-item input[type="checkbox"] {
-            width: 25px;
-            height: 25px;
-            accent-color: #d4a373;
-            pointer-events: none; /* لتجنب التضارب عند الضغط */
-        }
-
-        /* قسم ملخص السعر */
-        #summary-box {
-            display: none;
-            background: #0c0c0c;
-            padding: 30px;
-            border-radius: 20px;
-            border: 2px dashed #d4a373;
-            text-align: center;
-            margin-top: 30px;
-        }
-
-        .btn-send {
-            background: #d4a373;
-            color: #000;
-            padding: 18px 50px;
-            border: none;
-            border-radius: 50px;
-            font-weight: bold;
-            font-family: 'Cairo', sans-serif;
-            cursor: pointer;
-            font-size: 1.2rem;
-            width: 100%;
-            max-width: 400px;
-            transition: 0.3s;
-        }
-
-        .btn-send:hover {
-            box-shadow: 0 5px 15px rgba(212, 163, 115, 0.3);
-        }
+        body { background-color: #000; margin: 0; padding: 0; color: #fff; font-family: 'El Messiri', 'Cairo', sans-serif; }
+        .eval-container { max-width: 1100px; margin: 40px auto; background: #000; padding: 20px; border-radius: 25px; border: 1px solid #d4a373; }
+        .eval-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 15px; margin-bottom: 30px; }
+        @media (max-width: 600px) { .eval-grid { grid-template-columns: 1fr; } }
+        .tool-item { background: #0a0a0a; padding: 20px; border-radius: 12px; border: 1px solid #333; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: 0.3s; }
+        .tool-item:hover { border-color: #d4a373; }
+        .tool-item.selected { border-color: #d4a373; background: #1a130a; }
+        .tool-item input[type="checkbox"] { width: 25px; height: 25px; accent-color: #d4a373; pointer-events: none; }
+        #summary-box { display: none; background: #0c0c0c; padding: 30px; border-radius: 20px; border: 2px dashed #d4a373; text-align: center; margin-top: 30px; }
+        .btn-send { background: #d4a373; color: #000; padding: 18px 50px; border: none; border-radius: 50px; font-weight: bold; cursor: pointer; font-size: 1.2rem; width: 100%; max-width: 400px; transition: 0.3s; }
     </style>
 </head>
 <body>
@@ -104,23 +23,22 @@
 <div class="eval-container">
     <div style="text-align: center; margin-bottom: 35px;">
         <h2 style="color: #d4a373; font-size: 2.2rem; margin-bottom: 10px;">صمّمي باقتكِ الخاصة من إيفال</h2>
-        <p style="color: #eee; font-family: 'Cairo', sans-serif;">اختاري أداتين أو أكثر واحصلي على خصم 15%</p>
+        <p style="color: #eee;">اختاري أداتين أو أكثر واحصلي على <span style="color: #d4a373; font-weight: bold;">خصم 15%</span></p>
     </div>
 
-    <div id="bundle-grid" class="eval-grid">
-        </div>
+    <div id="bundle-grid" class="eval-grid"></div>
 
     <div id="summary-box">
-        <p id="total-old" style="text-decoration: line-through; color: #777; font-size: 1.1rem; margin-bottom: 5px; font-family: 'Cairo', sans-serif;"></p>
+        <p id="total-old" style="text-decoration: line-through; color: #777; font-size: 1.1rem; margin-bottom: 5px;"></p>
         <p id="total-new" style="color: #d4a373; font-size: 2rem; font-weight: bold; margin-bottom: 25px;"></p>
-        
         <button class="btn-send" onclick="sendFinalEmail()">إرسال طلب الباقة المخصصة</button>
-        <p style="font-size: 0.8rem; color: #888; margin-top: 15px; font-family: 'Cairo', sans-serif;">(سيصلنا طلبكِ وسنقوم بالرد برابط الدفع فوراً)</p>
     </div>
 </div>
 
 <script>
+// القائمة تبدأ الآن بخدمة الدعم
 const evalStore = [
+    { name: "خدمة الدعم والتوجيه الشخصي (شهر)", price: 48 },
     { name: "أجندة إيفال (360 يوم)", price: 35 },
     { name: "كتابة رحلة تحول (3D)", price: 24 },
     { name: "جدول المهام (112 يوم)", price: 15 },
@@ -134,12 +52,11 @@ const evalStore = [
 ];
 
 const grid = document.getElementById('bundle-grid');
-
 evalStore.forEach((item, i) => {
     grid.innerHTML += `
         <div class="tool-item" id="item-${i}" onclick="toggleSelect(${i})">
             <div style="text-align: right;">
-                <div style="color: #fff; font-weight: bold; font-family: 'Cairo', sans-serif;">${item.name}</div>
+                <div style="color: #fff; font-weight: bold;">${item.name}</div>
                 <div style="color: #d4a373; font-weight: bold;">$${item.price}</div>
             </div>
             <input type="checkbox" id="check-${i}">
@@ -151,65 +68,37 @@ function toggleSelect(i) {
     const cb = document.getElementById(`check-${i}`);
     const card = document.getElementById(`item-${i}`);
     cb.checked = !cb.checked;
-    
-    if(cb.checked) card.classList.add('selected');
-    else card.classList.remove('selected');
-    
+    cb.checked ? card.classList.add('selected') : card.classList.remove('selected');
     calculate();
 }
 
 function calculate() {
     const selected = document.querySelectorAll('input[type="checkbox"]:checked');
     let subtotal = 0;
-    
-    selected.forEach(s => {
-        const p = s.parentElement.querySelector('div div:last-child').innerText.replace('$', '');
-        subtotal += parseFloat(p);
-    });
-
+    selected.forEach(s => subtotal += parseFloat(s.parentElement.querySelector('div div:last-child').innerText.replace('$', '')));
     const box = document.getElementById('summary-box');
     if (selected.length > 0) {
         box.style.display = 'block';
         if (selected.length >= 2) {
             document.getElementById('total-old').innerText = "المجموع الأصلي: $" + subtotal;
-            document.getElementById('total-new').innerText = "السعر بعد الخصم (15%): $" + (subtotal * 0.85).toFixed(2);
+            document.getElementById('total-new').innerText = "السعر بعد الخصم: $" + (subtotal * 0.85).toFixed(2);
         } else {
             document.getElementById('total-old').innerText = "";
             document.getElementById('total-new').innerText = "المجموع: $" + subtotal;
         }
-    } else {
-        box.style.display = 'none';
-    }
+    } else { box.style.display = 'none'; }
 }
 
 function sendFinalEmail() {
     const items = [];
-    document.querySelectorAll('input[type="checkbox"]:checked').forEach(c => {
-        items.push(c.parentElement.querySelector('div div:first-child').innerText);
-    });
-
+    document.querySelectorAll('input[type="checkbox"]:checked').forEach(c => items.push(c.parentElement.querySelector('div div:first-child').innerText));
     const oldP = document.getElementById('total-old').innerText;
     const newP = document.getElementById('total-new').innerText;
-
-    const emailTo = "evallonline1@gmail.com";
-    const subject = "طلب باقة مخصصة - منصة إيفال";
+    const emailTo = "orders@evallsuccess.com";
     const rtl = "\u200f"; 
-
-    const body = 
-        rtl + "أهلاً فريق إيفال،" + "\n\n" +
-        rtl + "أود طلب الباقة المخصصة التي تحتوي على الأدوات التالية:" + "\n" +
-        items.map(n => rtl + "- " + n).join("\n") + "\n\n" +
-        rtl + "-----------------------" + "\n" +
-        rtl + (oldP ? oldP : "المجموع: " + newP) + "\n" +
-        rtl + (oldP ? newP : "") + "\n" +
-        rtl + "-----------------------" + "\n\n" +
-        rtl + "بانتظار رابط الدفع الخاص بي." + "\n\n" +
-        rtl + "شكراً لكم.";
-
-    const mailto = `mailto:${emailTo}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.open(mailto, '_blank');
+    const body = rtl + "أهلاً فريق إيفال،" + "\n\n" + rtl + "أود طلب باقتي المخصصة:" + "\n" + items.map(n => rtl + "- " + n).join("\n") + "\n\n" + rtl + "-----------------------" + "\n" + rtl + (oldP ? oldP : "المجموع: " + newP) + "\n" + rtl + (oldP ? newP : "") + "\n" + rtl + "-----------------------" + "\n\n" + rtl + "بانتظار رابط الدفع الخاص بي." + "\n\n" + rtl + "شكراً لكم.";
+    window.open(`mailto:${emailTo}?subject=${encodeURIComponent("طلب باقة مخصصة - إيفال")}&body=${encodeURIComponent(body)}`, '_blank');
 }
 </script>
-
 </body>
 </html>
