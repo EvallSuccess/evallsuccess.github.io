@@ -1665,79 +1665,76 @@
 
   <div class="hr" aria-hidden="true"></div>
 
-<section class="individual-tools-section" id="individual-tools" style="padding: 30px 0 50px 0; background-color: #050507; overflow: hidden;">
-    <div class="container">
+<section class="individual-tools-section" id="individual-tools" style="padding: 20px 0; background-color: #050507; direction: rtl;">
+    <div class="container" style="max-width: 1200px; margin: 0 auto;">
         
-        <div style="text-align: center; margin-bottom: 15px; padding: 0 20px;">
-            <h2 style="font-family: 'El Messiri'; font-size: 1.8rem; margin-bottom: 5px; line-height: 1.2;">
+        <div style="text-align: center; margin-bottom: 10px;">
+            <h2 style="font-family: 'El Messiri'; font-size: 1.8rem; margin: 0; padding-bottom: 5px;">
                 <span style="color: #D4AF37;">أدوات إيفال</span> <span style="color: #ffffff;">الفردية</span>
             </h2>
-            <p style="font-family: 'Cairo'; color: #ffffff; font-size: 0.9rem; max-width: 700px; margin: 0 auto; opacity: 0.7; line-height: 1.3;">
+            <p style="font-family: 'Cairo'; color: #ffffff; font-size: 0.9rem; opacity: 0.7; margin: 0; line-height: 1.2;">
                 يمكنكِ الحصول على أدواتنا بشكل مستقل، أو تصميم باقتكِ الخاصة بخصم إضافي
             </p>
         </div>
 
-        <div style="position: relative; display: flex; align-items: center; gap: 10px; padding: 0 10px; justify-content: center;">
+        <div style="position: relative; display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 15px;">
             
-            <button class="arrow-btn" onclick="slideTools(1)" type="button" style="z-index: 10; flex-shrink: 0; background: none; border: 1px solid rgba(212,175,55,0.3); color: #D4AF37; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center;">▶</button>
+            <button onclick="slideTools(1)" type="button" style="z-index: 99; flex-shrink: 0; background: none; border: 1px solid #D4AF37; color: #D4AF37; width: 40px; height: 40px; border-radius: 50%; cursor: pointer;">▶</button>
 
-            <div class="tools-slider-container" style="width: 100%; overflow: hidden;">
-                <div class="tools-track" id="toolsTrack" style="display: flex; gap: 15px; transition: transform 0.5s ease-out; direction: rtl; width: max-content; padding: 10px 0;">
+            <div id="sliderWindow" style="width: 100%; overflow: hidden; padding: 10px 0;">
+                <div id="toolsTrack" style="display: flex; gap: 15px; transition: transform 0.5s ease-out; width: max-content;">
                     
-                    <div class="tool-item-card" style="width: 250px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(212, 175, 55, 0.15); border-radius: 20px; padding: 15px; text-align: right; flex-shrink: 0;">
-                        <img src="12.jpg" style="width: 100%; border-radius: 12px; margin-bottom: 12px; display: block;">
-                        <h3 style="color: #D4AF37; font-family: 'El Messiri'; font-size: 1.15rem; margin-bottom: 5px;">أداة 12</h3>
-                        <p style="color: #fff; font-family: 'Cairo'; font-size: 0.8rem; margin-bottom: 12px; opacity: 0.6;">وصف مختصر جداً للأداة</p>
-                        <a href="#" style="color: #D4AF37; font-weight: bold; text-decoration: none; border-bottom: 1px dashed; font-size: 0.85rem;">اطلبِ الآن</a>
+                    <div class="tool-item-card" style="width: 250px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 15px; padding: 15px; text-align: right; flex-shrink: 0;">
+                        <img src="12.jpg" style="width: 100%; border-radius: 10px; margin-bottom: 10px;">
+                        <h3 style="color: #D4AF37; font-family: 'El Messiri'; font-size: 1.1rem; margin-bottom: 5px;">أداة 12</h3>
+                        <p style="color: #fff; font-family: 'Cairo'; font-size: 0.8rem; opacity: 0.6; margin-bottom: 10px;">وصف مختصر</p>
+                        <a href="#" style="color: #D4AF37; text-decoration: none; border-bottom: 1px dashed; font-size: 0.85rem; font-weight: bold;">اطلبِ الآن</a>
                     </div>
 
-                    <div class="tool-item-card" style="width: 250px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(212, 175, 55, 0.15); border-radius: 20px; padding: 15px; text-align: right; flex-shrink: 0;">
-                        <img src="1.jpg" style="width: 100%; border-radius: 12px; margin-bottom: 12px;">
-                        <h3 style="color: #D4AF37; font-family: 'El Messiri'; font-size: 1.15rem; margin-bottom: 5px;">أداة 1</h3>
-                        <p style="color: #fff; font-family: 'Cairo'; font-size: 0.8rem; margin-bottom: 12px; opacity: 0.6;">وصف مختصر</p>
-                        <a href="#" style="color: #D4AF37; font-weight: bold; text-decoration: none; border-bottom: 1px dashed; font-size: 0.85rem;">اطلبِ الآن</a>
+                    <div class="tool-item-card" style="width: 250px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 15px; padding: 15px; text-align: right; flex-shrink: 0;">
+                        <img src="1.jpg" style="width: 100%; border-radius: 10px; margin-bottom: 10px;">
+                        <h3 style="color: #D4AF37; font-family: 'El Messiri'; font-size: 1.1rem; margin-bottom: 5px;">أداة 1</h3>
+                        <p style="color: #fff; font-family: 'Cairo'; font-size: 0.8rem; opacity: 0.6; margin-bottom: 10px;">وصف مختصر</p>
+                        <a href="#" style="color: #D4AF37; text-decoration: none; border-bottom: 1px dashed; font-size: 0.85rem; font-weight: bold;">اطلبِ الآن</a>
                     </div>
 
-                    <div class="tool-item-card" style="width: 250px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(212, 175, 55, 0.15); border-radius: 20px; padding: 15px; text-align: right; flex-shrink: 0;">
-                        <img src="2.jpg" style="width: 100%; border-radius: 12px; margin-bottom: 12px;">
-                        <h3 style="color: #D4AF37; font-family: 'El Messiri'; font-size: 1.15rem; margin-bottom: 5px;">أداة 2</h3>
-                        <p style="color: #fff; font-family: 'Cairo'; font-size: 0.8rem; margin-bottom: 12px; opacity: 0.6;">وصف مختصر</p>
-                        <a href="#" style="color: #D4AF37; font-weight: bold; text-decoration: none; border-bottom: 1px dashed; font-size: 0.85rem;">اطلبِ الآن</a>
+                    <div class="tool-item-card" style="width: 250px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 15px; padding: 15px; text-align: right; flex-shrink: 0;">
+                        <img src="2.jpg" style="width: 100%; border-radius: 10px; margin-bottom: 10px;">
+                        <h3 style="color: #D4AF37; font-family: 'El Messiri'; font-size: 1.1rem; margin-bottom: 5px;">أداة 2</h3>
+                        <p style="color: #fff; font-family: 'Cairo'; font-size: 0.8rem; opacity: 0.6; margin-bottom: 10px;">وصف مختصر</p>
+                        <a href="#" style="color: #D4AF37; text-decoration: none; border-bottom: 1px dashed; font-size: 0.85rem; font-weight: bold;">اطلبِ الآن</a>
                     </div>
 
-                    </div>
+                </div>
             </div>
 
-            <button class="arrow-btn" onclick="slideTools(-1)" type="button" style="z-index: 10; flex-shrink: 0; background: none; border: 1px solid rgba(212,175,55,0.3); color: #D4AF37; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center;">◀</button>
+            <button onclick="slideTools(-1)" type="button" style="z-index: 99; flex-shrink: 0; background: none; border: 1px solid #D4AF37; color: #D4AF37; width: 40px; height: 40px; border-radius: 50%; cursor: pointer;">◀</button>
 
         </div>
 
-        <div style="margin-top: 30px; text-align: center;">
-            <a href="https://evallsuccess.github.io/test-bundle.html" style="background: linear-gradient(135deg, #D4AF37 0%, #F2D27D 50%, #B8891A 100%); color: #000; padding: 12px 35px; text-decoration: none; border-radius: 50px; font-family: 'Cairo'; font-weight: 800; display: inline-block; font-size: 0.95rem;">صممي باقتكِ بنفسكِ</a>
+        <div style="margin-top: 20px; text-align: center;">
+            <a href="https://evallsuccess.github.io/test-bundle.html" style="background: linear-gradient(135deg, #D4AF37 0%, #F2D27D 50%, #B8891A 100%); color: #000; padding: 10px 30px; text-decoration: none; border-radius: 50px; font-family: 'Cairo'; font-weight: 800; display: inline-block; font-size: 0.9rem;">صممي باقتكِ بنفسكِ</a>
         </div>
     </div>
 </section>
 
 <script>
-// المحرك المصلح للحركة في اتجاه RTL
-let currentPos = 0;
-function slideTools(direction) {
-    const track = document.getElementById('toolsTrack');
-    const container = track.parentElement;
-    const cardFullWidth = 265; // عرض الكرت 250 + 15 gap
-    const maxScroll = track.scrollWidth - container.offsetWidth;
+var offset = 0;
+function slideTools(dir) {
+    var track = document.getElementById('toolsTrack');
+    var windowWidth = document.getElementById('sliderWindow').offsetWidth;
+    var trackWidth = track.scrollWidth;
+    var step = 265; // عرض الكرت + الفراغ
 
-    // direction 1 لليمين، -1 لليسار
-    currentPos += (direction * cardFullWidth);
+    offset += (dir * step);
 
-    // حدود الحركة لضمان عدم الخروج عن المساحة
-    if (currentPos > 0) currentPos = 0;
-    if (Math.abs(currentPos) > maxScroll) currentPos = -maxScroll;
+    // حدود الحركة
+    if (offset > 0) offset = 0;
+    if (Math.abs(offset) > (trackWidth - windowWidth)) offset = -(trackWidth - windowWidth);
 
-    track.style.transform = `translateX(${currentPos}px)`;
+    track.style.transform = "translateX(" + offset + "px)";
 }
 </script>
-
   
   <!-- RESULTS -->
   <section class="section" id="results">
