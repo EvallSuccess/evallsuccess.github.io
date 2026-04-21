@@ -968,21 +968,6 @@
       backdrop-filter: blur(10px);
     }
 
-/* تنسيقات قسم أدوات إيفال الفردية */
-.individual-tools-section { padding: 80px 20px; background-color: #050507; direction: rtl; text-align: center; }
-.tools-slider-container { position: relative; max-width: 1200px; margin: 40px auto; overflow: hidden; padding: 10px; }
-.tools-track { display: flex; gap: 25px; transition: transform 0.5s ease-in-out; }
-.tool-item-card { min-width: 300px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 24px; padding: 24px; backdrop-filter: blur(15px); display: flex; flex-direction: column; align-items: center; }
-.tool-item-card img { width: 100%; height: auto; border-radius: 18px; margin-bottom: 20px; }
-.tool-item-card h3 { color: #D4AF37; font-family: 'El Messiri', sans-serif; font-size: 1.6rem; margin: 10px 0; }
-.tool-item-card p { color: #ffffff; font-family: 'Cairo', sans-serif; font-size: 0.95rem; margin-bottom: 20px; }
-.buy-link { color: #D4AF37; text-decoration: none; font-family: 'Cairo'; font-weight: 700; border-bottom: 1px dashed #D4AF37; cursor: pointer; }
-.slider-arrows { display: flex; justify-content: center; gap: 40px; margin-top: 20px; }
-.arrow-btn { background: none; border: 1px solid #D4AF37; color: #D4AF37; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; font-size: 20px; display: flex; align-items: center; justify-content: center; }
-.arrow-btn:hover { background: #D4AF37; color: #000; }
-
-
-    
     /* =========================
        RESULTS
        ========================= */
@@ -1610,7 +1595,6 @@
 
   <div class="hr" aria-hidden="true"></div>
 
-  
   <!-- DETAILS -->
   <section class="section" id="details">
     <div class="container">
@@ -1665,105 +1649,6 @@
 
   <div class="hr" aria-hidden="true"></div>
 
-<section class="individual-tools-section" id="individual-tools" style="padding: 20px 0; background-color: #050507; direction: rtl;">
-    <div class="container" style="max-width: 1200px; margin: 0 auto;">
-        
-        <div style="text-align: center; margin-bottom: 10px;">
-            <h2 style="font-family: 'El Messiri'; font-size: 1.8rem;">
-                <span style="color: #D4AF37;">أدوات إيفال</span> <span style="color: #ffffff;">الفردية</span>
-            </h2>
-            <p style="font-family: 'Cairo'; color: #ffffff; font-size: 0.9rem; opacity: 0.7;">
-                يمكنكِ الحصول على أدواتنا بشكل مستقل، أو تصميم باقتكِ الخاصة بخصم إضافي
-            </p>
-        </div>
-
-        <div style="display: flex; align-items: center; justify-content: center; gap: 10px;">
-            
-            <!-- سهم يمين -->
-            <button onclick="slideTools(-1)" type="button"
-                style="z-index: 99; background: none; border: 1px solid #D4AF37; color: #D4AF37; width: 40px; height: 40px; border-radius: 50%; cursor: pointer;">
-                ▶
-            </button>
-
-            <!-- نافذة السلايدر -->
-            <div id="sliderWindow" style="width: 650px; overflow: hidden;">
-                
-                <!-- مهم جداً direction: ltr -->
-                <div id="toolsTrack" style="display: flex; gap: 20px; transition: transform 0.5s ease; direction: ltr;">
-
-                    <!-- الكروت -->
-                    
-                    <div class="card"><img src="1.jpg"><h3>أداة 1</h3><p>وصف مختصر</p></div>
-                    <div class="card"><img src="2.jpg"><h3>أداة 2</h3><p>وصف مختصر</p></div>
-                    <div class="card"><img src="3.jpg"><h3>أداة 3</h3><p>وصف مختصر</p></div>
-                    <div class="card"><img src="4.jpg"><h3>أداة 4</h3><p>وصف مختصر</p></div>
-                    <div class="card"><img src="5.jpg"><h3>أداة 5</h3><p>وصف مختصر</p></div>
-                    <div class="card"><img src="6.jpg"><h3>أداة 6</h3><p>وصف مختصر</p></div>
-                    <div class="card"><img src="7.jpg"><h3>أداة 7</h3><p>وصف مختصر</p></div>
-                    <div class="card"><img src="8.jpg"><h3>أداة 8</h3><p>وصف مختصر</p></div>
-                    <div class="card"><img src="9.jpg"><h3>أداة 9</h3><p>وصف مختصر</p></div>
-                    <div class="card"><img src="10.jpg"><h3>أداة 10</h3><p>وصف مختصر</p></div>
-                    <div class="card"><img src="11.jpg"><h3>أداة 11</h3><p>وصف مختصر</p></div>
-                    <div class="card"><img src="12.jpg"><h3>أداة 12</h3><p>وصف مختصر</p></div>
-
-                </div>
-            </div>
-
-            <!-- سهم يسار -->
-            <button onclick="slideTools(1)" type="button"
-                style="z-index: 99; background: none; border: 1px solid #D4AF37; color: #D4AF37; width: 40px; height: 40px; border-radius: 50%; cursor: pointer;">
-                ◀
-            </button>
-
-        </div>
-
-    </div>
-</section>
-
-<style>
-.card {
-    min-width: 250px;
-    background: rgba(255,255,255,0.05);
-    border-radius: 15px;
-    padding: 15px;
-    color: white;
-    text-align: right;
-}
-.card img {
-    width: 100%;
-    border-radius: 10px;
-    margin-bottom: 10px;
-}
-.card h3 {
-    color: #D4AF37;
-}
-.card p {
-    opacity: 0.6;
-}
-</style>
-
-<script>
-let offset = 0;
-
-function slideTools(dir) {
-    const track = document.getElementById('toolsTrack');
-    const windowWidth = document.getElementById('sliderWindow').offsetWidth;
-    const trackWidth = track.scrollWidth;
-
-    const step = 270;
-
-    offset += dir * step;
-
-    const maxOffset = trackWidth - windowWidth;
-
-    if (offset < 0) offset = 0;
-    if (offset > maxOffset) offset = maxOffset;
-
-    track.style.transform = `translateX(${-offset}px)`;
-}
-</script>
-  
-  
   <!-- RESULTS -->
   <section class="section" id="results">
     <div class="container">
