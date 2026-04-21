@@ -1679,10 +1679,10 @@
 
         <div style="position: relative; display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 15px;">
             
-            <button onclick="slideTools('right')" type="button" style="z-index: 99; flex-shrink: 0; background: #050507; border: 1px solid #D4AF37; color: #D4AF37; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center;">▶</button>
+            <button onclick="slideTools(1)" type="button" style="z-index: 99; flex-shrink: 0; background: none; border: 1px solid #D4AF37; color: #D4AF37; width: 40px; height: 40px; border-radius: 50%; cursor: pointer;">▶</button>
 
-            <div id="sliderWindow" style="width: 100%; overflow: hidden; padding: 10px 0; scroll-behavior: smooth;">
-                <div id="toolsTrack" style="display: flex; gap: 15px; width: max-content;">
+            <div id="sliderWindow" style="width: 100%; overflow: hidden; padding: 10px 0;">
+                <div id="toolsTrack" style="display: flex; gap: 15px; transition: transform 0.5s ease-out; width: max-content;">
                     
                     <div class="tool-item-card" style="width: 250px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 15px; padding: 15px; text-align: right; flex-shrink: 0;">
                         <img src="12.jpg" style="width: 100%; border-radius: 10px; margin-bottom: 10px;">
@@ -1708,7 +1708,7 @@
                 </div>
             </div>
 
-            <button onclick="slideTools('left')" type="button" style="z-index: 99; flex-shrink: 0; background: #050507; border: 1px solid #D4AF37; color: #D4AF37; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center;">◀</button>
+            <button onclick="slideTools(-1)" type="button" style="z-index: 99; flex-shrink: 0; background: none; border: 1px solid #D4AF37; color: #D4AF37; width: 40px; height: 40px; border-radius: 50%; cursor: pointer;">◀</button>
 
         </div>
 
@@ -1719,26 +1719,26 @@
 </section>
 
 <script>
-function slideTools(direction) {
-    const sliderWindow = document.getElementById('sliderWindow');
-    const step = 265; // عرض الكرت + الفراغ
+let scrollPos = 0;
+function slideTools(dir) {
+    const track = document.getElementById('toolsTrack');
+    const container = document.getElementById('sliderWindow');
+    const step = 265; // عرض الكرت (250) + Gap (15)
     
-    if (direction === 'left') {
-        // التحرك لليسار في RTL يعني تقليل قيمة الـ ScrollLeft (أو زيادتها حسب المتصفح، لكن هنا نستخدم الطريقة الأضمن)
-        sliderWindow.scrollBy({
-            left: -step,
-            behavior: 'smooth'
-        });
-    } else {
-        // التحرك لليمين
-        sliderWindow.scrollBy({
-            left: step,
-            behavior: 'smooth'
-        });
-    }
+    // حساب أقصى مسافة تحرك ممكنة
+    const maxScroll = track.scrollWidth - container.offsetWidth;
+
+    // تحديث الموضع (لاحظي هنا قلبنا الإشارة لتناسب الـ RTL)
+    scrollPos += dir * step;
+
+    // قيود الحركة
+    if (scrollPos < 0) scrollPos = 0;
+    if (scrollPos > maxScroll) scrollPos = maxScroll;
+
+    // التحريك الفعلي (نستخدم قيمة موجبة لأن الـ Container هو RTL)
+    track.style.transform = `translateX(${scrollPos}px)`;
 }
 </script>
-
   
   
   <!-- RESULTS -->
