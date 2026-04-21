@@ -1666,9 +1666,9 @@
   <div class="hr" aria-hidden="true"></div>
 
 <section class="individual-tools-section" id="individual-tools" style="padding: 20px 0; background-color: #050507; direction: rtl;">
-    <div class="container" style="max-width: 1200px; margin: 0 auto; overflow: hidden;">
+    <div class="container" style="max-width: 1200px; margin: 0 auto;">
         
-        <div style="text-align: center; margin-bottom: 15px;">
+        <div style="text-align: center; margin-bottom: 10px;">
             <h2 style="font-family: 'El Messiri'; font-size: 1.8rem; margin: 0; padding-bottom: 5px;">
                 <span style="color: #D4AF37;">أدوات إيفال</span> <span style="color: #ffffff;">الفردية</span>
             </h2>
@@ -1677,12 +1677,12 @@
             </p>
         </div>
 
-        <div style="position: relative; display: flex; align-items: center; justify-content: center; gap: 10px;">
+        <div style="position: relative; display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 15px;">
             
-            <button onclick="scrollTools(1)" type="button" style="z-index: 99; flex-shrink: 0; background: none; border: 1px solid #D4AF37; color: #D4AF37; width: 40px; height: 40px; border-radius: 50%; cursor: pointer;">▶</button>
+            <button onclick="slideTools(1)" type="button" style="z-index: 99; flex-shrink: 0; background: none; border: 1px solid #D4AF37; color: #D4AF37; width: 40px; height: 40px; border-radius: 50%; cursor: pointer;">▶</button>
 
-            <div id="sliderWindow" style="width: 100%; overflow-x: hidden; scroll-behavior: smooth; padding: 10px 0;">
-                <div id="toolsTrack" style="display: flex; gap: 15px; width: max-content;">
+            <div id="sliderWindow" style="width: 100%; overflow: hidden; padding: 10px 0;">
+                <div id="toolsTrack" style="display: flex; gap: 15px; transition: transform 0.5s ease-out; width: max-content; transform: translateX(0px);">
                     
                     <div class="tool-item-card" style="width: 250px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 15px; padding: 15px; text-align: right; flex-shrink: 0;">
                         <img src="12.jpg" style="width: 100%; border-radius: 10px; margin-bottom: 10px;">
@@ -1708,7 +1708,7 @@
                 </div>
             </div>
 
-            <button onclick="scrollTools(-1)" type="button" style="z-index: 99; flex-shrink: 0; background: none; border: 1px solid #D4AF37; color: #D4AF37; width: 40px; height: 40px; border-radius: 50%; cursor: pointer;">◀</button>
+            <button onclick="slideTools(-1)" type="button" style="z-index: 99; flex-shrink: 0; background: none; border: 1px solid #D4AF37; color: #D4AF37; width: 40px; height: 40px; border-radius: 50%; cursor: pointer;">◀</button>
 
         </div>
 
@@ -1719,16 +1719,29 @@
 </section>
 
 <script>
-function scrollTools(direction) {
-    const windowEl = document.getElementById('sliderWindow');
-    const step = 265; // عرض الكرت + الفراغ
+var currentStep = 0; // نستخدم عداد الخطوات بدلاً من الإزاحة المباشرة لتجنب مشاكل RTL
+function slideTools(dir) {
+    var track = document.getElementById('toolsTrack');
+    var windowWidth = document.getElementById('sliderWindow').offsetWidth;
+    var trackWidth = track.scrollWidth;
+    var stepWidth = 265; // عرض الكرت + Gap
     
-    // في الـ scroll، نحرك الـ scrollLeft مباشرة
-    // ضرب الاتجاه في السالب لأن RTL في المتصفحات تتعامل مع قيم سالبة أحياناً
-    windowEl.scrollBy({
-        left: (direction * step * -1), 
-        behavior: 'smooth'
-    });
+    // حساب عدد الكروت التي يمكن عرضها
+    var maxSteps = Math.floor((trackWidth - windowWidth) / stepWidth);
+    if (maxSteps < 0) maxSteps = 0;
+
+    // تحديث الخطوة الحالية
+    currentStep += dir;
+
+    // قيود الحركة
+    if (currentStep < 0) currentStep = 0;
+    if (currentStep > maxSteps) currentStep = maxSteps;
+
+    // في نظام RTL، الانتقال لليمين يعني زيادة القيمة الموجبة في translateX في أغلب المتصفحات الحديثة
+    // أو تحريكه بقيمة سالبة إذا كنا نعتبر الصفر هو أقصى اليمين.
+    // الحل الأضمن برمجياً هو استخدام القيمة الموجبة للإزاحة في حال الـ RTL
+    var moveValue = currentStep * stepWidth;
+    track.style.transform = "translateX(" + moveValue + "px)";
 }
 </script>
 
