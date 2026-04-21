@@ -1682,7 +1682,7 @@
             <button class="arrow-btn" onclick="slideTools(1)" type="button" style="z-index: 10; flex-shrink: 0; background: none; border: 1px solid rgba(212,175,55,0.3); color: #D4AF37; width: 38px; height: 38px; border-radius: 50%; cursor: pointer;">▶</button>
 
             <div class="tools-slider-container" style="flex-grow: 1; overflow: hidden;">
-                <div class="tools-track" id="toolsTrack" style="display: flex; gap: 15px; transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); direction: rtl;">
+                <div class="tools-track" id="toolsTrack" style="display: flex; gap: 15px; transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); direction: rtl; width: max-content;">
                     
                     <div class="tool-item-card" style="min-width: 250px; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(212, 175, 55, 0.12); border-radius: 18px; padding: 12px; text-align: right;">
                         <img src="12.jpg" style="width: 100%; border-radius: 12px; margin-bottom: 10px; display: block;">
@@ -1691,8 +1691,19 @@
                         <a href="#" class="buy-link" style="color: #D4AF37; font-weight: bold; text-decoration: none; border-bottom: 1px dashed; font-size: 0.85rem;">اطلبِ الآن</a>
                     </div>
 
-                    <div class="tool-item-card" style="min-width: 250px; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(212, 175, 55, 0.12); border-radius: 18px; padding: 12px; text-align: right;"><img src="1.jpg" style="width: 100%; border-radius: 12px; margin-bottom: 10px;"><h3 style="color: #D4AF37; font-family: 'El Messiri'; font-size: 1.15rem; margin-bottom: 4px;">أداة 1</h3><p style="color: #fff; font-family: 'Cairo'; font-size: 0.8rem; margin-bottom: 10px; opacity: 0.6;">وصف مختصر</p><a href="#" class="buy-link" style="color: #D4AF37; font-weight: bold; text-decoration: none; border-bottom: 1px dashed; font-size: 0.85rem;">اطلبِ الآن</a></div>
-                    <div class="tool-item-card" style="min-width: 250px; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(212, 175, 55, 0.12); border-radius: 18px; padding: 12px; text-align: right;"><img src="2.jpg" style="width: 100%; border-radius: 12px; margin-bottom: 10px;"><h3 style="color: #D4AF37; font-family: 'El Messiri'; font-size: 1.15rem; margin-bottom: 4px;">أداة 2</h3><p style="color: #fff; font-family: 'Cairo'; font-size: 0.8rem; margin-bottom: 10px; opacity: 0.6;">وصف مختصر</p><a href="#" class="buy-link" style="color: #D4AF37; font-weight: bold; text-decoration: none; border-bottom: 1px dashed; font-size: 0.85rem;">اطلبِ الآن</a></div>
+                    <div class="tool-item-card" style="min-width: 250px; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(212, 175, 55, 0.12); border-radius: 18px; padding: 12px; text-align: right;">
+                        <img src="1.jpg" style="width: 100%; border-radius: 12px; margin-bottom: 10px;">
+                        <h3 style="color: #D4AF37; font-family: 'El Messiri'; font-size: 1.15rem; margin-bottom: 4px;">أداة 1</h3>
+                        <p style="color: #fff; font-family: 'Cairo'; font-size: 0.8rem; margin-bottom: 10px; opacity: 0.6;">وصف مختصر</p>
+                        <a href="#" class="buy-link" style="color: #D4AF37; font-weight: bold; text-decoration: none; border-bottom: 1px dashed; font-size: 0.85rem;">اطلبِ الآن</a>
+                    </div>
+
+                    <div class="tool-item-card" style="min-width: 250px; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(212, 175, 55, 0.12); border-radius: 18px; padding: 12px; text-align: right;">
+                        <img src="2.jpg" style="width: 100%; border-radius: 12px; margin-bottom: 10px;">
+                        <h3 style="color: #D4AF37; font-family: 'El Messiri'; font-size: 1.15rem; margin-bottom: 4px;">أداة 2</h3>
+                        <p style="color: #fff; font-family: 'Cairo'; font-size: 0.8rem; margin-bottom: 10px; opacity: 0.6;">وصف مختصر</p>
+                        <a href="#" class="buy-link" style="color: #D4AF37; font-weight: bold; text-decoration: none; border-bottom: 1px dashed; font-size: 0.85rem;">اطلبِ الآن</a>
+                    </div>
                     </div>
             </div>
 
@@ -1721,11 +1732,10 @@ function slideTools(dir) {
     if (scrollAmount > 0) scrollAmount = 0;
     if (Math.abs(scrollAmount) > maxScroll) scrollAmount = -maxScroll;
 
-    // تطبيق الحركة
-    track.style.transform = `translateX(${-scrollAmount}px)`;
+    // في RTL نستخدم القيمة الموجبة لتحريك التراك يميناً ويساراً بشكل صحيح
+    track.style.transform = `translateX(${scrollAmount}px)`;
 }
 </script>
-
 
   
   <!-- RESULTS -->
