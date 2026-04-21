@@ -968,8 +968,7 @@
       backdrop-filter: blur(10px);
     }
 
-
-    /* --- قسم أدوات إيفال الفردية --- */
+/* تنسيقات قسم أدوات إيفال الفردية */
 .individual-tools-section { padding: 80px 20px; background-color: #050507; direction: rtl; text-align: center; }
 .tools-slider-container { position: relative; max-width: 1200px; margin: 40px auto; overflow: hidden; padding: 10px; }
 .tools-track { display: flex; gap: 25px; transition: transform 0.5s ease-in-out; }
@@ -977,10 +976,13 @@
 .tool-item-card img { width: 100%; height: auto; border-radius: 18px; margin-bottom: 20px; }
 .tool-item-card h3 { color: #D4AF37; font-family: 'El Messiri', sans-serif; font-size: 1.6rem; margin: 10px 0; }
 .tool-item-card p { color: #ffffff; font-family: 'Cairo', sans-serif; font-size: 0.95rem; margin-bottom: 20px; }
-.buy-link { color: #D4AF37; text-decoration: none; font-family: 'Cairo'; font-weight: 700; border-bottom: 1px dashed #D4AF37; }
+.buy-link { color: #D4AF37; text-decoration: none; font-family: 'Cairo'; font-weight: 700; border-bottom: 1px dashed #D4AF37; cursor: pointer; }
 .slider-arrows { display: flex; justify-content: center; gap: 40px; margin-top: 20px; }
-.arrow-btn { background: none; border: 1px solid #D4AF37; color: #D4AF37; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; font-size: 20px; }
+.arrow-btn { background: none; border: 1px solid #D4AF37; color: #D4AF37; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; font-size: 20px; display: flex; align-items: center; justify-content: center; }
+.arrow-btn:hover { background: #D4AF37; color: #000; }
 
+
+    
     /* =========================
        RESULTS
        ========================= */
@@ -1608,6 +1610,7 @@
 
   <div class="hr" aria-hidden="true"></div>
 
+  
   <!-- DETAILS -->
   <section class="section" id="details">
     <div class="container">
@@ -1662,8 +1665,7 @@
 
   <div class="hr" aria-hidden="true"></div>
 
-
-  <section class="individual-tools-section" id="individual-tools" style="padding: 60px 0; background-color: #050507;">
+<section class="individual-tools-section" id="individual-tools" style="padding: 60px 0; background-color: #050507;">
     <div class="container">
         
         <div style="text-align: center; margin-bottom: 40px; padding: 0 20px;">
@@ -1691,8 +1693,48 @@
 
                     <div class="tool-item-card" style="min-width: 260px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(212, 175, 55, 0.15); border-radius: 20px; padding: 15px; text-align: right;"><img src="1.jpg" style="width: 100%; border-radius: 12px; margin-bottom: 15px;"><h3 style="color: #D4AF37; font-family: 'El Messiri'; font-size: 1.2rem; margin-bottom: 5px; text-align: right;">أداة 1</h3><p style="color: #fff; font-family: 'Cairo'; font-size: 0.85rem; margin-bottom: 15px; opacity: 0.6; text-align: right;">وصف مختصر</p><a href="#" class="buy-link" style="color: #D4AF37; font-weight: bold; text-decoration: none; border-bottom: 1px dashed; font-size: 0.9rem;">اطلبِ الآن</a></div>
                     <div class="tool-item-card" style="min-width: 260px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(212, 175, 55, 0.15); border-radius: 20px; padding: 15px; text-align: right;"><img src="2.jpg" style="width: 100%; border-radius: 12px; margin-bottom: 15px;"><h3 style="color: #D4AF37; font-family: 'El Messiri'; font-size: 1.2rem; margin-bottom: 5px; text-align: right;">أداة 2</h3><p style="color: #fff; font-family: 'Cairo'; font-size: 0.85rem; margin-bottom: 15px; opacity: 0.6; text-align: right;">وصف مختصر</p><a href="#" class="buy-link" style="color: #D4AF37; font-weight: bold; text-decoration: none; border-bottom: 1px dashed; font-size: 0.9rem;">اطلبِ الآن</a></div>
-                    <div class="tool-item-card" style="min-width: 260px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(212, 175, 55, 0.15); border-radius: 20px; padding: 15px; text-align: right;"><img src="3.jpg" style="width: 100%; border-radius: 12px; margin-bottom: 15px;"><h3 style="color: #D4AF37; font-family: 'El Messiri'; font-size: 1.2rem; margin-bottom: 5px; text-align: right;">أداة 3</h3><p style="color: #fff; font-family: 'Cairo'; font-size: 0.85rem; margin-bottom: 15px; opacity: 0.6; text-align: right;">وصف مختصر</p
+                    <div class="tool-item-card" style="min-width: 260px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(212, 175, 55, 0.15); border-radius: 20px; padding: 15px; text-align: right;"><img src="3.jpg" style="width: 100%; border-radius: 12px; margin-bottom: 15px;"><h3 style="color: #D4AF37; font-family: 'El Messiri'; font-size: 1.2rem; margin-bottom: 5px; text-align: right;">أداة 3</h3><p style="color: #fff; font-family: 'Cairo'; font-size: 0.85rem; margin-bottom: 15px; opacity: 0.6; text-align: right;">وصف مختصر</p><a href="#" class="buy-link" style="color: #D4AF37; font-weight: bold; text-decoration: none; border-bottom: 1px dashed; font-size: 0.9rem;">اطلبِ الآن</a></div>
+                    <div class="tool-item-card" style="min-width: 260px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(212, 175, 55, 0.15); border-radius: 20px; padding: 15px; text-align: right;"><img src="4.jpg" style="width: 100%; border-radius: 12px; margin-bottom: 15px;"><h3 style="color: #D4AF37; font-family: 'El Messiri'; font-size: 1.2rem; margin-bottom: 5px; text-align: right;">أداة 4</h3><p style="color: #fff; font-family: 'Cairo'; font-size: 0.85rem; margin-bottom: 15px; opacity: 0.6; text-align: right;">وصف مختصر</p><a href="#" class="buy-link" style="color: #D4AF37; font-weight: bold; text-decoration: none; border-bottom: 1px dashed; font-size: 0.9rem;">اطلبِ الآن</a></div>
+                    <div class="tool-item-card" style="min-width: 260px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(212, 175, 55, 0.15); border-radius: 20px; padding: 15px; text-align: right;"><img src="6.jpg" style="width: 100%; border-radius: 12px; margin-bottom: 15px;"><h3 style="color: #D4AF37; font-family: 'El Messiri'; font-size: 1.2rem; margin-bottom: 5px; text-align: right;">أداة 6</h3><p style="color: #fff; font-family: 'Cairo'; font-size: 0.85rem; margin-bottom: 15px; opacity: 0.6; text-align: right;">وصف مختصر</p><a href="#" class="buy-link" style="color: #D4AF37; font-weight: bold; text-decoration: none; border-bottom: 1px dashed; font-size: 0.9rem;">اطلبِ الآن</a></div>
+                    <div class="tool-item-card" style="min-width: 260px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(212, 175, 55, 0.15); border-radius: 20px; padding: 15px; text-align: right;"><img src="7.jpg" style="width: 100%; border-radius: 12px; margin-bottom: 15px;"><h3 style="color: #D4AF37; font-family: 'El Messiri'; font-size: 1.2rem; margin-bottom: 5px; text-align: right;">أداة 7</h3><p style="color: #fff; font-family: 'Cairo'; font-size: 0.85rem; margin-bottom: 15px; opacity: 0.6; text-align: right;">وصف مختصر</p><a href="#" class="buy-link" style="color: #D4AF37; font-weight: bold; text-decoration: none; border-bottom: 1px dashed; font-size: 0.9rem;">اطلبِ الآن</a></div>
+                    <div class="tool-item-card" style="min-width: 260px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(212, 175, 55, 0.15); border-radius: 20px; padding: 15px; text-align: right;"><img src="8.jpg" style="width: 100%; border-radius: 12px; margin-bottom: 15px;"><h3 style="color: #D4AF37; font-family: 'El Messiri'; font-size: 1.2rem; margin-bottom: 5px; text-align: right;">أداة 8</h3><p style="color: #fff; font-family: 'Cairo'; font-size: 0.85rem; margin-bottom: 15px; opacity: 0.6; text-align: right;">وصف مختصر</p><a href="#" class="buy-link" style="color: #D4AF37; font-weight: bold; text-decoration: none; border-bottom: 1px dashed; font-size: 0.9rem;">اطلبِ الآن</a></div>
+                    <div class="tool-item-card" style="min-width: 260px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(212, 175, 55, 0.15); border-radius: 20px; padding: 15px; text-align: right;"><img src="9.jpg" style="width: 100%; border-radius: 12px; margin-bottom: 15px;"><h3 style="color: #D4AF37; font-family: 'El Messiri'; font-size: 1.2rem; margin-bottom: 5px; text-align: right;">أداة 9</h3><p style="color: #fff; font-family: 'Cairo'; font-size: 0.85rem; margin-bottom: 15px; opacity: 0.6; text-align: right;">وصف مختصر</p><a href="#" class="buy-link" style="color: #D4AF37; font-weight: bold; text-decoration: none; border-bottom: 1px dashed; font-size: 0.9rem;">اطلبِ الآن</a></div>
+                    <div class="tool-item-card" style="min-width: 260px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(212, 175, 55, 0.15); border-radius: 20px; padding: 15px; text-align: right;"><img src="10.jpg" style="width: 100%; border-radius: 12px; margin-bottom: 15px;"><h3 style="color: #D4AF37; font-family: 'El Messiri'; font-size: 1.2rem; margin-bottom: 5px; text-align: right;">أداة 10</h3><p style="color: #fff; font-family: 'Cairo'; font-size: 0.85rem; margin-bottom: 15px; opacity: 0.6; text-align: right;">وصف مختصر</p><a href="#" class="buy-link" style="color: #D4AF37; font-weight: bold; text-decoration: none; border-bottom: 1px dashed; font-size: 0.9rem;">اطلبِ الآن</a></div>
+                    <div class="tool-item-card" style="min-width: 260px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(212, 175, 55, 0.15); border-radius: 20px; padding: 15px; text-align: right;"><img src="11.jpg" style="width: 100%; border-radius: 12px; margin-bottom: 15px;"><h3 style="color: #D4AF37; font-family: 'El Messiri'; font-size: 1.2rem; margin-bottom: 5px; text-align: right;">أداة 11</h3><p style="color: #fff; font-family: 'Cairo'; font-size: 0.85rem; margin-bottom: 15px; opacity: 0.6; text-align: right;">وصف مختصر</p><a href="#" class="buy-link" style="color: #D4AF37; font-weight: bold; text-decoration: none; border-bottom: 1px dashed; font-size: 0.9rem;">اطلبِ الآن</a></div>
 
+                </div>
+            </div>
+
+            <button class="arrow-btn" onclick="slideTools(1)" type="button" style="z-index: 10; flex-shrink: 0; background: none; border: 1px solid rgba(212,175,55,0.3); color: #D4AF37; width: 40px; height: 40px; border-radius: 50%; cursor: pointer;">◀</button>
+
+        </div>
+
+        <div style="margin-top: 40px; text-align: center;">
+            <a href="https://evallsuccess.github.io/test-bundle.html" style="background: linear-gradient(135deg, #D4AF37 0%, #F2D27D 50%, #B8891A 100%); color: #000; padding: 14px 35px; text-decoration: none; border-radius: 50px; font-family: 'Cairo'; font-weight: 800; display: inline-block; font-size: 0.95rem;">صممي باقتكِ بنفسكِ</a>
+        </div>
+    </div>
+</section>
+
+<script>
+let scrollPos = 0;
+function slideTools(dir) {
+    const track = document.getElementById('toolsTrack');
+    const cardWidth = 280; // (260 عرض + 20 gap)
+    const container = track.parentElement;
+    const maxScroll = track.scrollWidth - container.offsetWidth;
+    
+    scrollPos += dir * cardWidth;
+    
+    if (scrollPos > 0) scrollPos = 0;
+    if (Math.abs(scrollPos) > maxScroll) scrollPos = -maxScroll;
+
+    track.style.transform = `translateX(${scrollPos}px)`;
+}
+</script>
+
+
+
+  
   <!-- RESULTS -->
   <section class="section" id="results">
     <div class="container">
@@ -1801,7 +1843,6 @@
   </section>
 
   <div class="hr" aria-hidden="true"></div>
-
 
   <!-- FAQ -->
   <section class="section" id="faq">
@@ -2294,5 +2335,6 @@ detailText.textContent  = s.text  || "";
   </script>
 </body>
 </html>
+
 
 
