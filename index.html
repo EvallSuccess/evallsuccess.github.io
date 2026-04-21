@@ -1666,7 +1666,7 @@
   <div class="hr" aria-hidden="true"></div>
 
 <section class="individual-tools-section" id="individual-tools" style="padding: 20px 0; background-color: #050507; direction: rtl;">
-    <div class="container" style="max-width: 1200px; margin: 0 auto;">
+    <div class="container" style="max-width: 1200px; margin: 0 auto; overflow: hidden;">
         
         <div style="text-align: center; margin-bottom: 15px;">
             <h2 style="font-family: 'El Messiri'; font-size: 1.8rem; margin: 0; padding-bottom: 5px;">
@@ -1679,10 +1679,10 @@
 
         <div style="position: relative; display: flex; align-items: center; justify-content: center; gap: 10px;">
             
-            <button onclick="moveTools(1)" type="button" style="z-index: 99; flex-shrink: 0; background: none; border: 1px solid #D4AF37; color: #D4AF37; width: 40px; height: 40px; border-radius: 50%; cursor: pointer;">▶</button>
+            <button onclick="scrollTools(1)" type="button" style="z-index: 99; flex-shrink: 0; background: none; border: 1px solid #D4AF37; color: #D4AF37; width: 40px; height: 40px; border-radius: 50%; cursor: pointer;">▶</button>
 
-            <div id="sliderWindow" style="width: 100%; overflow: hidden; padding: 10px 0;">
-                <div id="toolsTrack" style="display: flex; gap: 15px; transition: transform 0.5s ease-in-out; width: max-content;">
+            <div id="sliderWindow" style="width: 100%; overflow-x: hidden; scroll-behavior: smooth; padding: 10px 0;">
+                <div id="toolsTrack" style="display: flex; gap: 15px; width: max-content;">
                     
                     <div class="tool-item-card" style="width: 250px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 15px; padding: 15px; text-align: right; flex-shrink: 0;">
                         <img src="12.jpg" style="width: 100%; border-radius: 10px; margin-bottom: 10px;">
@@ -1708,7 +1708,7 @@
                 </div>
             </div>
 
-            <button onclick="moveTools(-1)" type="button" style="z-index: 99; flex-shrink: 0; background: none; border: 1px solid #D4AF37; color: #D4AF37; width: 40px; height: 40px; border-radius: 50%; cursor: pointer;">◀</button>
+            <button onclick="scrollTools(-1)" type="button" style="z-index: 99; flex-shrink: 0; background: none; border: 1px solid #D4AF37; color: #D4AF37; width: 40px; height: 40px; border-radius: 50%; cursor: pointer;">◀</button>
 
         </div>
 
@@ -1719,25 +1719,16 @@
 </section>
 
 <script>
-// المحرك الجديد: يعمل بنظام الإزاحة (Pixel Offset) المتوافق مع RTL
-var currentTranslate = 0;
-
-function moveTools(direction) {
-    var track = document.getElementById('toolsTrack');
-    var windowWidth = document.getElementById('sliderWindow').offsetWidth;
-    var trackWidth = track.scrollWidth;
-    var step = 265; // عرض الكرت + gap
-    var maxLimit = trackWidth - windowWidth;
-
-    // direction 1 تعني لليمين، -1 تعني لليسار
-    // في الـ RTL، الإزاحة الموجبة تحرك العناصر لليسار
-    currentTranslate += (direction * step);
-
-    // منع الخروج عن الحدود
-    if (currentTranslate < 0) currentTranslate = 0;
-    if (currentTranslate > maxLimit) currentTranslate = maxLimit;
-
-    track.style.transform = "translateX(" + currentTranslate + "px)";
+function scrollTools(direction) {
+    const windowEl = document.getElementById('sliderWindow');
+    const step = 265; // عرض الكرت + الفراغ
+    
+    // في الـ scroll، نحرك الـ scrollLeft مباشرة
+    // ضرب الاتجاه في السالب لأن RTL في المتصفحات تتعامل مع قيم سالبة أحياناً
+    windowEl.scrollBy({
+        left: (direction * step * -1), 
+        behavior: 'smooth'
+    });
 }
 </script>
 
