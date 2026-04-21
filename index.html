@@ -1669,45 +1669,100 @@
     <div class="container" style="max-width: 1200px; margin: 0 auto;">
         
         <div style="text-align: center; margin-bottom: 10px;">
-            <h2 style="font-family: 'El Messiri'; font-size: 1.8rem; margin: 0; padding-bottom: 5px;">
+            <h2 style="font-family: 'El Messiri'; font-size: 1.8rem;">
                 <span style="color: #D4AF37;">أدوات إيفال</span> <span style="color: #ffffff;">الفردية</span>
             </h2>
-            <p style="font-family: 'Cairo'; color: #ffffff; font-size: 0.9rem; opacity: 0.7; margin: 0; line-height: 1.2;">
+            <p style="font-family: 'Cairo'; color: #ffffff; font-size: 0.9rem; opacity: 0.7;">
                 يمكنكِ الحصول على أدواتنا بشكل مستقل، أو تصميم باقتكِ الخاصة بخصم إضافي
             </p>
         </div>
 
-        <div style="position: relative; display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 15px;">
+        <div style="display: flex; align-items: center; justify-content: center; gap: 10px;">
             
             <!-- سهم يمين -->
             <button onclick="slideTools(-1)" type="button"
-                style="z-index: 99; flex-shrink: 0; background: none; border: 1px solid #D4AF37; color: #D4AF37; width: 40px; height: 40px; border-radius: 50%; cursor: pointer;">
+                style="z-index: 99; background: none; border: 1px solid #D4AF37; color: #D4AF37; width: 40px; height: 40px; border-radius: 50%; cursor: pointer;">
                 ▶
             </button>
 
-            <div id="sliderWindow" style="width: 100%; overflow: hidden; padding: 10px 0;">
-                <div id="toolsTrack" style="display: flex; gap: 15px; transition: transform 0.5s ease-out; width: max-content;">
+            <!-- نافذة السلايدر -->
+            <div id="sliderWindow" style="width: 650px; overflow: hidden;">
+                
+                <div id="toolsTrack" style="display: flex; gap: 20px; transition: transform 0.5s ease;">
+
+                    <!-- كرر هذا الكرت 12 مرة -->
                     
-                    <!-- كرت -->
-                    <div class="tool-item-card" style="width: 250px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 15px; padding: 15px; text-align: right; flex-shrink: 0;">
-                        <img src="12.jpg" style="width: 100%; border-radius: 10px; margin-bottom: 10px;">
-                        <h3 style="color: #D4AF37; font-family: 'El Messiri'; font-size: 1.1rem; margin-bottom: 5px;">أداة 12</h3>
-                        <p style="color: #fff; font-family: 'Cairo'; font-size: 0.8rem; opacity: 0.6; margin-bottom: 10px;">وصف مختصر</p>
-                        <a href="#" style="color: #D4AF37; text-decoration: none; border-bottom: 1px dashed; font-size: 0.85rem; font-weight: bold;">اطلبِ الآن</a>
+                    <!-- مثال -->
+                    <div class="card">
+                        <img src="1.jpg">
+                        <h3>أداة 1</h3>
+                        <p>وصف مختصر</p>
                     </div>
 
-                    <div class="tool-item-card" style="width: 250px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 15px; padding: 15px; text-align: right; flex-shrink: 0;">
-                        <img src="1.jpg" style="width: 100%; border-radius: 10px; margin-bottom: 10px;">
-                        <h3 style="color: #D4AF37; font-family: 'El Messiri'; font-size: 1.1rem; margin-bottom: 5px;">أداة 1</h3>
-                        <p style="color: #fff; font-family: 'Cairo'; font-size: 0.8rem; opacity: 0.6; margin-bottom: 10px;">وصف مختصر</p>
-                        <a href="#" style="color: #D4AF37; text-decoration: none; border-bottom: 1px dashed; font-size: 0.85rem; font-weight: bold;">اطلبِ الآن</a>
+                    <div class="card">
+                        <img src="2.jpg">
+                        <h3>أداة 2</h3>
+                        <p>وصف مختصر</p>
                     </div>
 
-                    <div class="tool-item-card" style="width: 250px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 15px; padding: 15px; text-align: right; flex-shrink: 0;">
-                        <img src="2.jpg" style="width: 100%; border-radius: 10px; margin-bottom: 10px;">
-                        <h3 style="color: #D4AF37; font-family: 'El Messiri'; font-size: 1.1rem; margin-bottom: 5px;">أداة 2</h3>
-                        <p style="color: #fff; font-family: 'Cairo'; font-size: 0.8rem; opacity: 0.6; margin-bottom: 10px;">وصف مختصر</p>
-                        <a href="#" style="color: #D4AF37; text-decoration: none; border-bottom: 1px dashed; font-size: 0.85rem; font-weight: bold;">اطلبِ الآن</a>
+                    <div class="card">
+                        <img src="3.jpg">
+                        <h3>أداة 3</h3>
+                        <p>وصف مختصر</p>
+                    </div>
+
+                    <div class="card">
+                        <img src="4.jpg">
+                        <h3>أداة 4</h3>
+                        <p>وصف مختصر</p>
+                    </div>
+
+                    <div class="card">
+                        <img src="5.jpg">
+                        <h3>أداة 5</h3>
+                        <p>وصف مختصر</p>
+                    </div>
+
+                    <div class="card">
+                        <img src="6.jpg">
+                        <h3>أداة 6</h3>
+                        <p>وصف مختصر</p>
+                    </div>
+
+                    <div class="card">
+                        <img src="7.jpg">
+                        <h3>أداة 7</h3>
+                        <p>وصف مختصر</p>
+                    </div>
+
+                    <div class="card">
+                        <img src="8.jpg">
+                        <h3>أداة 8</h3>
+                        <p>وصف مختصر</p>
+                    </div>
+
+                    <div class="card">
+                        <img src="9.jpg">
+                        <h3>أداة 9</h3>
+                        <p>وصف مختصر</p>
+                    </div>
+
+                    <div class="card">
+                        <img src="10.jpg">
+                        <h3>أداة 10</h3>
+                        <p>وصف مختصر</p>
+                    </div>
+
+                    <div class="card">
+                        <img src="11.jpg">
+                        <h3>أداة 11</h3>
+                        <p>وصف مختصر</p>
+                    </div>
+
+                    <div class="card">
+                        <img src="12.jpg">
+                        <h3>أداة 12</h3>
+                        <p>وصف مختصر</p>
                     </div>
 
                 </div>
@@ -1715,39 +1770,55 @@
 
             <!-- سهم يسار -->
             <button onclick="slideTools(1)" type="button"
-                style="z-index: 99; flex-shrink: 0; background: none; border: 1px solid #D4AF37; color: #D4AF37; width: 40px; height: 40px; border-radius: 50%; cursor: pointer;">
+                style="z-index: 99; background: none; border: 1px solid #D4AF37; color: #D4AF37; width: 40px; height: 40px; border-radius: 50%; cursor: pointer;">
                 ◀
             </button>
 
         </div>
 
-        <div style="margin-top: 20px; text-align: center;">
-            <a href="https://evallsuccess.github.io/test-bundle.html"
-                style="background: linear-gradient(135deg, #D4AF37 0%, #F2D27D 50%, #B8891A 100%); color: #000; padding: 10px 30px; text-decoration: none; border-radius: 50px; font-family: 'Cairo'; font-weight: 800; display: inline-block; font-size: 0.9rem;">
-                صممي باقتكِ بنفسكِ
-            </a>
-        </div>
     </div>
 </section>
 
-<!-- الجافاسكربت -->
+<style>
+.card {
+    min-width: 250px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 15px;
+    padding: 15px;
+    color: white;
+    text-align: right;
+}
+.card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.card h3 {
+    color: #D4AF37;
+}
+.card p {
+    opacity: 0.6;
+}
+</style>
+
 <script>
-var offset = 0;
+let offset = 0;
 
 function slideTools(dir) {
-    var track = document.getElementById('toolsTrack');
-    var windowWidth = document.getElementById('sliderWindow').offsetWidth;
-    var trackWidth = track.scrollWidth;
-    var step = 265;
+    const track = document.getElementById('toolsTrack');
+    const windowWidth = document.getElementById('sliderWindow').offsetWidth;
+    const trackWidth = track.scrollWidth;
+
+    const step = 270;
 
     offset += dir * step;
 
-    var maxOffset = trackWidth - windowWidth;
+    const maxOffset = trackWidth - windowWidth;
 
-    if (offset > 0) offset = 0;
-    if (Math.abs(offset) > maxOffset) offset = -maxOffset;
+    if (offset < 0) offset = 0;
+    if (offset > maxOffset) offset = maxOffset;
 
-    track.style.transform = `translateX(${offset * -1}px)`;
+    track.style.transform = `translateX(${-offset}px)`;
 }
 </script>
   
