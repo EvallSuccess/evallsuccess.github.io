@@ -1,120 +1,302 @@
-<section style="padding: 50px 20px; background-color: #050507; direction: rtl;">
-    <div style="max-width: 1200px; margin: 0 auto;">
-        
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;">
-            
-            <div class="tool-card">
-                <img src="1.jpg">
-                <h3>أجندة إيفال الذكية (360)</h3>
-                <p>مع هدية: 40 تصميم غلاف للأجندة</p>
-                <div class="price">00 ر.س</div>
-                <a href="رابط_الطلب_هنا" class="order-btn">اطلبِ الآن</a>
-            </div>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أدوات إيفال الفردية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=El+Messiri:wght@700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* تثبيت الخلفية السوداء */
+        body {
+            background-color: #050507 !important;
+            margin: 0;
+            padding: 20px;
+            direction: rtl;
+        }
 
-            <div class="tool-card">
-                <img src="2.jpg">
-                <h3>خطة الـ 112 يوم</h3>
-                <p>خطة يومية تساعدك تلتزم وتنجز بدون ضغط</p>
-                <div class="price">00 ر.س</div>
-                <a href="رابط_الطلب_هنا" class="order-btn">اطلبِ الآن</a>
-            </div>
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding-top: 40px;
+        }
 
-            <div class="tool-card">
-                <img src="3.jpg">
-                <h3>رحلة تحوّل</h3>
-                <p>كتاب رقمي مع نسخة صوتية 3D</p>
-                <div class="price">00 ر.س</div>
-                <a href="رابط_الطلب_هنا" class="order-btn">اطلبِ الآن</a>
-            </div>
+        /* تنسيق العنوان: مطابق تماماً للصفحة الرئيسية */
+        .page-title {
+            font-family: 'El Messiri', serif !important;
+            color: #D4AF37;
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.2rem; 
+        }
 
-            <div class="tool-card">
-                <img src="4.jpg">
-                <h3>7 خطوات لتنظيم الوقت</h3>
-                <p>جداول عملية قابلة للطباعة</p>
-                <div class="price">00 ر.س</div>
-                <a href="رابط_الطلب_هنا" class="order-btn">اطلبِ الآن</a>
-            </div>
+        .page-title span {
+            color: #ffffff;
+        }
 
-            <div class="tool-card">
-                <img src="6.jpg">
-                <h3>أداة الامتنان الواعي</h3>
-                <p>لبرمجة نظرتك للحياة والرضا الداخلي</p>
-                <div class="price">00 ر.س</div>
-                <a href="رابط_الطلب_هنا" class="order-btn">اطلبِ الآن</a>
-            </div>
+        /* تنسيق المستطيلات النحيفة */
+        .product-rect {
+            display: flex;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            border-radius: 12px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            align-items: center;
+            height: 140px; /* ارتفاع الكمبيوتر */
+            transition: 0.3s;
+            text-decoration: none;
+        }
 
-            <div class="tool-card">
-                <img src="7.jpg">
-                <h3>مكتبة بودكاسات</h3>
-                <p>لبناء عقلك ومستقبلك (40 حلقة)</p>
-                <div class="price">00 ر.س</div>
-                <a href="رابط_الطلب_هنا" class="order-btn">اطلبِ الآن</a>
-            </div>
+        .product-rect:hover {
+            border-color: #D4AF37;
+            transform: translateY(-2px);
+        }
 
-            <div class="tool-card">
-                <img src="8.jpg">
-                <h3>7 تحديات للاهتمام بالنفس</h3>
-                <p>يشمل مراجعة وتحليل لنتائجك من الفريق</p>
-                <div class="price">00 ر.س</div>
-                <a href="رابط_الطلب_هنا" class="order-btn">اطلبِ الآن</a>
-            </div>
+        /* معلومات المنتج */
+        .product-info {
+            flex: 1;
+            padding: 0 25px;
+            text-align: right;
+        }
 
-            <div class="tool-card">
-                <img src="9.jpg">
-                <h3>6 جلسات ترددات ذهنية</h3>
-                <p>لتهدئة العقل وتنظيم الأفكار</p>
-                <div class="price">00 ر.س</div>
-                <a href="رابط_الطلب_هنا" class="order-btn">اطلبِ الآن</a>
-            </div>
+        .product-info h3 {
+            font-family: 'El Messiri', serif;
+            color: #D4AF37;
+            font-size: 1.1rem;
+            margin: 0 0 5px 0;
+        }
 
-            <div class="tool-card">
-                <img src="10.jpg">
-                <h3>7 تمارين لتنشيط العقل</h3>
-                <p>يشمل مراجعة وتحليل لنتائجك من الفريق</p>
-                <div class="price">00 ر.س</div>
-                <a href="رابط_الطلب_هنا" class="order-btn">اطلبِ الآن</a>
-            </div>
+        .product-info p {
+            color: #b0b0b0;
+            font-family: 'Cairo', sans-serif;
+            font-size: 0.8rem;
+            line-height: 1.4;
+            margin: 0 0 8px 0;
+        }
 
-            <div class="tool-card">
-                <img src="11.jpg">
-                <h3>14 تحدي للعادات السلبية</h3>
-                <p>يشمل مراجعة وتحليل لنتائجك من الفريق</p>
-                <div class="price">00 ر.س</div>
-                <a href="رابط_الطلب_هنا" class="order-btn">اطلبِ الآن</a>
-            </div>
+        .price-tag {
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 0.95rem;
+            display: block;
+            margin-bottom: 5px;
+        }
 
-            <div class="tool-card">
-                <img src="12.jpg">
-                <h3>خدمة الدعم (لمدة شهر)</h3>
-                <p>متابعة وتوجيه مباشر مع فريق إيفال</p>
-                <div class="price">00 ر.س</div>
-                <a href="رابط_الطلب_هنا" class="order-btn">اطلبِ الآن</a>
-            </div>
+        .buy-link {
+            color: #D4AF37;
+            font-size: 0.85rem;
+            font-weight: 900;
+            border-bottom: 1px solid #D4AF37;
+            padding-bottom: 1px;
+            display: inline-block;
+        }
 
+        /* الصورة المصغرة على اليسار */
+        .product-img-wrapper {
+            width: 140px;
+            height: 140px;
+            flex-shrink: 0;
+        }
+
+        .product-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* التعديل الجذري لضمان التناسق على الموبايل */
+        @media (max-width: 768px) {
+            .container {
+                padding-top: 20px;
+            }
+            .page-title {
+                font-size: 1.4rem !important; 
+                margin-bottom: 30px;
+            }
+            .product-rect {
+                height: 110px; /* تقليل الارتفاع في الموبايل ليكون أنحف */
+                margin-bottom: 12px;
+            }
+            .product-info {
+                padding: 0 15px; /* تقليل الفراغات الداخلية */
+            }
+            .product-info h3 {
+                font-size: 0.95rem; /* تصغير العنوان */
+            }
+            .product-info p {
+                font-size: 0.75rem; /* تصغير الوصف */
+                line-height: 1.3;
+                margin-bottom: 5px;
+                display: -webkit-box;
+                -webkit-line-clamp: 2; /* عرض سطرين فقط */
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+            .price-tag {
+                font-size: 0.85rem;
+                margin-bottom: 3px;
+            }
+            .buy-link {
+                font-size: 0.75rem;
+            }
+            .product-img-wrapper {
+                width: 100px; /* تصغير عرض الصورة في الموبايل */
+                height: 110px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="page-title">أدوات إيفال <span>الفردية</span></h1>
+
+        <div class="product-rect">
+            <div class="product-info">
+                <h3>اسم الأداة 12</h3>
+                <p>وصف مختصر جداً للأداة رقم 12 يوضح القيمة المضافة لها.</p>
+                <span class="price-tag">49 ر.س</span>
+                <span class="buy-link">اطلبي الآن</span>
+            </div>
+            <div class="product-img-wrapper">
+                <img src="12.jpg" alt="Tool 12">
+            </div>
         </div>
 
-        <div style="margin-top: 50px; text-align: center;">
-            <a href="https://evallsuccess.github.io/test-bundle.html" style="background: linear-gradient(135deg, #D4AF37 0%, #F2D27D 50%, #B8891A 100%); color: #000; padding: 16px 50px; text-decoration: none; border-radius: 50px; font-family: 'Cairo'; font-weight: 800; display: inline-block; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(212,175,55,0.3);">
-                صممي باقتكِ بنفسكِ واحصلِ على خصم إضافي
-            </a>
+        <div class="product-rect">
+            <div class="product-info">
+                <h3>اسم الأداة 1</h3>
+                <p>وصف سريع وجذاب للأداة رقم 1 لزيادة اهتمام القارئة.</p>
+                <span class="price-tag">49 ر.س</span>
+                <span class="buy-link">اطلبي الآن</span>
+            </div>
+            <div class="product-img-wrapper">
+                <img src="1.jpg" alt="Tool 1">
+            </div>
         </div>
+
+        <div class="product-rect">
+            <div class="product-info">
+                <h3>اسم الأداة 2</h3>
+                <p>وصف سريع وجذاب للأداة رقم 2 لزيادة اهتمام القارئة.</p>
+                <span class="price-tag">49 ر.س</span>
+                <span class="buy-link">اطلبي الآن</span>
+            </div>
+            <div class="product-img-wrapper">
+                <img src="2.jpg" alt="Tool 2">
+            </div>
+        </div>
+
+        <div class="product-rect">
+            <div class="product-info">
+                <h3>اسم الأداة 3</h3>
+                <p>وصف سريع وجذاب للأداة رقم 3 لزيادة اهتمام القارئة.</p>
+                <span class="price-tag">49 ر.س</span>
+                <span class="buy-link">اطلبي الآن</span>
+            </div>
+            <div class="product-img-wrapper">
+                <img src="3.jpg" alt="Tool 3">
+            </div>
+        </div>
+
+        <div class="product-rect">
+            <div class="product-info">
+                <h3>اسم الأداة 4</h3>
+                <p>وصف سريع وجذاب للأداة رقم 4 لزيادة اهتمام القارئة.</p>
+                <span class="price-tag">49 ر.س</span>
+                <span class="buy-link">اطلبي الآن</span>
+            </div>
+            <div class="product-img-wrapper">
+                <img src="4.jpg" alt="Tool 4">
+            </div>
+        </div>
+
+        <div class="product-rect">
+            <div class="product-info">
+                <h3>اسم الأداة 5</h3>
+                <p>وصف سريع وجذاب للأداة رقم 5 لزيادة اهتمام القارئة.</p>
+                <span class="price-tag">49 ر.س</span>
+                <span class="buy-link">اطلبي الآن</span>
+            </div>
+            <div class="product-img-wrapper">
+                <img src="5.jpg" alt="Tool 5">
+            </div>
+        </div>
+
+        <div class="product-rect">
+            <div class="product-info">
+                <h3>اسم الأداة 6</h3>
+                <p>وصف سريع وجذاب للأداة رقم 6 لزيادة اهتمام القارئة.</p>
+                <span class="price-tag">49 ر.س</span>
+                <span class="buy-link">اطلبي الآن</span>
+            </div>
+            <div class="product-img-wrapper">
+                <img src="6.jpg" alt="Tool 6">
+            </div>
+        </div>
+
+        <div class="product-rect">
+            <div class="product-info">
+                <h3>اسم الأداة 7</h3>
+                <p>وصف سريع وجذاب للأداة رقم 7 لزيادة اهتمام القارئة.</p>
+                <span class="price-tag">49 ر.س</span>
+                <span class="buy-link">اطلبي الآن</span>
+            </div>
+            <div class="product-img-wrapper">
+                <img src="7.jpg" alt="Tool 7">
+            </div>
+        </div>
+
+        <div class="product-rect">
+            <div class="product-info">
+                <h3>اسم الأداة 8</h3>
+                <p>وصف سريع وجذاب للأداة رقم 8 لزيادة اهتمام القارئة.</p>
+                <span class="price-tag">49 ر.س</span>
+                <span class="buy-link">اطلبي الآن</span>
+            </div>
+            <div class="product-img-wrapper">
+                <img src="8.jpg" alt="Tool 8">
+            </div>
+        </div>
+
+        <div class="product-rect">
+            <div class="product-info">
+                <h3>اسم الأداة 9</h3>
+                <p>وصف سريع وجذاب للأداة رقم 9 لزيادة اهتمام القارئة.</p>
+                <span class="price-tag">49 ر.س</span>
+                <span class="buy-link">اطلبي الآن</span>
+            </div>
+            <div class="product-img-wrapper">
+                <img src="9.jpg" alt="Tool 9">
+            </div>
+        </div>
+
+        <div class="product-rect">
+            <div class="product-info">
+                <h3>اسم الأداة 10</h3>
+                <p>وصف سريع وجذاب للأداة رقم 10 لزيادة اهتمام القارئة.</p>
+                <span class="price-tag">49 ر.س</span>
+                <span class="buy-link">اطلبي الآن</span>
+            </div>
+            <div class="product-img-wrapper">
+                <img src="10.jpg" alt="Tool 10">
+            </div>
+        </div>
+
+        <div class="product-rect">
+            <div class="product-info">
+                <h3>اسم الأداة 11</h3>
+                <p>تفاصيل بسيطة عن كيفية استخدام هذه الأداة في حياتك اليومية.</p>
+                <span class="price-tag">49 ر.س</span>
+                <span class="buy-link">اطلبي الآن</span>
+            </div>
+            <div class="product-img-wrapper">
+                <img src="11.jpg" alt="Tool 11">
+            </div>
+        </div>
+
     </div>
-</section>
 
-<style>
-    .tool-card {
-        background: rgba(255,255,255,0.05); 
-        border: 1px solid rgba(212,175,55,0.2); 
-        border-radius: 20px; 
-        padding: 20px; 
-        text-align: center;
-        transition: transform 0.3s ease;
-    }
-    .tool-card:hover { transform: translateY(-5px); border-color: #D4AF37; }
-    .tool-card img { width: 100%; border-radius: 15px; margin-bottom: 15px; }
-    .tool-card h3 { color: #D4AF37; font-family: 'El Messiri'; font-size: 1.2rem; margin-bottom: 10px; }
-    .tool-card p { color: #fff; font-family: 'Cairo'; font-size: 0.85rem; opacity: 0.7; min-height: 45px; margin-bottom: 15px; }
-    .price { color: #ffffff; font-family: 'Cairo'; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px; }
-    .order-btn { display: block; background: #D4AF37; color: #000; padding: 10px; text-decoration: none; border-radius: 10px; font-family: 'Cairo'; font-weight: bold; transition: 0.3s; }
-    .order-btn:hover { background: #fff; }
-</style>
+</body>
+</html>
