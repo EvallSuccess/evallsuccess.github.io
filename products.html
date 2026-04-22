@@ -19,9 +19,10 @@
             max-width: 800px;
             margin: 0 auto;
             padding-top: 40px;
+            padding-bottom: 60px; /* مساحة إضافية للزر في الأسفل */
         }
 
-        /* تنسيق العنوان: مطابق تماماً للصفحة الرئيسية */
+        /* تنسيق العنوان الرئيسي */
         .page-title {
             font-family: 'El Messiri', serif !important;
             color: #D4AF37;
@@ -34,7 +35,7 @@
             color: #ffffff;
         }
 
-        /* تنسيق المستطيلات النحيفة */
+        /* تنسيق المستطيلات */
         .product-rect {
             display: flex;
             background: rgba(255, 255, 255, 0.03);
@@ -43,7 +44,7 @@
             margin-bottom: 15px;
             overflow: hidden;
             align-items: center;
-            height: 140px; /* ارتفاع الكمبيوتر */
+            height: 140px;
             transition: 0.3s;
             text-decoration: none;
         }
@@ -53,7 +54,6 @@
             transform: translateY(-2px);
         }
 
-        /* معلومات المنتج */
         .product-info {
             flex: 1;
             padding: 0 25px;
@@ -75,14 +75,16 @@
             margin: 0 0 8px 0;
         }
 
+        /* حجم السعر */
         .price-tag {
             color: #ffffff;
             font-weight: 700;
-            font-size: 0.95rem;
+            font-size: 1.15rem;
             display: block;
             margin-bottom: 5px;
         }
 
+        /* رابط اطلب الآن */
         .buy-link {
             color: #D4AF37;
             font-size: 0.85rem;
@@ -90,9 +92,10 @@
             border-bottom: 1px solid #D4AF37;
             padding-bottom: 1px;
             display: inline-block;
+            text-decoration: none;
+            cursor: pointer;
         }
 
-        /* الصورة المصغرة على اليسار */
         .product-img-wrapper {
             width: 140px;
             height: 140px;
@@ -105,45 +108,37 @@
             object-fit: cover;
         }
 
-        /* التعديل الجذري لضمان التناسق على الموبايل */
+        /* زر صمم باقتك في الأسفل بنفس فونت العنوان */
+        .bundle-button {
+            display: block;
+            background: linear-gradient(45deg, #D4AF37, #f2d06b);
+            color: #050507;
+            text-align: center;
+            padding: 18px;
+            border-radius: 12px;
+            font-family: 'El Messiri', serif !important; /* نفس فونت العنوان */
+            font-weight: 900;
+            text-decoration: none;
+            margin-top: 40px;
+            font-size: 1.3rem;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+        }
+
+        .bundle-button:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+        }
+
         @media (max-width: 768px) {
-            .container {
-                padding-top: 20px;
-            }
-            .page-title {
-                font-size: 1.4rem !important; 
-                margin-bottom: 30px;
-            }
-            .product-rect {
-                height: 110px; /* تقليل الارتفاع في الموبايل ليكون أنحف */
-                margin-bottom: 12px;
-            }
-            .product-info {
-                padding: 0 15px; /* تقليل الفراغات الداخلية */
-            }
-            .product-info h3 {
-                font-size: 0.95rem; /* تصغير العنوان */
-            }
-            .product-info p {
-                font-size: 0.75rem; /* تصغير الوصف */
-                line-height: 1.3;
-                margin-bottom: 5px;
-                display: -webkit-box;
-                -webkit-line-clamp: 2; /* عرض سطرين فقط */
-                -webkit-box-orient: vertical;
-                overflow: hidden;
-            }
-            .price-tag {
-                font-size: 0.85rem;
-                margin-bottom: 3px;
-            }
-            .buy-link {
-                font-size: 0.75rem;
-            }
-            .product-img-wrapper {
-                width: 100px; /* تصغير عرض الصورة في الموبايل */
-                height: 110px;
-            }
+            .page-title { font-size: 1.4rem !important; }
+            .bundle-button { font-size: 1.1rem; padding: 15px; }
+            .product-rect { height: 110px; }
+            .product-info { padding: 0 15px; }
+            .product-info h3 { font-size: 0.95rem; }
+            .product-info p { font-size: 0.75rem; -webkit-line-clamp: 2; }
+            .price-tag { font-size: 1rem; }
+            .product-img-wrapper { width: 100px; height: 110px; }
         }
     </style>
 </head>
@@ -157,7 +152,7 @@
                 <h3>دعم متواصل (لمدة شهر)</h3>
                 <p>تطوير الذات - دعم النفسي - تقدم المهني</p>
                 <span class="price-tag">46$</span>
-                <span class="buy-link">اطلب الآن</span>
+                <a href="#" class="buy-link">اطلب الآن</a>
             </div>
             <div class="product-img-wrapper">
                 <img src="12(1).jpg" alt="Tool 12">
@@ -169,7 +164,7 @@
                 <h3>اجندة ايفال الذكية (360 يوم)</h3>
                 <p>مع هدية: 40 تصميم غلاف للأجندة</p>
                 <span class="price-tag">35$</span>
-                <span class="buy-link">اطلب الآن</span>
+                <a href="#" class="buy-link">اطلب الآن</a>
             </div>
             <div class="product-img-wrapper">
                 <img src="1(1).jpg" alt="Tool 1">
@@ -179,9 +174,9 @@
         <div class="product-rect">
             <div class="product-info">
                 <h3>خطة الـ 112 يوم</h3>
-                <p>خطة يومية تساعدك تلتزم وتنجز بدون ضغط<</p>
+                <p>خطة يومية تساعدك تلتزم وتنجز بدون ضغط</p>
                 <span class="price-tag">13$</span>
-                <span class="buy-link">اطلب الآن</span>
+                <a href="#" class="buy-link">اطلب الآن</a>
             </div>
             <div class="product-img-wrapper">
                 <img src="2(1).jpg" alt="Tool 2">
@@ -193,7 +188,7 @@
                 <h3>رحلة تحوّل</h3>
                 <p>كتاب رقمي مع نسخة صوتية "ثلاثية الأبعاد"</p>
                 <span class="price-tag">17$</span>
-                <span class="buy-link">اطلب الآن</span>
+                <a href="#" class="buy-link">اطلب الآن</a>
             </div>
             <div class="product-img-wrapper">
                 <img src="3(1).jpg" alt="Tool 3">
@@ -205,7 +200,7 @@
                 <h3>7 خطوات لتنظيم الوقت</h3>
                 <p>نظام عملي لاستعادة السيطرة على وقتك</p>
                 <span class="price-tag">9$</span>
-                <span class="buy-link">اطلب الآن</span>
+                <a href="#" class="buy-link">اطلب الآن</a>
             </div>
             <div class="product-img-wrapper">
                 <img src="4(1).jpg" alt="Tool 4">
@@ -217,7 +212,7 @@
                 <h3>أداة الامتنان الواعي</h3>
                 <p>لبرمجة نظرتك للحياة والرضا الداخلي</p>
                 <span class="price-tag">12$</span>
-                <span class="buy-link">اطلب الآن</span>
+                <a href="#" class="buy-link">اطلب الآن</a>
             </div>
             <div class="product-img-wrapper">
                 <img src="6(1).jpg" alt="Tool 5">
@@ -226,10 +221,10 @@
 
         <div class="product-rect">
             <div class="product-info">
-                <h3>مكتبة بودكاست  (40 حلقة</h3>
+                <h3>مكتبة بودكاست  (40 حلقة)</h3>
                 <p>لبناء عقلك ومستقبلك</p>
                 <span class="price-tag">14$</span>
-                <span class="buy-link">اطلب الآن</span>
+                <a href="#" class="buy-link">اطلب الآن</a>
             </div>
             <div class="product-img-wrapper">
                 <img src="7(1).jpg" alt="Tool 6">
@@ -241,7 +236,7 @@
                 <h3>7 تحديات لرفع لاهتمام بالنفس </h3>
                 <p>يشمل مراجعة وتحليل لنتائجك من قبل فريق إيفال</p>
                 <span class="price-tag">27$</span>
-                <span class="buy-link">اطلب الآن</span>
+                <a href="#" class="buy-link">اطلب الآن</a>
             </div>
             <div class="product-img-wrapper">
                 <img src="8(1).jpg" alt="Tool 7">
@@ -253,7 +248,7 @@
                 <h3>6 جلسات ترددات ذهنية</h3>
                 <p>لتهدئة العقل وتنظيم الأفكار</p>
                 <span class="price-tag">12$</span>
-                <span class="buy-link">اطلب الآن</span>
+                <a href="#" class="buy-link">اطلب الآن</a>
             </div>
             <div class="product-img-wrapper">
                 <img src="9(1).jpg" alt="Tool 8">
@@ -265,7 +260,7 @@
                 <h3>7 تمارين لتنشيط العقل</h3>
                 <p>يشمل مراجعة وتحليل لنتائجك من قبل فريق إيفال</p>
                 <span class="price-tag">27$</span>
-                <span class="buy-link">اطلب الآن</span>
+                <a href="#" class="buy-link">اطلب الآن</a>
             </div>
             <div class="product-img-wrapper">
                 <img src="10(1).jpg" alt="Tool 9">
@@ -277,12 +272,16 @@
                 <h3>14 تحدي للعادات السلبية</h3>
                 <p>يشمل مراجعة وتحليل لنتائجك من قبل فريق إيفال</p>
                 <span class="price-tag">29$</span>
-                <span class="buy-link">اطلب الآن</span>
+                <a href="#" class="buy-link">اطلب الآن</a>
             </div>
             <div class="product-img-wrapper">
                 <img src="11(1).jpg" alt="Tool 10">
             </div>
         </div>
+
+        <a href="https://evallsuccess.github.io/test-bundle.html" class="bundle-button">
+            صمم باقتك بنفسك واحصل على خصم 15%
+        </a>
 
     </div>
 
