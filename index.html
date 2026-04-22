@@ -1651,10 +1651,9 @@
   <div class="hr" aria-hidden="true"></div>
 
 <style>
-    /* 1. استدعاء الخط العريض جداً */
-    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@900&family=El+Messiri:wght@700&display=swap');
+    /* 1. استدعاء الخطوط المطلوبة */
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=El+Messiri:wght@700;900&display=swap');
 
-    /* 2. تنسيق العنوان والحجم للموبايل والكمبيوتر */
     .eval-main-title {
         font-family: 'El Messiri', serif !important;
         color: #D4AF37;
@@ -1662,11 +1661,17 @@
         margin-bottom: 15px;
     }
 
-    /* 3. تنسيق الأزرار بالخط العريض جداً (نفس صورتك بالضبط) */
+    /* 2. تنسيق الأزرار (تم تغيير الفونت هنا ليكون نفس العنوان) */
     .eval-btn {
-        font-family: 'Cairo', sans-serif !important;
-        font-weight: 900 !important; /* عريض جداً */
-        font-size: 1rem !important;
+        /* >>> تغيير الفونت من هنا <<< */
+        font-family: 'El Messiri', serif !important; 
+        
+        /* >>> تغيير سُمك الخط من هنا (900 هو الأعرض) <<< */
+        font-weight: 900 !important; 
+        
+        /* >>> تغيير حجم الخط من هنا <<< */
+        font-size: 1.1rem !important; 
+
         text-decoration: none !important;
         padding: 14px 35px;
         border-radius: 50px;
@@ -1676,11 +1681,12 @@
         transition: 0.3s ease;
     }
 
-    /* 4. تعديلات الموبايل */
+    /* 3. تعديلات الموبايل */
     @media (max-width: 768px) {
         .eval-main-title { font-size: 1.4rem !important; }
         .eval-desc { font-size: 0.85rem !important; }
-        .eval-btn { font-size: 0.9rem !important; padding: 12px 25px !important; }
+        /* تصغير حجم الخط في الموبايل ليناسب الزر */
+        .eval-btn { font-size: 1rem !important; padding: 12px 25px !important; }
     }
 </style>
 
