@@ -26,29 +26,26 @@
             padding: 20px; 
         }
 
-        /* تنسيق العنوان */
         .page-title {
             font-family: 'El Messiri', serif !important;
             color: #D4AF37;
             text-align: center;
-            margin-bottom: 2px; /* مسافة صغيرة جداً تحت العنوان */
+            margin-bottom: 2px; 
             font-size: 2.2rem; 
         }
 
         .page-title span { color: #ffffff; }
 
-        /* تنسيق الجملة التفصيلية */
         .eval-desc {
             font-family: 'Cairo', sans-serif;
             color: #ffffff;
             opacity: 0.9;
             text-align: center;
-            margin-top: 0; /* إلغاء المسافة العلوية للالتصاق بالعنوان */
+            margin-top: 0; 
             margin-bottom: 45px;
             font-size: 1.1rem;
         }
 
-        /* تعديل جملة الخصم: تم تقليل الحجم بـ 0.25 ليصبح 1.05rem */
         .gold-highlight {
             display: inline; 
             font-size: 1.2rem; 
@@ -97,11 +94,25 @@
         }
 
         .tool-text-wrapper { text-align: right; flex: 1; }
-        .tool-name { color: #fff; font-weight: bold; font-family: 'El Messiri'; font-size: 1rem; margin-bottom: 3px; }
-        .tool-desc { color: #b0b0b0; font-size: 0.75rem; font-family: 'Cairo'; margin-bottom: 5px; }
-        .tool-price { color: #D4AF37; font-weight: 900; font-family: 'Cairo'; font-size: 1.1rem; }
 
-        /* صندوق الملخص */
+        .tool-name { 
+            color: #D4AF37; 
+            font-weight: bold; 
+            font-family: 'El Messiri'; 
+            font-size: 1rem; 
+            margin-bottom: 3px; 
+        }
+
+        .tool-desc { color: #b0b0b0; font-size: 0.75rem; font-family: 'Cairo'; margin-bottom: 5px; }
+
+        /* تغيير لون السعر للأبيض */
+        .tool-price { 
+            color: #ffffff; 
+            font-weight: 900; 
+            font-family: 'Cairo'; 
+            font-size: 1.1rem; 
+        }
+
         #summary-box { 
             display: none; 
             background: rgba(255, 255, 255, 0.02); 
@@ -130,7 +141,7 @@
         
         #total-new { 
             color: #D4AF37; 
-            font-size: 1.1rem; 
+            font-size: 1.5rem; 
             font-weight: 550; 
             margin: 0 0 15px 0; 
             font-family: 'Cairo';
@@ -156,19 +167,16 @@
             box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
         }
 
-        /* تعديلات الموبايل */
         @media (max-width: 768px) { 
             .page-title { font-size: 1.4rem !important; } 
             .eval-desc { font-size: 0.90rem !important; }
-            /* الحجم على الموبايل ليكون متناسقاً أيضاً */
             .gold-highlight { font-size: 1rem; } 
             .eval-grid { grid-template-columns: 1fr; } 
             #summary-box { padding: 12px; margin-top: 20px; }
             #total-new { 
                 font-size: 1.1rem; 
-                font-weight: 500; /* أضيفي هذا السطر هنا لتخفيف العرض */
+                font-weight: 600; 
             }
-            
             .btn-send { font-size: 0.95rem; min-width: 100%; padding: 10px; }
         }
     </style>
