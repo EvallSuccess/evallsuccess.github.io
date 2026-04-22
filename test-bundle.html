@@ -4,60 +4,205 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>بناء الباقة المخصصة - إيفال</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=El+Messiri:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="icon" type="image/png" href="minilogo.png">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=El+Messiri:wght@700;900&display=swap" rel="stylesheet">
+    
     <style>
-        body { background-color: #000; margin: 0; padding: 0; color: #fff; font-family: 'El Messiri', 'Cairo', sans-serif; }
-        .eval-container { max-width: 1100px; margin: 40px auto; background: #000; padding: 20px; border-radius: 25px; border: 1px solid #d4a373; }
-        .eval-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 15px; margin-bottom: 30px; }
-        @media (max-width: 600px) { .eval-grid { grid-template-columns: 1fr; } }
-        .tool-item { background: #0a0a0a; padding: 20px; border-radius: 12px; border: 1px solid #333; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: 0.3s; }
-        .tool-item:hover { border-color: #d4a373; }
-        .tool-item.selected { border-color: #d4a373; background: #1a130a; }
-        .tool-item input[type="checkbox"] { width: 25px; height: 25px; accent-color: #d4a373; pointer-events: none; }
-        #summary-box { display: none; background: #0c0c0c; padding: 30px; border-radius: 20px; border: 2px dashed #d4a373; text-align: center; margin-top: 30px; }
-        .btn-send { background: #d4a373; color: #000; padding: 18px 50px; border: none; border-radius: 50px; font-weight: bold; cursor: pointer; font-size: 1.2rem; width: 100%; max-width: 400px; transition: 0.3s; }
+        body { 
+            background-color: #050507 !important; 
+            margin: 0; 
+            padding: 20px; 
+            color: #fff; 
+            font-family: 'Cairo', sans-serif; 
+            direction: rtl;
+        }
+
+        .eval-container { 
+            max-width: 1100px; 
+            margin: 40px auto; 
+            background: transparent; 
+            padding: 20px; 
+        }
+
+        /* تنسيق العنوان والجملة التفصيلية */
+        .page-title {
+            font-family: 'El Messiri', serif !important;
+            color: #D4AF37;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2.2rem; 
+        }
+
+        .page-title span { color: #ffffff; }
+
+        .eval-desc {
+            font-family: 'Cairo', sans-serif;
+            color: #ffffff;
+            opacity: 0.8;
+            text-align: center;
+            margin-bottom: 45px;
+            font-size: 1.1rem;
+        }
+
+        .gold-highlight {
+            color: #D4AF37 !important;
+            font-weight: bold;
+        }
+
+        /* تنسيق شبكة الأدوات */
+        .eval-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+            gap: 15px; 
+            margin-bottom: 30px; 
+        }
+
+        .tool-item { 
+            background: rgba(255, 255, 255, 0.03); 
+            padding: 20px; 
+            border-radius: 12px; 
+            border: 1px solid rgba(212, 175, 55, 0.15); 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            cursor: pointer; 
+            transition: 0.3s; 
+        }
+
+        .tool-item:hover { 
+            border-color: #D4AF37; 
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        .tool-item.selected { 
+            border-color: #D4AF37; 
+            background: rgba(212, 175, 55, 0.1); 
+        }
+
+        .tool-item input[type="checkbox"] { 
+            width: 20px; 
+            height: 20px; 
+            accent-color: #D4AF37; 
+            pointer-events: none; 
+            margin-right: 15px;
+        }
+
+        .tool-text-wrapper { text-align: right; flex: 1; }
+        .tool-name { color: #fff; font-weight: bold; font-family: 'El Messiri'; font-size: 1rem; margin-bottom: 3px; }
+        .tool-desc { color: #b0b0b0; font-size: 0.75rem; font-family: 'Cairo'; margin-bottom: 5px; }
+        .tool-price { color: #D4AF37; font-weight: 900; font-family: 'Cairo'; font-size: 1.1rem; }
+
+        /* صندوق الملخص المتراص */
+        #summary-box { 
+            display: none; 
+            background: rgba(255, 255, 255, 0.02); 
+            padding: 15px; 
+            border-radius: 12px; 
+            border: 1px dashed rgba(212, 175, 55, 0.4); 
+            text-align: center; 
+            margin-top: 25px; 
+            animation: fadeIn 0.5s ease;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        #total-old { 
+            color: #ffffff; 
+            font-size: 0.9rem; 
+            margin: 0 0 2px 0; 
+            text-decoration: line-through; 
+            opacity: 0.7;
+            font-family: 'Cairo';
+        }
+        
+        #total-new { 
+            color: #D4AF37; 
+            font-size: 1.4rem; 
+            font-weight: 900; 
+            margin: 0 0 15px 0; 
+            font-family: 'Cairo';
+        }
+
+        .btn-send { 
+            background: linear-gradient(45deg, #D4AF37, #f2d06b); 
+            color: #050507; 
+            padding: 12px 30px; 
+            border: none; 
+            border-radius: 8px; 
+            font-family: 'El Messiri';
+            font-weight: 900; 
+            cursor: pointer; 
+            font-size: 1rem; 
+            width: auto;
+            min-width: 250px;
+            transition: 0.3s; 
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+        }
+
+        .btn-send:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        /* تعديلات الموبايل */
+        @media (max-width: 768px) { 
+            .page-title { font-size: 1.4rem !important; } 
+            .eval-desc { font-size: 0.85rem !important; }
+            .eval-grid { grid-template-columns: 1fr; } 
+            #summary-box { padding: 12px; margin-top: 20px; }
+            #total-new { font-size: 1.2rem; }
+            .btn-send { font-size: 0.95rem; min-width: 100%; padding: 10px; }
+        }
     </style>
 </head>
 <body>
 
 <div class="eval-container">
-    <div style="text-align: center; margin-bottom: 35px;">
-        <h2 style="color: #d4a373; font-size: 2.2rem; margin-bottom: 10px;">صمّم باقتك الخاصة من إيفال</h2>
-        <p style="color: #eee;">اختر أداتين أو أكثر واحصل على <span style="color: #d4a373; font-weight: bold;">خصم 15%</span></p>
+    <div style="text-align: center;">
+        <h1 class="page-title">صمّم باقتك <span>الخاصة</span></h1>
+        <p class="eval-desc">اختر أداتين أو أكثر واحصل على <span class="gold-highlight">خصم 15%</span></p>
     </div>
 
     <div id="bundle-grid" class="eval-grid"></div>
 
     <div id="summary-box">
-        <p id="total-old" style="text-decoration: line-through; color: #777; font-size: 1.1rem; margin-bottom: 5px;"></p>
-        <p id="total-new" style="color: #d4a373; font-size: 2rem; font-weight: bold; margin-bottom: 25px;"></p>
+        <p id="total-old"></p>
+        <p id="total-new"></p>
         <button class="btn-send" onclick="sendFinalEmail()">إرسال طلب الباقة المخصصة</button>
     </div>
 </div>
 
 <script>
-// القائمة تبدأ الآن بخدمة الدعم
 const evalStore = [
-    { name: "خدمة الدعم (لمدة شهر)", price: 46 },
-    { name: "اجندة ايفال الذكية (360 يوم) + هدية", price: 35 },
-    { name: "رحلة تحوّل (كتاب رقمي مع نسخة صوتية)", price: 17 },
-    { name: "خطة لـ112 يوم", price: 13 },
-    { name: "7 خطوات وجداول لتنظيم الوقت", price: 9 },
-    { name: "اداة الامتنان الواعي", price: 12 },
-    { name: "مكتبة بودكاست (40 حلقة)", price: 14 },
-    { name: "7 تحديات لتعزيز ورفع الاهتمام بالنفس", price: 27 },
-    { name: "6 جلسات ترددات ذهنية ", price: 12 },
-    { name: "7 تمارين لتنشيط العقل ورفع التركيز", price: 27 },
-    { name: "14 بطاقة تحدي للتخلص من العادات السلبية", price: 29 }
+    { name: "خدمة الدعم (لمدة شهر)", desc: "تطوير الذات - دعم النفسي - تقدم المهني", price: 46 },
+    { name: "اجندة ايفال الذكية (360 يوم)", desc: "مع هدية: 40 تصميم غلاف للأجندة", price: 35 },
+    { name: "رحلة تحوّل", desc: "كتاب رقمي مع نسخة صوتية ثنائية الأبعاد", price: 17 },
+    { name: "خطة لـ112 يوم", desc: "خطة يومية تساعدك تلتزم وتنجز بدون ضغط", price: 13 },
+    { name: "7 خطوات لتنظيم الوقت", desc: "نظام عملي لاستعادة السيطرة على وقتك", price: 9 },
+    { name: "اداة الامتنان الواعي", desc: "لبرمجة نظرتك للحياة والرضا الداخلي", price: 12 },
+    { name: "مكتبة بودكاست (40 حلقة)", desc: "لبناء عقلك ومستقبلك", price: 14 },
+    { name: "7 تحديات للاهتمام بالنفس", desc: "يشمل مراجعة وتحليل لنتائجك من قبل الفريق", price: 27 },
+    { name: "6 جلسات ترددات ذهنية", desc: "لتهدئة العقل وتنظيم الأفكار", price: 12 },
+    { name: "7 تمارين لتنشيط العقل", desc: "يشمل مراجعة وتحليل لنتائجك من قبل الفريق", price: 27 },
+    { name: "14 تحدي للعادات السلبية", desc: "يشمل مراجعة وتحليل لنتائجك من قبل الفريق", price: 29 }
 ];
 
 const grid = document.getElementById('bundle-grid');
 evalStore.forEach((item, i) => {
     grid.innerHTML += `
         <div class="tool-item" id="item-${i}" onclick="toggleSelect(${i})">
-            <div style="text-align: right;">
-                <div style="color: #fff; font-weight: bold;">${item.name}</div>
-                <div style="color: #d4a373; font-weight: bold;">$${item.price}</div>
+            <div class="tool-text-wrapper">
+                <div class="tool-name">${item.name}</div>
+                <div class="tool-desc">${item.desc}</div>
+                <div class="tool-price">$${item.price}</div>
             </div>
             <input type="checkbox" id="check-${i}">
         </div>
@@ -75,7 +220,11 @@ function toggleSelect(i) {
 function calculate() {
     const selected = document.querySelectorAll('input[type="checkbox"]:checked');
     let subtotal = 0;
-    selected.forEach(s => subtotal += parseFloat(s.parentElement.querySelector('div div:last-child').innerText.replace('$', '')));
+    selected.forEach(s => {
+        const priceText = s.parentElement.querySelector('.tool-price').innerText;
+        subtotal += parseFloat(priceText.replace('$', ''));
+    });
+
     const box = document.getElementById('summary-box');
     if (selected.length > 0) {
         box.style.display = 'block';
@@ -91,7 +240,9 @@ function calculate() {
 
 function sendFinalEmail() {
     const items = [];
-    document.querySelectorAll('input[type="checkbox"]:checked').forEach(c => items.push(c.parentElement.querySelector('div div:first-child').innerText));
+    document.querySelectorAll('input[type="checkbox"]:checked').forEach(c => {
+        items.push(c.parentElement.querySelector('.tool-name').innerText);
+    });
     const oldP = document.getElementById('total-old').innerText;
     const newP = document.getElementById('total-new').innerText;
     const emailTo = "orders@evallsuccess.com";
