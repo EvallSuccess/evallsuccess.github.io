@@ -43,7 +43,7 @@
             border-radius: 12px;
             margin-bottom: 15px;
             overflow: hidden;
-            align-items: center;
+            align-items: center; /* توسيط العناصر عمودياً */
             height: 140px;
             transition: 0.3s;
             text-decoration: none;
@@ -60,6 +60,10 @@
             flex: 1;
             padding: 0 25px;
             text-align: right;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* توسيط النصوص عمودياً داخل الـ div */
+            height: 100%;
         }
 
         .product-info h3 {
@@ -78,20 +82,11 @@
         }
 
         .price-tag {
-            color: #ffffff;
-            font-weight: 700;
-            font-size: 1.15rem;
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .buy-link {
             color: #D4AF37;
-            font-size: 0.85rem;
             font-weight: 900;
-            border-bottom: 1px solid #D4AF37;
-            padding-bottom: 1px;
-            display: inline-block;
+            font-size: 1.4rem;
+            margin: 0;
+            font-family: 'Cairo', sans-serif;
         }
 
         .product-img-wrapper {
@@ -134,7 +129,7 @@
             .product-info { padding: 0 15px; }
             .product-info h3 { font-size: 0.95rem; }
             .product-info p { font-size: 0.75rem; -webkit-line-clamp: 2; }
-            .price-tag { font-size: 1rem; }
+            .price-tag { font-size: 1.2rem; }
             .product-img-wrapper { width: 100px; height: 110px; }
         }
     </style>
@@ -149,7 +144,6 @@
                 <h3>دعم متواصل (لمدة شهر)</h3>
                 <p>تطوير الذات - دعم النفسي - تقدم المهني</p>
                 <span class="price-tag">46$</span>
-                <span class="buy-link">اطلب الآن</span>
             </div>
             <div class="product-img-wrapper">
                 <img src="12(1).jpg" alt="دعم متواصل">
@@ -161,7 +155,6 @@
                 <h3>اجندة ايفال الذكية (360 يوم)</h3>
                 <p>مع هدية: 40 تصميم غلاف للأجندة</p>
                 <span class="price-tag">35$</span>
-                <span class="buy-link">اطلب الآن</span>
             </div>
             <div class="product-img-wrapper">
                 <img src="1(1).jpg" alt="اجندة ايفال">
@@ -173,7 +166,6 @@
                 <h3>خطة الـ 112 يوم</h3>
                 <p>خطة يومية تساعدك تلتزم وتنجز بدون ضغط</p>
                 <span class="price-tag">13$</span>
-                <span class="buy-link">اطلب الآن</span>
             </div>
             <div class="product-img-wrapper">
                 <img src="2(1).jpg" alt="خطة الـ 112 يوم">
@@ -185,7 +177,6 @@
                 <h3>رحلة تحوّل</h3>
                 <p>كتاب رقمي مع نسخة صوتية "ثلاثية الأبعاد"</p>
                 <span class="price-tag">17$</span>
-                <span class="buy-link">اطلب الآن</span>
             </div>
             <div class="product-img-wrapper">
                 <img src="3(1).jpg" alt="رحلة تحوّل">
@@ -197,7 +188,6 @@
                 <h3>7 خطوات لتنظيم الوقت</h3>
                 <p>نظام عملي لاستعادة السيطرة على وقتك</p>
                 <span class="price-tag">9$</span>
-                <span class="buy-link">اطلب الآن</span>
             </div>
             <div class="product-img-wrapper">
                 <img src="4(1).jpg" alt="7 خطوات لتنظيم الوقت">
@@ -209,7 +199,6 @@
                 <h3>أداة الامتنان الواعي</h3>
                 <p>لبرمجة نظرتك للحياة والرضا الداخلي</p>
                 <span class="price-tag">12$</span>
-                <span class="buy-link">اطلب الآن</span>
             </div>
             <div class="product-img-wrapper">
                 <img src="6(1).jpg" alt="أداة الامتنان الواعي">
@@ -218,10 +207,9 @@
 
         <a href="https://payhip.com/buy?s=1&cart_links%5B%5D=ZW3gd&qty%5BZW3gd%5D=1" target="_blank" class="product-rect">
             <div class="product-info">
-                <h3>مكتبة بودكاست  (40 حلقة)</h3>
+                <h3>مكتبة بودكاست (40 حلقة)</h3>
                 <p>لبناء عقلك ومستقبلك</p>
                 <span class="price-tag">14$</span>
-                <span class="buy-link">اطلب الآن</span>
             </div>
             <div class="product-img-wrapper">
                 <img src="7(1).jpg" alt="مكتبة بودكاست">
@@ -233,7 +221,6 @@
                 <h3>7 تحديات لرفع لاهتمام بالنفس </h3>
                 <p>يشمل مراجعة وتحليل لنتائجك من قبل فريق إيفال</p>
                 <span class="price-tag">27$</span>
-                <span class="buy-link">اطلب الآن</span>
             </div>
             <div class="product-img-wrapper">
                 <img src="8(1).jpg" alt="تحديات الاهتمام بالنفس">
@@ -245,7 +232,6 @@
                 <h3>6 جلسات ترددات ذهنية</h3>
                 <p>لتهدئة العقل وتنظيم الأفكار</p>
                 <span class="price-tag">12$</span>
-                <span class="buy-link">اطلب الآن</span>
             </div>
             <div class="product-img-wrapper">
                 <img src="9(1).jpg" alt="ترددات ذهنية">
@@ -257,7 +243,6 @@
                 <h3>7 تمارين لتنشيط العقل</h3>
                 <p>يشمل مراجعة وتحليل لنتائجك من قبل فريق إيفال</p>
                 <span class="price-tag">27$</span>
-                <span class="buy-link">اطلب الآن</span>
             </div>
             <div class="product-img-wrapper">
                 <img src="10(1).jpg" alt="تنشيط العقل">
@@ -269,7 +254,6 @@
                 <h3>14 تحدي للعادات السلبية</h3>
                 <p>يشمل مراجعة وتحليل لنتائجك من قبل فريق إيفال</p>
                 <span class="price-tag">29$</span>
-                <span class="buy-link">اطلب الآن</span>
             </div>
             <div class="product-img-wrapper">
                 <img src="11(1).jpg" alt="تحديات العادات">
