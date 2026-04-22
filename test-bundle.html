@@ -265,7 +265,7 @@ function sendFinalEmail() {
     const newP = document.getElementById('total-new').innerText;
     const emailTo = "orders@evallsuccess.com";
     const rtl = "\u200f"; 
-    const body = rtl + "أهلاً فريق إيفال،" + "\n\n" + rtl + "أود طلب باقتي المخصصة:" + "\n" + items.map(n => rtl + "- " + n).join("\n") + "\n\n" + rtl + "-----------------------" + "\n" + rtl + (oldP ? oldP : "المجموع: " + newP) + "\n" + rtl + (oldP ? newP : "") + "\n" + rtl + "-----------------------" + "\n\n" + rtl + "بانتظار رابط الدفع الخاص بي." + "\n\n" + rtl + "شكراً لكم.";
+    const body = rtl + "اهلاً فريق إيفال،" + "\n\n" + rtl + "أود طلب الباقة التي أنشأتها:" + "\n" + items.map(n => rtl + "- " + n).join("\n") + "\n\n" + rtl + "-----------------------" + "\n" + rtl + (oldP ? oldP : "المجموع: " + newP) + "\n" + rtl + (oldP ? newP : "") + "\n" + rtl + "-----------------------" + "\n\n" + rtl + "بانتظار رابط الدفع الخاص بي لإتمام الطلب." + "\n\n" + rtl + "شكراً لكم.";
     window.open(`mailto:${emailTo}?subject=${encodeURIComponent("طلب باقة مخصصة - إيفال")}&body=${encodeURIComponent(body)}`, '_blank');
 }
 </script>
