@@ -43,7 +43,7 @@
             border-radius: 12px;
             margin-bottom: 15px;
             overflow: hidden;
-            align-items: center; /* توسيط العناصر عمودياً */
+            align-items: center; 
             height: 140px;
             transition: 0.3s;
             text-decoration: none;
@@ -62,7 +62,7 @@
             text-align: right;
             display: flex;
             flex-direction: column;
-            justify-content: center; /* توسيط النصوص عمودياً داخل الـ div */
+            justify-content: center;
             height: 100%;
         }
 
@@ -81,10 +81,11 @@
             margin: 0 0 8px 0;
         }
 
+        /* تعديل السعر: العودة للون الأبيض والخط الأول */
         .price-tag {
-            color: #D4AF37;
-            font-weight: 900;
-            font-size: 1.4rem;
+            color: #ffffff; /* تم تغيير اللون للأبيض */
+            font-weight: 700;
+            font-size: 1.15rem; /* الحجم الأصلي */
             margin: 0;
             font-family: 'Cairo', sans-serif;
         }
@@ -112,7 +113,7 @@
             font-weight: 900;
             text-decoration: none;
             margin-top: 40px;
-            font-size: 1.3rem;
+            font-size: 1rem; 
             transition: 0.3s;
             box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
         }
@@ -129,7 +130,7 @@
             .product-info { padding: 0 15px; }
             .product-info h3 { font-size: 0.95rem; }
             .product-info p { font-size: 0.75rem; -webkit-line-clamp: 2; }
-            .price-tag { font-size: 1.2rem; }
+            .price-tag { font-size: 1rem; }
             .product-img-wrapper { width: 100px; height: 110px; }
         }
     </style>
