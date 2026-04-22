@@ -26,38 +26,39 @@
             padding: 20px; 
         }
 
-        /* تنسيق العنوان والجملة التفصيلية */
+        /* تنسيق العنوان */
         .page-title {
             font-family: 'El Messiri', serif !important;
             color: #D4AF37;
             text-align: center;
-            margin-bottom: 10px;
+            margin-bottom: 2px; /* مسافة صغيرة جداً تحت العنوان */
             font-size: 2.2rem; 
         }
 
         .page-title span { color: #ffffff; }
 
+        /* تنسيق الجملة التفصيلية */
         .eval-desc {
             font-family: 'Cairo', sans-serif;
             color: #ffffff;
             opacity: 0.9;
             text-align: center;
+            margin-top: 0; /* إلغاء المسافة العلوية للالتصاق بالعنوان */
             margin-bottom: 45px;
             font-size: 1.1rem;
         }
 
-        /* تعديل جملة الخصم لتكون متناسقة وفي نفس مستوى السطر */
+        /* تعديل جملة الخصم: تم تقليل الحجم بـ 0.25 ليصبح 1.05rem */
         .gold-highlight {
             display: inline; 
-            font-size: 1.25rem; 
-            font-weight: 900;
+            font-size: 1.2rem; 
+            font-weight: 600;
             background: linear-gradient(45deg, #D4AF37, #F2D27D, #B8891A);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin: 0 3px;
         }
 
-        /* تنسيق شبكة الأدوات */
         .eval-grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
@@ -100,7 +101,7 @@
         .tool-desc { color: #b0b0b0; font-size: 0.75rem; font-family: 'Cairo'; margin-bottom: 5px; }
         .tool-price { color: #D4AF37; font-weight: 900; font-family: 'Cairo'; font-size: 1.1rem; }
 
-        /* صندوق الملخص المتراص */
+        /* صندوق الملخص */
         #summary-box { 
             display: none; 
             background: rgba(255, 255, 255, 0.02); 
@@ -129,8 +130,8 @@
         
         #total-new { 
             color: #D4AF37; 
-            font-size: 1.4rem; 
-            font-weight: 700; 
+            font-size: 1.1rem; 
+            font-weight: 550; 
             margin: 0 0 15px 0; 
             font-family: 'Cairo';
         }
@@ -155,13 +156,19 @@
             box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
         }
 
+        /* تعديلات الموبايل */
         @media (max-width: 768px) { 
             .page-title { font-size: 1.4rem !important; } 
-            .eval-desc { font-size: 0.85rem !important; }
-            .gold-highlight { font-size: 1.1rem; }
+            .eval-desc { font-size: 0.90rem !important; }
+            /* الحجم على الموبايل ليكون متناسقاً أيضاً */
+            .gold-highlight { font-size: 1rem; } 
             .eval-grid { grid-template-columns: 1fr; } 
             #summary-box { padding: 12px; margin-top: 20px; }
-            #total-new { font-size: 1.2rem; }
+            #total-new { 
+                font-size: 1.1rem; 
+                font-weight: 500; /* أضيفي هذا السطر هنا لتخفيف العرض */
+            }
+            
             .btn-send { font-size: 0.95rem; min-width: 100%; padding: 10px; }
         }
     </style>
